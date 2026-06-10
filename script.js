@@ -1,0 +1,504 @@
+/* =========================================================
+   Studio Blomma – jaettu logiikka (vanilla JS)
+   Sisältää: navigaatio, scroll-animaatiot, hintalaskuri,
+   tarjouspyyntölomakkeen esitäyttö + mailto-koonti.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. Yhteinen datamalli: moduulit ja hinnat
+   --------------------------------------------------------- */
+const STORAGE_KEY = "blomma.offer";
+const CONTACT_EMAIL = "sofia.krap@gmail.com";
+
+/* Toimialat */
+const INDUSTRIES = {
+  leipomo:  { label: "Leipomo",   emoji: "🥐" },
+  kahvila:  { label: "Kahvila",   emoji: "☕" },
+  ravintola:{ label: "Ravintola", emoji: "🍽️" },
+  kampaamo: { label: "Kampaamo",  emoji: "💇" },
+  muu:      { label: "Muu ala",   emoji: "✨" },
+};
+
+/* Sivuston laajuus (radio – valitaan tasan yksi) */
+const SCOPE_OPTIONS = [
+  { id: "scope-one",   name: "Yksisivuinen",        desc: "Tiivis yhden sivun esittely – kaikki olennainen yhdellä vierityksellä.", price: 390 },
+  { id: "scope-small", name: "Pieni sivusto",        desc: "3–5 sivua: etusivu, palvelut, tietoa, yhteystiedot.",                  price: 690 },
+  { id: "scope-large", name: "Laaja sivusto",        desc: "6+ sivua, oma rakenne ja laajemmat sisällöt.",                          price: 1190 },
+];
+
+/* Lisämoduulit (checkbox) */
+const MODULES = [
+  { id: "shop",      name: "Verkkokauppa / tilaukset", emoji: "🛒", desc: "Tuotteet, ostoskori ja maksut tai ennakkotilauslomake.", price: 590 },
+  { id: "booking",   name: "Ajanvaraus / pöytävaraus", emoji: "📅", desc: "Asiakkaat varaavat ajan tai pöydän suoraan sivustolta.",  price: 350 },
+  { id: "menu",      name: "Online-ruokalista",        emoji: "🍰", desc: "Selkeä, helposti päivitettävä lista tuotteista tai annoksista.", price: 220 },
+  { id: "gallery",   name: "Kuvagalleria",             emoji: "📸", desc: "Houkutteleva galleria töistäsi ja tuotteistasi.",          price: 150 },
+  { id: "logo",      name: "Logosuunnittelu",          emoji: "🎨", desc: "Uniikki logo, joka kiteyttää yrityksesi luonteen.",        price: 350 },
+  { id: "brand",     name: "Visuaalinen brändipäivitys", emoji: "💅", desc: "Värit, fontit ja graafinen ilme yhtenäiseksi paketiksi.", price: 590 },
+  { id: "multilang", name: "Monikielisyys",            emoji: "🌍", desc: "Sivusto kahdella tai useammalla kielellä.",                price: 290 },
+  { id: "content",   name: "Sisällöntuotanto",         emoji: "✍️", desc: "Tekstit ja kuvaukset kirjoitettuna puolestasi.",           price: 320 },
+  { id: "seo",       name: "Hakukoneoptimointi (SEO)", emoji: "🔍", desc: "Näy Googlessa – tekninen ja sisällöllinen perusoptimointi.", price: 280 },
+  { id: "upkeep",    name: "Ylläpito (kk-maksu)",      emoji: "🛠️", desc: "Päivitykset, varmuuskopiot ja pieni tuki joka kuukausi.",  price: 39, recurring: true },
+];
+
+/* Suositukset toimialoittain (id-listat) */
+const RECOMMENDED = {
+  leipomo:  ["shop", "gallery", "content", "seo"],
+  kahvila:  ["menu", "gallery", "booking", "seo"],
+  ravintola:["menu", "booking", "gallery", "multilang"],
+  kampaamo: ["booking", "gallery", "logo", "seo"],
+  muu:      ["logo", "seo", "content"],
+};
+
+/* Apuri hinnan muotoiluun */
+const euro = (n) => new Intl.NumberFormat("fi-FI", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+
+/* ---------------------------------------------------------
+   2. Navigaatio (mobiilivalikko) + scroll-animaatiot
+   --------------------------------------------------------- */
+function initNav() {
+  const toggle = document.querySelector(".nav__toggle");
+  const links = document.querySelector(".nav__links");
+  if (toggle && links) {
+    toggle.addEventListener("click", () => {
+      const open = links.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.textContent = open ? "✕" : "☰";
+    });
+    links.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => {
+        links.classList.remove("is-open");
+        toggle.textContent = "☰";
+      })
+    );
+  }
+}
+
+function initReveal() {
+  const items = document.querySelectorAll(".reveal");
+  if (!items.length || !("IntersectionObserver" in window)) {
+    items.forEach((el) => el.classList.add("is-in"));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  items.forEach((el) => io.observe(el));
+}
+
+/* Aseta vuosiluku footeriin */
+function initYear() {
+  document.querySelectorAll("[data-year]").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+}
+
+/* ---------------------------------------------------------
+   3. HINTALASKURI (laskuri.html)
+   --------------------------------------------------------- */
+function initCalculator() {
+  const root = document.querySelector("[data-calc]");
+  if (!root) return;
+
+  const chipsWrap = root.querySelector("[data-industry-chips]");
+  const lockedView = root.querySelector("[data-calc-locked]");
+  const modulesView = root.querySelector("[data-calc-modules]");
+  const industryLabel = root.querySelector("[data-summary-industry]");
+
+  let industry = null;
+
+  /* --- Rakenna toimialavalitsimet --- */
+  Object.entries(INDUSTRIES).forEach(([key, info]) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "chip";
+    btn.dataset.industry = key;
+    btn.innerHTML = `<span>${info.emoji}</span> ${info.label}`;
+    btn.addEventListener("click", () => selectIndustry(key));
+    chipsWrap.appendChild(btn);
+  });
+
+  /* --- Rakenna moduuliryhmät --- */
+  buildScopeGroup(modulesView);
+  buildModulesGroup(modulesView);
+
+  const form = modulesView.querySelector("form");
+
+  function selectIndustry(key, scroll = true) {
+    industry = key;
+    chipsWrap.querySelectorAll(".chip").forEach((c) =>
+      c.classList.toggle("is-active", c.dataset.industry === key)
+    );
+    lockedView.style.display = "none";
+    modulesView.style.display = "grid";
+    industryLabel.textContent = `Toimiala: ${INDUSTRIES[key].label} ${INDUSTRIES[key].emoji}`;
+    highlightRecommended(key);
+    recalc();
+    if (scroll) modulesView.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function highlightRecommended(key) {
+    const recs = RECOMMENDED[key] || [];
+    form.querySelectorAll("[data-option]").forEach((opt) => {
+      const id = opt.dataset.option;
+      const isRec = recs.includes(id);
+      opt.classList.toggle("is-recommended", isRec);
+      const badge = opt.querySelector(".rec-badge");
+      if (badge) badge.style.display = isRec ? "" : "none";
+    });
+  }
+
+  form.addEventListener("change", recalc);
+
+  /* --- Laske summa ja päivitä sivupalkki --- */
+  function recalc() {
+    const selection = readSelection(form);
+    renderSummary(root, selection, industry);
+  }
+
+  /* --- Tee tarjouspyyntö: tallenna valinnat ja siirry lomakkeelle --- */
+  // Esivalinta URL-parametrista (esim. laskuri.html?ala=ravintola)
+  const preset = new URLSearchParams(window.location.search).get("ala");
+  if (preset && INDUSTRIES[preset]) {
+    selectIndustry(preset, false);
+  }
+
+  const goBtn = root.querySelector("[data-calc-submit]");
+  goBtn.addEventListener("click", () => {
+    const selection = readSelection(form);
+    if (!selection.items.length) {
+      goBtn.classList.add("shake");
+      setTimeout(() => goBtn.classList.remove("shake"), 500);
+      return;
+    }
+    const payload = {
+      industry,
+      industryLabel: industry ? INDUSTRIES[industry].label : "",
+      items: selection.items,
+      oneTime: selection.oneTime,
+      monthly: selection.monthly,
+      savedAt: new Date().toISOString(),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    window.location.href = "tarjouspyynto.html";
+  });
+}
+
+/* Rakenna laajuus-ryhmä (radio) */
+function buildScopeGroup(container) {
+  const group = document.createElement("section");
+  group.className = "module-group reveal";
+  group.innerHTML = `
+    <h3>📐 Sivuston laajuus</h3>
+    <p>Valitse lähtökohta – tätä voidaan tarkentaa yhdessä.</p>
+    <div class="option-grid option-grid--3" data-scope-grid></div>`;
+  const grid = group.querySelector("[data-scope-grid]");
+  SCOPE_OPTIONS.forEach((opt, i) => {
+    const label = document.createElement("label");
+    label.className = "option";
+    label.dataset.option = opt.id;
+    label.innerHTML = `
+      <input type="radio" name="scope" value="${opt.id}" ${i === 1 ? "checked" : ""}
+             data-name="${opt.name}" data-price="${opt.price}">
+      <span class="option__box"></span>
+      <span class="option__text">
+        <span class="option__name">${opt.name}</span>
+        <span class="option__desc">${opt.desc}</span>
+      </span>
+      <span class="option__price">${euro(opt.price)}</span>`;
+    grid.appendChild(label);
+  });
+  // Lomake käärii ryhmät
+  let form = container.querySelector("form");
+  if (!form) {
+    form = document.createElement("form");
+    form.addEventListener("submit", (e) => e.preventDefault());
+    container.appendChild(form);
+  }
+  form.appendChild(group);
+}
+
+/* Rakenna lisämoduulit (checkbox) */
+function buildModulesGroup(container) {
+  const form = container.querySelector("form");
+  const group = document.createElement("section");
+  group.className = "module-group reveal";
+  group.innerHTML = `
+    <h3>🧩 Lisätoiminnot</h3>
+    <p>Valitse mitä tarvitset. <strong>Keltaisella merkityt</strong> ovat alallesi suositeltuja.</p>
+    <div class="option-grid option-grid--2" data-modules-grid></div>`;
+  const grid = group.querySelector("[data-modules-grid]");
+  MODULES.forEach((mod) => {
+    const label = document.createElement("label");
+    label.className = "option";
+    label.dataset.option = mod.id;
+    const priceText = mod.recurring ? `${euro(mod.price)}/kk` : euro(mod.price);
+    label.innerHTML = `
+      <input type="checkbox" name="${mod.id}"
+             data-name="${mod.name}" data-price="${mod.price}"
+             data-recurring="${mod.recurring ? "1" : "0"}">
+      <span class="option__box"></span>
+      <span class="option__text">
+        <span class="option__name">${mod.emoji} ${mod.name}
+          <span class="rec-badge" style="display:none">Suositus</span>
+        </span>
+        <span class="option__desc">${mod.desc}</span>
+      </span>
+      <span class="option__price">${priceText}</span>`;
+    grid.appendChild(label);
+  });
+  form.appendChild(group);
+}
+
+/* Lue valinnat lomakkeesta -> { items[], oneTime, monthly } */
+function readSelection(form) {
+  const items = [];
+  let oneTime = 0;
+  let monthly = 0;
+
+  // Laajuus (radio)
+  const scope = form.querySelector('input[name="scope"]:checked');
+  if (scope) {
+    const price = Number(scope.dataset.price);
+    oneTime += price;
+    items.push({ id: scope.value, name: scope.dataset.name, price, recurring: false });
+  }
+
+  // Moduulit (checkbox)
+  form.querySelectorAll('input[type="checkbox"]:checked').forEach((cb) => {
+    const price = Number(cb.dataset.price);
+    const recurring = cb.dataset.recurring === "1";
+    if (recurring) monthly += price;
+    else oneTime += price;
+    items.push({ id: cb.name, name: cb.dataset.name, price, recurring });
+  });
+
+  return { items, oneTime, monthly };
+}
+
+/* Renderöi sivupalkin yhteenveto */
+function renderSummary(root, selection, industry) {
+  const list = root.querySelector("[data-summary-list]");
+  const oneTimeEl = root.querySelector("[data-summary-onetime]");
+  const monthlyRow = root.querySelector("[data-summary-monthly-row]");
+  const monthlyEl = root.querySelector("[data-summary-monthly]");
+  const grandEl = root.querySelector("[data-summary-grand]");
+
+  list.innerHTML = "";
+  if (!selection.items.length) {
+    list.innerHTML = `<li class="summary__empty">Ei vielä valintoja – valitse moduulit vasemmalta.</li>`;
+  } else {
+    selection.items.forEach((it) => {
+      const li = document.createElement("li");
+      const priceText = it.recurring ? `${euro(it.price)}/kk` : euro(it.price);
+      li.innerHTML = `<span class="label">${it.name}</span><span class="price">${priceText}</span>`;
+      list.appendChild(li);
+    });
+  }
+
+  oneTimeEl.textContent = euro(selection.oneTime);
+  grandEl.textContent = euro(selection.oneTime);
+  if (selection.monthly > 0) {
+    monthlyRow.style.display = "";
+    monthlyEl.textContent = `${euro(selection.monthly)}/kk`;
+  } else {
+    monthlyRow.style.display = "none";
+  }
+}
+
+/* ---------------------------------------------------------
+   4. TARJOUSPYYNTÖ (tarjouspyynto.html)
+   --------------------------------------------------------- */
+function initOfferForm() {
+  const form = document.querySelector("[data-offer-form]");
+  if (!form) return;
+
+  const stored = loadStoredOffer();
+
+  /* --- Rakenna esikuva-URL-rivit dynaamisesti --- */
+  const urlWrap = form.querySelector("[data-url-rows]");
+  const addUrlBtn = form.querySelector("[data-add-url]");
+  function addUrlRow() {
+    const row = document.createElement("div");
+    row.className = "url-row";
+    row.innerHTML = `
+      <input type="url" class="input" name="reference" placeholder="https://esimerkki.fi">
+      <button type="button" class="btn-mini" data-remove-url aria-label="Poista rivi">−</button>`;
+    row.querySelector("[data-remove-url]").addEventListener("click", () => row.remove());
+    urlWrap.appendChild(row);
+  }
+  if (addUrlBtn) addUrlBtn.addEventListener("click", addUrlRow);
+  addUrlRow();
+
+  /* --- Esitäyttö laskurin valinnoista --- */
+  if (stored) {
+    renderPrefill(form, stored);
+  } else {
+    const banner = document.querySelector("[data-prefill-banner]");
+    if (banner) banner.style.display = "none";
+    const aside = document.querySelector("[data-offer-summary]");
+    if (aside) {
+      aside.querySelector("[data-offer-list]").innerHTML =
+        `<li class="offer-empty">Et tullut laskurin kautta. Voit <a href="laskuri.html" style="color:var(--sun)">laskea hinnan ensin</a> tai täyttää lomakkeen suoraan.</li>`;
+      const total = aside.querySelector("[data-offer-total]");
+      if (total) total.style.display = "none";
+    }
+  }
+
+  /* --- Lähetys: koosta yhteenveto + avaa mailto --- */
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    handleOfferSubmit(form, stored);
+  });
+}
+
+function loadStoredOffer() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (err) {
+    return null;
+  }
+}
+
+function renderPrefill(form, stored) {
+  // Banneri näkyviin
+  const banner = document.querySelector("[data-prefill-banner]");
+  if (banner) banner.style.display = "flex";
+
+  // Esitäytä toimiala
+  if (stored.industry) {
+    const sel = form.querySelector('select[name="industry"]');
+    if (sel) sel.value = stored.industry;
+  }
+
+  // Esitäytä budjetti laskurin summasta
+  const budget = form.querySelector('[name="budget"]');
+  if (budget && stored.oneTime) {
+    const monthlyText = stored.monthly ? ` + ${euro(stored.monthly)}/kk ylläpito` : "";
+    budget.value = `n. ${euro(stored.oneTime)}${monthlyText} (laskurin arvio)`;
+  }
+
+  // Sivupalkin tarjousyhteenveto
+  const aside = document.querySelector("[data-offer-summary]");
+  if (!aside) return;
+  const list = aside.querySelector("[data-offer-list]");
+  list.innerHTML = "";
+  stored.items.forEach((it) => {
+    const li = document.createElement("li");
+    const priceText = it.recurring ? `${euro(it.price)}/kk` : euro(it.price);
+    li.innerHTML = `<span>${it.name}</span><span class="price">${priceText}</span>`;
+    list.appendChild(li);
+  });
+  const totalEl = aside.querySelector("[data-offer-total-amount]");
+  if (totalEl) {
+    const monthlyText = stored.monthly ? ` + ${euro(stored.monthly)}/kk` : "";
+    totalEl.textContent = `${euro(stored.oneTime)}${monthlyText}`;
+  }
+}
+
+/* Koosta valinnoista siisti yhteenveto */
+function buildOfferSummary(form, stored) {
+  const get = (name) => (form.querySelector(`[name="${name}"]`)?.value || "").trim();
+  const getAll = (name) =>
+    Array.from(form.querySelectorAll(`[name="${name}"]:checked`)).map((el) => el.value);
+  const getUrls = () =>
+    Array.from(form.querySelectorAll('[name="reference"]'))
+      .map((el) => el.value.trim())
+      .filter(Boolean);
+
+  const lines = [];
+  lines.push("TARJOUSPYYNTÖ – Studio Blomma");
+  lines.push("================================");
+  lines.push("");
+  lines.push("YHTEYSTIEDOT");
+  lines.push(`Nimi: ${get("name") || "-"}`);
+  lines.push(`Yritys: ${get("company") || "-"}`);
+  lines.push(`Sähköposti: ${get("email") || "-"}`);
+  lines.push(`Puhelin: ${get("phone") || "-"}`);
+  lines.push(`Toimiala: ${get("industry") ? (INDUSTRIES[get("industry")]?.label || get("industry")) : "-"}`);
+  lines.push("");
+
+  if (stored && stored.items?.length) {
+    lines.push("LASKURIN VALINNAT");
+    stored.items.forEach((it) => {
+      const priceText = it.recurring ? `${euro(it.price)}/kk` : euro(it.price);
+      lines.push(`- ${it.name}: ${priceText}`);
+    });
+    const monthlyText = stored.monthly ? ` + ${euro(stored.monthly)}/kk ylläpito` : "";
+    lines.push(`Arvio yhteensä: ${euro(stored.oneTime)}${monthlyText}`);
+    lines.push("");
+  }
+
+  lines.push("SUUNNITTELUTOIVEET");
+  lines.push(`Värimaailma: ${getAll("palette").join(", ") || "-"}`);
+  lines.push(`Tyyli: ${getAll("style").join(", ") || "-"}`);
+  lines.push(`Interaktiiviset elementit: ${getAll("interactive").join(", ") || "-"}`);
+  const urls = getUrls();
+  lines.push(`Esikuva-sivustot: ${urls.length ? urls.join(", ") : "-"}`);
+  lines.push("");
+  lines.push("PROJEKTI");
+  lines.push(`Aikataulu: ${get("timeline") || "-"}`);
+  lines.push(`Budjetti: ${get("budget") || "-"}`);
+  lines.push("");
+  lines.push("LISÄTIEDOT");
+  lines.push(get("notes") || "-");
+
+  return lines.join("\n");
+}
+
+function handleOfferSubmit(form, stored) {
+  const summary = buildOfferSummary(form, stored);
+  const name = (form.querySelector('[name="name"]')?.value || "").trim();
+  const subject = `Tarjouspyyntö${name ? " – " + name : ""} | Studio Blomma`;
+
+  // Näytä yhteenveto sivulla
+  const result = document.querySelector("[data-offer-result]");
+  if (result) {
+    result.querySelector("[data-result-text]").textContent = summary;
+    result.classList.add("is-visible");
+    result.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  /*
+   * LÄHETYS:
+   * Tällä hetkellä lomake avaa käyttäjän sähköpostiohjelman valmiiksi
+   * täytetyllä viestillä (mailto). Backendia ei ole.
+   *
+   * Kun haluat oikean automaattisen lähetyksen, korvaa alla oleva
+   * mailto-osuus esim. Formspreellä:
+   *
+   *   1. Luo lomake osoitteessa https://formspree.io ja ota talteen
+   *      endpoint-osoite, esim. https://formspree.io/f/xxxxxxx
+   *   2. Lähetä data fetchillä:
+   *
+   *      fetch("https://formspree.io/f/xxxxxxx", {
+   *        method: "POST",
+   *        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+   *        body: JSON.stringify({ subject, summary })
+   *      }).then(() => { /* näytä kiitosviesti *\/ });
+   *
+   *   Vaihtoehtoja: Formspree, Web3Forms, Getform, Netlify Forms,
+   *   EmailJS tai oma backend-endpoint.
+   */
+  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`;
+  window.location.href = mailto;
+}
+
+/* ---------------------------------------------------------
+   5. Käynnistys
+   --------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  initNav();
+  initReveal();
+  initYear();
+  initCalculator();
+  initOfferForm();
+});

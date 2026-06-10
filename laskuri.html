@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hintalaskuri – Studio Blomma</title>
+  <meta name="description" content="Laske verkkosivuprojektisi hinta reaaliajassa. Valitse toimialasi ja moduulit – Studio Blomman hintalaskuri näyttää erittelyn ja loppusumman heti.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <span class="brand__mark">🌸</span> Studio Blomma
+      </a>
+      <button class="nav__toggle" aria-label="Avaa valikko" aria-expanded="false">☰</button>
+      <ul class="nav__links">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="index.html#palvelut">Palvelut</a></li>
+        <li><a href="index.html#nain-se-toimii">Näin se toimii</a></li>
+        <li><a href="index.html#toimialat">Toimialat</a></li>
+        <li><a href="laskuri.html" class="is-active">Hintalaskuri</a></li>
+        <li class="nav__cta"><a href="tarjouspyynto.html" class="btn btn--primary">Tee tarjouspyyntö</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main data-calc>
+    <!-- ============ LASKURIN HERO ============ -->
+    <section class="calc-hero">
+      <div class="container">
+        <span class="eyebrow">Askel 1 / 3 · Laske hinta</span>
+        <h1>Hintalaskuri</h1>
+        <p class="lead">Valitse toimialasi, niin korostan sinulle suositellut moduulit. Hinta päivittyy reaaliajassa.</p>
+
+        <div class="industry-pick" data-industry-chips role="group" aria-label="Valitse toimiala">
+          <!-- Toimialavalitsimet rakennetaan script.js:llä -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LASKURIN SISÄLTÖ ============ -->
+    <section class="section--tight">
+      <div class="container">
+        <div class="calc-layout">
+
+          <!-- Vasen: moduulit -->
+          <div>
+            <!-- Lukittu näkymä ennen toimialan valintaa -->
+            <div class="calc-locked" data-calc-locked>
+              <span class="emoji">👆</span>
+              <h3>Valitse ensin toimiala</h3>
+              <p>Kun valitset toimialasi yltä, näytän sinulle alalle suositellut moduulit ja lasken hinnan.</p>
+            </div>
+
+            <!-- Moduulit (piilossa kunnes toimiala valittu) -->
+            <div class="calc-main" data-calc-modules style="display:none">
+              <!-- module-group:t rakennetaan script.js:llä -->
+            </div>
+          </div>
+
+          <!-- Oikea: yhteenveto-sivupalkki -->
+          <aside class="calc-aside">
+            <div class="summary">
+              <h3>🧮 Yhteenveto</h3>
+              <p class="summary__industry" data-summary-industry>Valitse toimiala aloittaaksesi.</p>
+
+              <ul class="summary__list" data-summary-list>
+                <li class="summary__empty">Ei vielä valintoja.</li>
+              </ul>
+
+              <div class="summary__totals">
+                <div class="summary__row">
+                  <span>Kertaluonteinen</span>
+                  <span data-summary-onetime>0 €</span>
+                </div>
+                <div class="summary__row" data-summary-monthly-row style="display:none">
+                  <span>Ylläpito</span>
+                  <span data-summary-monthly>0 €/kk</span>
+                </div>
+                <div class="summary__row summary__row--grand">
+                  <span>Yhteensä</span>
+                  <span class="price" data-summary-grand>0 €</span>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn--primary btn--block" data-calc-submit>
+                Tee tarjouspyyntö →
+              </button>
+              <p class="summary__note">Arvio on suuntaa-antava. Lopullinen hinta tarkennetaan yhdessä.</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="brand"><span class="brand__mark">🌸</span> Studio Blomma</a>
+          <p>Verkkosivut ja visuaalinen ilme pienyrittäjille. Rohkeasti, läpinäkyvästi ja sinun näköisesti.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Sivut</h4>
+          <ul>
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="index.html#palvelut">Palvelut</a></li>
+            <li><a href="laskuri.html">Hintalaskuri</a></li>
+            <li><a href="tarjouspyynto.html">Tarjouspyyntö</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Ota yhteyttä</h4>
+          <ul>
+            <li><a href="mailto:sofia.krap@gmail.com">sofia.krap@gmail.com</a></li>
+            <li><a href="tarjouspyynto.html">Tee tarjouspyyntö →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Studio Blomma</span>
+        <span>Tehty rakkaudella pienyrittäjille 🌸</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
