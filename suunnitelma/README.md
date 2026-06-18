@@ -40,7 +40,12 @@ käyttäjä valitsee toimialan, ja laskuri näyttää juuri sen alan vaihtoehdot
 
 ## Käytettävissä olevat assetit
 
-- **Grafiikat** (`assets/grafiikat/`): nuoli alavasemalle, nuoli yläoikealle,
-  pieni kukka, pieni tähti, pää, tähti 1, tähti 2, merkki
-- **Logot** (`assets/logot/`): *(odottaa tiedostoja)*
-- **Kuvat** (`assets/kuvat/`): 8 valokuvaa (kokkaus, toimisto, workshops ym.)
+- **Logot** (`assets/logot/`): web-valmiit, rajatut versiot — `wordmark-vaaka.svg`,
+  `wordmark-pino.svg`, `wordmark-kaari.svg`, `merkki.svg` (SB-leima). Käytetään
+  maskattuna (väritetään CSS:llä brändiväreihin). Alkuperäiset täydet tiedostot
+  ovat `assets/grafiikat/`-kansiossa.
+- **Grafiikat** (`assets/grafiikat/`): nuolet, kukat, tähdet, kipinä sekä retro-
+  kuvitukset (kahvi, kädet, henkilöt, kirjekuori ym.). Web-valmiit, rajatut nimet:
+  `kukka.svg`, `tahti.svg`, `kipina.svg`, `nuoli-yloikea.svg`, `henkilo-laptop.svg` jne.
+- **Kuvat** (`assets/kuvat/`): lämpimät filmikuvat (toimisto, kokkaus, workshops ym.)
+  sekä portfolio-screenshotit `demo-1…7.jpg`.
