@@ -12,11 +12,11 @@ const CONTACT_EMAIL = "sofia.krap@gmail.com";
 
 /* Toimialat */
 const INDUSTRIES = {
-  leipomo:  { label: "Leipomo",   emoji: "🥐" },
-  kahvila:  { label: "Kahvila",   emoji: "☕" },
-  ravintola:{ label: "Ravintola", emoji: "🍽️" },
-  kampaamo: { label: "Kampaamo",  emoji: "💇" },
-  muu:      { label: "Muu ala",   emoji: "✨" },
+  leipomo:  { label: "Leipomo" },
+  kahvila:  { label: "Kahvila" },
+  ravintola:{ label: "Ravintola" },
+  kampaamo: { label: "Kampaamo" },
+  muu:      { label: "Muu ala" },
 };
 
 /* Sivuston laajuus (radio – valitaan tasan yksi) */
@@ -28,16 +28,16 @@ const SCOPE_OPTIONS = [
 
 /* Lisämoduulit (checkbox) */
 const MODULES = [
-  { id: "shop",      name: "Verkkokauppa / tilaukset", emoji: "🛒", desc: "Tuotteet, ostoskori ja maksut tai ennakkotilauslomake.", price: 590 },
-  { id: "booking",   name: "Ajanvaraus / pöytävaraus", emoji: "📅", desc: "Asiakkaat varaavat ajan tai pöydän suoraan sivustolta.",  price: 350 },
-  { id: "menu",      name: "Online-ruokalista",        emoji: "🍰", desc: "Selkeä, helposti päivitettävä lista tuotteista tai annoksista.", price: 220 },
-  { id: "gallery",   name: "Kuvagalleria",             emoji: "📸", desc: "Houkutteleva galleria töistäsi ja tuotteistasi.",          price: 150 },
-  { id: "logo",      name: "Logosuunnittelu",          emoji: "🎨", desc: "Uniikki logo, joka kiteyttää yrityksesi luonteen.",        price: 350 },
-  { id: "brand",     name: "Visuaalinen brändipäivitys", emoji: "💅", desc: "Värit, fontit ja graafinen ilme yhtenäiseksi paketiksi.", price: 590 },
-  { id: "multilang", name: "Monikielisyys",            emoji: "🌍", desc: "Sivusto kahdella tai useammalla kielellä.",                price: 290 },
-  { id: "content",   name: "Sisällöntuotanto",         emoji: "✍️", desc: "Tekstit ja kuvaukset kirjoitettuna puolestasi.",           price: 320 },
-  { id: "seo",       name: "Hakukoneoptimointi (SEO)", emoji: "🔍", desc: "Näy Googlessa – tekninen ja sisällöllinen perusoptimointi.", price: 280 },
-  { id: "upkeep",    name: "Ylläpito (kk-maksu)",      emoji: "🛠️", desc: "Päivitykset, varmuuskopiot ja pieni tuki joka kuukausi.",  price: 39, recurring: true },
+  { id: "shop",      name: "Verkkokauppa / tilaukset", desc: "Tuotteet, ostoskori ja maksut tai ennakkotilauslomake.", price: 590 },
+  { id: "booking",   name: "Ajanvaraus / pöytävaraus", desc: "Asiakkaat varaavat ajan tai pöydän suoraan sivustolta.",  price: 350 },
+  { id: "menu",      name: "Online-ruokalista", desc: "Selkeä, helposti päivitettävä lista tuotteista tai annoksista.", price: 220 },
+  { id: "gallery",   name: "Kuvagalleria", desc: "Houkutteleva galleria töistäsi ja tuotteistasi.",          price: 150 },
+  { id: "logo",      name: "Logosuunnittelu", desc: "Uniikki logo, joka kiteyttää yrityksesi luonteen.",        price: 350 },
+  { id: "brand",     name: "Visuaalinen brändipäivitys", desc: "Värit, fontit ja graafinen ilme yhtenäiseksi paketiksi.", price: 590 },
+  { id: "multilang", name: "Monikielisyys", desc: "Sivusto kahdella tai useammalla kielellä.",                price: 290 },
+  { id: "content",   name: "Sisällöntuotanto", desc: "Tekstit ja kuvaukset kirjoitettuna puolestasi.",           price: 320 },
+  { id: "seo",       name: "Hakukoneoptimointi (SEO)", desc: "Näy Googlessa – tekninen ja sisällöllinen perusoptimointi.", price: 280 },
+  { id: "upkeep",    name: "Ylläpito (kk-maksu)", desc: "Päivitykset, varmuuskopiot ja pieni tuki joka kuukausi.",  price: 39, recurring: true },
 ];
 
 /* Suositukset toimialoittain (id-listat) */
@@ -120,7 +120,7 @@ function initCalculator() {
     btn.type = "button";
     btn.className = "chip";
     btn.dataset.industry = key;
-    btn.innerHTML = `<span>${info.emoji}</span> ${info.label}`;
+    btn.textContent = info.label;
     btn.addEventListener("click", () => selectIndustry(key));
     chipsWrap.appendChild(btn);
   });
@@ -138,7 +138,7 @@ function initCalculator() {
     );
     lockedView.style.display = "none";
     modulesView.style.display = "grid";
-    industryLabel.textContent = `Toimiala: ${INDUSTRIES[key].label} ${INDUSTRIES[key].emoji}`;
+    industryLabel.textContent = `Toimiala: ${INDUSTRIES[key].label}`;
     highlightRecommended(key);
     recalc();
     if (scroll) modulesView.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -196,7 +196,7 @@ function buildScopeGroup(container) {
   const group = document.createElement("section");
   group.className = "module-group reveal";
   group.innerHTML = `
-    <h3>📐 Sivuston laajuus</h3>
+    <h3>Sivuston laajuus</h3>
     <p>Valitse lähtökohta – tätä voidaan tarkentaa yhdessä.</p>
     <div class="option-grid option-grid--3" data-scope-grid></div>`;
   const grid = group.querySelector("[data-scope-grid]");
@@ -231,7 +231,7 @@ function buildModulesGroup(container) {
   const group = document.createElement("section");
   group.className = "module-group reveal";
   group.innerHTML = `
-    <h3>🧩 Lisätoiminnot</h3>
+    <h3>Lisätoiminnot</h3>
     <p>Valitse mitä tarvitset. <strong>Keltaisella merkityt</strong> ovat alallesi suositeltuja.</p>
     <div class="option-grid option-grid--2" data-modules-grid></div>`;
   const grid = group.querySelector("[data-modules-grid]");
@@ -246,7 +246,7 @@ function buildModulesGroup(container) {
              data-recurring="${mod.recurring ? "1" : "0"}">
       <span class="option__box"></span>
       <span class="option__text">
-        <span class="option__name">${mod.emoji} ${mod.name}
+        <span class="option__name">${mod.name}
           <span class="rec-badge" style="display:none">Suositus</span>
         </span>
         <span class="option__desc">${mod.desc}</span>

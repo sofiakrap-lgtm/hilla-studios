@@ -48,7 +48,7 @@
 
         <!-- Esitäyttö-banneri (näkyy jos tultiin laskurin kautta) -->
         <div class="prefill-banner" data-prefill-banner style="display:none">
-          <span class="emoji">✨</span>
+          <span class="ic" style="--ic:var(--i-kipina); color:var(--bitter-cacao); width:24px; height:24px"></span>
           <p><strong>Esitäyttö laskurista:</strong> valitsemasi moduulit ja arvioitu budjetti on tuotu lomakkeelle. Tarkista ja täydennä alta.</p>
         </div>
 
@@ -58,7 +58,7 @@
           <div>
             <!-- YHTEYSTIEDOT -->
             <fieldset class="form-card reveal" style="border:none">
-              <h3>📇 Yhteystiedot</h3>
+              <h3>Yhteystiedot</h3>
               <div class="field-row">
                 <div class="field">
                   <label for="name">Nimi *</label>
@@ -83,18 +83,18 @@
                 <label for="industry">Toimiala</label>
                 <select class="select" id="industry" name="industry">
                   <option value="">Valitse…</option>
-                  <option value="leipomo">🥐 Leipomo</option>
-                  <option value="kahvila">☕ Kahvila</option>
-                  <option value="ravintola">🍽️ Ravintola</option>
-                  <option value="kampaamo">💇 Kampaamo</option>
-                  <option value="muu">✨ Muu ala</option>
+                  <option value="leipomo">Leipomo</option>
+                  <option value="kahvila">Kahvila</option>
+                  <option value="ravintola">Ravintola</option>
+                  <option value="kampaamo">Kampaamo</option>
+                  <option value="muu">Muu ala</option>
                 </select>
               </div>
             </fieldset>
 
             <!-- VÄRIMAAILMA -->
             <fieldset class="form-card reveal" style="border:none">
-              <h3>🎨 Värimaailma</h3>
+              <h3>Värimaailma</h3>
               <p>Mikä paletti tuntuu yritykseltäsi? Voit valita useamman.</p>
               <div class="swatches">
                 <label class="swatch">
@@ -132,7 +132,7 @@
 
             <!-- TYYLI -->
             <fieldset class="form-card reveal" style="border:none">
-              <h3>💫 Tyyli</h3>
+              <h3>Tyyli</h3>
               <p>Millainen tunnelma sivuilla saisi olla? Valitse yksi tai useampi.</p>
               <div class="pills">
                 <label class="pill"><input type="checkbox" name="style" value="Moderni"><span>Moderni</span></label>
@@ -146,22 +146,22 @@
 
             <!-- INTERAKTIIVISET ELEMENTIT -->
             <fieldset class="form-card reveal" style="border:none">
-              <h3>🧩 Interaktiiviset elementit</h3>
+              <h3>Interaktiiviset elementit</h3>
               <p>Mitä toimintoja haluaisit sivuillesi?</p>
               <div class="pills">
-                <label class="pill"><input type="checkbox" name="interactive" value="Animaatiot"><span>✨ Animaatiot</span></label>
-                <label class="pill"><input type="checkbox" name="interactive" value="Ajanvaraus"><span>📅 Ajanvaraus</span></label>
-                <label class="pill"><input type="checkbox" name="interactive" value="Yhteydenottolomake"><span>✉️ Yhteydenottolomake</span></label>
-                <label class="pill"><input type="checkbox" name="interactive" value="Uutiskirje"><span>📰 Uutiskirje</span></label>
-                <label class="pill"><input type="checkbox" name="interactive" value="Some-feedi"><span>📱 Some-feedi</span></label>
-                <label class="pill"><input type="checkbox" name="interactive" value="Kartta"><span>🗺️ Kartta</span></label>
-                <label class="pill"><input type="checkbox" name="interactive" value="Galleria"><span>📸 Galleria</span></label>
+                <label class="pill"><input type="checkbox" name="interactive" value="Animaatiot"><span>Animaatiot</span></label>
+                <label class="pill"><input type="checkbox" name="interactive" value="Ajanvaraus"><span>Ajanvaraus</span></label>
+                <label class="pill"><input type="checkbox" name="interactive" value="Yhteydenottolomake"><span>Yhteydenottolomake</span></label>
+                <label class="pill"><input type="checkbox" name="interactive" value="Uutiskirje"><span>Uutiskirje</span></label>
+                <label class="pill"><input type="checkbox" name="interactive" value="Some-feedi"><span>Some-feedi</span></label>
+                <label class="pill"><input type="checkbox" name="interactive" value="Kartta"><span>Kartta</span></label>
+                <label class="pill"><input type="checkbox" name="interactive" value="Galleria"><span>Galleria</span></label>
               </div>
             </fieldset>
 
             <!-- ESIKUVAT -->
             <fieldset class="form-card reveal" style="border:none">
-              <h3>🔗 Esikuva-sivustot</h3>
+              <h3>Esikuva-sivustot</h3>
               <p>Onko sivustoja, joista pidät? Liitä linkit – inspiraatio auttaa minua osumaan tyyliin.</p>
               <div data-url-rows>
                 <!-- URL-rivit lisätään script.js:llä -->
@@ -171,7 +171,7 @@
 
             <!-- PROJEKTI -->
             <fieldset class="form-card reveal" style="border:none">
-              <h3>🗓️ Aikataulu & budjetti</h3>
+              <h3>Aikataulu & budjetti</h3>
               <div class="field-row">
                 <div class="field">
                   <label for="timeline">Toivottu aikataulu</label>
@@ -200,7 +200,7 @@
 
             <!-- Lähetyksen jälkeinen yhteenveto -->
             <div class="result" data-offer-result>
-              <h3>🌸 Kiitos! Tässä yhteenvetosi</h3>
+              <h3>Kiitos! Tässä yhteenvetosi</h3>
               <p>Sähköpostiohjelmasi avautui valmiiksi täytetyllä viestillä osoitteeseen <strong>sofia.krap@gmail.com</strong>. Jos se ei avautunut, voit kopioida alla olevan yhteenvedon ja lähettää sen suoraan.</p>
               <pre data-result-text></pre>
               <a href="mailto:sofia.krap@gmail.com" class="btn btn--dark">Avaa sähköposti uudelleen</a>
@@ -210,7 +210,7 @@
           <!-- Oikea: tarjouksen yhteenveto -->
           <aside class="offer-aside">
             <div class="offer-summary" data-offer-summary>
-              <h3>🧾 Tarjouksesi</h3>
+              <h3>Tarjouksesi</h3>
               <ul data-offer-list>
                 <li class="offer-empty">Ladataan…</li>
               </ul>
@@ -257,7 +257,7 @@
       </div>
       <div class="footer__bottom">
         <span>© <span data-year>2026</span> Studio Blomma</span>
-        <span>Tehty lämmöllä ✿</span>
+        <span>Tehty lämmöllä</span>
       </div>
     </div>
   </footer>

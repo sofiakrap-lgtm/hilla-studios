@@ -39,6 +39,7 @@
   --radius-m: 24px;
   --radius-l: 38px;
   --radius-pill: 999px;
+  --radius-img: 18px;          /* kuvien pyöristys — terävämpi, ei kuitenkaan kulmikas */
   --bw: 2px;                  /* brändin reunaviiva */
 
   /* Varjot */
@@ -254,7 +255,7 @@ p { margin: 0 0 1em; }
 .hero__photo {
   aspect-ratio: 4 / 5;
   border: var(--bw) solid var(--bitter-cacao);
-  border-radius: var(--radius-l);
+  border-radius: var(--radius-img);
   box-shadow: var(--shadow-pop);
   overflow: hidden;
   background: var(--clay-rose);
@@ -432,7 +433,7 @@ p { margin: 0 0 1em; }
 .work {
   position: relative; display: block;
   border: var(--bw) solid var(--bitter-cacao);
-  border-radius: var(--radius-m);
+  border-radius: var(--radius-img);
   overflow: hidden; background: var(--paper);
   box-shadow: var(--shadow-s);
   transition: transform .15s ease, box-shadow .15s ease;
