@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio Blomma — Brändi & verkkosivut naisvetoisille aloille</title>
-  <meta name="description" content="Studio Blomma on web design -studio naisvetoisille aloille: kukkakaupat, kahvilat, ravintolat, kauneus ja hyvinvointi. Lämmin retro-editorial -ilme, läpinäkyvä hinnoittelu ja nopea toimitus. Laske hinta ja tee tarjouspyyntö.">
+  <meta name="description" content="Studio Blomma on web design -studio naisvetoisille aloille: kukkakaupat, kahvilat, ravintolat, kauneus ja hyvinvointi. Lämmin retro-editorial -ilme, läpinäkyvä hinnoittelu ja nopea toimitus.">
 
-  <!-- Montserrat: Regular 400, Bold 700, Black 900 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
@@ -26,9 +25,9 @@
       <button class="nav__toggle" aria-label="Avaa valikko" aria-expanded="false">☰</button>
       <ul class="nav__links">
         <li><a href="index.html" class="is-active">Etusivu</a></li>
-        <li><a href="index.html#palvelut">Palvelut</a></li>
-        <li><a href="index.html#tyot">Työt</a></li>
-        <li><a href="index.html#nain-se-toimii">Näin se toimii</a></li>
+        <li><a href="palvelut.html">Palvelut</a></li>
+        <li><a href="tyot.html">Työt</a></li>
+        <li><a href="nain-se-toimii.html">Näin se toimii</a></li>
         <li><a href="laskuri.html">Hintalaskuri</a></li>
         <li class="nav__cta"><a href="tarjouspyynto.html" class="btn btn--primary">Tee tarjouspyyntö</a></li>
       </ul>
@@ -79,7 +78,7 @@
       </div>
     </div>
 
-    <!-- ============ PALVELUT ============ -->
+    <!-- ============ PALVELUT (teaser) ============ -->
     <section class="section" id="palvelut">
       <div class="container">
         <div class="section-head section-head--center reveal">
@@ -87,7 +86,6 @@
           <h2>Kaikki, mitä brändisi tarvitsee verkossa</h2>
           <p class="lead">Yhdistele tarpeesi mukaan – maksat vain siitä, mitä oikeasti tarvitset. Jokaisella palvelulla on selkeä alkaen-hinta.</p>
         </div>
-
         <div class="cards">
           <article class="card reveal">
             <div class="card__icon card__icon--tangerine">
@@ -105,44 +103,21 @@
           </article>
           <article class="card reveal">
             <div class="card__icon card__icon--olive">
-              <span class="ic" style="--ic:var(--i-hymio)"></span>
+              <span class="ic" style="--ic:var(--i-kasi-kirjoittaa)"></span>
             </div>
-            <h3>Läpinäkyvä hinnoittelu</h3>
-            <p>Ei yllätyslaskuja. Näet hinnan etukäteen hintalaskurilla ja tiedät tarkalleen, mistä maksat.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon card__icon--sun">
-              <span class="ic" style="--ic:var(--i-kirjekuori)"></span>
-            </div>
-            <h3>Verkkokauppa & tilaukset</h3>
-            <p>Myy tuotteita tai ota vastaan ennakkotilauksia suoraan sivustolta – helppoa sinulle ja asiakkaalle. <strong>Alk. 590 €.</strong></p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon card__icon--tangerine">
-              <span class="ic" style="--ic:var(--i-kasi-kirjoittaa); color:var(--soft-oat)"></span>
-            </div>
-            <h3>Ajanvaraus</h3>
-            <p>Asiakkaat varaavat ajan tai pöydän itse, ympäri vuorokauden. Vähemmän puheluita, enemmän aikaa työllesi. <strong>Alk. 350 €.</strong></p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon card__icon--rose">
-              <span class="ic" style="--ic:var(--i-tahti); color:var(--soft-oat)"></span>
-            </div>
-            <h3>SEO & ylläpito</h3>
-            <p>Näy Googlessa ja pysy ajan tasalla. Hoidan päivitykset, varmuuskopiot ja optimoinnin. <strong>Ylläpito alk. 39 €/kk.</strong></p>
+            <h3>Ajanvaraus & verkkokauppa</h3>
+            <p>Varauskalenteri, tuotteet ja tilaukset suoraan sivustolta. <strong>Alk. 350 €.</strong></p>
           </article>
         </div>
-
         <div style="text-align:center; margin-top:40px" class="reveal">
-          <a href="laskuri.html" class="btn btn--primary btn--lg">Laske oma hintasi →</a>
+          <a href="palvelut.html" class="btn btn--primary btn--lg">Kaikki palvelut →</a>
         </div>
       </div>
     </section>
 
-    <!-- ============ RAIDAT ============ -->
     <div class="stripes" aria-hidden="true"></div>
 
-    <!-- ============ TYÖT / PORTFOLIO (tumma) ============ -->
+    <!-- ============ TYÖT (teaser) ============ -->
     <section class="section dark" id="tyot">
       <div class="container">
         <div class="section-head section-head--center reveal">
@@ -150,49 +125,31 @@
           <h2>Studioita, jotka <span class="highlight">erottuvat</span></h2>
           <p class="lead">Poimintoja demoista: Cake Atelier · Velora Movement · Floréa Atelier · Calle Sol · Nola Beauty House.</p>
         </div>
-
         <div class="works reveal">
-          <a class="work" href="tarjouspyynto.html">
+          <a class="work" href="tyot.html">
             <img src="assets/kuvat/demo-2.jpg" alt="Ravintolan verkkosivudemo">
             <span class="work__tag">Ravintola</span>
           </a>
-          <a class="work" href="tarjouspyynto.html">
+          <a class="work" href="tyot.html">
             <img src="assets/kuvat/demo-5.jpg" alt="Kauneushoitolan verkkosivudemo">
             <span class="work__tag">Kauneus</span>
           </a>
-          <a class="work" href="tarjouspyynto.html">
+          <a class="work" href="tyot.html">
             <img src="assets/kuvat/demo-1.jpg" alt="Tilauskakkujen verkkosivudemo">
             <span class="work__tag">Tilauskakut</span>
           </a>
-          <a class="work" href="tarjouspyynto.html">
-            <img src="assets/kuvat/demo-7.jpg" alt="Luovan studion verkkosivudemo">
-            <span class="work__tag">Studio</span>
-          </a>
-          <a class="work" href="tarjouspyynto.html">
-            <img src="assets/kuvat/demo-3.jpg" alt="Hyvinvointibrändin verkkosivudemo">
-            <span class="work__tag">Hyvinvointi</span>
-          </a>
-          <a class="work" href="tarjouspyynto.html">
+          <a class="work" href="tyot.html">
             <img src="assets/kuvat/demo-4.jpg" alt="Brändi- ja sivustodemo">
             <span class="work__tag">Brändi & sivut</span>
           </a>
-          <a class="work" href="tarjouspyynto.html">
-            <img src="assets/kuvat/demo-6.jpg" alt="Editorial-tyylinen verkkosivudemo">
-            <span class="work__tag">Editorial</span>
-          </a>
-          <a class="work" href="tarjouspyynto.html">
-            <img src="assets/kuvat/kuvaus.jpg" alt="Tuotekuvauksen kulissien takaa">
-            <span class="work__tag">Sisältö</span>
-          </a>
         </div>
-
         <div style="text-align:center; margin-top:40px" class="reveal">
-          <a href="tarjouspyynto.html" class="btn btn--primary btn--lg">Haluan saman →</a>
+          <a href="tyot.html" class="btn btn--primary btn--lg">Katso kaikki työt →</a>
         </div>
       </div>
     </section>
 
-    <!-- ============ NÄIN SE TOIMII ============ -->
+    <!-- ============ NÄIN SE TOIMII (teaser) ============ -->
     <section class="section" id="nain-se-toimii">
       <div class="container">
         <div class="section-head section-head--center reveal">
@@ -200,7 +157,6 @@
           <h2>Kolme askelta omaan sivustoosi</h2>
           <p class="lead">Yksinkertaista alusta loppuun – ei teknistä jargonia, ei piilokuluja.</p>
         </div>
-
         <div class="steps">
           <article class="step reveal">
             <span class="step__num">1</span>
@@ -220,9 +176,11 @@
             <p>Tarjouksen jälkeen saat ideointikaavakkeen: kuvat, värit, fontit ja esikuvat. Valitaan tyyli yhdessä – sinä saat valmiit sivut, minä hoidan tekniikan.</p>
           </article>
         </div>
+        <div style="text-align:center; margin-top:40px" class="reveal">
+          <a href="nain-se-toimii.html" class="btn btn--primary btn--lg">Lue lisää prosessista →</a>
+        </div>
       </div>
     </section>
-
     <!-- ============ TOIMIALAT ============ -->
     <section class="section" id="toimialat" style="background: var(--paper-2);">
       <div class="container">
@@ -272,49 +230,8 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ ARVOT / LÄPINÄKYVYYS ============ -->
-    <section class="section">
-      <div class="container values">
-        <div class="reveal">
-          <span class="eyebrow">Arvot & läpinäkyvyys</span>
-          <h2>Selkeää, rehellistä ja sinun näköistäsi</h2>
-          <ul class="value-list">
-            <li>
-              <span class="tick"><span class="ic" style="--ic:var(--i-kipina); width:22px; height:22px"></span></span>
-              <span><strong>Hinta etukäteen</strong>Näet kustannukset jo ennen yhteydenottoa hintalaskurin avulla – ei piilokuluja.</span>
-            </li>
-            <li>
-              <span class="tick"><span class="ic" style="--ic:var(--i-kadet-sydan); width:22px; height:22px"></span></span>
-              <span><strong>Henkilökohtaista palvelua</strong>Suunnittelen jokaisen sivuston käsin, juuri sinun yrityksellesi. Et ole vain numero.</span>
-            </li>
-            <li>
-              <span class="tick"><span class="ic" style="--ic:var(--i-tahti); width:22px; height:22px"></span></span>
-              <span><strong>Läpinäkyvä prosessi</strong>Laske hinta → tee tarjouspyyntö → suunnittele sivut. Tiedät joka hetki, missä mennään.</span>
-            </li>
-            <li>
-              <span class="tick"><span class="ic" style="--ic:var(--i-kukka); width:22px; height:22px"></span></span>
-              <span><strong>Yhteistyö ei lopu julkaisuun</strong>Tarjoan ylläpitoa, päivityksiä ja tukea myös sivuston valmistumisen jälkeen.</span>
-            </li>
-          </ul>
-        </div>
-
-        <aside class="price-peek reveal">
-          <h3>Esimerkkihintoja</h3>
-          <ul>
-            <li><span>Yksisivuinen sivusto</span><span>alk. 390 €</span></li>
-            <li><span>Pieni sivusto (3–5 sivua)</span><span>alk. 690 €</span></li>
-            <li><span>Logosuunnittelu</span><span>alk. 350 €</span></li>
-            <li><span>Ajanvaraus</span><span>alk. 350 €</span></li>
-            <li><span>Ylläpito</span><span>alk. 39 €/kk</span></li>
-          </ul>
-          <a href="laskuri.html" class="btn btn--primary btn--block">Laske oma hintasi →</a>
-        </aside>
-      </div>
-    </section>
-
     <!-- ============ CTA-BANNERI ============ -->
-    <section class="section" style="padding-top:0">
+    <section class="section" style="padding-top:24px">
       <div class="container">
         <div class="cta-banner reveal">
           <span class="label">Aloitetaan</span>
@@ -343,8 +260,9 @@
         <div class="footer__col">
           <h4>Sivut</h4>
           <ul>
-            <li><a href="index.html#palvelut">Palvelut</a></li>
-            <li><a href="index.html#tyot">Työt</a></li>
+            <li><a href="palvelut.html">Palvelut</a></li>
+            <li><a href="tyot.html">Työt</a></li>
+            <li><a href="nain-se-toimii.html">Näin se toimii</a></li>
             <li><a href="laskuri.html">Hintalaskuri</a></li>
             <li><a href="tarjouspyynto.html">Tarjouspyyntö</a></li>
           </ul>
