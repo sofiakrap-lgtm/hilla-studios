@@ -995,3 +995,59 @@ p { margin: 0 0 1em; }
   .s403__card--featured { transform: none; padding: 38px 30px; }
   .s403__badge { top: -14px; }
 }
+
+/* =========================================================
+   Etusivu — osio 208 (VISUAALISUUS & STRATEGIA, lausebanneri)
+   Tausta väri 8, teksti väri 2. Keskitetty lause.
+   ========================================================= */
+.s208 { background: var(--vari-8); color: var(--vari-2); padding: 86px 0; text-align: center; }
+.s208 .container { max-width: 880px; }
+.s208__eyebrow {
+  font-family: var(--font); font-weight: var(--w-black); text-transform: uppercase;
+  letter-spacing: 0.16em; font-size: 0.82rem; color: var(--vari-2);
+  opacity: 0.85; margin: 0 0 18px;
+}
+.s208__text {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem); line-height: 1.3; margin: 0;
+}
+.s208__text em { font-style: italic; color: var(--vari-9); }
+
+/* =========================================================
+   Etusivu — osio 218 (SOPEUDUMME ALAASI + DEMOT)
+   Vasen sisältö (väri 1 / teksti väri 3), oikea kuva 4.
+   ========================================================= */
+.s218 { background: var(--vari-1); }
+.s218__grid { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; min-height: 68vh; }
+.s218__panel {
+  display: flex; flex-direction: column; justify-content: center; gap: 18px;
+  padding: 80px clamp(24px, 5vw, 72px); color: var(--vari-3);
+  max-width: 640px; margin-left: auto;
+}
+.s218__title {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem); line-height: 1.15; color: var(--vari-3); margin: 0;
+}
+.s218__text { font-size: 1.02rem; line-height: 1.7; color: var(--vari-4); margin: 0; max-width: 50ch; }
+.s218__demos { margin-top: 6px; }
+.s218__demos-title { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--vari-3); margin: 0 0 4px; }
+.s218__note { font-size: 0.82rem; font-style: italic; color: var(--ink-65); margin: 0 0 16px; max-width: 46ch; }
+.s218__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.s218__list a {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 11px 16px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-pill);
+  font-weight: var(--w-bold); font-size: 0.92rem; background: var(--vari-2);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.s218__list a::after { content: "→"; font-weight: var(--w-black); }
+.s218__list a:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-pop-sm); background: var(--vari-9); }
+.s218__cta { align-self: flex-start; margin-top: 8px; }
+.s218__media { position: relative; background: var(--vari-3); overflow: hidden; min-height: 320px; }
+.s218__media img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 900px) {
+  .s218__grid { grid-template-columns: 1fr; min-height: auto; }
+  .s218__panel { max-width: none; margin: 0; padding: 56px 7%; order: 2; }
+  .s218__media { order: 1; min-height: 40vh; }
+}
+@media (max-width: 460px) { .s218__list { grid-template-columns: 1fr; } }
