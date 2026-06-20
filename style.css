@@ -772,12 +772,8 @@ p { margin: 0 0 1em; }
   background: var(--vari-1);
   border-bottom: var(--bw) solid var(--vari-6);
 }
-.h106__logo {
-  display: inline-block; width: 184px; height: 28px;
-  background: var(--vari-3); /* logo tummalla vaalealla palkilla; vaihda assets/logot/logo-2.svg */
-  -webkit-mask: var(--i-wordmark-vaaka) left center / contain no-repeat;
-          mask: var(--i-wordmark-vaaka) left center / contain no-repeat;
-}
+.h106__logo { display: inline-flex; align-items: center; height: 34px; }
+.h106__logo img { height: 100%; width: auto; display: block; }
 .h106__nav .nav__links { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .h106__nav .nav__links a:not(.btn) { font-family: var(--font); font-weight: 600; font-size: 0.95rem; color: var(--vari-3); }
 .h106__nav .nav__links a:not(.btn):hover,
