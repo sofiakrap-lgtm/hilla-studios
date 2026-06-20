@@ -6,9 +6,6 @@
   <title>Tyyliopas — värit & fontit | Studio Blomma</title>
   <meta name="description" content="Studio Blomman tyyliopas: numeroidut värit (väri 1–9) ja fontit (fontti 1–4). Numero = tyyli, jota voi käyttää sivuja rakennettaessa.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
@@ -72,9 +69,9 @@
     .fontcard__role { font-weight: var(--w-black); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--burnt-tangerine); }
     .fontcard__spec { color: var(--ink-65); font-size: 0.9rem; margin: 2px 0 14px; }
     .sample-900 { font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.05; letter-spacing: -0.015em; }
-    .sample-700 { font-weight: 700; font-size: 1.5rem; line-height: 1.1; }
-    .sample-400 { font-weight: 400; font-size: 1.05rem; }
-    .sample-caps { font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.95rem; }
+    .sample-700 { font-family: var(--font-head); font-weight: 700; font-size: 1.6rem; line-height: 1.12; }
+    .sample-400 { font-family: var(--font); font-weight: 400; font-size: 1.05rem; }
+    .sample-caps { font-family: var(--font); font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.95rem; }
 
     .note-card {
       background: var(--bitter-cacao); color: var(--soft-oat);
@@ -107,10 +104,10 @@
       <ul class="nav__links">
         <li><a href="index.html">Etusivu</a></li>
         <li><a href="palvelut.html">Palvelut</a></li>
-        <li><a href="tyot.html">Työt</a></li>
-        <li><a href="nain-se-toimii.html">Näin se toimii</a></li>
-        <li><a href="laskuri.html">Hintalaskuri</a></li>
-        <li class="nav__cta"><a href="tarjouspyynto.html" class="btn btn--primary">Tee tarjouspyyntö</a></li>
+        <li><a href="meista.html">Meistä</a></li>
+        <li><a href="demot.html">Demot</a></li>
+        <li><a href="yhteys.html">Ota yhteyttä</a></li>
+        <li class="nav__cta"><a href="laskuri.html" class="btn btn--primary">Hintalaskuri →</a></li>
       </ul>
     </div>
   </header>
@@ -210,7 +207,7 @@
         <div class="section-head reveal">
           <span class="eyebrow">Fontit</span>
           <h2>Typografia — fontti 1–4</h2>
-          <p class="lead">Yksi perhe, <strong>Montserrat</strong> (Google Fonts), kolmella vahvuudella.</p>
+          <p class="lead">Otsikot <strong>Georgia Pro</strong> (serif), leipäteksti <strong>Helvetica Now</strong> (sans). Ilman lisenssitiedostoja käytetään järjestelmän Georgiaa ja Helveticaa/Arialia.</p>
         </div>
 
         <div class="fonts">
@@ -218,7 +215,7 @@
             <span class="sw__num">1</span>
             <div>
               <div class="fontcard__role">Otsikot & highlightit</div>
-              <div class="fontcard__spec">Montserrat · Bold (700)</div>
+              <div class="fontcard__spec">Georgia Pro · Bold (700)</div>
               <div class="sample-700">Brändi, joka kukoistaa — ja sivut, jotka myyvät.</div>
             </div>
           </article>
@@ -226,7 +223,7 @@
             <span class="sw__num">2</span>
             <div>
               <div class="fontcard__role">Väliotsikot</div>
-              <div class="fontcard__spec">Montserrat · Bold (700) — pienemmällä koolla</div>
+              <div class="fontcard__spec">Georgia Pro · Bold (700) — pienemmällä koolla</div>
               <div class="sample-700" style="font-size:1.25rem">Verkkosivujen suunnittelu</div>
             </div>
           </article>
@@ -234,7 +231,7 @@
             <span class="sw__num">3</span>
             <div>
               <div class="fontcard__role">Leipäteksti</div>
-              <div class="fontcard__spec">Montserrat · Regular (400)</div>
+              <div class="fontcard__spec">Helvetica Now · Regular (400)</div>
               <div class="sample-400">Studio Blomma rakentaa lämpimän retro-editorial -ilmeen ja valmiit verkkosivut naisvetoisille aloille. Yksi paketti, läpinäkyvä hinta, nopea toimitus.</div>
             </div>
           </article>
@@ -242,7 +239,7 @@
             <span class="sw__num">4</span>
             <div>
               <div class="fontcard__role">Eyebrow / labelit</div>
-              <div class="fontcard__spec">Montserrat · Black (900) — CAPS, harvennettu</div>
+              <div class="fontcard__spec">Helvetica Now · Bold — CAPS, harvennettu</div>
               <div class="sample-caps">Palvelut &amp; hinnoittelu</div>
             </div>
           </article>
@@ -282,10 +279,10 @@
           <h4>Sivut</h4>
           <ul>
             <li><a href="palvelut.html">Palvelut</a></li>
-            <li><a href="tyot.html">Työt</a></li>
-            <li><a href="nain-se-toimii.html">Näin se toimii</a></li>
+            <li><a href="meista.html">Meistä</a></li>
+            <li><a href="demot.html">Demot</a></li>
+            <li><a href="yhteys.html">Ota yhteyttä</a></li>
             <li><a href="laskuri.html">Hintalaskuri</a></li>
-            <li><a href="tyyliopas.html">Tyyliopas</a></li>
           </ul>
         </div>
         <div class="footer__col">
