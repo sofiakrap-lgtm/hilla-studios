@@ -30,6 +30,8 @@
   --vari-10: #C1603E; /* terrakotta-tausta   (osa 219 / 801) */
   --vari-11: #B79858; /* kullanruskea band   (osa 300) */
   --vari-12: #C48357; /* lämmin saviruskea   (osa 702) */
+  --vari-13: #5a6871; /* liuskeen sininen     (osa 223 reunat/teksti) */
+  --vari-14: #d8e0e6; /* vaalea siniharmaa    (osa 223 laatikot) */
   --fontti-1: 700;   /* otsikot / highlightit */
   --fontti-2: 700;   /* väliotsikot */
   --fontti-3: 400;   /* leipäteksti */
@@ -1239,3 +1241,127 @@ p { margin: 0 0 1em; }
 .s300__logo { height: 64px; width: auto; display: block; }
 .s300__tagline { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.2rem, 2.6vw, 1.7rem); color: var(--vari-1); margin: 0; }
 @media (max-width: 560px) { .s300__inner { flex-direction: column; gap: 14px; } }
+
+/* =========================================================
+   PALVELUT 212 — Hero (liukuväri väri 1 -> väri 11) + aaltoteksti
+   ========================================================= */
+.p212 { background: linear-gradient(180deg, var(--vari-1) 0%, var(--vari-1) 42%, var(--vari-11) 100%); padding: 96px 0 0; }
+.p212__head { max-width: 880px; margin: 0 auto; text-align: center; color: var(--vari-3); }
+.p212__title {
+  font-family: var(--font-head); font-weight: 700; color: var(--vari-3);
+  font-size: clamp(2rem, 5vw, 3.3rem); line-height: 1.12; margin: 0 0 22px;
+}
+.p212__text { font-size: 1.08rem; line-height: 1.7; color: var(--vari-3); margin: 0 auto; max-width: 60ch; }
+.p212__wave { margin-top: 64px; overflow: hidden; }
+.p212__track {
+  display: flex; align-items: center; gap: 0; width: max-content;
+  animation: p212-marquee 26s linear infinite;
+}
+.p212__item {
+  font-family: var(--font-head); font-weight: 700; font-style: italic;
+  font-size: clamp(1.6rem, 4vw, 2.8rem); color: var(--vari-3);
+  padding: 0 28px; white-space: nowrap;
+}
+.p212__item:nth-child(odd)  { transform: translateY(-12px); }
+.p212__item:nth-child(even) { transform: translateY(12px); color: var(--vari-1); }
+.p212__dot { color: var(--vari-3); font-size: 1.2rem; }
+@keyframes p212-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .p212__track { animation: none; } }
+
+/* =========================================================
+   PALVELUT 223 — Nettisivukategoriat (siniharmaa)
+   ========================================================= */
+.p223 { background: var(--vari-11); padding: 84px 0 96px; }
+.p223__title {
+  text-align: center; font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 3rem); color: var(--vari-1); margin: 0 0 52px;
+}
+.p223__cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.p223__card {
+  display: flex; flex-direction: column; gap: 14px;
+  background: var(--vari-14); color: var(--vari-13);
+  border: var(--bw) solid var(--vari-13); border-radius: var(--radius-m);
+  padding: 30px 26px;
+}
+.p223__icon {
+  width: 54px; height: 54px; flex: none;
+  background: var(--vari-13);
+  -webkit-mask: var(--ico) center / contain no-repeat;
+          mask: var(--ico) center / contain no-repeat;
+}
+.p223__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.18rem; color: var(--vari-13); margin: 0; line-height: 1.2; }
+.p223__card p { font-size: 0.95rem; line-height: 1.6; color: var(--vari-13); margin: 0; }
+@media (max-width: 900px) { .p223__cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .p223__cards { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   PALVELUT 908 — Idea-banneri (kuva 6, tummennus 40%)
+   ========================================================= */
+.p908 { position: relative; isolation: isolate; padding: 110px 0; text-align: center; overflow: hidden; }
+.p908__bg {
+  position: absolute; inset: 0; z-index: -2;
+  background: var(--vari-3) center / cover no-repeat;
+}
+.p908::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,.40); } /* tummennus 40% */
+.p908__inner { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 22px; color: var(--vari-2); }
+.p908__mark {
+  width: 88px; height: 88px;
+  background: var(--vari-1);                 /* grafiikka 5 väriin 1 */
+  -webkit-mask: var(--ico) center / contain no-repeat;
+          mask: var(--ico) center / contain no-repeat;
+}
+.p908__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 4.5vw, 3rem); line-height: 1.15; color: var(--vari-2); margin: 0; }
+.p908__text { font-size: 1.08rem; line-height: 1.7; color: var(--vari-2); margin: 0; max-width: 48ch; }
+.p908 .btn--light { background: var(--vari-2); color: var(--vari-3); border-color: var(--vari-2); margin-top: 6px; }
+.p908 .btn--light:hover { background: var(--vari-1); border-color: var(--vari-1); }
+
+/* =========================================================
+   PALVELUT 800 — Interaktiivinen "upgreidaa brändisi" (accordion)
+   ========================================================= */
+.p800 { background: var(--vari-1); padding: 92px 0; }
+.p800__title {
+  text-align: center; font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 3rem); color: var(--vari-3); margin: 0 0 52px;
+}
+.p800__list { display: flex; flex-direction: column; gap: 16px; max-width: 920px; margin: 0 auto; }
+.p800__item {
+  border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m);
+  background: var(--vari-2); overflow: hidden;
+}
+.p800__head {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; gap: 18px; padding: 22px 26px;
+  font-family: var(--font-head); font-weight: 700; font-size: 1.18rem; color: var(--vari-3);
+}
+.p800__head::-webkit-details-marker { display: none; }
+.p800__head:hover { background: var(--vari-1); }
+.p800__icon {
+  width: 40px; height: 40px; flex: none;
+  background: var(--vari-3);                  /* grafiikka väriin 3 */
+  -webkit-mask: var(--ico) center / contain no-repeat;
+          mask: var(--ico) center / contain no-repeat;
+}
+.p800__q { flex: 1; }
+.p800__plus {
+  position: relative; width: 28px; height: 28px; flex: none;
+  border: var(--bw) solid var(--vari-3); border-radius: 50%; transition: background .2s ease;
+}
+.p800__plus::before, .p800__plus::after { content: ""; position: absolute; background: var(--vari-3); border-radius: 2px; }
+.p800__plus::before { left: 7px; right: 7px; top: 12px; height: 2px; }
+.p800__plus::after  { top: 7px; bottom: 7px; left: 12px; width: 2px; transition: transform .2s ease; }
+.p800__item[open] .p800__plus::after { transform: scaleY(0); }
+.p800__item[open] .p800__plus { background: var(--vari-9); }
+.p800__panel {
+  display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 12px 32px;
+  padding: 6px 26px 28px; border-top: var(--bw) solid var(--vari-3);
+}
+.p800__panel-title { font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; color: var(--vari-3); margin: 18px 0 0; }
+.p800__panel-text { color: var(--vari-3); }
+.p800__panel-text p { font-size: 0.98rem; line-height: 1.7; color: var(--vari-3); margin: 18px 0 18px; }
+.p800 .btn--accent { background: var(--vari-12); color: var(--vari-1); border-color: var(--vari-3); }
+.p800 .btn--accent:hover { background: var(--vari-3); color: var(--vari-1); }
+@media (max-width: 720px) {
+  .p800__panel { grid-template-columns: 1fr; gap: 4px; }
+  .p800__panel-title { margin-bottom: 4px; }
+  .p800__panel-text p { margin-top: 6px; }
+}
