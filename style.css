@@ -1463,3 +1463,36 @@ p { margin: 0 0 1em; }
 .p215__day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: var(--vari-14); color: var(--vari-13); border-radius: var(--radius-s); font-weight: var(--w-bold); font-size: .95rem; }
 .p215__day--empty { background: transparent; }
 @media (max-width: 860px) { .p215__grid { grid-template-columns: 1fr; gap: 36px; } }
+
+/* =========================================================
+   PALVELUT 901 — Tarjouspyyntöjen automatisointi (esimerkit)
+   ========================================================= */
+.p901 { background: var(--vari-11); color: var(--vari-1); padding: 88px 0; }
+.p901__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: start; }
+.p901__lead-title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.15; color: var(--vari-1); margin: 0 0 14px; }
+.p901__lead-sub { font-size: 1.15rem; font-weight: var(--w-black); color: var(--vari-1); margin: 0; }
+.p901__cards { display: flex; flex-direction: column; gap: 18px; }
+.p901__card { border: var(--bw) solid var(--vari-1); border-radius: var(--radius-m); padding: 26px 28px; }
+.p901__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.25rem; color: var(--vari-1); margin: 0 0 10px; }
+.p901__card p { font-size: 0.98rem; line-height: 1.65; color: var(--vari-1); margin: 0; }
+@media (max-width: 860px) { .p901__grid { grid-template-columns: 1fr; gap: 32px; } }
+
+/* =========================================================
+   PALVELUT 906 — Usein kysyttyä (FAQ; avattu kysymys väri 10)
+   ========================================================= */
+.p906 { background: var(--vari-1); padding: 88px 0; }
+.p906__head { text-align: center; max-width: 680px; margin: 0 auto 44px; }
+.p906__head h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.7rem); color: var(--vari-3); margin: 0; }
+.p906__list { display: flex; flex-direction: column; gap: 14px; max-width: 820px; margin: 0 auto; }
+.p906__item { border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); background: var(--vari-2); overflow: hidden; }
+.p906__q {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 24px; font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--vari-3);
+  transition: background .2s ease, color .2s ease;
+}
+.p906__q::-webkit-details-marker { display: none; }
+.p906__q::after { content: "+"; font-weight: var(--w-black); font-size: 1.4rem; line-height: 1; }
+.p906__item[open] .p906__q { background: var(--vari-10); color: var(--vari-1); }  /* painettu kysymys väri 10 */
+.p906__item[open] .p906__q::after { content: "–"; }
+.p906__a { padding: 18px 24px 22px; }
+.p906__a p { font-size: 0.98rem; line-height: 1.7; color: var(--vari-3); margin: 0; }
