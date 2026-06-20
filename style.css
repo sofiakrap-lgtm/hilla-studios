@@ -913,3 +913,85 @@ p { margin: 0 0 1em; }
   .s221__num { width: 56px; height: 56px; font-size: 1.45rem; }
   .s221__step:not(:last-child)::before { left: 27px; top: 56px; }
 }
+
+/* =========================================================
+   Etusivu — osio 403 (MAKSU / HINNOITTELU, 3 pakettia)
+   Vaalea tausta (väri 1). Keskitetty otsikko + 3 korttia.
+   Keskikortti korotettu = "suositeltu".
+   ========================================================= */
+.s403 { background: var(--vari-1); padding: 92px 0; }
+.s403__head { text-align: center; max-width: 760px; margin: 0 auto 60px; }
+.s403__head h2 {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 4rem); color: var(--vari-3); margin: 0;
+}
+.s403__lead {
+  font-size: 1rem; line-height: 1.7; color: var(--vari-4);
+  max-width: 56ch; margin: 16px auto 0;
+}
+
+.s403__cards {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 26px; align-items: start;
+}
+.s403__card {
+  position: relative;
+  display: flex; flex-direction: column;
+  border: var(--bw) solid var(--vari-3);
+  border-radius: var(--radius-l);
+  padding: 34px 30px;
+  color: var(--vari-3);
+  box-shadow: var(--shadow-pop-sm);
+}
+/* Keskikortti: suurempi + nostettu ylös → korostus */
+.s403__card--featured {
+  padding: 48px 34px;
+  transform: translateY(-22px);
+  box-shadow: var(--shadow-pop);
+  z-index: 1;
+}
+.s403__badge {
+  position: absolute; top: -16px; left: 50%; transform: translateX(-50%) rotate(-3deg);
+  background: var(--vari-3); color: var(--vari-1);
+  font-family: var(--font); font-weight: var(--w-black); text-transform: uppercase;
+  letter-spacing: 0.12em; font-size: 0.72rem;
+  padding: 7px 16px; border-radius: var(--radius-pill);
+  border: var(--bw) solid var(--vari-3); box-shadow: var(--shadow-pop-sm);
+  white-space: nowrap;
+}
+.s403__name {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: 1.5rem; margin: 0 0 16px;
+}
+.s403__feats { list-style: none; margin: 0 0 22px; padding: 0; }
+.s403__feats li {
+  position: relative; padding-left: 20px; margin-bottom: 9px;
+  font-size: 0.92rem; line-height: 1.5;
+}
+.s403__feats li::before {
+  content: "–"; position: absolute; left: 0; font-weight: var(--w-black);
+}
+/* hinta = bodyteksti boldina, hieman korostettuna */
+.s403__price { font-size: 1.3rem; margin: 0 0 22px; }
+.s403__price strong { font-weight: var(--w-black); }
+/* CTA kortin alareunaan */
+.s403__cta {
+  margin-top: auto; align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--vari-3); color: var(--vari-1);
+  font-family: var(--font); font-weight: var(--w-black);
+  text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem;
+  padding: 12px 22px; border-radius: var(--radius-pill);
+  border: var(--bw) solid var(--vari-3);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.s403__cta:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-pop-sm); }
+
+/* Ankkurit palvelut-sivulla (sticky-navin alle jää tilaa) */
+.card[id] { scroll-margin-top: 100px; }
+
+@media (max-width: 860px) {
+  .s403__cards { grid-template-columns: 1fr; gap: 30px; max-width: 460px; margin: 0 auto; }
+  .s403__card--featured { transform: none; padding: 38px 30px; }
+  .s403__badge { top: -14px; }
+}
