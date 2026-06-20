@@ -248,9 +248,14 @@ p { margin: 0 0 1em; }
 }
 .nav__links { display: flex; align-items: center; gap: 24px; list-style: none; margin: 0; padding: 0; }
 .nav__links a { font-weight: var(--w-bold); font-size: 0.98rem; }
-.nav__links a:not(.btn):hover { color: var(--burnt-tangerine); }
-.nav__links a.is-active:not(.btn) { color: var(--burnt-tangerine); }
+.nav__links a:not(.btn):hover { color: var(--vari-3); text-decoration: underline; text-underline-offset: 4px; }
+.nav__links a.is-active:not(.btn) { color: var(--vari-3); text-decoration: underline; text-underline-offset: 4px; }
 .nav__cta .btn { padding: 10px 20px; }
+/* Hintalaskuri-navinappi: väri 3 -tausta, väri 1 -teksti (koko sivusto) */
+.nav__cta .btn--primary,
+.h106__nav .nav__links .btn--primary {
+  background: var(--vari-3); color: var(--vari-1); border-color: var(--vari-3);
+}
 
 /* ---------------------------------------------------------
    7. Hero
@@ -764,7 +769,7 @@ p { margin: 0 0 1em; }
   position: sticky; top: 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   padding: 16px 5%;
-  background: var(--vari-2);
+  background: var(--vari-1);
   border-bottom: var(--bw) solid var(--vari-6);
 }
 .h106__logo {
@@ -776,7 +781,7 @@ p { margin: 0 0 1em; }
 .h106__nav .nav__links { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .h106__nav .nav__links a:not(.btn) { font-family: var(--font); font-weight: 600; font-size: 0.95rem; color: var(--vari-3); }
 .h106__nav .nav__links a:not(.btn):hover,
-.h106__nav .nav__links a.is-active:not(.btn) { color: var(--vari-5); }
+.h106__nav .nav__links a.is-active:not(.btn) { color: var(--vari-3); text-decoration: underline; text-underline-offset: 4px; }
 .h106__nav .nav__toggle {
   display: none; font-size: 1.5rem; line-height: 1;
   background: var(--sun-mellow); color: var(--vari-3);
@@ -816,7 +821,7 @@ p { margin: 0 0 1em; }
   .h106__nav .nav__links {
     display: none; position: absolute; top: 100%; right: 5%; left: 5%;
     flex-direction: column; align-items: stretch; gap: 6px;
-    background: var(--vari-2); border: var(--bw) solid var(--vari-3);
+    background: var(--vari-1); border: var(--bw) solid var(--vari-3);
     border-radius: var(--radius-m); padding: 16px 18px; box-shadow: var(--shadow-pop-sm);
   }
   .h106__nav .nav__links.is-open { display: flex; }
