@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Blomma – Numeroitu väripaletti</title>
+  <meta name="description" content="Studio Bloman koko värimaailma yhdellä sivulla: numeroitu väripaletti, HEX-koodit, CSS-muuttujat ja käyttöohjeet. Lisäksi kuusi valmista palettivaihtoehtoa asiakkaille.">
+
+  <!-- Google Fonts: Bricolage Grotesque + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+
+  <style>
+    /* ---------- Väripaletti-sivun omat tyylit ---------- */
+    .palette-hero { padding: 56px 0 8px; }
+    .palette-hero .eyebrow { margin-bottom: 12px; }
+    .palette-hero p { max-width: 60ch; color: var(--ink-soft); }
+
+    .palette-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      font-size: .9rem;
+      color: var(--ink-soft);
+    }
+    .palette-legend span {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+    }
+
+    /* Numeroitu kortti-ruudukko */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .color-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      overflow: hidden;
+      box-shadow: var(--shadow-s);
+      transition: transform .15s ease, box-shadow .15s ease;
+      cursor: pointer;
+    }
+    .color-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-m); }
+    .color-card__chip {
+      position: relative;
+      height: 120px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 12px 14px;
+    }
+    .color-card__num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      line-height: 1;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,.85);
+      color: var(--ink);
+    }
+    .color-card__chip[data-dark] .color-card__num {
+      background: rgba(30,23,38,.55);
+      color: #fff;
+    }
+    .color-card__copy {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,.85);
+      color: var(--ink);
+      opacity: 0;
+      transition: opacity .15s ease;
+    }
+    .color-card:hover .color-card__copy { opacity: 1; }
+    .color-card__chip[data-dark] .color-card__copy { background: rgba(30,23,38,.55); color:#fff; }
+    .color-card__body { padding: 14px 16px 18px; }
+    .color-card__name { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; margin: 0; }
+    .color-card__hex {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: .9rem;
+      color: var(--ink);
+      margin: 4px 0 0;
+    }
+    .color-card__var {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: .8rem;
+      color: var(--purple-dark);
+      margin: 2px 0 8px;
+    }
+    .color-card__use { font-size: .85rem; color: var(--ink-soft); margin: 0; line-height: 1.45; }
+
+    /* Pieni "kopioitu!"-ilmoitus */
+    .copy-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--ink);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      box-shadow: var(--shadow-m);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 80;
+    }
+    .copy-toast.is-visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Palettivaihtoehdot */
+    .palette-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .palette-option {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      overflow: hidden;
+      box-shadow: var(--shadow-s);
+    }
+    .palette-option__bar { display: flex; height: 84px; }
+    .palette-option__bar span { flex: 1; }
+    .palette-option__body { padding: 14px 16px 18px; }
+    .palette-option__num {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-weight: 800;
+      background: var(--cream-2);
+      color: var(--ink);
+      border-radius: var(--radius-pill);
+      padding: 2px 12px;
+      font-size: .9rem;
+      margin-bottom: 6px;
+    }
+    .palette-option__name { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; margin: 0 0 8px; }
+    .palette-option__hexes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: .72rem;
+      color: var(--ink-soft);
+    }
+    .palette-option__hexes code {
+      background: var(--cream);
+      border-radius: 6px;
+      padding: 2px 6px;
+    }
+
+    .section-head { margin-top: 8px; }
+    .section-head h2 { margin-bottom: 6px; }
+    .section-head p { color: var(--ink-soft); max-width: 60ch; margin-top: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <span class="brand__mark">🌸</span> Studio Blomma
+      </a>
+      <button class="nav__toggle" aria-label="Avaa valikko" aria-expanded="false">☰</button>
+      <ul class="nav__links">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="index.html#palvelut">Palvelut</a></li>
+        <li><a href="index.html#toimialat">Toimialat</a></li>
+        <li><a href="laskuri.html">Hintalaskuri</a></li>
+        <li class="nav__cta"><a href="tarjouspyynto.html" class="btn btn--primary">Tee tarjouspyyntö</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="container palette-hero reveal">
+      <span class="eyebrow">Brändikäsikirja · värit</span>
+      <h1>Numeroitu <span class="text-gradient">väripaletti</span></h1>
+      <p>Tässä on Studio Bloman koko värimaailma yhdellä sivulla. Jokaisella värillä on oma numero, HEX-koodi, CSS-muuttuja ja vinkki siitä, mihin sitä kannattaa käyttää. <strong>Klikkaa väriä kopioidaksesi sen HEX-koodin.</strong></p>
+      <div class="palette-legend">
+        <span>🔢 Numerot 01–12 = brändin perusvärit</span>
+        <span>📋 Klikkaa = kopioi HEX</span>
+        <span>🎨 Alhaalla 6 valmista palettia asiakkaille</span>
+      </div>
+    </section>
+
+    <!-- ============ BRÄNDIVÄRIT ============ -->
+    <section class="section" style="padding-top: 28px;">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Brändin perusvärit</h2>
+          <p>Nämä värit on määritelty tiedostossa <code>style.css</code> (<code>:root</code>) ja niitä käytetään koko sivustolla.</p>
+        </div>
+
+        <div class="swatch-grid">
+
+          <!-- 01 -->
+          <article class="color-card reveal" data-hex="#FFF6EC">
+            <div class="color-card__chip" style="background:#FFF6EC">
+              <span class="color-card__num">01</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Kerma</h3>
+              <p class="color-card__hex">#FFF6EC</p>
+              <p class="color-card__var">--cream</p>
+              <p class="color-card__use">Sivuston pääpohjaväri (tausta). Lämmin ja pehmeä yleisvaikutelma.</p>
+            </div>
+          </article>
+
+          <!-- 02 -->
+          <article class="color-card reveal" data-hex="#FFEFE0">
+            <div class="color-card__chip" style="background:#FFEFE0">
+              <span class="color-card__num">02</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Kerma 2</h3>
+              <p class="color-card__hex">#FFEFE0</p>
+              <p class="color-card__var">--cream-2</p>
+              <p class="color-card__use">Toissijainen tausta ja korostuslaatikot. Hivenen syvempi kuin kerma.</p>
+            </div>
+          </article>
+
+          <!-- 03 -->
+          <article class="color-card reveal" data-hex="#1E1726">
+            <div class="color-card__chip" data-dark style="background:#1E1726">
+              <span class="color-card__num">03</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Muste</h3>
+              <p class="color-card__hex">#1E1726</p>
+              <p class="color-card__var">--ink</p>
+              <p class="color-card__use">Pääväri teksteille ja otsikoille. Tumma, lähes musta violetinvivahde.</p>
+            </div>
+          </article>
+
+          <!-- 04 -->
+          <article class="color-card reveal" data-hex="#4A4253">
+            <div class="color-card__chip" data-dark style="background:#4A4253">
+              <span class="color-card__num">04</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Muste pehmeä</h3>
+              <p class="color-card__hex">#4A4253</p>
+              <p class="color-card__var">--ink-soft</p>
+              <p class="color-card__use">Leipätekstit ja toissijaiset tekstit. Pehmeämpi kuin pääväri.</p>
+            </div>
+          </article>
+
+          <!-- 05 -->
+          <article class="color-card reveal" data-hex="#FF5C7A">
+            <div class="color-card__chip" data-dark style="background:#FF5C7A">
+              <span class="color-card__num">05</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Koralli</h3>
+              <p class="color-card__hex">#FF5C7A</p>
+              <p class="color-card__var">--coral</p>
+              <p class="color-card__use">Pääkorostusväri: painikkeet, linkit ja huomiokohdat.</p>
+            </div>
+          </article>
+
+          <!-- 06 -->
+          <article class="color-card reveal" data-hex="#F23E63">
+            <div class="color-card__chip" data-dark style="background:#F23E63">
+              <span class="color-card__num">06</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Koralli tumma</h3>
+              <p class="color-card__hex">#F23E63</p>
+              <p class="color-card__var">--coral-dark</p>
+              <p class="color-card__use">Korallin hover-/aktiivitila ja syvempi korostus.</p>
+            </div>
+          </article>
+
+          <!-- 07 -->
+          <article class="color-card reveal" data-hex="#7B4DFF">
+            <div class="color-card__chip" data-dark style="background:#7B4DFF">
+              <span class="color-card__num">07</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Violetti</h3>
+              <p class="color-card__hex">#7B4DFF</p>
+              <p class="color-card__var">--purple</p>
+              <p class="color-card__use">Toinen korostusväri, gradientit ja graafiset elementit.</p>
+            </div>
+          </article>
+
+          <!-- 08 -->
+          <article class="color-card reveal" data-hex="#5B2EE0">
+            <div class="color-card__chip" data-dark style="background:#5B2EE0">
+              <span class="color-card__num">08</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Violetti tumma</h3>
+              <p class="color-card__hex">#5B2EE0</p>
+              <p class="color-card__var">--purple-dark</p>
+              <p class="color-card__use">Violetin hover-tila ja gradienttien syvempi pää.</p>
+            </div>
+          </article>
+
+          <!-- 09 -->
+          <article class="color-card reveal" data-hex="#C8F169">
+            <div class="color-card__chip" style="background:#C8F169">
+              <span class="color-card__num">09</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Lime</h3>
+              <p class="color-card__hex">#C8F169</p>
+              <p class="color-card__var">--lime</p>
+              <p class="color-card__use">Raikas korostus ja pienet huomioelementit. Energinen lisäväri.</p>
+            </div>
+          </article>
+
+          <!-- 10 -->
+          <article class="color-card reveal" data-hex="#FFD23F">
+            <div class="color-card__chip" style="background:#FFD23F">
+              <span class="color-card__num">10</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Aurinko</h3>
+              <p class="color-card__hex">#FFD23F</p>
+              <p class="color-card__var">--sun</p>
+              <p class="color-card__use">Lämmin keltainen korostus, badget ja iloiset yksityiskohdat.</p>
+            </div>
+          </article>
+
+          <!-- 11 -->
+          <article class="color-card reveal" data-hex="#2ED3C6">
+            <div class="color-card__chip" style="background:#2ED3C6">
+              <span class="color-card__num">11</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Turkoosi</h3>
+              <p class="color-card__hex">#2ED3C6</p>
+              <p class="color-card__var">--teal</p>
+              <p class="color-card__use">Viileä lisäväri, joka tasapainottaa lämpimiä sävyjä.</p>
+            </div>
+          </article>
+
+          <!-- 12 -->
+          <article class="color-card reveal" data-hex="#FFFFFF">
+            <div class="color-card__chip" style="background:#FFFFFF; border-bottom:1px solid var(--line)">
+              <span class="color-card__num">12</span>
+              <span class="color-card__copy">Kopioi</span>
+            </div>
+            <div class="color-card__body">
+              <h3 class="color-card__name">Valkoinen</h3>
+              <p class="color-card__hex">#FFFFFF</p>
+              <p class="color-card__var">--white / --surface</p>
+              <p class="color-card__use">Korttien ja pintojen tausta. Tuo ilmavuutta ja kontrastia.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PALETTIVAIHTOEHDOT ============ -->
+    <section class="section" style="background: var(--cream-2);">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Valmiit palettivaihtoehdot</h2>
+          <p>Nämä kuusi palettia näkyvät tarjouspyyntölomakkeessa, kun asiakas valitsee oman värimaailmansa. Jokainen koostuu neljästä väristä.</p>
+        </div>
+
+        <div class="palette-options">
+
+          <!-- P1 -->
+          <article class="palette-option reveal">
+            <div class="palette-option__bar">
+              <span style="background:#E8C8A0"></span><span style="background:#C97B5A"></span><span style="background:#7A4A2B"></span><span style="background:#F5EBDD"></span>
+            </div>
+            <div class="palette-option__body">
+              <span class="palette-option__num">Paletti 1</span>
+              <h3 class="palette-option__name">Lämmin &amp; maanläheinen</h3>
+              <div class="palette-option__hexes">
+                <code>#E8C8A0</code><code>#C97B5A</code><code>#7A4A2B</code><code>#F5EBDD</code>
+              </div>
+            </div>
+          </article>
+
+          <!-- P2 -->
+          <article class="palette-option reveal">
+            <div class="palette-option__bar">
+              <span style="background:#FF5C7A"></span><span style="background:#7B4DFF"></span><span style="background:#2ED3C6"></span><span style="background:#FFD23F"></span>
+            </div>
+            <div class="palette-option__body">
+              <span class="palette-option__num">Paletti 2</span>
+              <h3 class="palette-option__name">Rohkea &amp; värikäs</h3>
+              <div class="palette-option__hexes">
+                <code>#FF5C7A</code><code>#7B4DFF</code><code>#2ED3C6</code><code>#FFD23F</code>
+              </div>
+            </div>
+          </article>
+
+          <!-- P3 -->
+          <article class="palette-option reveal">
+            <div class="palette-option__bar">
+              <span style="background:#FAD4D8"></span><span style="background:#D6E8F5"></span><span style="background:#E4D6F5"></span><span style="background:#FCF4E8"></span>
+            </div>
+            <div class="palette-option__body">
+              <span class="palette-option__num">Paletti 3</span>
+              <h3 class="palette-option__name">Pastelli &amp; pehmeä</h3>
+              <div class="palette-option__hexes">
+                <code>#FAD4D8</code><code>#D6E8F5</code><code>#E4D6F5</code><code>#FCF4E8</code>
+              </div>
+            </div>
+          </article>
+
+          <!-- P4 -->
+          <article class="palette-option reveal">
+            <div class="palette-option__bar">
+              <span style="background:#1E1726"></span><span style="background:#3B3148"></span><span style="background:#C8A24B"></span><span style="background:#EDE7DF"></span>
+            </div>
+            <div class="palette-option__body">
+              <span class="palette-option__num">Paletti 4</span>
+              <h3 class="palette-option__name">Tumma &amp; elegantti</h3>
+              <div class="palette-option__hexes">
+                <code>#1E1726</code><code>#3B3148</code><code>#C8A24B</code><code>#EDE7DF</code>
+              </div>
+            </div>
+          </article>
+
+          <!-- P5 -->
+          <article class="palette-option reveal">
+            <div class="palette-option__bar">
+              <span style="background:#3E7C59"></span><span style="background:#C8F169"></span><span style="background:#F0F5E8"></span><span style="background:#1E1726"></span>
+            </div>
+            <div class="palette-option__body">
+              <span class="palette-option__num">Paletti 5</span>
+              <h3 class="palette-option__name">Raikas &amp; vihreä</h3>
+              <div class="palette-option__hexes">
+                <code>#3E7C59</code><code>#C8F169</code><code>#F0F5E8</code><code>#1E1726</code>
+              </div>
+            </div>
+          </article>
+
+          <!-- P6 -->
+          <article class="palette-option reveal">
+            <div class="palette-option__bar">
+              <span style="background:#111111"></span><span style="background:#777777"></span><span style="background:#DDDDDD"></span><span style="background:#FFFFFF; box-shadow:inset 0 0 0 1px var(--line)"></span>
+            </div>
+            <div class="palette-option__body">
+              <span class="palette-option__num">Paletti 6</span>
+              <h3 class="palette-option__name">Minimal &amp; mustavalkoinen</h3>
+              <div class="palette-option__hexes">
+                <code>#111111</code><code>#777777</code><code>#DDDDDD</code><code>#FFFFFF</code>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <h2>Haluatko paletin omaan ilmeeseesi?</h2>
+          <p>Kerro tarjouspyynnössä, mikä paletti tuntuu sinun yritykseltäsi – tai pyydä täysin oma värimaailma.</p>
+          <div class="hero__cta">
+            <a href="tarjouspyynto.html" class="btn btn--primary btn--lg">Tee tarjouspyyntö →</a>
+            <a href="index.html" class="btn btn--ghost btn--lg">Takaisin etusivulle</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="brand"><span class="brand__mark">🌸</span> Studio Blomma</a>
+          <p>Verkkosivut ja visuaalinen ilme pienyrittäjille. Rohkeasti, läpinäkyvästi ja sinun näköisesti.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Sivut</h4>
+          <ul>
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="index.html#palvelut">Palvelut</a></li>
+            <li><a href="laskuri.html">Hintalaskuri</a></li>
+            <li><a href="tarjouspyynto.html">Tarjouspyyntö</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Ota yhteyttä</h4>
+          <ul>
+            <li><a href="mailto:sofia.krap@gmail.com">sofia.krap@gmail.com</a></li>
+            <li><a href="tarjouspyynto.html">Tee tarjouspyyntö →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Studio Blomma</span>
+        <span>Tehty rakkaudella pienyrittäjille 🌸</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="copy-toast" id="copyToast">Kopioitu! 📋</div>
+
+  <script src="script.js"></script>
+  <script>
+    // Klikkaa väriä -> kopioi HEX leikepöydälle
+    (function () {
+      var toast = document.getElementById('copyToast');
+      var toastTimer;
+
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('is-visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toast.classList.remove('is-visible');
+        }, 1400);
+      }
+
+      document.querySelectorAll('.color-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          var hex = card.getAttribute('data-hex');
+          if (!hex) return;
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(hex).then(function () {
+              showToast('Kopioitu ' + hex + ' 📋');
+            }).catch(function () {
+              showToast(hex);
+            });
+          } else {
+            showToast(hex);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

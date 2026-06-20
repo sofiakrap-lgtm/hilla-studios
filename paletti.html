@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brändipaletti – värit & fontit numeroituna | Studio Blomma</title>
+  <meta name="description" content="Studio Blomman brändipaletti: värit ja fontit numeroituna rakennekirjaston mukaan. Näe heti mikä väri ja fontti on mikäkin numero.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <span class="brand__mark">🌸</span> Studio Blomma
+      </a>
+      <button class="nav__toggle" aria-label="Avaa valikko" aria-expanded="false">☰</button>
+      <ul class="nav__links">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="index.html#palvelut">Palvelut</a></li>
+        <li><a href="paletti.html" class="is-active">Paletti</a></li>
+        <li><a href="laskuri.html">Hintalaskuri</a></li>
+        <li class="nav__cta"><a href="tarjouspyynto.html" class="btn btn--primary">Tee tarjouspyyntö</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="calc-hero">
+      <div class="container">
+        <span class="eyebrow">Brändijärjestelmä · sisäinen viite</span>
+        <h1>Paletti: <span class="text-gradient">värit & fontit</span> numeroituna</h1>
+        <p class="lead">Tämä on rakennekirjaston (muokkausdokumentti) mukainen tyylikartta. Jokaisella värillä ja fontilla on numero — viittaa aina numeroon (esim. ”tausta = väri&nbsp;1, otsikot = fontti&nbsp;1, CTA = väri&nbsp;5”), älä hexiin tai nimeen. Klikkaa väriä kopioidaksesi sen hex-koodin.</p>
+      </div>
+    </section>
+
+    <!-- ============ PERUSVÄRIT 1–6 ============ -->
+    <section class="section--tight">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">1. Värit — peruspaletti</span>
+          <h2>Värit 1–6 (rakenneroolit)</h2>
+          <p class="lead">Nämä kuusi väriä kattavat dokumentin määrittelemät roolit: tausta, kortit, otsikot, leipäteksti, CTA ja viivat.</p>
+        </div>
+
+        <div class="palette-grid">
+          <!-- väri 1 -->
+          <button class="color-card" data-hex="#FFF6EC">
+            <span class="color-card__chip" style="background:#FFF6EC">
+              <span class="color-card__num">väri 1</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Päätausta</span>
+              <span class="color-card__meta">
+                <code>#FFF6EC</code>
+                <code>var(--vari-1)</code>
+              </span>
+            </span>
+          </button>
+          <!-- väri 2 -->
+          <button class="color-card" data-hex="#FFEFE0">
+            <span class="color-card__chip" style="background:#FFEFE0">
+              <span class="color-card__num">väri 2</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Toissijainen tausta / osiot</span>
+              <span class="color-card__meta">
+                <code>#FFEFE0</code>
+                <code>var(--vari-2)</code>
+              </span>
+            </span>
+          </button>
+          <!-- väri 3 -->
+          <button class="color-card" data-hex="#1E1726">
+            <span class="color-card__chip" style="background:#1E1726">
+              <span class="color-card__num">väri 3</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Otsikkoteksti</span>
+              <span class="color-card__meta">
+                <code>#1E1726</code>
+                <code>var(--vari-3)</code>
+              </span>
+            </span>
+          </button>
+          <!-- väri 4 -->
+          <button class="color-card" data-hex="#4A4253">
+            <span class="color-card__chip" style="background:#4A4253">
+              <span class="color-card__num">väri 4</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Leipäteksti</span>
+              <span class="color-card__meta">
+                <code>#4A4253</code>
+                <code>var(--vari-4)</code>
+              </span>
+            </span>
+          </button>
+          <!-- väri 5 -->
+          <button class="color-card" data-hex="#FF5C7A">
+            <span class="color-card__chip" style="background:#FF5C7A">
+              <span class="color-card__num">väri 5</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">CTA / korostus</span>
+              <span class="color-card__meta">
+                <code>#FF5C7A</code>
+                <code>var(--vari-5)</code>
+              </span>
+            </span>
+          </button>
+          <!-- väri 6 -->
+          <button class="color-card" data-hex="rgba(30,23,38,0.10)">
+            <span class="color-card__chip color-card__chip--bordered" style="background:rgba(30,23,38,0.10)">
+              <span class="color-card__num">väri 6</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Ääriviivat / jakoviivat</span>
+              <span class="color-card__meta">
+                <code>#1E1726 @ 10%</code>
+                <code>var(--vari-6)</code>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KOROSTUSVÄRIT 7–11 ============ -->
+    <section class="section--tight" style="background: var(--cream-2);">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">1b. Värit — korostukset</span>
+          <h2>Värit 7–11 (lisä- & korostusvärit)</h2>
+          <p class="lead">Brändin iloiset korostukset: korttipinta, violetti, lime, keltainen ja turkoosi. Käytä pieninä pilkkuina (ikonit, badget, hover-tilat).</p>
+        </div>
+
+        <div class="palette-grid">
+          <!-- väri 7 -->
+          <button class="color-card" data-hex="#FFFFFF">
+            <span class="color-card__chip color-card__chip--bordered" style="background:#FFFFFF">
+              <span class="color-card__num">väri 7</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Korttipinta / valkoinen</span>
+              <span class="color-card__meta">
+                <code>#FFFFFF</code>
+                <code>var(--vari-7)</code>
+              </span>
+            </span>
+          </button>
+          <!-- väri 8 -->
+          <button class="color-card" data-hex="#7B4DFF">
+            <span class="color-card__chip" style="background:#7B4DFF">
+              <span class="color-card__num">väri 8</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Brändikorostus (violetti)</span>
+              <span class="color-card__meta">
+                <code>#7B4DFF</code>
+                <code>var(--vari-8)</code>
+              </span>
+            </span>
+          </button>
+          <!-- väri 9 -->
+          <button class="color-card" data-hex="#C8F169">
+            <span class="color-card__chip" style="background:#C8F169">
+              <span class="color-card__num">väri 9</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Korostus (lime)</span>
+              <span class="color-card__meta">
+                <code>#C8F169</code>
+                <code>var(--vari-9)</code>
+              </span>
+            </span>
+          </button>
+          <!-- väri 10 -->
+          <button class="color-card" data-hex="#FFD23F">
+            <span class="color-card__chip" style="background:#FFD23F">
+              <span class="color-card__num">väri 10</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Korostus (keltainen)</span>
+              <span class="color-card__meta">
+                <code>#FFD23F</code>
+                <code>var(--vari-10)</code>
+              </span>
+            </span>
+          </button>
+          <!-- väri 11 -->
+          <button class="color-card" data-hex="#2ED3C6">
+            <span class="color-card__chip" style="background:#2ED3C6">
+              <span class="color-card__num">väri 11</span>
+            </span>
+            <span class="color-card__body">
+              <span class="color-card__role">Korostus (turkoosi)</span>
+              <span class="color-card__meta">
+                <code>#2ED3C6</code>
+                <code>var(--vari-11)</code>
+              </span>
+            </span>
+          </button>
+        </div>
+        <p class="copy-hint" style="margin-top:18px">
+          Tummennukset hovereihin: <strong>väri 5 → #F23E63</strong> (<code>var(--vari-5-dark)</code>),
+          <strong>väri 8 → #5B2EE0</strong> (<code>var(--vari-8-dark)</code>).
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ FONTIT 1–4 ============ -->
+    <section class="section--tight">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">2. Fontit</span>
+          <h2>Fontit 1–4</h2>
+          <p class="lead">Kaksi fonttiperhettä neljässä roolissa. Viittaa numeroon, esim. ”fontti 1 otsikkoon, fontti 3 leipään”.</p>
+        </div>
+
+        <div class="font-grid">
+          <!-- fontti 1 -->
+          <div class="font-card">
+            <span class="font-card__num">fontti 1</span>
+            <div>
+              <div class="font-card__sample" style="font-family:var(--font-display); font-weight:800; font-size:2.4rem;">Otsikot kukoistavat</div>
+              <div class="font-card__info">
+                <strong>Bricolage Grotesque</strong> · display · paino 800 (lihava) · otsikot (h1–h2) · <code>var(--fontti-1)</code>
+              </div>
+            </div>
+          </div>
+          <!-- fontti 2 -->
+          <div class="font-card">
+            <span class="font-card__num">fontti 2</span>
+            <div>
+              <div class="font-card__sample" style="font-family:var(--font-display); font-weight:600; font-size:1.7rem;">Väliotsikko, hieman pienempi</div>
+              <div class="font-card__info">
+                <strong>Bricolage Grotesque</strong> · display · paino 600 (medium) · väliotsikot (h3–h4) · <code>var(--fontti-2)</code>
+              </div>
+            </div>
+          </div>
+          <!-- fontti 3 -->
+          <div class="font-card">
+            <span class="font-card__num">fontti 3</span>
+            <div>
+              <div class="font-card__sample" style="font-family:var(--font-body); font-weight:400; font-size:1.15rem;">Leipäteksti on luettavaa ja rauhallista. Tällä fontilla kirjoitetaan kappaleet, kuvaukset ja pidemmät tekstit.</div>
+              <div class="font-card__info">
+                <strong>Plus Jakarta Sans</strong> · sans · paino 400 (regular) · leipäteksti · <code>var(--fontti-3)</code>
+              </div>
+            </div>
+          </div>
+          <!-- fontti 4 -->
+          <div class="font-card">
+            <span class="font-card__num">fontti 4</span>
+            <div>
+              <div class="font-card__sample" style="font-family:var(--font-body); font-weight:700; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.14em;">Eyebrow · pikkutekstit · caps</div>
+              <div class="font-card__info">
+                <strong>Plus Jakarta Sans</strong> · paino 700 · ISOT KIRJAIMET, harvennettu (letter-spacing 0.14em) · eyebrow & pikkutekstit · <code>var(--fontti-4)</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ASSETS-NIMEÄMINEN ============ -->
+    <section class="section--tight" style="background: var(--cream-2);">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">3. Assetit</span>
+          <h2>Numeroidut tiedostot</h2>
+          <p class="lead">Visuaaliset resurssit menevät <code>/assets</code>-kansioon numeroituna. Viittaa numeroon (esim. ”kuva 3, logo 1, grafiikka 2”).</p>
+        </div>
+        <div class="palette-grid">
+          <div class="color-card" style="cursor:default">
+            <span class="color-card__chip" style="background:var(--coral); align-items:center; justify-content:center; font-size:2.4rem">🖼️</span>
+            <span class="color-card__body">
+              <span class="color-card__role">Kuvat</span>
+              <span class="color-card__meta">
+                <code>/assets/kuvat/</code>
+                <code>kuva-1.webp, kuva-2.webp …</code>
+              </span>
+            </span>
+          </div>
+          <div class="color-card" style="cursor:default">
+            <span class="color-card__chip" style="background:var(--teal); align-items:center; justify-content:center; font-size:2.4rem">✳️</span>
+            <span class="color-card__body">
+              <span class="color-card__role">Grafiikat</span>
+              <span class="color-card__meta">
+                <code>/assets/grafiikat/</code>
+                <code>grafiikka-1.svg, grafiikka-2.svg …</code>
+              </span>
+            </span>
+          </div>
+          <div class="color-card" style="cursor:default">
+            <span class="color-card__chip" style="background:var(--lime); align-items:center; justify-content:center; font-size:2.4rem">🌸</span>
+            <span class="color-card__body">
+              <span class="color-card__role">Logot</span>
+              <span class="color-card__meta">
+                <code>/assets/logot/</code>
+                <code>logo-1.svg, logo-2.svg …</code>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="brand"><span class="brand__mark">🌸</span> Studio Blomma</a>
+          <p>Verkkosivut ja visuaalinen ilme pienyrittäjille. Rohkeasti, läpinäkyvästi ja sinun näköisesti.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Sivut</h4>
+          <ul>
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="paletti.html">Paletti</a></li>
+            <li><a href="laskuri.html">Hintalaskuri</a></li>
+            <li><a href="tarjouspyynto.html">Tarjouspyyntö</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Ota yhteyttä</h4>
+          <ul>
+            <li><a href="mailto:sofia.krap@gmail.com">sofia.krap@gmail.com</a></li>
+            <li><a href="tarjouspyynto.html">Tee tarjouspyyntö →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Studio Blomma</span>
+        <span>Tehty rakkaudella pienyrittäjille 🌸</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="copied-toast" data-toast>Kopioitu leikepöydälle ✓</div>
+
+  <script src="script.js"></script>
+  <script>
+    // Klikkaa värikorttia → kopioi hex leikepöydälle
+    (function () {
+      var toast = document.querySelector('[data-toast]');
+      var timer;
+      document.querySelectorAll('.color-card[data-hex]').forEach(function (card) {
+        card.addEventListener('click', function () {
+          var hex = card.getAttribute('data-hex');
+          if (navigator.clipboard) { navigator.clipboard.writeText(hex).catch(function(){}); }
+          if (!toast) return;
+          toast.textContent = hex + ' kopioitu ✓';
+          toast.classList.add('is-visible');
+          clearTimeout(timer);
+          timer = setTimeout(function () { toast.classList.remove('is-visible'); }, 1400);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

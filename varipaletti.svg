@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1180" viewBox="0 0 900 1180" font-family="'Plus Jakarta Sans', Arial, sans-serif">
+  <!-- Tausta -->
+  <rect width="900" height="1180" fill="#FFF6EC"/>
+
+  <!-- Otsikko -->
+  <text x="50" y="70" font-size="38" font-weight="800" fill="#1E1726">Studio Blomma</text>
+  <text x="50" y="105" font-size="20" font-weight="600" fill="#4A4253">Numeroitu väripaletti — brändin perusvärit</text>
+  <line x1="50" y1="128" x2="850" y2="128" stroke="#1E1726" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- Väririvit -->
+  <!-- Jokainen rivi: numero | värinäyte | nimi + hex + muuttuja -->
+
+  <!-- 01 -->
+  <text x="50" y="188" font-size="22" font-weight="800" fill="#1E1726">01</text>
+  <rect x="95" y="158" width="120" height="60" rx="12" fill="#FFF6EC" stroke="#1E1726" stroke-opacity="0.12" stroke-width="1.5"/>
+  <text x="240" y="183" font-size="20" font-weight="700" fill="#1E1726">Kerma</text>
+  <text x="240" y="207" font-size="15" font-family="monospace" fill="#4A4253">#FFF6EC   ·   --cream</text>
+
+  <!-- 02 -->
+  <text x="50" y="268" font-size="22" font-weight="800" fill="#1E1726">02</text>
+  <rect x="95" y="238" width="120" height="60" rx="12" fill="#FFEFE0" stroke="#1E1726" stroke-opacity="0.12" stroke-width="1.5"/>
+  <text x="240" y="263" font-size="20" font-weight="700" fill="#1E1726">Kerma 2</text>
+  <text x="240" y="287" font-size="15" font-family="monospace" fill="#4A4253">#FFEFE0   ·   --cream-2</text>
+
+  <!-- 03 -->
+  <text x="50" y="348" font-size="22" font-weight="800" fill="#1E1726">03</text>
+  <rect x="95" y="318" width="120" height="60" rx="12" fill="#1E1726"/>
+  <text x="240" y="343" font-size="20" font-weight="700" fill="#1E1726">Muste</text>
+  <text x="240" y="367" font-size="15" font-family="monospace" fill="#4A4253">#1E1726   ·   --ink</text>
+
+  <!-- 04 -->
+  <text x="50" y="428" font-size="22" font-weight="800" fill="#1E1726">04</text>
+  <rect x="95" y="398" width="120" height="60" rx="12" fill="#4A4253"/>
+  <text x="240" y="423" font-size="20" font-weight="700" fill="#1E1726">Muste pehmeä</text>
+  <text x="240" y="447" font-size="15" font-family="monospace" fill="#4A4253">#4A4253   ·   --ink-soft</text>
+
+  <!-- 05 -->
+  <text x="50" y="508" font-size="22" font-weight="800" fill="#1E1726">05</text>
+  <rect x="95" y="478" width="120" height="60" rx="12" fill="#FF5C7A"/>
+  <text x="240" y="503" font-size="20" font-weight="700" fill="#1E1726">Koralli</text>
+  <text x="240" y="527" font-size="15" font-family="monospace" fill="#4A4253">#FF5C7A   ·   --coral</text>
+
+  <!-- 06 -->
+  <text x="50" y="588" font-size="22" font-weight="800" fill="#1E1726">06</text>
+  <rect x="95" y="558" width="120" height="60" rx="12" fill="#F23E63"/>
+  <text x="240" y="583" font-size="20" font-weight="700" fill="#1E1726">Koralli tumma</text>
+  <text x="240" y="607" font-size="15" font-family="monospace" fill="#4A4253">#F23E63   ·   --coral-dark</text>
+
+  <!-- 07 -->
+  <text x="50" y="668" font-size="22" font-weight="800" fill="#1E1726">07</text>
+  <rect x="95" y="638" width="120" height="60" rx="12" fill="#7B4DFF"/>
+  <text x="240" y="663" font-size="20" font-weight="700" fill="#1E1726">Violetti</text>
+  <text x="240" y="687" font-size="15" font-family="monospace" fill="#4A4253">#7B4DFF   ·   --purple</text>
+
+  <!-- 08 -->
+  <text x="50" y="748" font-size="22" font-weight="800" fill="#1E1726">08</text>
+  <rect x="95" y="718" width="120" height="60" rx="12" fill="#5B2EE0"/>
+  <text x="240" y="743" font-size="20" font-weight="700" fill="#1E1726">Violetti tumma</text>
+  <text x="240" y="767" font-size="15" font-family="monospace" fill="#4A4253">#5B2EE0   ·   --purple-dark</text>
+
+  <!-- 09 -->
+  <text x="50" y="828" font-size="22" font-weight="800" fill="#1E1726">09</text>
+  <rect x="95" y="798" width="120" height="60" rx="12" fill="#C8F169"/>
+  <text x="240" y="823" font-size="20" font-weight="700" fill="#1E1726">Lime</text>
+  <text x="240" y="847" font-size="15" font-family="monospace" fill="#4A4253">#C8F169   ·   --lime</text>
+
+  <!-- 10 -->
+  <text x="50" y="908" font-size="22" font-weight="800" fill="#1E1726">10</text>
+  <rect x="95" y="878" width="120" height="60" rx="12" fill="#FFD23F"/>
+  <text x="240" y="903" font-size="20" font-weight="700" fill="#1E1726">Aurinko</text>
+  <text x="240" y="927" font-size="15" font-family="monospace" fill="#4A4253">#FFD23F   ·   --sun</text>
+
+  <!-- 11 -->
+  <text x="50" y="988" font-size="22" font-weight="800" fill="#1E1726">11</text>
+  <rect x="95" y="958" width="120" height="60" rx="12" fill="#2ED3C6"/>
+  <text x="240" y="983" font-size="20" font-weight="700" fill="#1E1726">Turkoosi</text>
+  <text x="240" y="1007" font-size="15" font-family="monospace" fill="#4A4253">#2ED3C6   ·   --teal</text>
+
+  <!-- 12 -->
+  <text x="50" y="1068" font-size="22" font-weight="800" fill="#1E1726">12</text>
+  <rect x="95" y="1038" width="120" height="60" rx="12" fill="#FFFFFF" stroke="#1E1726" stroke-opacity="0.12" stroke-width="1.5"/>
+  <text x="240" y="1063" font-size="20" font-weight="700" fill="#1E1726">Valkoinen</text>
+  <text x="240" y="1087" font-size="15" font-family="monospace" fill="#4A4253">#FFFFFF   ·   --white / --surface</text>
+
+  <!-- Alapalkki: värit nauhana -->
+  <text x="50" y="1140" font-size="14" font-weight="600" fill="#4A4253">Koko paletti yhtenä nauhana:</text>
+  <g>
+    <rect x="50"  y="1150" width="66" height="22" fill="#FFF6EC" stroke="#1E1726" stroke-opacity="0.12"/>
+    <rect x="116" y="1150" width="66" height="22" fill="#FFEFE0"/>
+    <rect x="182" y="1150" width="66" height="22" fill="#1E1726"/>
+    <rect x="248" y="1150" width="66" height="22" fill="#4A4253"/>
+    <rect x="314" y="1150" width="66" height="22" fill="#FF5C7A"/>
+    <rect x="380" y="1150" width="66" height="22" fill="#F23E63"/>
+    <rect x="446" y="1150" width="66" height="22" fill="#7B4DFF"/>
+    <rect x="512" y="1150" width="66" height="22" fill="#5B2EE0"/>
+    <rect x="578" y="1150" width="66" height="22" fill="#C8F169"/>
+    <rect x="644" y="1150" width="66" height="22" fill="#FFD23F"/>
+    <rect x="710" y="1150" width="66" height="22" fill="#2ED3C6"/>
+    <rect x="776" y="1150" width="66" height="22" fill="#FFFFFF" stroke="#1E1726" stroke-opacity="0.12"/>
+  </g>
+</svg>
