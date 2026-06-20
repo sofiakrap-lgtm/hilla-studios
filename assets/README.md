@@ -1,27 +1,24 @@
 # assets/
 
-Studio Blomman mediakirjasto. Pidä tiedostot oikeassa alikansiossa, niin
-brändi pysyy järjestyksessä.
+Numeroitu mediakirjasto. Viittaan tiedostoihin **numerolla** (esim. "kuva 3"),
+ja ohjelma hakee oikean tiedoston tästä kansiosta.
 
-| Kansio | Sisältö | Formaatti |
-|--------|---------|-----------|
-| `logot/` | Logot ja wordmarkit | `.svg` |
-| `grafiikat/` | Grafiikat, badget, nuolet, kukkamotiivit, raidat | `.svg` |
-| `kuvat/` | Valokuvat (lämmin filmikuva, ihmiset työn äärellä) | `.jpg` |
+| Kansio | Tiedostot | Formaatti |
+|--------|-----------|-----------|
+| `logot/` | `logo-1.svg`, `logo-2.svg` … | `.svg` |
+| `grafiikat/` | `grafiikka-1.svg`, `grafiikka-2.svg` … | `.svg` |
+| `kuvat/` | `kuva-1.webp`, `kuva-2.webp` … | `.webp` (tai `.jpg`) |
 
-## Nimeäminen
+## Nimeämissääntö
 
-- **pienet kirjaimet, väliviivat** välilyöntien sijaan: `studio-blomma-logo.svg`
-- kuvaava nimi: `nola-beauty-hero.jpg`, `kukkamotiivi-burnt-tangerine.svg`
-- ei ääkkösiä eikä välilyöntejä tiedostonimissä (toimii kaikilla palvelimilla)
+- **pienet kirjaimet + väliviiva + juokseva numero:** `kuva-1.webp`, `grafiikka-2.svg`, `logo-1.svg`
+- **ei ääkkösiä, ei välilyöntejä** (toimii kaikilla palvelimilla)
+- kuvat mieluiten `.webp` (kevyt), grafiikat ja logot `.svg`
 
-## Käyttö sivuilla
+## Käyttö
 
-Viittaa tiedostoihin suhteellisella polulla, esim. `sivupohja.html`:
+Viittaan tiedostoon numerolla: *"hero = kuva 1 + logo 1, 2xx-ikonit = grafiikka 2–4"*.
+HTML:ssä polku on suhteellinen, esim. `assets/kuvat/kuva-1.webp`.
 
-```html
-<img src="assets/logot/studio-blomma-logo.svg" alt="Studio Blomma">
-<img src="assets/kuvat/nola-beauty-hero.jpg" alt="Nola Beauty House">
-```
-
-> `.gitkeep`-tiedostot pitävät tyhjät kansiot mukana gitissä — voit jättää ne paikoilleen.
+> Värit ja fontit: ks. **`tyyliopas.html`** (väri 1–9, fontti 1–4).
+> `.gitkeep` pitää tyhjät kansiot mukana gitissä — voit jättää ne paikoilleen.

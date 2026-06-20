@@ -17,6 +17,21 @@
   --olive-husk:      #8F915F; /* maanläheinen accent */
   --sun-mellow:      #F7B634; /* kirkas highlight */
 
+  /* --- Numeroitu järjestelmä (ks. tyyliopas.html / rakennekirjasto) --- */
+  --vari-1: #E2D7BA; /* päätausta            (Soft Oat) */
+  --vari-2: #EFE7D2; /* toissijainen / kortit (Paperi)  */
+  --vari-3: #3D2A1C; /* otsikkoteksti        (Bitter Cacao) */
+  --vari-4: #3D2A1C; /* leipäteksti          (Bitter Cacao ~80%) */
+  --vari-5: #D36433; /* CTA / korostus       (Burnt Tangerine) */
+  --vari-6: #3D2A1C; /* ääriviivat/jakoviivat (Bitter Cacao) */
+  --vari-7: #C67B7B; /* pehmeä accent        (Clay Rose) */
+  --vari-8: #8F915F; /* maanläheinen accent  (Olive Husk) */
+  --vari-9: #F7B634; /* kirkas highlight     (Sun Mellow) */
+  --fontti-1: 700;   /* otsikot / highlightit */
+  --fontti-2: 700;   /* väliotsikot */
+  --fontti-3: 400;   /* leipäteksti */
+  --fontti-4: 900;   /* eyebrow / labelit (CAPS) */
+
   /* Pinnat */
   --paper:  #EFE7D2;          /* hieman vaaleampi kortti */
   --paper-2:#EAE0C6;

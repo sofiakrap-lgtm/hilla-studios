@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tyyliopas — värit & fontit | Studio Blomma</title>
+  <meta name="description" content="Studio Blomman tyyliopas: numeroidut värit (väri 1–9) ja fontit (fontti 1–4). Numero = tyyli, jota voi käyttää sivuja rakennettaessa.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
+
+  <style>
+    /* ---- Tyyliopas-spesifit ---- */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .sw {
+      border: var(--bw) solid var(--bitter-cacao);
+      border-radius: var(--radius-m);
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: var(--shadow-s);
+    }
+    .sw__color {
+      position: relative;
+      height: 150px;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 14px;
+    }
+    .sw__num {
+      width: 40px; height: 40px;
+      display: grid; place-items: center;
+      border-radius: var(--radius-pill);
+      border: var(--bw) solid var(--bitter-cacao);
+      background: var(--soft-oat); color: var(--bitter-cacao);
+      font-weight: var(--w-black); font-size: 1.1rem;
+    }
+    .sw__hex {
+      align-self: flex-end;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-weight: 700; font-size: 0.92rem;
+      background: var(--soft-oat); color: var(--bitter-cacao);
+      border: var(--bw) solid var(--bitter-cacao);
+      border-radius: var(--radius-pill);
+      padding: 5px 12px; cursor: pointer;
+      transition: transform .12s ease;
+    }
+    .sw__hex:hover { transform: translateY(-2px); }
+    .sw__hex.copied { background: var(--sun-mellow); }
+    .sw__meta { padding: 16px 18px; border-top: var(--bw) solid var(--bitter-cacao); }
+    .sw__name { font-weight: var(--w-black); font-size: 1.05rem; }
+    .sw__role { color: var(--ink-65); font-size: 0.9rem; margin-top: 2px; }
+    .sw__var { font-family: ui-monospace, monospace; font-size: 0.78rem; color: var(--ink-65); margin-top: 8px; }
+
+    /* Fontit */
+    .fonts { display: grid; gap: 18px; }
+    .fontcard {
+      border: var(--bw) solid var(--bitter-cacao);
+      border-radius: var(--radius-m);
+      background: var(--paper);
+      box-shadow: var(--shadow-s);
+      padding: 26px 28px;
+      display: grid; grid-template-columns: 56px 1fr; gap: 22px; align-items: start;
+    }
+    .fontcard .sw__num { background: var(--burnt-tangerine); color: var(--soft-oat); }
+    .fontcard__role { font-weight: var(--w-black); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--burnt-tangerine); }
+    .fontcard__spec { color: var(--ink-65); font-size: 0.9rem; margin: 2px 0 14px; }
+    .sample-900 { font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.05; letter-spacing: -0.015em; }
+    .sample-700 { font-weight: 700; font-size: 1.5rem; line-height: 1.1; }
+    .sample-400 { font-weight: 400; font-size: 1.05rem; }
+    .sample-caps { font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.95rem; }
+
+    .note-card {
+      background: var(--bitter-cacao); color: var(--soft-oat);
+      border: var(--bw) solid var(--bitter-cacao);
+      border-radius: var(--radius-l);
+      box-shadow: var(--shadow-pop);
+      padding: 30px 32px;
+    }
+    .note-card h3 { color: var(--sun-mellow); }
+    .note-card code {
+      font-family: ui-monospace, monospace; font-size: 0.86rem;
+      background: rgba(226,215,186,0.12); padding: 2px 7px; border-radius: 6px;
+    }
+    .note-card ul { padding-left: 18px; margin: 10px 0; }
+    .note-card li { margin-bottom: 7px; }
+    @media (max-width: 760px){ .swatch-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px){ .swatch-grid { grid-template-columns: 1fr; } .fontcard { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Studio Blomma — etusivu">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__wordmark" role="img" aria-label="Studio Blomma"></span>
+      </a>
+      <button class="nav__toggle" aria-label="Avaa valikko" aria-expanded="false">☰</button>
+      <ul class="nav__links">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="palvelut.html">Palvelut</a></li>
+        <li><a href="tyot.html">Työt</a></li>
+        <li><a href="nain-se-toimii.html">Näin se toimii</a></li>
+        <li><a href="laskuri.html">Hintalaskuri</a></li>
+        <li class="nav__cta"><a href="tarjouspyynto.html" class="btn btn--primary">Tee tarjouspyyntö</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="calc-hero">
+      <div class="container">
+        <span class="eyebrow">Tyyliopas</span>
+        <h1>Värit & fontit — numeroituna</h1>
+        <p class="lead">Tässä on koko paletti numeroituna. Numero = tyyli: voit sanoa esim.
+           <strong>"tausta väri&nbsp;1, otsikot väri&nbsp;3, CTA väri&nbsp;5, otsikkofontti fontti&nbsp;1"</strong>.
+           Klikkaa hex-koodia kopioidaksesi sen.</p>
+      </div>
+    </section>
+
+    <!-- ============ VÄRIT ============ -->
+    <section class="section--tight">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Värit</span>
+          <h2>Väripaletti — väri 1–9</h2>
+        </div>
+
+        <div class="swatch-grid">
+          <!-- 1 -->
+          <article class="sw">
+            <div class="sw__color" style="background:#E2D7BA">
+              <span class="sw__num">1</span><span class="sw__hex">#E2D7BA</span>
+            </div>
+            <div class="sw__meta"><div class="sw__name">Soft Oat</div><div class="sw__role">Päätausta</div><div class="sw__var">var(--vari-1)</div></div>
+          </article>
+          <!-- 2 -->
+          <article class="sw">
+            <div class="sw__color" style="background:#EFE7D2">
+              <span class="sw__num">2</span><span class="sw__hex">#EFE7D2</span>
+            </div>
+            <div class="sw__meta"><div class="sw__name">Paperi</div><div class="sw__role">Toissijainen tausta / kortit</div><div class="sw__var">var(--vari-2)</div></div>
+          </article>
+          <!-- 3 -->
+          <article class="sw">
+            <div class="sw__color" style="background:#3D2A1C">
+              <span class="sw__num" style="background:#E2D7BA">3</span><span class="sw__hex" style="background:#E2D7BA">#3D2A1C</span>
+            </div>
+            <div class="sw__meta"><div class="sw__name">Bitter Cacao</div><div class="sw__role">Otsikkoteksti & tummat osiot</div><div class="sw__var">var(--vari-3)</div></div>
+          </article>
+          <!-- 4 -->
+          <article class="sw">
+            <div class="sw__color" style="background:#3D2A1C">
+              <span class="sw__num" style="background:#E2D7BA">4</span><span class="sw__hex" style="background:#E2D7BA">#3D2A1C</span>
+            </div>
+            <div class="sw__meta"><div class="sw__name">Bitter Cacao (leipä)</div><div class="sw__role">Leipäteksti — käytetään ~80&nbsp;% peitolla</div><div class="sw__var">var(--vari-4)</div></div>
+          </article>
+          <!-- 5 -->
+          <article class="sw">
+            <div class="sw__color" style="background:#D36433">
+              <span class="sw__num" style="background:#E2D7BA">5</span><span class="sw__hex" style="background:#E2D7BA">#D36433</span>
+            </div>
+            <div class="sw__meta"><div class="sw__name">Burnt Tangerine</div><div class="sw__role">CTA / korostus (napit, linkit)</div><div class="sw__var">var(--vari-5)</div></div>
+          </article>
+          <!-- 6 -->
+          <article class="sw">
+            <div class="sw__color" style="background:#3D2A1C">
+              <span class="sw__num" style="background:#E2D7BA">6</span><span class="sw__hex" style="background:#E2D7BA">#3D2A1C</span>
+            </div>
+            <div class="sw__meta"><div class="sw__name">Bitter Cacao (viivat)</div><div class="sw__role">Ääriviivat (2&nbsp;px) & jakoviivat</div><div class="sw__var">var(--vari-6)</div></div>
+          </article>
+          <!-- 7 -->
+          <article class="sw">
+            <div class="sw__color" style="background:#C67B7B">
+              <span class="sw__num" style="background:#E2D7BA">7</span><span class="sw__hex" style="background:#E2D7BA">#C67B7B</span>
+            </div>
+            <div class="sw__meta"><div class="sw__name">Clay Rose</div><div class="sw__role">Pehmeä accent</div><div class="sw__var">var(--vari-7)</div></div>
+          </article>
+          <!-- 8 -->
+          <article class="sw">
+            <div class="sw__color" style="background:#8F915F">
+              <span class="sw__num" style="background:#E2D7BA">8</span><span class="sw__hex" style="background:#E2D7BA">#8F915F</span>
+            </div>
+            <div class="sw__meta"><div class="sw__name">Olive Husk</div><div class="sw__role">Maanläheinen accent</div><div class="sw__var">var(--vari-8)</div></div>
+          </article>
+          <!-- 9 -->
+          <article class="sw">
+            <div class="sw__color" style="background:#F7B634">
+              <span class="sw__num">9</span><span class="sw__hex">#F7B634</span>
+            </div>
+            <div class="sw__meta"><div class="sw__name">Sun Mellow</div><div class="sw__role">Kirkas highlight / badge</div><div class="sw__var">var(--vari-9)</div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="stripes" aria-hidden="true"></div>
+
+    <!-- ============ FONTIT ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Fontit</span>
+          <h2>Typografia — fontti 1–4</h2>
+          <p class="lead">Yksi perhe, <strong>Montserrat</strong> (Google Fonts), kolmella vahvuudella.</p>
+        </div>
+
+        <div class="fonts">
+          <article class="fontcard">
+            <span class="sw__num">1</span>
+            <div>
+              <div class="fontcard__role">Otsikot & highlightit</div>
+              <div class="fontcard__spec">Montserrat · Bold (700)</div>
+              <div class="sample-700">Brändi, joka kukoistaa — ja sivut, jotka myyvät.</div>
+            </div>
+          </article>
+          <article class="fontcard">
+            <span class="sw__num">2</span>
+            <div>
+              <div class="fontcard__role">Väliotsikot</div>
+              <div class="fontcard__spec">Montserrat · Bold (700) — pienemmällä koolla</div>
+              <div class="sample-700" style="font-size:1.25rem">Verkkosivujen suunnittelu</div>
+            </div>
+          </article>
+          <article class="fontcard">
+            <span class="sw__num">3</span>
+            <div>
+              <div class="fontcard__role">Leipäteksti</div>
+              <div class="fontcard__spec">Montserrat · Regular (400)</div>
+              <div class="sample-400">Studio Blomma rakentaa lämpimän retro-editorial -ilmeen ja valmiit verkkosivut naisvetoisille aloille. Yksi paketti, läpinäkyvä hinta, nopea toimitus.</div>
+            </div>
+          </article>
+          <article class="fontcard">
+            <span class="sw__num">4</span>
+            <div>
+              <div class="fontcard__role">Eyebrow / labelit</div>
+              <div class="fontcard__spec">Montserrat · Black (900) — CAPS, harvennettu</div>
+              <div class="sample-caps">Palvelut &amp; hinnoittelu</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NUMEROITU JÄRJESTELMÄ ============ -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="note-card reveal">
+          <h3>Numeroitu järjestelmä</h3>
+          <p>Rakenne (osiokoodit 1xx–10xx) ja tyyli pidetään erillään. Tyyliin viitataan numerolla:</p>
+          <ul>
+            <li><strong>Värit:</strong> <code>väri 1–9</code> (yllä)</li>
+            <li><strong>Fontit:</strong> <code>fontti 1–4</code> (yllä)</li>
+            <li><strong>Assetit:</strong> <code>logo-1.svg</code>, <code>grafiikka-1.svg</code>, <code>kuva-1.webp</code> kansiossa <code>assets/</code></li>
+          </ul>
+          <p style="margin-bottom:0">Esimerkki: <em>"Rakenna 1xx + 2xx + 3xx. Tausta väri 1, otsikot väri 3 fontilla 1, CTA väri 5. Hero = kuva 1 + logo 1."</em></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="brand" aria-label="Studio Blomma">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__wordmark" role="img" aria-label="Studio Blomma"></span>
+          </a>
+          <p>Web design -studio naisvetoisille aloille. Lämmin retro-editorial, fun luxe.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Sivut</h4>
+          <ul>
+            <li><a href="palvelut.html">Palvelut</a></li>
+            <li><a href="tyot.html">Työt</a></li>
+            <li><a href="nain-se-toimii.html">Näin se toimii</a></li>
+            <li><a href="laskuri.html">Hintalaskuri</a></li>
+            <li><a href="tyyliopas.html">Tyyliopas</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Ota yhteyttä</h4>
+          <ul>
+            <li><a href="mailto:sofia.krap@gmail.com">sofia.krap@gmail.com</a></li>
+            <li><a href="tarjouspyynto.html">Tee tarjouspyyntö →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Studio Blomma</span>
+        <span>Tehty lämmöllä</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Klikkaa hexiä kopioidaksesi
+    document.querySelectorAll(".sw__hex").forEach(function (el) {
+      el.addEventListener("click", function () {
+        var hex = el.textContent.trim();
+        navigator.clipboard && navigator.clipboard.writeText(hex);
+        var old = el.textContent;
+        el.textContent = "Kopioitu!";
+        el.classList.add("copied");
+        setTimeout(function () { el.textContent = old; el.classList.remove("copied"); }, 1100);
+      });
+    });
+  </script>
+</body>
+</html>
