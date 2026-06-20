@@ -827,3 +827,89 @@ p { margin: 0 0 1em; }
   .h106__nav .nav__links.is-open { display: flex; }
   .h106__nav .nav__links .btn { width: 100%; }
 }
+
+/* =========================================================
+   Etusivu — osio 201 (TOIMIALOJEN LIUKULISTAUS, oikealle)
+   Tausta väri 1, teksti väri 6. Liikkuu oikealle.
+   ========================================================= */
+.s201 { background: var(--vari-1); }
+.s201__marquee {
+  overflow: hidden; padding: 16px 0;
+  border-block: var(--bw) solid var(--vari-6);
+}
+.s201__track {
+  display: flex; align-items: center; width: max-content;
+  animation: s201-right 34s linear infinite;
+}
+.s201__item {
+  font-family: var(--font-head); font-weight: var(--w-bold);
+  font-size: 1.18rem; letter-spacing: 0.02em; text-transform: uppercase;
+  color: var(--vari-6); white-space: nowrap;
+}
+.s201__dot { color: var(--vari-5); font-size: 0.9rem; padding: 0 22px; }
+/* Liike oikealle: aloitetaan toisesta kopiosta ja valutaan nollaan */
+@keyframes s201-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .s201__track { animation: none; } }
+
+/* =========================================================
+   Etusivu — osio 221 (NÄIN SE HOITUU / PROSESSI)
+   Numeroidut värilliset ympyrät + askelkuvaus. Tausta väri 2.
+   ========================================================= */
+.s221 { background: var(--vari-2); padding: 86px 0; }
+.s221__head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+.s221__head h2 {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3.1rem); color: var(--vari-3); margin: 0;
+}
+.s221__sub {
+  font-family: var(--font); font-weight: var(--w-black); text-transform: uppercase;
+  letter-spacing: 0.14em; font-size: 0.92rem; color: var(--vari-5); margin: 12px 0 0;
+}
+
+.s221__steps {
+  list-style: none; margin: 0 auto; padding: 0; max-width: 760px;
+  display: flex; flex-direction: column; gap: 26px; position: relative;
+}
+.s221__step {
+  display: grid; grid-template-columns: 72px 1fr; gap: 24px; align-items: start;
+  position: relative;
+}
+/* yhdysviiva ympyröiden välissä */
+.s221__step:not(:last-child)::before {
+  content: ""; position: absolute; left: 35px; top: 72px; bottom: -26px;
+  width: var(--bw); background: var(--vari-6); opacity: 0.35;
+}
+.s221__num {
+  position: relative; z-index: 1;
+  display: inline-grid; place-items: center;
+  width: 72px; height: 72px; border-radius: var(--radius-pill);
+  border: var(--bw) solid var(--vari-3);
+  font-family: var(--font-head); font-weight: 700; font-size: 1.8rem;
+  color: var(--vari-1); box-shadow: var(--shadow-pop-sm);
+}
+.s221__num--1 { background: var(--vari-8); }                       /* Hintalaskuri */
+.s221__num--2 { background: var(--vari-5); }                       /* Suunnittelu */
+.s221__num--3 { background: var(--vari-6); }                       /* Toteutus */
+.s221__num--4 { background: var(--vari-7); }                       /* Arviot */
+.s221__num--5 { background: var(--vari-9); color: var(--vari-3); } /* Valmis! */
+
+.s221__body {
+  background: var(--vari-1);
+  border: var(--bw) solid var(--vari-3);
+  border-radius: var(--radius-m);
+  padding: 24px 26px;
+  box-shadow: var(--shadow-s);
+}
+.s221__body h3 {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: 1.3rem; color: var(--vari-3); margin: 0 0 8px;
+}
+.s221__body p { color: var(--vari-4); margin: 0; line-height: 1.7; }
+.s221__body p strong { font-weight: var(--w-black); color: var(--vari-3); }
+.s221__body .btn { margin-top: 18px; }
+
+@media (max-width: 640px) {
+  .s221__step { grid-template-columns: 56px 1fr; gap: 16px; }
+  .s221__num { width: 56px; height: 56px; font-size: 1.45rem; }
+  .s221__step:not(:last-child)::before { left: 27px; top: 56px; }
+}
