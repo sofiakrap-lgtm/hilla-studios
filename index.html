@@ -135,6 +135,41 @@
       </div>
     </section>
 
+    <!-- ============ 219 — JOTAIN EXTRAA (lisäpalvelut) ============ -->
+    <section class="s219" aria-labelledby="s219-title">
+      <div class="container">
+        <header class="s219__head">
+          <h2 class="s219__title" id="s219-title">Nettisivuillesi jotain extraa?</h2>
+        </header>
+        <div class="s219__cards">
+          <!-- Vasen: hintalaskuri -->
+          <article class="s219__card">
+            <span class="s219__icon" style="--ico:url('assets/grafiikat/grafiikka-25.svg')" aria-hidden="true"></span>
+            <h3>Hintalaskuri tuotteellesi tai palvelulle?</h3>
+            <p>Onko sinulla idea, mutta toteutus jää puuttumaan? Me viemme sen maaliin. Suora ja
+               varma hinta-arvio on asiakkaalle iso etu: kun hinta on tiedossa jo etukäteen, se voi
+               nousta ratkaisevaksi valtiksi tuotteiden ja palveluiden kilpailutuksessa.</p>
+          </article>
+          <!-- Keski: kanta-asiakkuus -->
+          <article class="s219__card">
+            <span class="s219__icon" style="--ico:url('assets/grafiikat/grafiikka-24.svg')" aria-hidden="true"></span>
+            <h3>Automatisoidut asiakaspalautteet ja kanta-asiakkuuden hallinta?</h3>
+            <p>Haluatko palkita asiakkaitasi eduilla ja kampanjoilla? Se onnistuu helposti
+               kanta-asiakasohjelman avulla — ja samalla keräät arvokasta palautetta suoraan
+               verkkosivujesi kautta.</p>
+          </article>
+          <!-- Oikea: ajanvaraus -->
+          <article class="s219__card">
+            <span class="s219__icon" style="--ico:url('assets/grafiikat/grafiikka-23.svg')" aria-hidden="true"></span>
+            <h3>Ajanvarausjärjestelmä palveluille</h3>
+            <p>Viekö kalenterin manuaalinen päivittäminen liikaa aikaa ja energiaa?
+               Ajanvarausjärjestelmä hoitaa varaukset puolestasi automaattisesti, jotta sinun
+               aikasi jää olennaiseen — yrittämiseen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ 221 — NÄIN SE HOITUU / PROSESSI ============ -->
     <section class="s221" aria-labelledby="s221-title">
       <div class="container">
@@ -250,7 +285,98 @@
         </div>
       </div>
     </section>
+
+    <!-- ============ 702 — ARVOSTELUT ============ -->
+    <section class="s702" aria-labelledby="s702-title">
+      <div class="container">
+        <header class="s702__head">
+          <h2 id="s702-title">Mitä asiakkaamme sanovat</h2>
+          <p>Oikeita kokemuksia yrittäjiltä, joiden ilmeen pistimme minttiin.</p>
+        </header>
+        <div class="s702__row">
+          <article class="s702__card">
+            <div class="s702__rating">
+              <span class="s702__stars" aria-hidden="true">★★★★★</span>
+              <span class="s702__score">5/5</span>
+            </div>
+            <h3 class="s702__quote-title">Juuri sellainen kuin kuvittelin</h3>
+            <p class="s702__quote">”Sain valmiin sivuston alle viikossa, ja se näytti tismalleen
+               brändini näköiseltä. Hinta oli selvillä jo etukäteen — ei ikäviä yllätyksiä.”</p>
+            <p class="s702__by">— Cake Atelier</p>
+          </article>
+          <article class="s702__card">
+            <div class="s702__rating">
+              <span class="s702__stars" aria-hidden="true">★★★★★</span>
+              <span class="s702__score">5/5</span>
+            </div>
+            <h3 class="s702__quote-title">Helppoa alusta loppuun</h3>
+            <p class="s702__quote">”Ideointilomake teki suunnittelusta vaivatonta. Sain juuri sen
+               raikkaan ja rohkean ilmeen, jota studiollemme kaipasin.”</p>
+            <p class="s702__by">— Velora Movement</p>
+          </article>
+          <article class="s702__card">
+            <div class="s702__rating">
+              <span class="s702__stars" aria-hidden="true">★★★★★</span>
+              <span class="s702__score">5/5</span>
+            </div>
+            <h3 class="s702__quote-title">Suosittelen lämpimästi</h3>
+            <p class="s702__quote">”Nopea toimitus, selkeä hinnoittelu ja lopputulos, joka näyttää
+               kalliilta mutta ei maksanut maltaita. Juuri tätä pienyrittäjä tarvitsee.”</p>
+            <p class="s702__by">— Floréa Atelier</p>
+          </article>
+        </div>
+        <div class="s702__nav">
+          <button class="s702__arrow" aria-label="Edellinen arvostelu"
+                  onclick="this.closest('.s702').querySelector('.s702__row').scrollBy({left:-340,behavior:'smooth'})">←</button>
+          <a href="demot.html" class="btn btn--dark btn--lg">Tutustu meidän demoihin →</a>
+          <button class="s702__arrow" aria-label="Seuraava arvostelu"
+                  onclick="this.closest('.s702').querySelector('.s702__row').scrollBy({left:340,behavior:'smooth'})">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 801 — BRÄNDÄYSDEMOT + TYYTYVÄISYYSTAKUU ============ -->
+    <section class="s801" aria-labelledby="s801-title">
+      <!-- Yläosa: logoseinä (lisälogot, väri 2, järjestys 6,1,3,2,4,5) -->
+      <div class="s801__brands">
+        <h2 class="s801__brands-title">Brändäysdemot</h2>
+        <ul class="s801__logos">
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-6.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-1.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-3.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-2.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-4.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-5.svg')"></span></li>
+        </ul>
+      </div>
+      <!-- Alaosa: takuu -->
+      <div class="s801__guarantee">
+        <div class="s801__media">
+          <img src="assets/kuvat/kuva-5.webp" alt="Studio Blomman työtä" onerror="this.style.display='none'">
+          <span class="s801__media-gfx" style="background-image:url('assets/grafiikat/grafiikka-30.svg')" aria-hidden="true"></span>
+        </div>
+        <div class="s801__panel">
+          <p class="s801__eyebrow" id="s801-title">Tyytyväisyystakuu</p>
+          <h2 class="s801__title">Jos tekemämme nettisivu ei vastaa odotuksiasi, palautamme rahat.</h2>
+          <p class="s801__text">Meidän tärkein tehtävämme on pitää asiakkaamme tyytyväisinä — siksi
+             seisomme työmme takana täysin. Et maksa lopputuloksesta, johon et ole tyytyväinen.</p>
+          <div class="s801__buttons">
+            <a href="laskuri.html" class="btn btn--calc">Hintalaskuriin →</a>
+            <a href="yhteys.html" class="btn btn--outline">Ota yhteyttä</a>
+            <a href="demot.html" class="btn btn--outline">Demot</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- ============ 300 — ALALAIDAN BRÄNDIBANNERI (jokaisella sivulla) ============ -->
+  <section class="s300" aria-label="Studio Blomma">
+    <div class="container s300__inner">
+      <img class="s300__logo" src="assets/logot/logo-1.svg" alt="Studio Blomma" onerror="this.style.display='none'">
+      <p class="s300__tagline">Pistetään yrityksesi visuaalit minttiin.</p>
+    </div>
+  </section>
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
