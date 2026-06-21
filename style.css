@@ -1671,3 +1671,23 @@ p { margin: 0 0 1em; }
 .arviot__total strong { font-size: 2rem; font-weight: var(--w-black); color: var(--vari-3); }
 .arviot__actions { max-width: 760px; margin: 24px auto 0; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 .arviot__actions [data-arviot-clear] { margin-left: auto; }
+
+/* =========================================================
+   SOME 1.2 — pakettien pelkistetty bullet + 701 perustelut
+   ========================================================= */
+/* 402-pakettien pelkistetty variantti (ei kukkia, pieni pallura, suoraan auki) */
+.p402--plain .p402__feats > li::before { content: "•"; color: var(--vari-3); font-size: 1.1rem; top: -1px; }
+.p402--plain .p402__feats > li { padding-left: 22px; }
+.p402--plain .p402__feats li strong { font-weight: 700; color: var(--vari-3); }
+.p402--plain .p402__feats li small { display: block; font-size: .85rem; line-height: 1.45; color: var(--vari-4); margin-top: 2px; }
+
+/* 701 — Miksi panostaa someen (3 väitettä + lähteet) */
+.s701 { background: var(--vari-1); padding: 88px 0; }
+.s701__head { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+.s701__head h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.7rem); color: var(--vari-3); margin: 0; line-height: 1.18; }
+.s701__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+.s701__card { border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); background: var(--vari-2); padding: 30px 28px; display: flex; flex-direction: column; gap: 14px; }
+.s701__claim { font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; line-height: 1.2; color: var(--vari-3); margin: 0; }
+.s701__text { font-size: .98rem; line-height: 1.65; color: var(--vari-3); margin: 0; }
+.s701__source { margin-top: auto; font-size: .8rem; font-style: italic; color: var(--ink-65); }
+@media (max-width: 880px) { .s701__grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }

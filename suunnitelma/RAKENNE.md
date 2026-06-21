@@ -68,7 +68,11 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
       "Laske hinta" → lisäpalvelut-ikkuna (ohita/valitse) → hinta (ALV 0 %) + tarjouspyyntö
     - "Muu" → teksti erikoistapauksista + "Ota yhteyttä" -nappi
 
-### 1.2 Sosiaalinen media   — `some.html`                ⏳
+### 1.2 Sosiaalinen media — `some.html` ✅
+- **402** Some-paketit (pelkistetty: pieni pallura, suoraan auki):
+  Some alku (499€) · Some freesaus (349€) · Some kasvu (749€)
+- **701** Miksi panostaa someen — 3 väitettä + lähteet (tausta 1, teksti 3)
+- **801** Brändäysdemot + takuu
 ### 1.3 Brändi-identiteetti — `brandi-identiteetti.html` ⏳
 ### 1.4 Paketit             — `paketit.html`             ⏳
 
