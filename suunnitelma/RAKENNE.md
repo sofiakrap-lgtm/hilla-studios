@@ -27,7 +27,7 @@
 - **908** Onko sinulla idea? — kuva 6, tummennus 40 %
 - **800** Upgreidaa brändisi — accordion
 - **815** Some-suunnittelu — tilasto + demo feed
-- **402** Paketit — Freesaus / Nettisivut kuntoon / Kasvu
+- **402** Paketit — Freesaus / Nettisivut kuntoon / Kasvu (pallura-bullet, sisällöt auki)
 - **804** Verkkokauppa — kuva 5
 - **215** Ajanhallinta + kalenteri
 - **901** Tarjouspyyntöjen automatisointi — 2 esimerkkiä
@@ -75,7 +75,12 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
   Some alku (499€) · Some freesaus (349€) · Some kasvu (749€) — hinnat lukittu.
 - **701** Miksi panostaa someen — 3 väitettä + lähteet (tausta 1, teksti 3)
 - **801** Brändäysdemot + takuu
-### 1.3 Brändi-identiteetti — `brandi-identiteetti.html` ⏳
+### 1.3 Brändi-identiteetti — `brandi-identiteetti.html` ✅
+- **402** Brändipaketit (sama 402-tyyli, pelkistetty bullet, suoraan auki, 4 korttia):
+  Logon suunnittelu (149€) · Värisuunnittelu (79€) · Graafit & fontit (99€) · Kuvaus (alk. 99€, ota yhteyttä)
+  → "Lisää hintalaskuriin" lisää suoraan koriin (ei välihinnoittelua); Kuvaus → Ota yhteyttä
+- **801** Brändäysdemot + takuu
+- HUOM: palvelut.html 402 päivitetty samaan tyyliin (kukat→pallurat, avattavat auki)
 ### 1.4 Paketit             — `paketit.html`             ⏳
 
 ---
@@ -99,4 +104,4 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
 
 ### Tila
 - ✅ Valmiit: Etusivu, Palvelut, Hintalaskuri, Nettisivut 1.1, Toimialasivut 1.1.1–1.1.7, Some 1.2, Hinta-arviot (arviot.html)
-- ⏳ Tulossa: 1.3 brändi, 1.4 paketit, Meistä
+- ⏳ Tulossa: 1.4 paketit, Meistä

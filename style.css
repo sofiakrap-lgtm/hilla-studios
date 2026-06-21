@@ -1734,3 +1734,8 @@ p { margin: 0 0 1em; }
   .spkg:nth-of-type(even) .spkg__media { order: 0; }
   .spkg__media { min-height: 220px; }
 }
+
+/* Brändi-identiteetti — 402-paketit 4 korttia */
+.p402--brandi .p402__cards { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1000px) { .p402--brandi .p402__cards { grid-template-columns: repeat(2, 1fr); max-width: 720px; margin: 0 auto; } }
+@media (max-width: 560px) { .p402--brandi .p402__cards { grid-template-columns: 1fr; max-width: 420px; } }
