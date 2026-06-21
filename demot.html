@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demot — Studio Blomma</title>
-  <meta name="description" content="Studio Blomman töitä ja demoja naisvetoisille aloille: ravintolat, kauneus, tilauskakut, hyvinvointi ja brändi-ilmeet. Lämmin retro-editorial.">
-
+  <title>Demot – Studio Blomma</title>
+  <meta name="description" content="Tutustu Studio Blomman demoihin: nettisivut eri toimialoille, some-keissi ja brändi-identiteetin ennen/jälkeen -keissit.">
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
 </head>
 <body>
-
-  <!-- ============ HEADER / NAV ============ -->
   <header class="site-header">
     <div class="container nav">
       <a href="index.html" class="brand" aria-label="Studio Blomma — etusivu">
@@ -32,133 +29,415 @@
   </header>
 
   <main>
-    <section class="calc-hero">
+    <!-- ============ 908 — TYYTYVÄISYYSTAKUU-HERO (ilman logoa) ============ -->
+    <section class="p908" aria-labelledby="d908-title">
+      <div class="p908__bg" style="background-image:url('assets/kuvat/kuva-2.webp'); background-position:bottom center" aria-hidden="true"></div>
       <div class="container">
-        <span class="eyebrow">Demot</span>
-        <h1>Studioita, jotka <span class="highlight">erottuvat</span></h1>
-        <p class="lead">Poimintoja demoista: Cake Atelier · Velora Movement · Floréa Atelier · Calle Sol · Nola Beauty House.</p>
+        <div class="p908__inner">
+          <h1 class="p908__title" id="d908-title">Meillä on tyytyväisyystakuu, koska kannamme vastuun palveluistamme. Liity tyytyväisten asiakkaiden joukkoon.</h1>
+          <a href="#demo-nettisivut" class="btn btn--light btn--lg">Tutustu demoihimme ↓</a>
+        </div>
       </div>
     </section>
 
-    <section class="section--tight">
-      <div class="container" style="max-width: 780px;">
-        <div class="section-head section-head--center reveal">
-          <span class="eyebrow">Demot</span>
-          <h2>Katso demomme nettisivuista</h2>
-          <p class="lead">Avaa demo painamalla <strong>+</strong>. Huomioithan, että kyse on
-             demosta — osa oikean sivuston toiminnallisuuksista ei ole käytettävissä.</p>
-        </div>
-
-        <div class="demo-list reveal">
-          <!-- Jokainen demo: + avaa esikatselun (sivuston yläosa) + napin itse demoon.
-               Pudota esikatselukuvat kansioon assets/demot/ (ks. README). -->
-          <details class="demo">
-            <summary class="demo__head">
-              <span class="demo__name">Kukkakauppa</span>
-              <span class="demo__plus" aria-hidden="true"></span>
-            </summary>
-            <div class="demo__body">
-              <div class="demo__preview">
-                <img src="assets/demot/demo-kukkakauppa.webp" alt="Kukkakaupan demon yläosa"
-                     onerror="this.parentElement.classList.add('is-empty'); this.style.display='none'">
-              </div>
-              <a href="#" class="btn btn--primary">Katso demo →</a>
-            </div>
-          </details>
-
-          <details class="demo">
-            <summary class="demo__head">
-              <span class="demo__name">Kynsitekniikko</span>
-              <span class="demo__plus" aria-hidden="true"></span>
-            </summary>
-            <div class="demo__body">
-              <div class="demo__preview">
-                <img src="assets/demot/demo-kynsitekniikko.webp" alt="Kynsitekniikon demon yläosa"
-                     onerror="this.parentElement.classList.add('is-empty'); this.style.display='none'">
-              </div>
-              <a href="#" class="btn btn--primary">Katso demo →</a>
-            </div>
-          </details>
-
-          <details class="demo">
-            <summary class="demo__head">
-              <span class="demo__name">Rakennusyritys</span>
-              <span class="demo__plus" aria-hidden="true"></span>
-            </summary>
-            <div class="demo__body">
-              <div class="demo__preview">
-                <img src="assets/demot/demo-rakennusyritys.webp" alt="Rakennusyrityksen demon yläosa"
-                     onerror="this.parentElement.classList.add('is-empty'); this.style.display='none'">
-              </div>
-              <a href="#" class="btn btn--primary">Katso demo →</a>
-            </div>
-          </details>
-
-          <details class="demo">
-            <summary class="demo__head">
-              <span class="demo__name">Kakkukauppa</span>
-              <span class="demo__plus" aria-hidden="true"></span>
-            </summary>
-            <div class="demo__body">
-              <div class="demo__preview">
-                <img src="assets/demot/demo-kakkukauppa.webp" alt="Kakkukaupan demon yläosa"
-                     onerror="this.parentElement.classList.add('is-empty'); this.style.display='none'">
-              </div>
-              <a href="#" class="btn btn--primary">Katso demo →</a>
-            </div>
-          </details>
-
-          <details class="demo">
-            <summary class="demo__head">
-              <span class="demo__name">Joogastudio</span>
-              <span class="demo__plus" aria-hidden="true"></span>
-            </summary>
-            <div class="demo__body">
-              <div class="demo__preview">
-                <img src="assets/demot/demo-joogastudio.webp" alt="Joogastudion demon yläosa"
-                     onerror="this.parentElement.classList.add('is-empty'); this.style.display='none'">
-              </div>
-              <a href="#" class="btn btn--primary">Katso demo →</a>
-            </div>
-          </details>
-
-          <details class="demo">
-            <summary class="demo__head">
-              <span class="demo__name">Kauneushoitola</span>
-              <span class="demo__plus" aria-hidden="true"></span>
-            </summary>
-            <div class="demo__body">
-              <div class="demo__preview">
-                <img src="assets/demot/demo-kauneushoitola.webp" alt="Kauneushoitolan demon yläosa"
-                     onerror="this.parentElement.classList.add('is-empty'); this.style.display='none'">
-              </div>
-              <a href="#" class="btn btn--primary">Katso demo →</a>
-            </div>
-          </details>
-        </div>
-
-        <div style="text-align:center; margin-top:40px" class="reveal">
-          <a href="tarjouspyynto.html" class="btn btn--primary btn--lg">Haluan saman →</a>
+    <!-- ============ 803 — DEMOJEN NAVI ============ -->
+    <section class="dnav" aria-labelledby="dnav-title">
+      <div class="container">
+        <header class="dnav__head"><h2 id="dnav-title">Mitä haluat nähdä?</h2></header>
+        <div class="dnav__grid">
+          <article class="dnav__card">
+            <div class="dnav__bg" style="background-image:url('assets/kuvat/kuva-1.webp')" aria-hidden="true"></div>
+            <h3>Nettisivut</h3>
+            <a href="#demo-nettisivut" class="btn">Katso demot →</a>
+          </article>
+          <article class="dnav__card">
+            <div class="dnav__bg" style="background-image:url('assets/kuvat/kuva-2.webp')" aria-hidden="true"></div>
+            <h3>Some</h3>
+            <a href="#demo-some" class="btn">Katso keissi →</a>
+          </article>
+          <article class="dnav__card">
+            <div class="dnav__bg" style="background-image:url('assets/kuvat/kuva-4.webp')" aria-hidden="true"></div>
+            <h3>Brändi-identiteetti</h3>
+            <a href="#demo-brandi" class="btn">Katso keissit →</a>
+          </article>
         </div>
       </div>
     </section>
-    <!-- ============ CTA-BANNERI ============ -->
-    <section class="section" style="padding-top:24px">
+
+    <!-- ============ NETTISIVUT 1 — DEMOKARUSELLI ============ -->
+    <section class="dcar" id="demo-nettisivut" style="scroll-margin-top:90px" aria-labelledby="dcar-title">
       <div class="container">
-        <div class="cta-banner reveal">
-          <span class="label">Aloitetaan</span>
-          <h2>Valmis kukoistamaan verkossa?</h2>
-          <p>Aloita laskemalla hinta tai tee suoraan tarjouspyyntö. Vastaan henkilökohtaisesti jokaiseen viestiin.</p>
-          <div class="hero__cta">
-            <a href="laskuri.html" class="btn btn--primary btn--lg">Laske hinta →</a>
-            <a href="tarjouspyynto.html" class="btn btn--dark btn--lg">Tee tarjouspyyntö</a>
+        <header class="dcar__head"><h2 id="dcar-title">Tutustu demoihimme</h2></header>
+        <div class="dcar__track">
+          <article class="dcar__card">
+            <div class="dcar__media"><img src="assets/kuvat/web-demo-1.jpg" alt="Kauneusala — nettisivun demo" onerror="this.closest('.dcar__media').style.display='none'"></div>
+            <div class="dcar__body">
+              <h3>Kauneusala</h3>
+              <p>Ajanvaraus ja kanta-asiakkuus keskiössä — sivu, joka tuo asiakkaat luoksesi.</p>
+              <a href="kauneusala.html" class="btn btn--primary">Katso demo →</a>
+            </div>
+          </article>
+          <article class="dcar__card">
+            <div class="dcar__media"><img src="assets/kuvat/web-demo-2.jpg" alt="Rakennusala — nettisivun demo" onerror="this.closest('.dcar__media').style.display='none'"></div>
+            <div class="dcar__body">
+              <h3>Rakennusala</h3>
+              <p>Referenssit ja selkeät yhteystiedot, jotka herättävät luottamuksen.</p>
+              <a href="rakennusala.html" class="btn btn--primary">Katso demo →</a>
+            </div>
+          </article>
+          <article class="dcar__card">
+            <div class="dcar__media"><img src="assets/kuvat/web-demo-3.jpg" alt="Ravintola-ala — nettisivun demo" onerror="this.closest('.dcar__media').style.display='none'"></div>
+            <div class="dcar__body">
+              <h3>Ravintola-ala</h3>
+              <p>Menu, pöytävaraus ja sijainti aina ajan tasalla.</p>
+              <a href="ravintola.html" class="btn btn--primary">Katso demo →</a>
+            </div>
+          </article>
+          <article class="dcar__card">
+            <div class="dcar__media"><img src="assets/kuvat/web-demo-4.jpg" alt="Kahvila-ala — nettisivun demo" onerror="this.closest('.dcar__media').style.display='none'"></div>
+            <div class="dcar__body">
+              <h3>Kahvila-ala</h3>
+              <p>Tunnelmaa, menu ja some-syöte — asiakas löytää ja palaa.</p>
+              <a href="kahvila.html" class="btn btn--primary">Katso demo →</a>
+            </div>
+          </article>
+          <article class="dcar__card">
+            <div class="dcar__media"><img src="assets/kuvat/web-demo-5.jpg" alt="Hyvinvointi — nettisivun demo" onerror="this.closest('.dcar__media').style.display='none'"></div>
+            <div class="dcar__body">
+              <h3>Hyvinvointi</h3>
+              <p>Kurssikalenteri ja ajanvaraus, jotka pitävät rytmin kasassa.</p>
+              <a href="hyvinvointi.html" class="btn btn--primary">Katso demo →</a>
+            </div>
+          </article>
+          <article class="dcar__card">
+            <div class="dcar__media"><img src="assets/kuvat/web-demo-6.jpg" alt="Kukkakauppa — nettisivun demo" onerror="this.closest('.dcar__media').style.display='none'"></div>
+            <div class="dcar__body">
+              <h3>Kukkakauppa</h3>
+              <p>Verkkokauppa ja galleria, jotka myyvät myös myymälän ollessa kiinni.</p>
+              <a href="kukkakauppa.html" class="btn btn--primary">Katso demo →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NETTISIVUT 2 — ONKO SINULLA IDEA (908) ============ -->
+    <section class="p908" aria-labelledby="d908b-title">
+      <div class="p908__bg" style="background-image:url('assets/kuvat/kuva-6.webp')" aria-hidden="true"></div>
+      <div class="container">
+        <div class="p908__inner">
+          <span class="p908__mark" style="--ico:url('assets/grafiikat/grafiikka-5.svg')" aria-hidden="true"></span>
+          <h2 class="p908__title" id="d908b-title">Onko sinulla idea? Me toteutamme sen.</h2>
+          <p class="p908__text">Kerro ideastasi — me toteutamme juuri sinun tarpeisiisi sopivat räätälöinnit alusta loppuun.</p>
+          <a href="yhteys.html" class="btn btn--light btn--lg">Ota yhteyttä →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOME — ENNEN/JÄLKEEN (interaktiivinen) ============ -->
+    <section class="bna-sec" id="demo-some" style="scroll-margin-top:90px" aria-labelledby="bna-title">
+      <div class="container">
+        <header class="bna-sec__head"><h2 id="bna-title">Some-keissi: mitä asiakas pyysi, mitä me annoimme</h2></header>
+        <div class="bna">
+          <div class="bna__card">
+            <div class="bna__brief">
+              <p class="bna__eyebrow">Asiakkaan toiveet</p>
+              <h3>Mitä asiakas pyysi</h3>
+              <p class="bna__msg">”Olen kynsiteknikko ja haluan panostaa brändiini. Tavoittelen eurooppalaisen
+                 kesän ja merenläheisyyden tunnelmaa: luonnollisuutta, feminiinisyyttä, luonnon kauneutta
+                 ja aitoutta. Yritykseni nimi on Nails Lindes. Toivoisin pehmeitä värejä ja melko pehmeän logon.”</p>
+            </div>
+            <div class="bna__result">
+              <p class="bna__eyebrow">Lopputulos</p>
+              <h3>Mitä me annoimme</h3>
+              <div class="bna__resultimg">Lopputuloksen kuva tulossa — pehmeä, merenläheinen brändi-ilme</div>
+              <div class="bna__logos" aria-hidden="true">
+                <span class="l" style="--logo:url('assets/logot/lisalogo-1.svg')"></span>
+                <span class="l" style="--logo:url('assets/logot/lisalogo-2.svg')"></span>
+              </div>
+            </div>
           </div>
+          <div class="bna__action bna__action--result">
+            <button type="button" class="btn btn--dark btn--lg" data-bna-toggle>Katso lopputulos →</button>
+          </div>
+          <div class="bna__action bna__action--back">
+            <button type="button" class="btn btn--ghost btn--lg" data-bna-toggle>← Katso asiakkaan toiveet</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOME 2 — MIKSI PANOSTAA SOMEEN (701) ============ -->
+    <section class="s701" aria-labelledby="d701-title">
+      <div class="container">
+        <header class="s701__head"><h2 id="d701-title">Miksi some on yrityksesi paras myyjä?</h2></header>
+        <div class="s701__grid">
+          <article class="s701__card">
+            <h3 class="s701__claim">Asiakkaasi tutkii somen ennen kuin ostaa</h3>
+            <p class="s701__text">Jopa 78 % ostajista tarkistaa yrityksen sosiaalisen median ennen ostopäätöstä. Aktiivinen profiili rakentaa luottamusta jo ennen ensikohtaamista.</p>
+            <p class="s701__source">Lähde: Synup, 2026</p>
+          </article>
+          <article class="s701__card">
+            <h3 class="s701__claim">Some on uuden sukupolven hakukone</h3>
+            <p class="s701__text">Yhä useampi etsii palveluita suoraan Instagramista ja TikTokista. Kun olet siellä missä asiakkaasi ovat, sinut myös löydetään.</p>
+            <p class="s701__source">Lähde: Google, sisäinen data 2022</p>
+          </article>
+          <article class="s701__card">
+            <h3 class="s701__claim">Säännöllisyys moninkertaistaa näkyvyyden</h3>
+            <p class="s701__text">Algoritmi palkitsee jatkuvuudesta: säännölliset julkaisut kasvattavat orgaanista kattavuutta. Rytmi ratkaisee, ja sen me hoidamme.</p>
+            <p class="s701__source">Lähde: Hootsuite Social Trends, 2025</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 601 — BRÄNDIKEISSIT ============ -->
+    <section class="cases" id="demo-brandi" style="scroll-margin-top:90px" aria-labelledby="cases-title">
+      <div class="container">
+        <header class="cases__head"><h2 id="cases-title">Tarkastele meidän keissejämme</h2></header>
+        <div class="cases__grid">
+          <details class="case">
+            <summary>
+              <span class="case__logo" style="--logo:url('assets/logot/logo-1.svg')" aria-hidden="true"></span>
+              <span class="case__name">Keissi 1 — 80-luvun brändi</span>
+              <span class="case__open" aria-hidden="true">+</span>
+            </summary>
+            <div class="case__split">
+              <div class="case__col">
+                <h4>Mitä asiakas halusi</h4>
+                <p class="case__sub">Entinen logo</p>
+                <div class="case__logos"><span class="l" style="--logo:url('assets/logot/logo-2.svg')"></span></div>
+                <p class="case__sub">Nykyiset värit</p>
+                <div class="case__pal"><span style="background:#9a9a8f"></span><span style="background:#cfc9bb"></span></div>
+                <p class="case__text">”Emme ole uudistaneet brändiämme jo 80-luvulta, ja tarvitsisimme freesauksen — voitteko auttaa?”</p>
+              </div>
+              <div class="case__arrow" aria-hidden="true">→</div>
+              <div class="case__col">
+                <h4>Mitä asiakas sai</h4>
+                <p class="case__sub">Uudet logot</p>
+                <div class="case__logos"><span class="l" style="--logo:url('assets/logot/lisalogo-1.svg')"></span><span class="l" style="--logo:url('assets/logot/lisalogo-3.svg')"></span><span class="l" style="--logo:url('assets/logot/lisalogo-5.svg')"></span></div>
+                <p class="case__sub">Uudet värit</p>
+                <div class="case__pal"><span style="background:#E2D7BA"></span><span style="background:#D36433"></span><span style="background:#C67B7B"></span><span style="background:#8F915F"></span><span style="background:#3D2A1C"></span></div>
+                <p class="case__text">Asiakas käytti Freesaus-pakettiamme. <a href="laskuri.html">Tutustu Freesaus-pakettiin →</a></p>
+              </div>
+            </div>
+          </details>
+          <details class="case">
+            <summary>
+              <span class="case__logo" style="--logo:url('assets/logot/logo-2.svg')" aria-hidden="true"></span>
+              <span class="case__name">Keissi 2 — kahvila</span>
+              <span class="case__open" aria-hidden="true">+</span>
+            </summary>
+            <div class="case__split">
+              <div class="case__col">
+                <h4>Mitä asiakas halusi</h4>
+                <p class="case__sub">Entinen logo</p>
+                <div class="case__logos"><span class="l" style="--logo:url('assets/logot/logo-3.svg')"></span></div>
+                <p class="case__sub">Nykyiset värit</p>
+                <div class="case__pal"><span style="background:#6b6b6b"></span><span style="background:#bcbcbc"></span></div>
+                <p class="case__text">”Logomme on tylsä eikä erotu. Haluaisimme lämpimämmän ja kutsuvamman ilmeen.”</p>
+              </div>
+              <div class="case__arrow" aria-hidden="true">→</div>
+              <div class="case__col">
+                <h4>Mitä asiakas sai</h4>
+                <p class="case__sub">Uudet logot</p>
+                <div class="case__logos"><span class="l" style="--logo:url('assets/logot/lisalogo-2.svg')"></span><span class="l" style="--logo:url('assets/logot/lisalogo-4.svg')"></span><span class="l" style="--logo:url('assets/logot/lisalogo-6.svg')"></span></div>
+                <p class="case__sub">Uudet värit</p>
+                <div class="case__pal"><span style="background:#EFE7D2"></span><span style="background:#C48357"></span><span style="background:#B79858"></span><span style="background:#8F915F"></span><span style="background:#3D2A1C"></span></div>
+                <p class="case__text">Asiakas käytti Freesaus-pakettiamme. <a href="laskuri.html">Tutustu Freesaus-pakettiin →</a></p>
+              </div>
+            </div>
+          </details>
+          <details class="case">
+            <summary>
+              <span class="case__logo" style="--logo:url('assets/logot/logo-3.svg')" aria-hidden="true"></span>
+              <span class="case__name">Keissi 3 — kauneushoitola</span>
+              <span class="case__open" aria-hidden="true">+</span>
+            </summary>
+            <div class="case__split">
+              <div class="case__col">
+                <h4>Mitä asiakas halusi</h4>
+                <p class="case__sub">Entinen logo</p>
+                <div class="case__logos"><span class="l" style="--logo:url('assets/logot/logo-4.svg')"></span></div>
+                <p class="case__sub">Nykyiset värit</p>
+                <div class="case__pal"><span style="background:#a0a0a0"></span><span style="background:#d8d8d8"></span></div>
+                <p class="case__text">”Ilmeemme on sekava: värit ja fontit eivät sovi yhteen. Kaipaamme selkeyttä.”</p>
+              </div>
+              <div class="case__arrow" aria-hidden="true">→</div>
+              <div class="case__col">
+                <h4>Mitä asiakas sai</h4>
+                <p class="case__sub">Uudet logot</p>
+                <div class="case__logos"><span class="l" style="--logo:url('assets/logot/lisalogo-1.svg')"></span><span class="l" style="--logo:url('assets/logot/lisalogo-2.svg')"></span><span class="l" style="--logo:url('assets/logot/lisalogo-4.svg')"></span></div>
+                <p class="case__sub">Uudet värit</p>
+                <div class="case__pal"><span style="background:#E2D7BA"></span><span style="background:#C67B7B"></span><span style="background:#D36433"></span><span style="background:#C1603E"></span><span style="background:#3D2A1C"></span></div>
+                <p class="case__text">Asiakas käytti Freesaus-pakettiamme. <a href="laskuri.html">Tutustu Freesaus-pakettiin →</a></p>
+              </div>
+            </div>
+          </details>
+          <details class="case">
+            <summary>
+              <span class="case__logo" style="--logo:url('assets/logot/logo-4.svg')" aria-hidden="true"></span>
+              <span class="case__name">Keissi 4 — pienyrittäjä</span>
+              <span class="case__open" aria-hidden="true">+</span>
+            </summary>
+            <div class="case__split">
+              <div class="case__col">
+                <h4>Mitä asiakas halusi</h4>
+                <p class="case__sub">Entinen logo</p>
+                <div class="case__logos"><span class="l" style="--logo:url('assets/logot/logo-1.svg')"></span></div>
+                <p class="case__sub">Nykyiset värit</p>
+                <div class="case__pal"><span style="background:#8d8d8d"></span><span style="background:#c4c4c4"></span></div>
+                <p class="case__text">”Aloitin juuri yrittäjänä enkä tiedä mistä lähteä liikkeelle brändin kanssa.”</p>
+              </div>
+              <div class="case__arrow" aria-hidden="true">→</div>
+              <div class="case__col">
+                <h4>Mitä asiakas sai</h4>
+                <p class="case__sub">Uudet logot</p>
+                <div class="case__logos"><span class="l" style="--logo:url('assets/logot/lisalogo-3.svg')"></span><span class="l" style="--logo:url('assets/logot/lisalogo-5.svg')"></span><span class="l" style="--logo:url('assets/logot/lisalogo-6.svg')"></span></div>
+                <p class="case__sub">Uudet värit</p>
+                <div class="case__pal"><span style="background:#E2D7BA"></span><span style="background:#F7B634"></span><span style="background:#D36433"></span><span style="background:#8F915F"></span><span style="background:#3D2A1C"></span></div>
+                <p class="case__text">Asiakas käytti Freesaus-pakettiamme. <a href="laskuri.html">Tutustu Freesaus-pakettiin →</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BRÄNDI 2 — KUVAPARI (804-tyyli) ============ -->
+    <section class="dimg" aria-labelledby="dimg-title">
+      <div class="container">
+        <div class="dimg__pair">
+          <div class="dimg__pic"><img src="assets/kuvat/web-demo-3.jpg" alt="Ilme ennen" onerror="this.closest('.dimg__pic').style.display='none'"></div>
+          <div class="dimg__arrow" aria-hidden="true">→</div>
+          <div class="dimg__pic"><img src="assets/kuvat/web-demo-4.jpg" alt="Ilme jälkeen" onerror="this.closest('.dimg__pic').style.display='none'"></div>
+        </div>
+        <div class="dimg__copy">
+          <h2 id="dimg-title">Pieni sijoitus, merkittävä vaikutus ilmeeseen</h2>
+          <p>Monet yrittäjät väheksyvät nettisivujen todellista arvoa brändin ilmeelle ja
+             luotettavuudelle. Osalla ei ole aikaa, osalla taas vaivaa tai rahaa — meidän kauttamme
+             näistä ei tarvitse huolehtia, kun kaikki hoituu kerralla maaliin asti.</p>
+          <a href="laskuri.html" class="btn btn--primary btn--lg">Hintalaskuriin →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 221 — NÄIN SE HOITUU (kopio) ============ -->
+    <section class="s221" aria-labelledby="s221-title">
+      <div class="container">
+        <header class="s221__head">
+          <h2 id="s221-title">Nettisivut viikossa?</h2>
+          <p class="s221__sub">Näin se hoituu.</p>
+        </header>
+
+        <ol class="s221__steps">
+          <li class="s221__step">
+            <span class="s221__num s221__num--1" aria-hidden="true">1</span>
+            <div class="s221__body">
+              <h3>Hintalaskuri</h3>
+              <p>Tarkastele hintalaskurista juuri oman alasi tarpeet nettisivulle ja saat
+                 suoraan laskettua hinnan juuri haluamallesi sivustolle. Jos olet hintaan
+                 tyytyväinen, voit saman tien lähettää meille tarjouspyynnön.</p>
+              <a href="laskuri.html" class="btn btn--primary">Hintalaskuriin →</a>
+            </div>
+          </li>
+
+          <li class="s221__step">
+            <span class="s221__num s221__num--2" aria-hidden="true">2</span>
+            <div class="s221__body">
+              <h3>Suunnittelu</h3>
+              <p>Tykkäätkö jostain kilpailijasi sivuilla? Haluatko tuoda omaa tvistiä? Oletko jo
+                 ehtinyt koota Pinterest-taulun brändisi visuaalisesta inspiraatiosta? Kun
+                 vastaanotamme tarjouspyyntösi, saat meiltä ideointilomakkeen, jossa voit vapaasti
+                 suunnitella omaan tahtiin ja aikatauluun juuri sellaisen sivun kuin haluat — anna
+                 meille logosi, värisi ja ne sivut, joista itse pidät, ja linkitä Pinterest-taulusi.
+                 Halutessasi me autamme.</p>
+              <a href="ideointilomake.html" class="btn btn--primary">Ideointilomakkeen demo →</a>
+            </div>
+          </li>
+
+          <li class="s221__step">
+            <span class="s221__num s221__num--3" aria-hidden="true">3</span>
+            <div class="s221__body">
+              <h3>Nettisivun toteutus</h3>
+              <p>Vastaanotamme täytetyn ideointilomakkeen ja alamme suunnitella sen pohjalta
+                 sivusi. Siihen menee noin 1–3 päivää, minkä jälkeen lähetämme sinulle demon
+                 nettisivusta.</p>
+            </div>
+          </li>
+
+          <li class="s221__step">
+            <span class="s221__num s221__num--4" aria-hidden="true">4</span>
+            <div class="s221__body">
+              <h3>Arviot demosivusta</h3>
+              <p>Katsot demon tarkkaan läpi ja annat kommenttia: mitä pitää muuttaa ja mitä
+                 siirtää, jotta saamme tehtyä juuri sinun silmääsi miellyttävän sivuston.
+                 Tällaisia kierroksia voimme tehdä useamman.</p>
+            </div>
+          </li>
+
+          <li class="s221__step">
+            <span class="s221__num s221__num--5" aria-hidden="true">5</span>
+            <div class="s221__body">
+              <h3>Nettisivu on valmis!</h3>
+              <p>Saimme muokattua nettisivun juuri sinun toiveidesi mukaan. Mutta mikäli et
+                 tykkää lopputuloksesta, <strong>saat rahat takaisin</strong>.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 702 — ARVOSTELUT (kopio) ============ -->
+    <section class="s702" aria-labelledby="s702-title">
+      <div class="container">
+        <header class="s702__head">
+          <h2 id="s702-title">Mitä asiakkaamme sanovat</h2>
+          <p>Oikeita kokemuksia yrittäjiltä, joiden ilmeen pistimme minttiin.</p>
+        </header>
+        <div class="s702__row">
+          <article class="s702__card">
+            <div class="s702__rating">
+              <span class="s702__stars" aria-hidden="true">★★★★★</span>
+              <span class="s702__score">5/5</span>
+            </div>
+            <h3 class="s702__quote-title">Juuri sellainen kuin kuvittelin</h3>
+            <p class="s702__quote">”Sain valmiin sivuston alle viikossa, ja se näytti tismalleen
+               brändini näköiseltä. Hinta oli selvillä jo etukäteen — ei ikäviä yllätyksiä.”</p>
+            <p class="s702__by">— Cake Atelier</p>
+          </article>
+          <article class="s702__card">
+            <div class="s702__rating">
+              <span class="s702__stars" aria-hidden="true">★★★★★</span>
+              <span class="s702__score">5/5</span>
+            </div>
+            <h3 class="s702__quote-title">Helppoa alusta loppuun</h3>
+            <p class="s702__quote">”Ideointilomake teki suunnittelusta vaivatonta. Sain juuri sen
+               raikkaan ja rohkean ilmeen, jota studiollemme kaipasin.”</p>
+            <p class="s702__by">— Velora Movement</p>
+          </article>
+          <article class="s702__card">
+            <div class="s702__rating">
+              <span class="s702__stars" aria-hidden="true">★★★★★</span>
+              <span class="s702__score">5/5</span>
+            </div>
+            <h3 class="s702__quote-title">Suosittelen lämpimästi</h3>
+            <p class="s702__quote">”Nopea toimitus, selkeä hinnoittelu ja lopputulos, joka näyttää
+               kalliilta mutta ei maksanut maltaita. Juuri tätä pienyrittäjä tarvitsee.”</p>
+            <p class="s702__by">— Floréa Atelier</p>
+          </article>
+        </div>
+        <div class="s702__nav">
+          <button class="s702__arrow" aria-label="Edellinen arvostelu"
+                  onclick="this.closest('.s702').querySelector('.s702__row').scrollBy({left:-340,behavior:'smooth'})">←</button>
+          <a href="demot.html" class="btn btn--dark btn--lg">Tutustu meidän demoihin →</a>
+          <button class="s702__arrow" aria-label="Seuraava arvostelu"
+                  onclick="this.closest('.s702').querySelector('.s702__row').scrollBy({left:340,behavior:'smooth'})">→</button>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
   <!-- ============ 300 — ALALAIDAN BRÄNDIBANNERI (jokaisella sivulla) ============ -->
   <section class="s300" aria-label="Studio Blomma">
     <div class="container s300__inner">
@@ -196,7 +475,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <span>© <span data-year>2026</span> Studio Blomma</span>
+        <span>&copy; <span data-year>2026</span> Studio Blomma</span>
         <span>Tehty lämmöllä</span>
       </div>
     </div>

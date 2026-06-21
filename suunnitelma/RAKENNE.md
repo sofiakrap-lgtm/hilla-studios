@@ -86,10 +86,11 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
 ---
 
 ## MUUT SIVUT
-- `meista.html` — Hero + sisältö [kesken]
-- `demot.html` — Hero + demolista + CTA
-- `yhteys.html` — Hero + yhteydenotto
-- `tarjouspyynto.html` — Hero + lomake
+- `meista.html` ✅ — 218 about-hero + 219 kokemus + 909 keitä olemme/missio + 221 + 403
+- `demot.html` ✅ — 908-hero (takuu) · 803-navi · nettisivut-karuselli (6) · 908 idea ·
+  some ennen/jälkeen (interakt.) · 701 · 601 brändikeissit · 804-kuvapari · 221 · 702
+- `yhteys.html` ✅ — hero + 3 yhteydenottokorttia
+- `tarjouspyynto.html` ✅ — lomake suoraan + hintalaskuri-kehotus
 - `nain-se-toimii.html` — Hero + 3 askelta + arvot + CTA
 
 ## DEMOT (demot.html)
@@ -104,4 +105,4 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
 
 ### Tila
 - ✅ Valmiit: Etusivu, Palvelut, Hintalaskuri, Nettisivut 1.1, Toimialasivut 1.1.1–1.1.7, Some 1.2, Hinta-arviot (arviot.html)
-- ⏳ Tulossa: 1.4 paketit, Meistä
+- ⏳ Tulossa: 1.4 paketit

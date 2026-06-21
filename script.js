@@ -690,6 +690,17 @@ function initPackageAdd() {
 }
 
 /* ---------------------------------------------------------
+   7c. Demot — ennen/jälkeen -slaideri (.bna)
+   --------------------------------------------------------- */
+function initBna() {
+  document.querySelectorAll(".bna").forEach((bna) => {
+    bna.querySelectorAll("[data-bna-toggle]").forEach((btn) => {
+      btn.addEventListener("click", () => bna.classList.toggle("is-result"));
+    });
+  });
+}
+
+/* ---------------------------------------------------------
    8. Käynnistys
    --------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
@@ -702,4 +713,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initCalc3();
   initArviot();
   initPackageAdd();
+  initBna();
 });
