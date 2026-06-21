@@ -1869,3 +1869,7 @@ p { margin: 0 0 1em; }
 .dimg__copy h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.6rem,3.4vw,2.4rem); color: var(--vari-3); margin: 0 0 14px; }
 .dimg__copy p { font-size: 1rem; line-height: 1.7; color: var(--vari-3); margin: 0 0 20px; }
 @media (max-width: 760px) { .dimg__pair { grid-template-columns: 1fr; } .dimg__arrow { transform: rotate(90deg); } }
+
+/* Paketit — suosituin-merkki */
+.p402__card { position: relative; }
+.p402__pop { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--vari-5); color: var(--vari-1); font-family: var(--font); font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; padding: 6px 14px; border-radius: var(--radius-pill); border: var(--bw) solid var(--vari-3); white-space: nowrap; }

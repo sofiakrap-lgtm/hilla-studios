@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paketit – Hintalaskuri – Studio Blomma</title>
-  <meta name="description" content="Paketit — Studio Blomman hintalaskuri. Sisältö tulossa pian.">
+  <meta name="description" content="Studio Blomman valmiit paketit: Freesaus, Nettisivut kuntoon ja Kasvu. Niputetut palvelut edullisemmin — lisää suoraan hintalaskuriin.">
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
@@ -24,21 +24,92 @@
         <li><a href="meista.html">Meistä</a></li>
         <li><a href="demot.html">Demot</a></li>
         <li><a href="yhteys.html">Ota yhteyttä</a></li>
-        <li class="nav__cta"><a href="laskuri.html" class="btn btn--primary">Hintalaskuri →</a></li>
+        <li class="nav__cta"><a href="laskuri.html" class="btn btn--primary is-active">Hintalaskuri →</a></li>
       </ul>
     </div>
   </header>
 
   <main>
-    <section class="tulossa">
-      <div class="container tulossa__inner">
-        <p class="tulossa__eyebrow">Hintalaskuri</p>
-        <h1>Paketit</h1>
-        <p>Tämän osion hintalaskuri on tulossa pian. Sillä välin voit tehdä tarjouspyynnön
-           tai katsoa muut palvelumme — autamme mielellämme jo nyt.</p>
-        <div class="hero__cta" style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center">
-          <a href="laskuri.html" class="btn btn--ghost btn--lg">← Hintalaskuri</a>
-          <a href="tarjouspyynto.html" class="btn btn--primary btn--lg">Tee tarjouspyyntö →</a>
+    <!-- ============ 402 — VALMIIT PAKETIT ============ -->
+    <section class="p402 p402--plain" aria-labelledby="pak402-title">
+      <div class="container">
+        <header class="p402__head">
+          <p class="l803__sub"><a href="laskuri.html">← Hintalaskuri</a> · Paketit</p>
+          <h1 id="pak402-title">Valmiit paketit — kaikki kerralla kuntoon</h1>
+          <p>Nappaa koko kokonaisuus yhdellä kertaa: niputetut palvelut tulevat edullisemmin kuin
+             erikseen valittuna. Valitse paketti, niin se lisätään suoraan hintalaskuriin — sieltä voit
+             vielä täydentää valintojasi ja tehdä tarjouspyynnön.</p>
+        </header>
+        <div class="p402__cards">
+
+          <!-- Freesaus -->
+          <article class="p402__card">
+            <h3 class="p402__name">Freesaus</h3>
+            <p class="p402__price">199 €</p>
+            <ul class="p402__feats">
+              <li>3 logon suunnittelu</li>
+              <li>Väripaletin määrittäminen</li>
+              <li>Fonttikombinaatioiden sommittelu</li>
+            </ul>
+            <button type="button" class="btn btn--free p402__btn" data-add-package data-label="Freesaus-paketti" data-price="199" data-items='["3 logon suunnittelu","Väripaletin määrittäminen","Fonttikombinaatioiden sommittelu"]'>Lisää hintalaskuriin →</button>
+          </article>
+
+          <!-- Nettisivut kuntoon (suosituin) -->
+          <article class="p402__card">
+            <span class="p402__pop" aria-hidden="true">Suosituin</span>
+            <h3 class="p402__name">Nettisivut kuntoon</h3>
+            <p class="p402__price">alk. 399 €</p>
+            <ul class="p402__feats">
+              <li><strong>Freesaus-paketti</strong><small>3 logoa, väripaletti ja fonttikombinaatiot.</small></li>
+              <li>Nettisivun suunnittelu ja toteutus</li>
+            </ul>
+            <button type="button" class="btn btn--net p402__btn" data-add-package data-label="Nettisivut kuntoon -paketti" data-price="399" data-items='["Freesaus-paketti (3 logoa, väripaletti, fontit)","Nettisivun suunnittelu ja toteutus"]'>Lisää hintalaskuriin →</button>
+          </article>
+
+          <!-- Kasvu -->
+          <article class="p402__card">
+            <h3 class="p402__name">Kasvu</h3>
+            <p class="p402__price">alk. 699 €</p>
+            <ul class="p402__feats">
+              <li><strong>Nettisivut kuntoon -paketti</strong><small>Freesaus + nettisivun suunnittelu ja toteutus.</small></li>
+              <li>Seuraavan 3 kk some-sisältö</li>
+            </ul>
+            <button type="button" class="btn btn--grow p402__btn" data-add-package data-label="Kasvu-paketti" data-price="699" data-items='["Nettisivut kuntoon -paketti","Seuraavan 3 kk some-sisältö"]'>Lisää hintalaskuriin →</button>
+          </article>
+
+        </div>
+        <p class="yht__note">Etkö löydä sopivaa? <a href="ominaisuudet.html">Räätälöi oma kokonaisuutesi →</a></p>
+      </div>
+    </section>
+
+    <!-- ============ 801 — BRÄNDÄYSDEMOT + TYYTYVÄISYYSTAKUU (sama kuin etusivulla) ============ -->
+    <section class="s801" aria-labelledby="s801-title">
+      <div class="s801__brands">
+        <h2 class="s801__brands-title">Brändäysdemot</h2>
+        <ul class="s801__logos">
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-6.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-1.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-3.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-2.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-4.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-5.svg')"></span></li>
+        </ul>
+      </div>
+      <div class="s801__guarantee">
+        <div class="s801__media">
+          <img src="assets/kuvat/kuva-5.webp" alt="Studio Blomman työtä" onerror="this.style.display='none'">
+          <span class="s801__media-gfx" style="background-image:url('assets/grafiikat/grafiikka-30.svg')" aria-hidden="true"></span>
+        </div>
+        <div class="s801__panel">
+          <p class="s801__eyebrow" id="s801-title">Tyytyväisyystakuu</p>
+          <h2 class="s801__title">Jos tekemämme nettisivu ei vastaa odotuksiasi, palautamme rahat.</h2>
+          <p class="s801__text">Meidän tärkein tehtävämme on pitää asiakkaamme tyytyväisinä — siksi
+             seisomme työmme takana täysin. Et maksa lopputuloksesta, johon et ole tyytyväinen.</p>
+          <div class="s801__buttons">
+            <a href="laskuri.html" class="btn btn--calc">Hintalaskuriin →</a>
+            <a href="yhteys.html" class="btn btn--outline">Ota yhteyttä</a>
+            <a href="demot.html" class="btn btn--outline">Demot</a>
+          </div>
         </div>
       </div>
     </section>

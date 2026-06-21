@@ -81,7 +81,10 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
   → "Lisää hintalaskuriin" lisää suoraan koriin (ei välihinnoittelua); Kuvaus → Ota yhteyttä
 - **801** Brändäysdemot + takuu
 - HUOM: palvelut.html 402 päivitetty samaan tyyliin (kukat→pallurat, avattavat auki)
-### 1.4 Paketit             — `paketit.html`             ⏳
+### 1.4 Paketit — `paketit.html` ✅
+- **402** Valmiit paketit (niputetut): Freesaus 199€ · Nettisivut kuntoon alk.399€ (suosituin) · Kasvu alk.699€
+  → "Lisää hintalaskuriin" lisää suoraan koriin; alla linkki ominaisuudet-räätälöintiin
+- **801** Brändäysdemot + takuu
 
 ---
 
@@ -106,4 +109,4 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
 ### Tila
 - ✅ Valmiit: Etusivu · Palvelut · Hintalaskuri · Kori (arviot) · Nettisivut 1.1 ·
   Toimialat 1.1.1–1.1.7 · Some 1.2 · Brändi 1.3 · Meistä · Demot · Yhteys · Tarjouspyyntö
-- ⏳ Tulossa: 1.4 Paketit (+ nain-se-toimii hienosäätö)
+- ⏳ Tulossa: nain-se-toimii hienosäätö (kaikki päärakenne valmis!)
