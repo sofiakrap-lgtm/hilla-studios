@@ -538,7 +538,63 @@ function initCalc2() {
 }
 
 /* ---------------------------------------------------------
-   7. Käynnistys
+   7. Ominaisuuslaskuri (1.1.7) — kaksivaiheinen (.calc3)
+      ominaisuudet -> Laske hinta -> lisäpalvelut-ikkuna -> hinta
+   --------------------------------------------------------- */
+function initCalc3() {
+  const fmt = (n) => n.toLocaleString("fi-FI") + " €";
+  document.querySelectorAll(".calc3").forEach((root) => {
+    const next = root.querySelector(".calc3__next");
+    const extra = root.querySelector(".calc3__extra");
+    const result = root.querySelector(".calc2__result");
+    const totalEl = root.querySelector("[data-total]");
+    const recBox = root.querySelector("[data-recurring-list]");
+    if (!next || !extra || !result) return;
+
+    function showResult(includeExtra) {
+      let once = 0;
+      root.querySelectorAll("input[data-price]").forEach((i) => {
+        if (i.checked) once += Number(i.dataset.price);
+      });
+      const recs = [];
+      if (includeExtra) {
+        extra.querySelectorAll("input[data-recurring]").forEach((i) => {
+          if (i.checked) {
+            const name = i.closest(".calc2__item").querySelector("strong").textContent;
+            recs.push({ name, price: Number(i.dataset.recurring), unit: i.dataset.unit });
+          }
+        });
+      }
+      totalEl.textContent = fmt(once);
+      recBox.innerHTML = recs.length
+        ? "<h4>Mahdolliset jatkuvat kulut</h4>" +
+          recs.map((r) => `<div><span>${r.name}</span><span>${fmt(r.price)}/${r.unit}</span></div>`).join("")
+        : "";
+      extra.hidden = true;
+      result.hidden = false;
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    next.addEventListener("click", () => {
+      result.hidden = true;
+      extra.hidden = false;
+      extra.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+    const skip = root.querySelector(".calc3__skip");
+    if (skip) skip.addEventListener("click", () => showResult(false));
+    const show = root.querySelector(".calc3__show");
+    if (show) show.addEventListener("click", () => showResult(true));
+    const more = root.querySelector(".calc3__more");
+    if (more) more.addEventListener("click", () => {
+      result.hidden = true;
+      extra.hidden = true;
+      root.querySelector(".calc2__list").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+}
+
+/* ---------------------------------------------------------
+   8. Käynnistys
    --------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
@@ -547,4 +603,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initCalculator();
   initOfferForm();
   initCalc2();
+  initCalc3();
 });

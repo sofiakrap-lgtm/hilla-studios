@@ -55,7 +55,13 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
 - **1.1.4** Kahvila-ala    `kahvila.html`      ✅  (web-demo-4)
 - **1.1.5** Hyvinvointi    `hyvinvointi.html`  ✅  (web-demo-5)
 - **1.1.6** Kukkakauppa    `kukkakauppa.html`  ✅  (web-demo-6)
-- **1.1.7** Ominaisuudet   `ominaisuudet.html` ⏳  (myös "Joku muu")
+- **1.1.7** Ominaisuudet   `ominaisuudet.html` ✅  (myös "Joku muu")
+    - Otsikko + avattava kategorialista (tausta 1, teksti 3, napit väri 11)
+    - Kategoriat: Verkkokauppa · Ajanvarausjärjestelmä · Kanta-asiakkuusjärjestelmä ·
+      Hintalaskuri omalle sivulle · Blogi · Rekry-lomakkeet · Muu
+    - "+" avaa laskurin (Basic aina mukana + ominaisuudet, kategorian oma esivalittuna);
+      "Laske hinta" → lisäpalvelut-ikkuna (ohita/valitse) → hinta (ALV 0 %) + tarjouspyyntö
+    - "Muu" → teksti erikoistapauksista + "Ota yhteyttä" -nappi
 
 ### 1.2 Sosiaalinen media   — `some.html`                ⏳
 ### 1.3 Brändi-identiteetti — `brandi-identiteetti.html` ⏳
@@ -81,5 +87,5 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
 ---
 
 ### Tila
-- ✅ Valmiit: Etusivu, Palvelut, Hintalaskuri, Nettisivut 1.1, Toimialasivut 1.1.1–1.1.6
-- ⏳ Tulossa: 1.1.7 ominaisuudet, 1.2 some, 1.3 brändi, 1.4 paketit, Meistä
+- ✅ Valmiit: Etusivu, Palvelut, Hintalaskuri, Nettisivut 1.1, Toimialasivut 1.1.1–1.1.7
+- ⏳ Tulossa: 1.2 some, 1.3 brändi, 1.4 paketit, Meistä
