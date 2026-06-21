@@ -495,10 +495,56 @@ function handleOfferSubmit(form, stored) {
 /* ---------------------------------------------------------
    5. Käynnistys
    --------------------------------------------------------- */
+/* ---------------------------------------------------------
+   6. Konkreettinen hintalaskuri (toimialasivut, .calc2)
+   --------------------------------------------------------- */
+function initCalc2() {
+  const fmt = (n) => n.toLocaleString("fi-FI") + " €";
+  document.querySelectorAll(".calc2").forEach((root) => {
+    const btn = root.querySelector(".calc2__calc");
+    const result = root.querySelector(".calc2__result");
+    const totalEl = root.querySelector("[data-total]");
+    const recBox = root.querySelector("[data-recurring-list]");
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+      let once = 0;
+      root.querySelectorAll("input[data-price]").forEach((i) => {
+        if (i.checked) once += Number(i.dataset.price);
+      });
+      const recs = [];
+      root.querySelectorAll("input[data-recurring]").forEach((i) => {
+        if (i.checked) {
+          const name = i.closest(".calc2__item").querySelector("strong").textContent;
+          recs.push({ name, price: Number(i.dataset.recurring), unit: i.dataset.unit });
+        }
+      });
+      totalEl.textContent = fmt(once);
+      recBox.innerHTML = recs.length
+        ? "<h4>Mahdolliset jatkuvat kulut</h4>" +
+          recs.map((r) => `<div><span>${r.name}</span><span>${fmt(r.price)}/${r.unit}</span></div>`).join("")
+        : "";
+      result.hidden = false;
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    const more = root.querySelector(".calc2__more");
+    if (more) {
+      more.addEventListener("click", () => {
+        root.querySelector(".calc2__list").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  });
+}
+
+/* ---------------------------------------------------------
+   7. Käynnistys
+   --------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initReveal();
   initYear();
   initCalculator();
   initOfferForm();
+  initCalc2();
 });

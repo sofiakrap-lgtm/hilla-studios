@@ -1561,3 +1561,57 @@ p { margin: 0 0 1em; }
 .tulossa__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; color: var(--vari-5); margin: 0; }
 .tulossa h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--vari-3); margin: 0; line-height: 1.12; }
 .tulossa p { font-size: 1.05rem; line-height: 1.7; color: var(--vari-3); margin: 0; }
+
+/* =========================================================
+   TOIMIALASIVU 111 — Hero (nimi + alateksti + demokuva)
+   ========================================================= */
+.n111 { background: var(--vari-1); padding: 80px 0 40px; }
+.n111__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+.n111__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); color: var(--vari-3); margin: 0 0 18px; line-height: 1.1; }
+.n111__text { font-size: 1.05rem; line-height: 1.75; color: var(--vari-3); margin: 0 0 24px; max-width: 54ch; }
+.n111__media { border-radius: 16px 16px 0 0; overflow: hidden; box-shadow: var(--shadow-s); border: var(--bw) solid var(--vari-3); border-bottom: 0; }
+.n111__media img { display: block; width: 100%; height: 340px; object-fit: cover; object-position: top center; }
+@media (max-width: 880px) {
+  .n111__grid { grid-template-columns: 1fr; gap: 30px; }
+  .n111__media img { height: 260px; }
+}
+
+/* =========================================================
+   KONKREETTINEN HINTALASKURI (toimialasivut)
+   ========================================================= */
+.calc2 { background: var(--vari-1); padding: 24px 0 96px; }
+.calc2__head { max-width: 720px; margin: 0 0 28px; }
+.calc2__head h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem, 3.5vw, 2.5rem); color: var(--vari-3); margin: 0 0 10px; }
+.calc2__head p { font-size: 1rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
+.calc2__group-title { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--vari-3); margin: 28px 0 14px; }
+.calc2__list { display: flex; flex-direction: column; gap: 12px; }
+.calc2__item {
+  position: relative;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
+  padding: 18px 22px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m);
+  background: var(--vari-1); cursor: pointer; transition: box-shadow .15s ease, transform .15s ease;
+}
+.calc2__item:hover { box-shadow: var(--shadow-pop-sm); }
+.calc2__item input { position: absolute; opacity: 0; width: 0; height: 0; }
+.calc2__box { width: 26px; height: 26px; border: var(--bw) solid var(--vari-3); border-radius: 8px; position: relative; flex: none; background: var(--vari-2); }
+.calc2__item input:checked + .calc2__box { background: var(--vari-5); }
+.calc2__item input:checked + .calc2__box::after { content: "✓"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--vari-1); font-weight: var(--w-black); font-size: .95rem; }
+.calc2__label { display: flex; flex-direction: column; gap: 3px; }
+.calc2__label strong { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--vari-3); }
+.calc2__label small { font-size: .86rem; line-height: 1.5; color: var(--vari-4); }
+.calc2__price { font-weight: var(--w-black); color: var(--vari-3); white-space: nowrap; }
+.calc2__item--basic { background: var(--vari-2); }
+.calc2__item--basic input:checked + .calc2__box { background: var(--vari-3); }
+.calc2__calc { margin-top: 28px; }
+.calc2__result { margin-top: 28px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); background: var(--vari-2); padding: 28px 30px; }
+.calc2__total { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.calc2__total span { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: var(--vari-3); }
+.calc2__total strong { font-size: 2rem; font-weight: var(--w-black); color: var(--vari-3); }
+.calc2__recurring { margin-top: 18px; }
+.calc2__recurring h4 { font-family: var(--font-head); font-weight: 700; font-size: 1rem; color: var(--vari-3); margin: 0 0 8px; }
+.calc2__recurring div { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-top: 1px solid var(--line); font-size: .95rem; color: var(--vari-3); }
+.calc2__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+@media (max-width: 560px) {
+  .calc2__item { grid-template-columns: auto 1fr; }
+  .calc2__price { grid-column: 2; }
+}
