@@ -1496,3 +1496,13 @@ p { margin: 0 0 1em; }
 .p906__item[open] .p906__q::after { content: "–"; }
 .p906__a { padding: 18px 24px 22px; }
 .p906__a p { font-size: 0.98rem; line-height: 1.7; color: var(--vari-3); margin: 0; }
+
+/* =========================================================
+   GLOBAALI MITTAKAAVA — "75 % näkymä" oletukseksi (työpöytä)
+   Pienennetään koko sivun mittakaavaa, jotta oletusnäkymä
+   vastaa selaimen 75 % zoomia. Mobiilissa pidetään 100 %,
+   jottei sisältö mene liian pieneksi. Säädä arvoa tarpeen mukaan.
+   ========================================================= */
+@media (min-width: 1024px) {
+  body { zoom: 0.75; }
+}
