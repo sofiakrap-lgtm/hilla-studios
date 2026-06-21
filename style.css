@@ -1506,3 +1506,58 @@ p { margin: 0 0 1em; }
 @media (min-width: 1024px) {
   body { zoom: 0.75; }
 }
+
+/* =========================================================
+   LASKURI 803 — Kategoriavalinta (2x2 kuvaruudukko)
+   ========================================================= */
+.l803 { background: var(--vari-1); padding: 88px 0; }
+.l803__head { text-align: center; max-width: 780px; margin: 0 auto 48px; }
+.l803__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.9rem); color: var(--vari-3); margin: 0 0 14px; line-height: 1.18; }
+.l803__sub { font-size: 1.05rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
+.l803__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 920px; margin: 0 auto; }
+.l803__card {
+  position: relative; isolation: isolate; overflow: hidden;
+  border-radius: var(--radius-l); min-height: 300px;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 16px;
+  padding: 34px; color: var(--vari-1);
+}
+.l803__card-bg { position: absolute; inset: 0; z-index: -2; background: var(--vari-3) center / cover no-repeat; }
+.l803__card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,.40); } /* tummennus 40% */
+.l803__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.7rem; color: var(--vari-1); margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+.l803__card .btn { align-self: flex-start; background: var(--vari-13); color: var(--vari-1); border-color: var(--vari-1); }
+.l803__card .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--vari-3); }
+@media (max-width: 760px) { .l803__grid { grid-template-columns: 1fr; max-width: 460px; } }
+
+/* =========================================================
+   NETTISIVUT 1.1 — Ala- / toimintovalitsin
+   ========================================================= */
+.n11 { background: var(--vari-1); padding: 84px 0; }
+.n11__grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: start; }
+.n11__col-title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.4rem, 2.6vw, 2rem); color: var(--vari-3); margin: 0 0 22px; line-height: 1.2; }
+.n11__alat { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.n11__chip {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 18px 22px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m);
+  background: var(--vari-2); color: var(--vari-3); font-family: var(--font-head); font-weight: 700; font-size: 1.05rem;
+  transition: background .15s ease, color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.n11__chip::after { content: "→"; font-weight: var(--w-black); }
+.n11__chip:hover, .n11__chip:focus-visible { background: var(--vari-11); color: var(--vari-1); transform: translate(-2px, -2px); box-shadow: var(--shadow-pop-sm); outline: none; }
+.n11__big {
+  display: flex; flex-direction: column; justify-content: center; gap: 16px; height: 100%;
+  min-height: 240px; padding: 34px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l);
+  background: var(--vari-2); color: var(--vari-3);
+  transition: background .15s ease, color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.n11__big h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.6rem; color: inherit; margin: 0; line-height: 1.2; }
+.n11__big .cta { font-weight: var(--w-black); }
+.n11__big:hover, .n11__big:focus-visible { background: var(--vari-11); color: var(--vari-1); transform: translate(-3px, -3px); box-shadow: var(--shadow-pop); outline: none; }
+@media (max-width: 880px) { .n11__grid { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 480px) { .n11__alat { grid-template-columns: 1fr; } }
+
+/* Tulossa-paikkamerkkisivut */
+.tulossa { background: var(--vari-1); padding: 120px 0; text-align: center; }
+.tulossa__inner { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.tulossa__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; color: var(--vari-5); margin: 0; }
+.tulossa h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--vari-3); margin: 0; line-height: 1.12; }
+.tulossa p { font-size: 1.05rem; line-height: 1.7; color: var(--vari-3); margin: 0; }

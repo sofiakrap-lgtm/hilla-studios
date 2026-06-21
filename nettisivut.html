@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nettisivut – Hintalaskuri – Studio Blomma</title>
+  <meta name="description" content="Suunnittele verkkosivusi joko oman toimialasi tai haluamiesi toimintojen perusteella. Studio Blomman hintalaskuri näyttää hinnan reaaliajassa.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
+</head>
+<body>
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Studio Blomma — etusivu">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__wordmark" role="img" aria-label="Studio Blomma"></span>
+      </a>
+      <button class="nav__toggle" aria-label="Avaa valikko" aria-expanded="false">☰</button>
+      <ul class="nav__links">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="palvelut.html">Palvelut</a></li>
+        <li><a href="meista.html">Meistä</a></li>
+        <li><a href="demot.html">Demot</a></li>
+        <li><a href="yhteys.html">Ota yhteyttä</a></li>
+        <li class="nav__cta"><a href="laskuri.html" class="btn btn--primary is-active">Hintalaskuri →</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 1.1 — NETTISIVUT: ALA- / TOIMINTOVALITSIN ============ -->
+    <section class="n11" aria-labelledby="n11-title">
+      <div class="container">
+        <p class="l803__sub" style="text-align:center; margin-bottom:8px"><a href="laskuri.html">← Hintalaskuri</a> · Nettisivut</p>
+        <h1 id="n11-title" class="l803__title" style="text-align:center; margin-bottom:44px">Miten haluat suunnitella nettisivusi?</h1>
+        <div class="n11__grid">
+          <!-- Vasen: toimialat -->
+          <div class="n11__col">
+            <h2 class="n11__col-title">Kiinnostaako joku tietty ala?</h2>
+            <div class="n11__alat">
+              <a href="kauneusala.html" class="n11__chip">Kauneusala</a>
+              <a href="rakennusala.html" class="n11__chip">Rakennusala</a>
+              <a href="ravintola.html" class="n11__chip">Ravintola-ala</a>
+              <a href="kahvila.html" class="n11__chip">Kahvila-ala</a>
+              <a href="hyvinvointi.html" class="n11__chip">Hyvinvointi</a>
+              <a href="kukkakauppa.html" class="n11__chip">Kukkakauppa</a>
+              <a href="ominaisuudet.html" class="n11__chip">Joku muu</a>
+            </div>
+          </div>
+          <!-- Oikea: toimintojen mukaan -->
+          <div class="n11__col">
+            <h2 class="n11__col-title">Haluatko nettisivuihisi jonkun konkreettisen toiminnon?</h2>
+            <a href="ominaisuudet.html" class="n11__big">
+              <h3>Suunnittele verkkosivun toimintojen perusteella</h3>
+              <span class="cta">Valitse ominaisuudet →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 300 — ALALAIDAN BRÄNDIBANNERI (jokaisella sivulla) ============ -->
+  <section class="s300" aria-label="Studio Blomma">
+    <div class="container s300__inner">
+      <img class="s300__logo" src="assets/logot/logo-1.svg" alt="Studio Blomma" onerror="this.style.display='none'">
+      <p class="s300__tagline">Pistetään yrityksesi visuaalit minttiin.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="brand" aria-label="Studio Blomma">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__wordmark" role="img" aria-label="Studio Blomma"></span>
+          </a>
+          <p>Web design -studio naisvetoisille aloille. Lämmin retro-editorial, fun luxe – rohkeasti, läpinäkyvästi ja sinun näköisesti.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Sivut</h4>
+          <ul>
+            <li><a href="palvelut.html">Palvelut</a></li>
+            <li><a href="meista.html">Meistä</a></li>
+            <li><a href="demot.html">Demot</a></li>
+            <li><a href="yhteys.html">Ota yhteyttä</a></li>
+            <li><a href="laskuri.html">Hintalaskuri</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Ota yhteyttä</h4>
+          <ul>
+            <li><a href="mailto:sofia.krap@gmail.com">sofia.krap@gmail.com</a></li>
+            <li><a href="tarjouspyynto.html">Tee tarjouspyyntö →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Studio Blomma</span>
+        <span>Tehty lämmöllä</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
