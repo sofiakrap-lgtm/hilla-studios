@@ -9,7 +9,7 @@
 | # | Sivu | Tyyppi | Tila | Spec |
 |---|------|--------|------|------|
 | 1 | **Oma palvelusivu** (Studio Blomma) | Yksisivuinen | Vaatimukset kerätään | [`01-oma-sivu.md`](01-oma-sivu.md) |
-| 2 | Demo — *(toimiala avoin)* | Demo | Ei aloitettu | – |
+| 2 | **Demo — Wellness / Joogastudio** (Velora Movement) | Demo · D5 | Spec kerätty | [`02-demo-wellness.md`](02-demo-wellness.md) |
 | 3 | Demo — *(toimiala avoin)* | Demo | Ei aloitettu | – |
 | 4 | Demo — *(toimiala avoin)* | Demo | Ei aloitettu | – |
 
