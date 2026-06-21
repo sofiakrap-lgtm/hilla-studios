@@ -493,6 +493,82 @@ function handleOfferSubmit(form, stored) {
 }
 
 /* ---------------------------------------------------------
+   4b. Hinta-arviot (kori) — jaettu localStorage-tila
+   --------------------------------------------------------- */
+const ESTIMATES_KEY = "blomma.estimates";
+function loadEstimates() { try { return JSON.parse(localStorage.getItem(ESTIMATES_KEY)) || []; } catch (e) { return []; } }
+function saveEstimates(a) { try { localStorage.setItem(ESTIMATES_KEY, JSON.stringify(a)); } catch (e) {} }
+function upsertEstimate(est) {
+  const a = loadEstimates();
+  const i = a.findIndex((e) => e.id === est.id);
+  if (i >= 0) a[i] = est; else a.push(est);
+  saveEstimates(a);
+}
+function removeEstimate(id) { saveEstimates(loadEstimates().filter((e) => e.id !== id)); }
+function buildCalcEstimate(root, id, label, once, recurring) {
+  const items = [];
+  root.querySelectorAll("input[data-price]").forEach((i) => {
+    if (i.checked) items.push({ name: i.closest(".calc2__item").querySelector("strong").textContent.trim(), price: Number(i.dataset.price) });
+  });
+  return { id, label: label || "Hinta-arvio", once, items, recurring: recurring || [] };
+}
+
+function initArviot() {
+  const wrap = document.querySelector("[data-arviot]");
+  if (!wrap) return;
+  const fmt = (n) => n.toLocaleString("fi-FI") + " €";
+  const listEl = wrap.querySelector("[data-arviot-list]");
+  const totalEl = wrap.querySelector("[data-arviot-total]");
+  const emptyEl = wrap.querySelector("[data-arviot-empty]");
+  const actionsEl = wrap.querySelector("[data-arviot-actions]");
+
+  function render() {
+    const ests = loadEstimates();
+    if (!ests.length) {
+      listEl.innerHTML = "";
+      if (emptyEl) emptyEl.hidden = false;
+      if (actionsEl) actionsEl.hidden = true;
+      if (totalEl) totalEl.textContent = "0 €";
+      return;
+    }
+    if (emptyEl) emptyEl.hidden = true;
+    if (actionsEl) actionsEl.hidden = false;
+    let grand = 0;
+    listEl.innerHTML = ests.map((e) => {
+      grand += e.once || 0;
+      const items = (e.items || []).map((it) => `<li><span>${it.name}</span><span>${fmt(it.price)}</span></li>`).join("");
+      const recs = (e.recurring || []).map((r) => `<li class="rec"><span>${r.name}</span><span>${fmt(r.price)}/${r.unit}</span></li>`).join("");
+      return `<article class="arviot__card"><header><h3>${e.label}</h3><button type="button" class="arviot__remove" data-remove="${e.id}" aria-label="Poista">&times;</button></header><ul class="arviot__items">${items}${recs}</ul><p class="arviot__sub">Kertahinta (ALV 0 %): <strong>${fmt(e.once || 0)}</strong></p></article>`;
+    }).join("");
+    if (totalEl) totalEl.textContent = fmt(grand);
+    listEl.querySelectorAll("[data-remove]").forEach((b) => b.addEventListener("click", () => { removeEstimate(b.dataset.remove); render(); }));
+  }
+  render();
+
+  const sendBtn = wrap.querySelector("[data-arviot-send]");
+  if (sendBtn) sendBtn.addEventListener("click", () => {
+    const ests = loadEstimates();
+    if (!ests.length) return;
+    const lines = ["TARJOUSPYYNTÖ – Studio Blomma", "(hintalaskurin arviot)", "================================", ""];
+    let grand = 0;
+    ests.forEach((e) => {
+      lines.push(e.label);
+      (e.items || []).forEach((it) => lines.push(`  - ${it.name}: ${fmt(it.price)}`));
+      (e.recurring || []).forEach((r) => lines.push(`  - ${r.name}: ${fmt(r.price)}/${r.unit}`));
+      lines.push(`  Yhteensä: ${fmt(e.once || 0)} (ALV 0 %)`);
+      lines.push("");
+      grand += e.once || 0;
+    });
+    lines.push(`KAIKKI YHTEENSÄ: ${fmt(grand)} (ALV 0 %)`);
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Tarjouspyyntö (hintalaskuri) | Studio Blomma")}&body=${encodeURIComponent(lines.join("\n"))}`;
+    window.location.href = mailto;
+  });
+
+  const clearBtn = wrap.querySelector("[data-arviot-clear]");
+  if (clearBtn) clearBtn.addEventListener("click", () => { saveEstimates([]); render(); });
+}
+
+/* ---------------------------------------------------------
    5. Käynnistys
    --------------------------------------------------------- */
 /* ---------------------------------------------------------
@@ -524,6 +600,7 @@ function initCalc2() {
         ? "<h4>Mahdolliset jatkuvat kulut</h4>" +
           recs.map((r) => `<div><span>${r.name}</span><span>${fmt(r.price)}/${r.unit}</span></div>`).join("")
         : "";
+      upsertEstimate(buildCalcEstimate(root, location.pathname, (document.querySelector(".n111__title")?.textContent.trim() || (document.title.split("–")[0] || "").trim()), once, recs));
       result.hidden = false;
       result.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
@@ -570,6 +647,8 @@ function initCalc3() {
         ? "<h4>Mahdolliset jatkuvat kulut</h4>" +
           recs.map((r) => `<div><span>${r.name}</span><span>${fmt(r.price)}/${r.unit}</span></div>`).join("")
         : "";
+      const estLabel = root.closest(".omin__row").querySelector(".omin__q").textContent.trim();
+      upsertEstimate(buildCalcEstimate(root, location.pathname + "::" + estLabel, estLabel, once, recs));
       extra.hidden = true;
       result.hidden = false;
       result.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -604,4 +683,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initOfferForm();
   initCalc2();
   initCalc3();
+  initArviot();
 });

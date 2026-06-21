@@ -41,6 +41,11 @@
 - **906** FAQ
 - **801** Brändäysdemot + takuu
 
+> **Hinta-arviot (kori)** — `arviot.html`. Jokainen laskettu erittely tallentuu
+> (localStorage). Erittelyssä aina napit: **+ Lisää palvelu** (→ laskuri.html),
+> **↑ Muokkaa valintoja**, ja **Hinta-arviot & tarjouspyyntö** (→ arviot.html).
+> Arviot-sivulla kaikki arviot yhdessä, yhteissumma ja **Lähetä tarjouspyyntö**.
+
 ### 1.1 Nettisivut — `nettisivut.html` ✅
 - Ala-/toimintovalitsin: 7 toimialanappia + iso "toimintojen mukaan" -laatikko
 - **221** Näin se hoituu (kopio etusivulta) — ennen alaosaa

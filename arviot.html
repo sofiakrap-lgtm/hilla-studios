@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hinta-arviot – Studio Blomma</title>
+  <meta name="description" content="Kokoa lasketut hinta-arviosi yhteen ja lähetä niiden pohjalta tarjouspyyntö Studio Blommalle.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
+</head>
+<body>
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Studio Blomma — etusivu">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__wordmark" role="img" aria-label="Studio Blomma"></span>
+      </a>
+      <button class="nav__toggle" aria-label="Avaa valikko" aria-expanded="false">☰</button>
+      <ul class="nav__links">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="palvelut.html">Palvelut</a></li>
+        <li><a href="meista.html">Meistä</a></li>
+        <li><a href="demot.html">Demot</a></li>
+        <li><a href="yhteys.html">Ota yhteyttä</a></li>
+        <li class="nav__cta"><a href="laskuri.html" class="btn btn--primary is-active">Hintalaskuri →</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HINTA-ARVIOT (kori) ============ -->
+    <section class="arviot" data-arviot aria-labelledby="arviot-title">
+      <div class="container">
+        <header class="arviot__head">
+          <p class="l803__sub"><a href="laskuri.html">← Hintalaskuri</a> · Hinta-arviot</p>
+          <h1 id="arviot-title">Lasketut hinta-arviosi</h1>
+          <p>Tähän kertyvät kaikki laskemasi palvelut. Voit lisätä lisää tai lähettää niiden
+             pohjalta tarjouspyynnön. Hinnat ovat ALV 0 %.</p>
+        </header>
+
+        <p class="arviot__empty" data-arviot-empty hidden>
+          Et ole vielä laskenut yhtään hinta-arviota.
+          <a href="laskuri.html">Aloita hintalaskurista →</a>
+        </p>
+
+        <div class="arviot__list" data-arviot-list></div>
+
+        <div class="arviot__total">
+          <span>Kaikki yhteensä (ALV 0 %)</span>
+          <strong data-arviot-total>0 €</strong>
+        </div>
+
+        <div class="arviot__actions" data-arviot-actions hidden>
+          <a href="laskuri.html" class="btn btn--ghost btn--lg">+ Lisää palvelu</a>
+          <button type="button" class="btn btn--dark btn--lg" data-arviot-send>Lähetä tarjouspyyntö →</button>
+          <button type="button" class="btn btn--ghost" data-arviot-clear>Tyhjennä</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 300 — ALALAIDAN BRÄNDIBANNERI (jokaisella sivulla) ============ -->
+  <section class="s300" aria-label="Studio Blomma">
+    <div class="container s300__inner">
+      <img class="s300__logo" src="assets/logot/logo-1.svg" alt="Studio Blomma" onerror="this.style.display='none'">
+      <p class="s300__tagline">Pistetään yrityksesi visuaalit minttiin.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="brand" aria-label="Studio Blomma">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__wordmark" role="img" aria-label="Studio Blomma"></span>
+          </a>
+          <p>Web design -studio naisvetoisille aloille. Lämmin retro-editorial, fun luxe – rohkeasti, läpinäkyvästi ja sinun näköisesti.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Sivut</h4>
+          <ul>
+            <li><a href="palvelut.html">Palvelut</a></li>
+            <li><a href="meista.html">Meistä</a></li>
+            <li><a href="demot.html">Demot</a></li>
+            <li><a href="yhteys.html">Ota yhteyttä</a></li>
+            <li><a href="laskuri.html">Hintalaskuri</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Ota yhteyttä</h4>
+          <ul>
+            <li><a href="mailto:sofia.krap@gmail.com">sofia.krap@gmail.com</a></li>
+            <li><a href="tarjouspyynto.html">Tee tarjouspyyntö →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2026</span> Studio Blomma</span>
+        <span>Tehty lämmöllä</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
