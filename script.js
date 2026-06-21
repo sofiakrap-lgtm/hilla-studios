@@ -536,7 +536,7 @@ function initArviot() {
     let grand = 0;
     listEl.innerHTML = ests.map((e) => {
       grand += e.once || 0;
-      const items = (e.items || []).map((it) => `<li><span>${it.name}</span><span>${fmt(it.price)}</span></li>`).join("");
+      const items = (e.items || []).map((it) => `<li><span>${it.name}</span><span>${it.price != null ? fmt(it.price) : "sis."}</span></li>`).join("");
       const recs = (e.recurring || []).map((r) => `<li class="rec"><span>${r.name}</span><span>${fmt(r.price)}/${r.unit}</span></li>`).join("");
       return `<article class="arviot__card"><header><h3>${e.label}</h3><button type="button" class="arviot__remove" data-remove="${e.id}" aria-label="Poista">&times;</button></header><ul class="arviot__items">${items}${recs}</ul><p class="arviot__sub">Kertahinta (ALV 0 %): <strong>${fmt(e.once || 0)}</strong></p></article>`;
     }).join("");
@@ -553,7 +553,7 @@ function initArviot() {
     let grand = 0;
     ests.forEach((e) => {
       lines.push(e.label);
-      (e.items || []).forEach((it) => lines.push(`  - ${it.name}: ${fmt(it.price)}`));
+      (e.items || []).forEach((it) => lines.push(`  - ${it.name}: ${it.price != null ? fmt(it.price) : "sis."}`));
       (e.recurring || []).forEach((r) => lines.push(`  - ${r.name}: ${fmt(r.price)}/${r.unit}`));
       lines.push(`  Yhteensä: ${fmt(e.once || 0)} (ALV 0 %)`);
       lines.push("");
@@ -673,6 +673,23 @@ function initCalc3() {
 }
 
 /* ---------------------------------------------------------
+   7b. Valmiit paketit -> lisää hinta-arvioiden koriin
+   --------------------------------------------------------- */
+function initPackageAdd() {
+  document.querySelectorAll("[data-add-package]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const label = btn.dataset.label || "Paketti";
+      const price = Number(btn.dataset.price) || 0;
+      let names = [];
+      try { names = JSON.parse(btn.dataset.items || "[]"); } catch (e) { names = []; }
+      const items = names.map((n) => ({ name: n, price: null }));
+      upsertEstimate({ id: "paketti::" + label, label, once: price, items, recurring: [] });
+      window.location.href = "arviot.html";
+    });
+  });
+}
+
+/* ---------------------------------------------------------
    8. Käynnistys
    --------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
@@ -684,4 +701,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initCalc2();
   initCalc3();
   initArviot();
+  initPackageAdd();
 });

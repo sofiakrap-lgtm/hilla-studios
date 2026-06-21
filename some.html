@@ -30,54 +30,140 @@
   </header>
 
   <main>
-    <!-- ============ 402 — SOME-PAKETIT ============ -->
-    <section class="p402 p402--plain" aria-labelledby="some402-title">
+    <!-- ============ 402 — SOME-PAKETIT (interaktiiviset) ============ -->
+    <section class="p402" aria-labelledby="some402-title" style="background:var(--vari-1)">
       <div class="container">
         <header class="p402__head">
           <p class="l803__sub"><a href="laskuri.html">← Hintalaskuri</a> · Sosiaalinen media</p>
-          <h1 id="some402-title">Valmiit some-paketit</h1>
-          <p>Valitse paketti, joka vie somesi seuraavalle tasolle — asennuksesta valmiiseen
-             kuukausien sisältöön.</p>
+          <h1 id="some402-title">Avaa paketti — katso tarkalleen mistä se koostuu</h1>
+          <p>Paina pakettia, niin näet sen osat. Avaa kukin kohta lukeaksesi, mitä siihen kuuluu,
+             ja lisää paketti hintalaskuriin tai tee suoraan tarjouspyyntö.</p>
         </header>
-        <div class="p402__cards">
-
-          <!-- 1 · Some alku -->
-          <article class="p402__card">
-            <h3 class="p402__name">Some alku</h3>
-            <p class="p402__price">alk. 499 €</p>
-            <ul class="p402__feats">
-              <li><strong>Instagramin asennus</strong><small>Bion suunnittelu, nimen keksiminen, profiilikuvat ja kohokohtien kuvat.</small></li>
-              <li><strong>3 kk somesisältö</strong><small>10 julkaisua, 15 informatiivista karusellia, 15 reelsiä ja päivittäin tarinat.</small></li>
-              <li><strong>Automatisoitu julkaiseminen</strong><small>Tarvittaessa (valinnainen).</small></li>
-              <li><strong>Brändäys</strong><small>Logot, värit, grafiikat ja fontit.</small></li>
-            </ul>
-            <a href="tarjouspyynto.html" class="btn btn--free p402__btn">Valitse Some alku →</a>
-          </article>
-
-          <!-- 2 · Some freesaus -->
-          <article class="p402__card">
-            <h3 class="p402__name">Some freesaus</h3>
-            <p class="p402__price">alk. 349 €</p>
-            <ul class="p402__feats">
-              <li><strong>Instagramin asennus</strong><small>Bion suunnittelu, nimen keksiminen, profiilikuvat ja kohokohtien kuvat.</small></li>
-              <li><strong>3 kk somesisältö</strong><small>10 julkaisua, 15 informatiivista karusellia, 15 reelsiä ja päivittäin tarinat.</small></li>
-              <li><strong>Automatisoitu julkaiseminen</strong><small>Tarvittaessa (valinnainen).</small></li>
-            </ul>
-            <a href="tarjouspyynto.html" class="btn btn--net p402__btn">Valitse Some freesaus →</a>
-          </article>
-
-          <!-- 3 · Some kasvu -->
-          <article class="p402__card">
-            <h3 class="p402__name">Some kasvu</h3>
-            <p class="p402__price">alk. 749 €</p>
-            <ul class="p402__feats">
-              <li><strong>Instagramin asennus</strong><small>Bion suunnittelu, nimen keksiminen, profiilikuvat ja kohokohtien kuvat.</small></li>
-              <li><strong>6 kk somesisältö</strong><small>20 julkaisua, 30 informatiivista karusellia, 30 reelsiä ja päivittäin tarinat.</small></li>
-              <li><strong>Automatisoitu julkaiseminen</strong><small>Tarvittaessa (valinnainen).</small></li>
-            </ul>
-            <a href="tarjouspyynto.html" class="btn btn--grow p402__btn">Valitse Some kasvu →</a>
-          </article>
-
+        <div class="spkglist">
+        <details class="spkg" open>
+          <summary class="spkg__bar">
+            <h3>Some alku</h3>
+            <span class="spkg__barprice">alk. 499 €</span>
+            <span class="spkg__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="spkg__detail">
+            <div class="spkg__media">
+              <img src="assets/kuvat/kuva-2.webp" alt="Some alku" onerror="this.closest('.spkg__media').style.display='none'">
+            </div>
+            <div class="spkg__body">
+              <p class="spkg__intro">Avaa kohdat alta ja katso tarkalleen, mitä some alku -pakettiin kuuluu.</p>
+              <div class="spkg__parts">
+              <details class="spkg__part">
+                <summary>Instagramin asennus</summary>
+                <p>Instagram-profiilin asennukseen kuuluu bion suunnittelu, nimen keksiminen, profiilikuva ja kohokohtien (highlights) kansikuvat. Rakennamme yhdessä profiilin, joka näyttää heti ammattimaiselta ja sinun näköiseltäsi.</p>
+              </details>
+              <details class="spkg__part">
+                <summary>3 kk somesisältö</summary>
+                <p>Sisältöön kuuluu 3 kuukauden ajan 10 valmista julkaisua, 15 informatiivista karusellia, 15 reelsiä ja päivittäiset tarinat. Suunnittelemme sisällön yhdessä ja toteutamme sen brändisi mukaisesti — sinun ei tarvitse miettiä, mitä postata.</p>
+              </details>
+              <details class="spkg__part">
+                <summary>Automatisoitu julkaiseminen (valinnainen)</summary>
+                <p>Halutessasi ajastamme julkaisut valmiiksi, niin sisältö ilmestyy oikeaan aikaan ilman että sinun tarvitsee tehdä mitään. Täysin valinnainen lisä.</p>
+              </details>
+              <details class="spkg__part">
+                <summary>Brändäys (logot, värit, grafiikat ja fontit)</summary>
+                <p>Brändäykseen kuuluu logot, värit, grafiikat ja fontit. Logon suunnitteluun kuuluu tarpeen mukaan 1–5 eri logon suunnittelu: ideoimme yhdessä ja annamme useita eri vaihtoehtoja, joista muokkaamme lopputuloksen juuri sinun näköiseksesi. Saat valmiin, yhtenäisen visuaalisen ilmeen, jota on helppo käyttää kaikkialla.</p>
+              </details>
+              </div>
+              <div class="spkg__actions">
+                <button type="button" class="btn btn--primary" data-add-package data-label="Some alku" data-price="499" data-items="[&quot;Instagramin asennus&quot;, &quot;3 kk somesisältö&quot;, &quot;Automatisoitu julkaiseminen (valinnainen)&quot;, &quot;Brändäys (logot, värit, grafiikat ja fontit)&quot;]">Lisää hintalaskuriin →</button>
+              </div>
+              <details class="spkg__offer">
+                <summary>Tee tarjouspyyntö <span class="arrow">→</span></summary>
+                <div class="spkg__offer-box">
+                  <p>Voit tehdä tarjouspyynnön suoraan tämän paketin pohjalta — hinta on kiinteä eikä
+                     muutu matkan varrella. Lähetät vain pyynnön, niin jatkamme siitä.</p>
+                  <a href="tarjouspyynto.html" class="btn btn--dark">Siirry tarjouspyyntöön →</a>
+                </div>
+              </details>
+            </div>
+          </div>
+        </details>
+        <details class="spkg">
+          <summary class="spkg__bar">
+            <h3>Some freesaus</h3>
+            <span class="spkg__barprice">alk. 349 €</span>
+            <span class="spkg__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="spkg__detail">
+            <div class="spkg__media">
+              <img src="assets/kuvat/kuva-7.webp" alt="Some freesaus" onerror="this.closest('.spkg__media').style.display='none'">
+            </div>
+            <div class="spkg__body">
+              <p class="spkg__intro">Avaa kohdat alta ja katso tarkalleen, mitä some freesaus -pakettiin kuuluu.</p>
+              <div class="spkg__parts">
+              <details class="spkg__part">
+                <summary>Instagramin asennus</summary>
+                <p>Instagram-profiilin asennukseen kuuluu bion suunnittelu, nimen keksiminen, profiilikuva ja kohokohtien (highlights) kansikuvat. Rakennamme yhdessä profiilin, joka näyttää heti ammattimaiselta ja sinun näköiseltäsi.</p>
+              </details>
+              <details class="spkg__part">
+                <summary>3 kk somesisältö</summary>
+                <p>Sisältöön kuuluu 3 kuukauden ajan 10 valmista julkaisua, 15 informatiivista karusellia, 15 reelsiä ja päivittäiset tarinat. Suunnittelemme sisällön yhdessä ja toteutamme sen brändisi mukaisesti — sinun ei tarvitse miettiä, mitä postata.</p>
+              </details>
+              <details class="spkg__part">
+                <summary>Automatisoitu julkaiseminen (valinnainen)</summary>
+                <p>Halutessasi ajastamme julkaisut valmiiksi, niin sisältö ilmestyy oikeaan aikaan ilman että sinun tarvitsee tehdä mitään. Täysin valinnainen lisä.</p>
+              </details>
+              </div>
+              <div class="spkg__actions">
+                <button type="button" class="btn btn--primary" data-add-package data-label="Some freesaus" data-price="349" data-items="[&quot;Instagramin asennus&quot;, &quot;3 kk somesisältö&quot;, &quot;Automatisoitu julkaiseminen (valinnainen)&quot;]">Lisää hintalaskuriin →</button>
+              </div>
+              <details class="spkg__offer">
+                <summary>Tee tarjouspyyntö <span class="arrow">→</span></summary>
+                <div class="spkg__offer-box">
+                  <p>Voit tehdä tarjouspyynnön suoraan tämän paketin pohjalta — hinta on kiinteä eikä
+                     muutu matkan varrella. Lähetät vain pyynnön, niin jatkamme siitä.</p>
+                  <a href="tarjouspyynto.html" class="btn btn--dark">Siirry tarjouspyyntöön →</a>
+                </div>
+              </details>
+            </div>
+          </div>
+        </details>
+        <details class="spkg">
+          <summary class="spkg__bar">
+            <h3>Some kasvu</h3>
+            <span class="spkg__barprice">alk. 749 €</span>
+            <span class="spkg__chev" aria-hidden="true"></span>
+          </summary>
+          <div class="spkg__detail">
+            <div class="spkg__media">
+              <img src="assets/kuvat/kuva-9.webp" alt="Some kasvu" onerror="this.closest('.spkg__media').style.display='none'">
+            </div>
+            <div class="spkg__body">
+              <p class="spkg__intro">Avaa kohdat alta ja katso tarkalleen, mitä some kasvu -pakettiin kuuluu.</p>
+              <div class="spkg__parts">
+              <details class="spkg__part">
+                <summary>Instagramin asennus</summary>
+                <p>Instagram-profiilin asennukseen kuuluu bion suunnittelu, nimen keksiminen, profiilikuva ja kohokohtien (highlights) kansikuvat. Rakennamme yhdessä profiilin, joka näyttää heti ammattimaiselta ja sinun näköiseltäsi.</p>
+              </details>
+              <details class="spkg__part">
+                <summary>6 kk somesisältö</summary>
+                <p>Sisältöön kuuluu 6 kuukauden ajan 20 valmista julkaisua, 30 informatiivista karusellia, 30 reelsiä ja päivittäiset tarinat. Pidempi jakso pitää näkyvyytesi tasaisena ja kasvattaa seuraajakuntaa pitkäjänteisesti.</p>
+              </details>
+              <details class="spkg__part">
+                <summary>Automatisoitu julkaiseminen (valinnainen)</summary>
+                <p>Halutessasi ajastamme julkaisut valmiiksi, niin sisältö ilmestyy oikeaan aikaan ilman että sinun tarvitsee tehdä mitään. Täysin valinnainen lisä.</p>
+              </details>
+              </div>
+              <div class="spkg__actions">
+                <button type="button" class="btn btn--primary" data-add-package data-label="Some kasvu" data-price="749" data-items="[&quot;Instagramin asennus&quot;, &quot;6 kk somesisältö&quot;, &quot;Automatisoitu julkaiseminen (valinnainen)&quot;]">Lisää hintalaskuriin →</button>
+              </div>
+              <details class="spkg__offer">
+                <summary>Tee tarjouspyyntö <span class="arrow">→</span></summary>
+                <div class="spkg__offer-box">
+                  <p>Voit tehdä tarjouspyynnön suoraan tämän paketin pohjalta — hinta on kiinteä eikä
+                     muutu matkan varrella. Lähetät vain pyynnön, niin jatkamme siitä.</p>
+                  <a href="tarjouspyynto.html" class="btn btn--dark">Siirry tarjouspyyntöön →</a>
+                </div>
+              </details>
+            </div>
+          </div>
+        </details>
         </div>
       </div>
     </section>
