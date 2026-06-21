@@ -4,15 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Näin se toimii — Studio Blomma</title>
-  <meta name="description" content="Näin Studio Blomman kanssa edetään: laske hinta, tee tarjouspyyntö, suunnittele sivusi. Läpinäkyvä prosessi ja arvot.">
-
+  <meta name="description" content="Näin Studio Blomman kanssa edetään: hintalaskuri, tarjouspyyntö, ideointi ja valmis sivu viikossa. Läpinäkyvä prosessi ja tyytyväisyystakuu.">
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
 </head>
 <body>
-
-  <!-- ============ HEADER / NAV ============ -->
   <header class="site-header">
     <div class="container nav">
       <a href="index.html" class="brand" aria-label="Studio Blomma — etusivu">
@@ -25,6 +22,7 @@
         <li><a href="palvelut.html">Palvelut</a></li>
         <li><a href="meista.html">Meistä</a></li>
         <li><a href="demot.html">Demot</a></li>
+        <li><a href="nain-se-toimii.html" class="is-active">Näin se toimii</a></li>
         <li><a href="yhteys.html">Ota yhteyttä</a></li>
         <li class="nav__cta"><a href="laskuri.html" class="btn btn--primary">Hintalaskuri →</a></li>
       </ul>
@@ -32,84 +30,144 @@
   </header>
 
   <main>
-    <section class="calc-hero">
+    <!-- ============ HERO ============ -->
+    <section class="nst-hero">
       <div class="container">
         <span class="eyebrow">Näin se toimii</span>
-        <h1>Kolme askelta omaan sivustoosi</h1>
-        <p class="lead">Yksinkertaista alusta loppuun – ei teknistä jargonia, ei piilokuluja.</p>
+        <h1>Brändisi minttiin — viidellä mutkattomalla askeleella</h1>
+        <p class="lead">Ei teknistä jargonia, ei piilokuluja. Sinä annat vision, idean ja suunnan —
+           me pistämme sen toteen. Näin helppoa sen kuuluu olla.</p>
       </div>
     </section>
 
-    <section class="section--tight">
+    <!-- ============ 221 — NÄIN SE HOITUU (prosessi) ============ -->
+    <section class="s221" aria-labelledby="s221-title">
       <div class="container">
-        <div class="steps">
-          <article class="step reveal">
-            <span class="step__num">1</span>
-            <h3>Laske hinta</h3>
-            <p>Valitse toimialasi ja tarvitsemasi moduulit hintalaskurissa. Hinta päivittyy reaaliajassa – tiedät heti, mitä projekti maksaa.</p>
-            <a href="laskuri.html" class="btn btn--dark" style="margin-top:18px">Avaa laskuri →</a>
+        <header class="s221__head">
+          <h2 id="s221-title">Nettisivut viikossa?</h2>
+          <p class="s221__sub">Näin se hoituu.</p>
+        </header>
+
+        <ol class="s221__steps">
+          <li class="s221__step">
+            <span class="s221__num s221__num--1" aria-hidden="true">1</span>
+            <div class="s221__body">
+              <h3>Hintalaskuri</h3>
+              <p>Tarkastele hintalaskurista juuri oman alasi tarpeet nettisivulle ja saat
+                 suoraan laskettua hinnan juuri haluamallesi sivustolle. Jos olet hintaan
+                 tyytyväinen, voit saman tien lähettää meille tarjouspyynnön.</p>
+              <a href="laskuri.html" class="btn btn--primary">Hintalaskuriin →</a>
+            </div>
+          </li>
+
+          <li class="s221__step">
+            <span class="s221__num s221__num--2" aria-hidden="true">2</span>
+            <div class="s221__body">
+              <h3>Suunnittelu</h3>
+              <p>Tykkäätkö jostain kilpailijasi sivuilla? Haluatko tuoda omaa tvistiä? Oletko jo
+                 ehtinyt koota Pinterest-taulun brändisi visuaalisesta inspiraatiosta? Kun
+                 vastaanotamme tarjouspyyntösi, saat meiltä ideointilomakkeen, jossa voit vapaasti
+                 suunnitella omaan tahtiin ja aikatauluun juuri sellaisen sivun kuin haluat — anna
+                 meille logosi, värisi ja ne sivut, joista itse pidät, ja linkitä Pinterest-taulusi.
+                 Halutessasi me autamme.</p>
+              <a href="ideointilomake.html" class="btn btn--primary">Ideointilomakkeen demo →</a>
+            </div>
+          </li>
+
+          <li class="s221__step">
+            <span class="s221__num s221__num--3" aria-hidden="true">3</span>
+            <div class="s221__body">
+              <h3>Nettisivun toteutus</h3>
+              <p>Vastaanotamme täytetyn ideointilomakkeen ja alamme suunnitella sen pohjalta
+                 sivusi. Siihen menee noin 1–3 päivää, minkä jälkeen lähetämme sinulle demon
+                 nettisivusta.</p>
+            </div>
+          </li>
+
+          <li class="s221__step">
+            <span class="s221__num s221__num--4" aria-hidden="true">4</span>
+            <div class="s221__body">
+              <h3>Arviot demosivusta</h3>
+              <p>Katsot demon tarkkaan läpi ja annat kommenttia: mitä pitää muuttaa ja mitä
+                 siirtää, jotta saamme tehtyä juuri sinun silmääsi miellyttävän sivuston.
+                 Tällaisia kierroksia voimme tehdä useamman.</p>
+            </div>
+          </li>
+
+          <li class="s221__step">
+            <span class="s221__num s221__num--5" aria-hidden="true">5</span>
+            <div class="s221__body">
+              <h3>Nettisivu on valmis!</h3>
+              <p>Saimme muokattua nettisivun juuri sinun toiveidesi mukaan. Mutta mikäli et
+                 tykkää lopputuloksesta, <strong>saat rahat takaisin</strong>.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 219 — MIKSI MEIDÄN KANSSA (arvot) ============ -->
+    <section class="s219 s219--nst" aria-labelledby="nst-arvot-title">
+      <div class="container">
+        <header class="s219__head">
+          <h2 class="s219__title" id="nst-arvot-title">Miksi juuri meidän kanssa?</h2>
+        </header>
+        <div class="s219__cards">
+          <article class="s219__card">
+            <span class="s219__icon" style="--ico:url('assets/grafiikat/grafiikka-25.svg')" aria-hidden="true"></span>
+            <h3>Läpinäkyvä hinnoittelu</h3>
+            <p>Näet hinnan etukäteen hintalaskurista. Ei piilokuluja eikä yllätyksiä — vain selkeät
+               ja edulliset hinnat, joihin voit luottaa.</p>
           </article>
-          <article class="step reveal">
-            <span class="step__num">2</span>
-            <h3>Tee tarjouspyyntö</h3>
-            <p>Valintasi siirtyvät suoraan tarjouspyyntölomakkeelle. Kerro yhteystietosi ja toiveesi – minä otan yhteyttä ja hyväksymme tarjouksen.</p>
-            <a href="tarjouspyynto.html" class="btn btn--dark" style="margin-top:18px">Tarjouspyyntö →</a>
+          <article class="s219__card">
+            <span class="s219__icon" style="--ico:url('assets/grafiikat/grafiikka-24.svg')" aria-hidden="true"></span>
+            <h3>Nopea toimitus</h3>
+            <p>Demo käsissäsi 1–3 päivässä ja valmis sivusto noin viikossa. Brändi ja sivut
+               tehokkaasti maaliin — ilman kuukausien odottelua.</p>
           </article>
-          <article class="step reveal">
-            <span class="step__num">3</span>
-            <h3>Suunnittele sivusi</h3>
-            <p>Tarjouksen jälkeen saat ideointikaavakkeen: kuvat, värit, fontit ja esikuvat. Valitaan tyyli yhdessä – sinä saat valmiit sivut, minä hoidan tekniikan.</p>
+          <article class="s219__card">
+            <span class="s219__icon" style="--ico:url('assets/grafiikat/grafiikka-23.svg')" aria-hidden="true"></span>
+            <h3>Tyytyväisyystakuu</h3>
+            <p>Jos lopputulos ei vastaa odotuksiasi, palautamme rahat. Me kannamme vastuun työstämme —
+               sinä saat keskittyä olennaiseen.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <div class="stripes" aria-hidden="true"></div>
-
-    <!-- ============ ARVOT / LÄPINÄKYVYYS ============ -->
-    <section class="section">
-      <div class="container" style="max-width: 760px;">
-        <div class="reveal">
-          <span class="eyebrow">Arvot & läpinäkyvyys</span>
-          <h2>Selkeää, rehellistä ja sinun näköistäsi</h2>
-          <ul class="value-list">
-            <li>
-              <span class="tick"><span class="ic" style="--ic:var(--i-kipina); width:22px; height:22px"></span></span>
-              <span><strong>Hinta etukäteen</strong>Näet kustannukset jo ennen yhteydenottoa hintalaskurin avulla – ei piilokuluja.</span>
-            </li>
-            <li>
-              <span class="tick"><span class="ic" style="--ic:var(--i-kadet-sydan); width:22px; height:22px"></span></span>
-              <span><strong>Henkilökohtaista palvelua</strong>Suunnittelen jokaisen sivuston käsin, juuri sinun yrityksellesi. Et ole vain numero.</span>
-            </li>
-            <li>
-              <span class="tick"><span class="ic" style="--ic:var(--i-tahti); width:22px; height:22px"></span></span>
-              <span><strong>Läpinäkyvä prosessi</strong>Laske hinta → tee tarjouspyyntö → suunnittele sivut. Tiedät joka hetki, missä mennään.</span>
-            </li>
-            <li>
-              <span class="tick"><span class="ic" style="--ic:var(--i-kukka); width:22px; height:22px"></span></span>
-              <span><strong>Yhteistyö ei lopu julkaisuun</strong>Tarjoan ylläpitoa, päivityksiä ja tukea myös sivuston valmistumisen jälkeen.</span>
-            </li>
-          </ul>
-        </div>
+    <!-- ============ 801 — BRÄNDÄYSDEMOT + TYYTYVÄISYYSTAKUU ============ -->
+    <section class="s801" aria-labelledby="s801-title">
+      <div class="s801__brands">
+        <h2 class="s801__brands-title">Brändäysdemot</h2>
+        <ul class="s801__logos">
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-6.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-1.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-3.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-2.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-4.svg')"></span></li>
+          <li><span class="s801__logo" style="--logo:url('assets/logot/lisalogo-5.svg')"></span></li>
+        </ul>
       </div>
-    </section>
-    <!-- ============ CTA-BANNERI ============ -->
-    <section class="section" style="padding-top:24px">
-      <div class="container">
-        <div class="cta-banner reveal">
-          <span class="label">Aloitetaan</span>
-          <h2>Valmis kukoistamaan verkossa?</h2>
-          <p>Aloita laskemalla hinta tai tee suoraan tarjouspyyntö. Vastaan henkilökohtaisesti jokaiseen viestiin.</p>
-          <div class="hero__cta">
-            <a href="laskuri.html" class="btn btn--primary btn--lg">Laske hinta →</a>
-            <a href="tarjouspyynto.html" class="btn btn--dark btn--lg">Tee tarjouspyyntö</a>
+      <div class="s801__guarantee">
+        <div class="s801__media">
+          <img src="assets/kuvat/kuva-5.webp" alt="Studio Blomman työtä" onerror="this.style.display='none'">
+          <span class="s801__media-gfx" style="background-image:url('assets/grafiikat/grafiikka-30.svg')" aria-hidden="true"></span>
+        </div>
+        <div class="s801__panel">
+          <p class="s801__eyebrow" id="s801-title">Tyytyväisyystakuu</p>
+          <h2 class="s801__title">Jos tekemämme nettisivu ei vastaa odotuksiasi, palautamme rahat.</h2>
+          <p class="s801__text">Meidän tärkein tehtävämme on pitää asiakkaamme tyytyväisinä — siksi
+             seisomme työmme takana täysin. Et maksa lopputuloksesta, johon et ole tyytyväinen.</p>
+          <div class="s801__buttons">
+            <a href="laskuri.html" class="btn btn--calc">Hintalaskuriin →</a>
+            <a href="yhteys.html" class="btn btn--outline">Ota yhteyttä</a>
+            <a href="demot.html" class="btn btn--outline">Demot</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
   <!-- ============ 300 — ALALAIDAN BRÄNDIBANNERI (jokaisella sivulla) ============ -->
   <section class="s300" aria-label="Studio Blomma">
     <div class="container s300__inner">
@@ -134,6 +192,7 @@
             <li><a href="palvelut.html">Palvelut</a></li>
             <li><a href="meista.html">Meistä</a></li>
             <li><a href="demot.html">Demot</a></li>
+            <li><a href="nain-se-toimii.html">Näin se toimii</a></li>
             <li><a href="yhteys.html">Ota yhteyttä</a></li>
             <li><a href="laskuri.html">Hintalaskuri</a></li>
           </ul>
@@ -147,7 +206,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <span>© <span data-year>2026</span> Studio Blomma</span>
+        <span>&copy; <span data-year>2026</span> Studio Blomma</span>
         <span>Tehty lämmöllä</span>
       </div>
     </div>

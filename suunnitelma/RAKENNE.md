@@ -4,7 +4,8 @@
 > Päivitetään aina, kun osia lisätään.
 
 ## Globaalit (joka sivulla)
-- Header / nav
+- Header / nav (sis. linkki: Näin se toimii)
+- TYYLI: otsikkofontti EI lihavoituna; kulmat terävät (radius s9/m15/l24/pill16)
 - **300** Alalaidan banneri — tausta 11, teksti 1, logo 1
 - Footer
 
@@ -94,7 +95,7 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
   some ennen/jälkeen (interakt.) · 701 · 601 brändikeissit · 804-kuvapari · 221 · 702
 - `yhteys.html` ✅ — hero + 3 yhteydenottokorttia
 - `tarjouspyynto.html` ✅ — lomake suoraan + hintalaskuri-kehotus
-- `nain-se-toimii.html` — Hero + 3 askelta + arvot + CTA
+- `nain-se-toimii.html` ✅ — hero + 221 prosessi (5 vaihetta) + 219 arvot + 801 takuu
 
 ## DEMOT (demot.html)
 - D1 Kukkakauppa · D2 Kynsitekniikko · D3 Rakennusyritys ·
@@ -109,4 +110,4 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
 ### Tila
 - ✅ Valmiit: Etusivu · Palvelut · Hintalaskuri · Kori (arviot) · Nettisivut 1.1 ·
   Toimialat 1.1.1–1.1.7 · Some 1.2 · Brändi 1.3 · Meistä · Demot · Yhteys · Tarjouspyyntö
-- ⏳ Tulossa: nain-se-toimii hienosäätö (kaikki päärakenne valmis!)
+- ✅ KOKO SIVUSTO VALMIS (kaikki sivut + Näin se toimii)
