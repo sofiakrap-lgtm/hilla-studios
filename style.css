@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap");
+
 /* =========================================================
    Studio Blomma — brändistylesheet
    Lämmin retro-editorial · "fun luxe"
@@ -49,8 +51,10 @@
   --sun: var(--sun-mellow);
 
   /* Tyypografia */
-  --font: "Helvetica Now", "Helvetica Neue", Helvetica, Arial, sans-serif; /* body / fontti 3 */
-  --font-head: "Georgia Pro", Georgia, "Times New Roman", serif;           /* otsikot / fontti 1–2 */
+  --font-sans:  "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font:      var(--font-sans);   /* body / leipä */
+  --font-head: var(--font-serif);  /* otsikot */
   --w-regular: 400;
   --w-bold:    700;
   --w-black:   900;
@@ -82,7 +86,7 @@ body {
   font-weight: var(--w-regular);
   color: var(--bitter-cacao);
   background: var(--vari-2);
-  line-height: 1.65;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
