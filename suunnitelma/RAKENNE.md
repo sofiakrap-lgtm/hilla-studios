@@ -96,5 +96,5 @@ osa **111** (toimialahero: nimi + alateksti + demokuva + "Katso demo") +
 ---
 
 ### Tila
-- ✅ Valmiit: Etusivu, Palvelut, Hintalaskuri, Nettisivut 1.1, Toimialasivut 1.1.1–1.1.7
-- ⏳ Tulossa: 1.2 some, 1.3 brändi, 1.4 paketit, Meistä
+- ✅ Valmiit: Etusivu, Palvelut, Hintalaskuri, Nettisivut 1.1, Toimialasivut 1.1.1–1.1.7, Some 1.2, Hinta-arviot (arviot.html)
+- ⏳ Tulossa: 1.3 brändi, 1.4 paketit, Meistä
