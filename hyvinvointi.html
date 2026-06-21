@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hyvinvointi – Hintalaskuri – Studio Blomma</title>
-  <meta name="description" content="Hyvinvointi — laske juuri sinun alasi nettisivun hinta. Basic-pohja 399 € ja valittavat lisäominaisuudet, ALV 0 %.">
+  <meta name="description" content="Hyvinvointi, laske juuri sinun alasi nettisivun hinta. Basic-pohja 399 € ja valittavat lisäominaisuudet, ALV 0 %.">
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
@@ -12,9 +12,8 @@
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand" aria-label="Studio Blomma — etusivu">
-        <span class="brand__mark" aria-hidden="true"></span>
-        <span class="brand__wordmark" role="img" aria-label="Studio Blomma"></span>
+      <a href="index.html" class="brand brand--logo" aria-label="Studio Blomma, etusivu">
+        <img src="assets/logot/logo-2.svg" alt="Studio Blomma">
       </a>
       <button class="nav__toggle" aria-label="Avaa valikko" aria-expanded="false">☰</button>
       <ul class="nav__links">
@@ -24,24 +23,24 @@
         <li><a href="demot.html">Demot</a></li>
         <li><a href="nain-se-toimii.html">Näin se toimii</a></li>
         <li><a href="yhteys.html">Ota yhteyttä</a></li>
-        <li class="nav__cta"><a href="laskuri.html" class="btn btn--primary">Hintalaskuri →</a></li>
+        <li class="nav__cta"><a href="laskuri.html" class="btn btn--primary">Hintalaskuri</a></li>
       </ul>
     </div>
   </header>
 
   <main>
-    <!-- ============ 111 — TOIMIALAHERO ============ -->
+    <!-- ============ 111, TOIMIALAHERO ============ -->
     <section class="n111" aria-labelledby="n111-title">
       <div class="container">
         <div class="n111__grid">
           <div class="n111__copy">
             <p class="l803__sub" style="margin-bottom:8px"><a href="nettisivut.html">← Nettisivut</a> · Hintalaskuri</p>
             <h1 class="n111__title" id="n111-title">Hyvinvointi</h1>
-            <p class="n111__text">Hyvinvointialalla rytmi on kaikki kaikessa. Ajanvaraus- ja kurssikalenterijärjestelmä antaa asiakkaan varata paikkansa itse, ja kanta-asiakasedut sitouttavat kävijät pitkäksi aikaa. Sinä saat keskittyä olennaiseen — asiakkaisiisi ja heidän hyvinvointiinsa.</p>
-            <a href="demot.html" class="btn btn--primary btn--lg">Katso demo →</a>
+            <p class="n111__text">Hyvinvointialalla rytmi on kaikki kaikessa. Ajanvaraus- ja kurssikalenterijärjestelmä antaa asiakkaan varata paikkansa itse, ja kanta-asiakasedut sitouttavat kävijät pitkäksi aikaa. Sinä saat keskittyä olennaiseen, asiakkaisiisi ja heidän hyvinvointiinsa.</p>
+            <a href="demot.html" class="btn btn--primary btn--lg">Katso demo</a>
           </div>
           <div class="n111__media">
-            <img src="assets/kuvat/web-demo-5.jpg" alt="Hyvinvointi — nettisivun demo" onerror="this.closest('.n111__media').style.display='none'">
+            <img src="assets/kuvat/web-demo-5.jpg" alt="Hyvinvointi, nettisivun demo" onerror="this.closest('.n111__media').style.display='none'">
           </div>
         </div>
       </div>
@@ -52,11 +51,11 @@
       <div class="container">
         <header class="calc2__head">
           <h2 id="calc2-title">Rakenna oma hintasi</h2>
-          <p>Basic-pohja on aina mukana — valitse sen päälle juuri ne ominaisuudet, joita
+          <p>Basic-pohja on aina mukana, valitse sen päälle juuri ne ominaisuudet, joita
              tarvitset. Hinnat ovat ALV 0 %. Lopullisen tarjouksen vahvistamme tarjouspyynnön jälkeen.</p>
         </header>
 
-        <!-- Basic — aina valittuna, väri 2 -->
+        <!-- Basic, aina valittuna, väri 2 -->
         <label class="calc2__item calc2__item--basic">
           <input type="checkbox" checked disabled data-price="399">
           <span class="calc2__box" aria-hidden="true"></span>
@@ -166,7 +165,7 @@
           </label>
         </div>
 
-        <button type="button" class="btn btn--primary btn--lg calc2__calc">Laske hinta →</button>
+        <button type="button" class="btn btn--primary btn--lg calc2__calc">Laske hinta</button>
 
         <div class="calc2__result" hidden>
           <div class="calc2__total">
@@ -175,16 +174,16 @@
           </div>
           <div class="calc2__recurring" data-recurring-list></div>
           <div class="calc2__actions">
-            <button type="button" class="btn btn--ghost calc2__more">↑ Muokkaa valintoja</button>
+            <button type="button" class="btn btn--ghost calc2__more">Muokkaa valintoja</button>
             <a href="laskuri.html" class="btn btn--ghost">+ Lisää palvelu</a>
-            <a href="arviot.html" class="btn btn--dark">Hinta-arviot &amp; tarjouspyyntö →</a>
+            <a href="arviot.html" class="btn btn--dark">Hinta-arviot &amp; tarjouspyyntö</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ============ 300 — ALALAIDAN BRÄNDIBANNERI (jokaisella sivulla) ============ -->
+  <!-- ============ 300, ALALAIDAN BRÄNDIBANNERI (jokaisella sivulla) ============ -->
   <section class="s300" aria-label="Studio Blomma">
     <div class="container s300__inner">
       <img class="s300__logo" src="assets/logot/logo-1.svg" alt="Studio Blomma" onerror="this.style.display='none'">
