@@ -1140,7 +1140,7 @@ p { margin: 0 0 1em; }
 }
 .s219__card h3 {
   font-family: var(--font-head); font-weight: 700;
-  font-size: 1.22rem; line-height: 1.2; color: var(--vari-3); margin: 0;
+  font-size: 1.45rem; line-height: 1.2; color: var(--vari-3); margin: 0;
 }
 .s219__card p { font-size: 0.98rem; line-height: 1.65; color: var(--vari-3); margin: 0; }
 @media (max-width: 880px) {
@@ -1920,9 +1920,9 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 /* Hero — kuvan päällä alhaalla oleva sitaatti (väri 2, iso) */
 .h106__media-cap {
   position: absolute; inset: 0; z-index: 1; margin: 0;
-  display: flex; align-items: center; justify-content: center; text-align: center;
-  padding: 8%; color: var(--vari-2);
-  font-family: var(--font-head); font-style: italic;
+  display: flex; align-items: flex-end; justify-content: center; text-align: center;
+  padding: 8% 8% 5%; color: var(--vari-2);
+  font-family: var(--font-head); font-style: italic; font-weight: var(--w-bold);
   font-size: clamp(1.5rem, 2.6vw, 2.3rem); line-height: 1.3;
   text-shadow: 0 2px 14px rgba(0,0,0,.45);
 }
