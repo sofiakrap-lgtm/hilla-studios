@@ -1124,7 +1124,7 @@ p { margin: 0 0 1em; }
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch;
 }
 .s219__card {
-  display: flex; flex-direction: column; gap: 16px;
+  display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center;
   background: var(--vari-2);
   border: 1px solid var(--vari-3);
   border-radius: var(--radius-m);
