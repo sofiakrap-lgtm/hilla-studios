@@ -803,11 +803,10 @@ function buildLaskWindow(content, opts) {
   const steps = ["Kategoria", "Valinnat", "Hinta-arvio"];
   const active = opts.active || 0;
 
-  const launch = document.createElement("div");
-  launch.className = "lask-launch";
-  launch.innerHTML =
-    '<button type="button" class="btn btn--primary btn--lg">Avaa hintalaskuri</button>';
-  content.parentNode.insertBefore(launch, content);
+  /* Muista sisällön alkuperäinen paikka, jotta se voidaan palauttaa kun
+     ikkuna suljetaan (muuten sivu jää tyhjäksi ja näyttää etusivulta) */
+  const placeholder = document.createComment("lask-content");
+  content.parentNode.insertBefore(placeholder, content);
 
   const modal = document.createElement("div");
   modal.className = "lask-modal";
@@ -834,17 +833,19 @@ function buildLaskWindow(content, opts) {
     "</div>" +
     '<div class="lask-modal__body">' + titleHtml + "</div></div>";
   document.body.appendChild(modal);
-  modal.querySelector(".lask-modal__body").appendChild(content);
+  const modalBody = modal.querySelector(".lask-modal__body");
 
   function open() {
+    modalBody.appendChild(content);
     modal.hidden = false;
     document.body.style.overflow = "hidden";
   }
   function close() {
     modal.hidden = true;
     document.body.style.overflow = "";
+    /* Palauta valinta takaisin sivulle, jotta sivu näyttää normaalilta */
+    placeholder.parentNode.insertBefore(content, placeholder);
   }
-  launch.querySelector("button").addEventListener("click", open);
   modal.querySelectorAll("[data-lask-close]").forEach((el) =>
     el.addEventListener("click", close)
   );

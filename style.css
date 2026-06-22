@@ -799,7 +799,7 @@ p { margin: 0 0 1em; }
 .h106__split { display: grid; grid-template-columns: 1fr 1fr; min-height: auto; }
 .h106__media { position: relative; background: var(--vari-3); overflow: hidden; }
 .h106__media > img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.h106__media::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.40); z-index: 1; } /* tummennus 40% */
+.h106__media::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.30); z-index: 1; } /* tummennus 30% */
 .h106__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 6%; }
 .h106__demo img { max-width: 84%; max-height: 84%; width: auto; height: auto; border-radius: var(--radius-s); }
 
@@ -2155,7 +2155,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .lask-modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; padding: 2vmin; }
 .lask-modal__backdrop { position: absolute; inset: 0; background: rgba(61,42,28,.55); }
 .lask-modal__box {
-  position: relative; z-index: 1; width: 96vw; height: 94vh; max-width: 1200px;
+  position: relative; z-index: 1; width: 96vw; height: 94vh; max-width: 1320px;
   background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: 24px;
   display: flex; flex-direction: column; overflow: hidden;
 }
@@ -2168,8 +2168,14 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .lask-modal__body { flex: 1; overflow-y: auto; padding: clamp(20px, 4vw, 48px); }
 .lask-modal__body .calc2, .lask-modal__body .calc3, .lask-modal__body .p402 { padding: 0; background: transparent; }
 .lask-modal__body > section[style] { background: transparent !important; }
-.lask-start__title { font-family: var(--font-head); font-weight: var(--w-bold); font-size: clamp(1.5rem, 3.4vw, 2.2rem); color: var(--vari-3); text-align: center; margin: 0 0 28px; }
-.lask-modal__body .l803__grid { margin: 0 auto; }
+.lask-start__title { font-family: var(--font-head); font-weight: var(--w-bold); font-size: clamp(1.4rem, 3vw, 2rem); color: var(--vari-3); text-align: center; margin: 0 0 18px; }
+/* Kategoriavalinta mahtuu kokonaan ikkunaan (kaikki 4 laatikkoa näkyvät) */
+.lask-modal__body { padding: clamp(16px, 2.4vw, 32px); }
+.lask-modal__body .l803__grid { margin: 0 auto; max-width: 1040px; gap: 18px; }
+.lask-modal__body .l803__card { min-height: 0; padding: 18px 22px 58px; gap: 10px; }
+.lask-modal__body .l803__card h3 { font-size: 1.4rem; }
+.lask-modal__body .l803__card .btn { bottom: 14px; }
+.lask-modal__body .l803__phone { top: 30%; }
 
 /* Askelmittari */
 .lask-steps { display: flex; align-items: center; gap: 0; flex: 1; max-width: 640px; }
