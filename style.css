@@ -1935,3 +1935,12 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 /* Hintalaskuri-nappi (navi) ilman pop-varjoa */
 .nav__cta .btn, .h106__nav .nav__links .btn { box-shadow: none; }
 .nav__cta .btn:hover, .h106__nav .nav__links .btn:hover { box-shadow: none; transform: none; }
+
+/* =========================================================
+   Yhtenäistä muiden sivujen yläpalkki etusivun (h106__nav) kanssa
+   ========================================================= */
+.site-header { background: var(--vari-1); -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: var(--bw) solid var(--vari-6); }
+.site-header .nav { max-width: none; margin: 0; padding: 10px 5%; }
+.site-header .nav__links { gap: 26px; }
+.site-header .nav__links a:not(.btn) { font-weight: 600; font-size: 0.95rem; }
+.nav__cta .btn { padding: 8px 20px; }
