@@ -1480,14 +1480,17 @@ p { margin: 0 0 1em; }
    PALVELUT 901 — Tarjouspyyntöjen automatisointi (esimerkit)
    ========================================================= */
 .p901 { background: var(--vari-11); color: var(--vari-1); padding: 88px 0; }
-.p901__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: start; }
+.p901__lead { text-align: center; max-width: 800px; margin: 0 auto 44px; }
 .p901__lead-title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.15; color: var(--vari-1); margin: 0 0 14px; }
 .p901__lead-sub { font-size: 1.15rem; font-weight: var(--w-black); color: var(--vari-1); margin: 0; }
-.p901__cards { display: flex; flex-direction: column; gap: 18px; }
-.p901__card { border: var(--bw) solid var(--vari-1); border-radius: var(--radius-m); padding: 26px 28px; }
-.p901__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.25rem; color: var(--vari-1); margin: 0 0 10px; }
-.p901__card p { font-size: 0.98rem; line-height: 1.65; color: var(--vari-1); margin: 0; }
-@media (max-width: 860px) { .p901__grid { grid-template-columns: 1fr; gap: 32px; } }
+.p901__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 1000px; margin: 0 auto; }
+.p901__card { background: var(--vari-1); color: var(--vari-3); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); padding: 28px 30px; }
+.p901__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.25rem; color: var(--vari-3); margin: 0 0 10px; }
+.p901__card p { font-size: 0.98rem; line-height: 1.65; color: var(--vari-3); margin: 0; }
+.p901__cta { text-align: center; margin-top: 34px; }
+.p901__btn { background: var(--vari-3); color: var(--vari-1); border: var(--bw) solid var(--vari-3); }
+.p901__btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--vari-1); }
+@media (max-width: 760px) { .p901__cards { grid-template-columns: 1fr; max-width: 460px; } }
 
 /* =========================================================
    PALVELUT 906 — Usein kysyttyä (FAQ; avattu kysymys väri 10)
@@ -1951,3 +1954,47 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .site-header .nav__links { gap: 26px; }
 .site-header .nav__links a:not(.btn) { font-weight: 600; font-size: 0.95rem; }
 .nav__cta .btn { padding: 8px 20px; }
+
+/* =========================================================
+   KATTOLASKURI — maalausurakan hintalaskuri (demo)
+   ========================================================= */
+.klask { background: var(--vari-1); padding: 64px 0 88px; }
+.klask__head { max-width: 760px; margin: 0 0 44px; }
+.klask__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--vari-9); margin: 0 0 14px; }
+.klask__eyebrow a { color: var(--vari-9); text-decoration: none; }
+.klask__eyebrow a:hover { text-decoration: underline; }
+.klask__head h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.1rem); color: var(--vari-3); margin: 0 0 16px; line-height: 1.1; }
+.klask__lead { font-size: 1.05rem; line-height: 1.7; color: var(--vari-3); margin: 0; max-width: 56ch; }
+
+.klask__grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: start; }
+
+.klask__form { display: flex; flex-direction: column; gap: 30px; background: var(--vari-2); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); padding: 34px clamp(22px, 4vw, 40px); }
+.klask__field { display: flex; flex-direction: column; gap: 10px; border: 0; margin: 0; padding: 0; min-width: 0; }
+.klask__field > label, .klask__field > legend { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--vari-3); padding: 0; }
+.klask__val { font-weight: var(--w-black); font-size: 1.3rem; color: var(--vari-9); }
+
+.klask__field input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 6px; background: var(--vari-6); outline: none; }
+.klask__field input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--vari-9); border: var(--bw) solid var(--vari-3); cursor: pointer; }
+.klask__field input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--vari-9); border: var(--bw) solid var(--vari-3); cursor: pointer; }
+.klask__scale { display: flex; justify-content: space-between; font-size: .82rem; color: var(--vari-4); }
+
+.klask__opts { display: flex; flex-wrap: wrap; gap: 10px; }
+.klask__opt { font-family: var(--font); font-weight: var(--w-bold); font-size: .98rem; cursor: pointer; padding: 12px 20px; border-radius: var(--radius-pill); border: var(--bw) solid var(--vari-3); background: var(--vari-1); color: var(--vari-3); transition: background .15s ease, color .15s ease, transform .1s ease; }
+.klask__opt:hover { transform: translateY(-2px); }
+.klask__opt.is-active { background: var(--vari-9); color: var(--vari-3); border-color: var(--vari-3); }
+
+.klask__result { position: sticky; top: 90px; background: var(--vari-3); color: var(--vari-1); border-radius: var(--radius-l); padding: 34px 32px; display: flex; flex-direction: column; gap: 14px; }
+.klask__result-label { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--vari-7); margin: 0; }
+.klask__price { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.4rem, 6vw, 3.4rem); color: var(--vari-1); margin: 0; line-height: 1; }
+.klask__note { font-size: .88rem; line-height: 1.5; color: var(--vari-7); margin: 0; }
+.klask__breakdown { list-style: none; margin: 8px 0 4px; padding: 14px 0 0; border-top: 1px solid rgba(226,215,186,.3); display: flex; flex-direction: column; gap: 10px; }
+.klask__breakdown li { display: flex; justify-content: space-between; gap: 14px; font-size: .95rem; color: var(--vari-1); }
+.klask__cta { margin-top: 8px; }
+.klask .btn--dark { background: var(--vari-9); color: var(--vari-3); border-color: var(--vari-3); }
+.klask .btn--dark:hover { background: var(--vari-1); color: var(--vari-3); }
+.klask__demo-tag { text-align: center; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; color: var(--vari-7); margin: 2px 0 0; }
+
+@media (max-width: 860px) {
+  .klask__grid { grid-template-columns: 1fr; }
+  .klask__result { position: static; }
+}
