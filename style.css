@@ -1338,16 +1338,11 @@ p { margin: 0 0 1em; }
 .p800__head {
   list-style: none; cursor: pointer;
   display: flex; align-items: center; gap: 18px; padding: 22px 26px;
-  font-family: var(--font-head); font-weight: 700; font-size: 1.18rem; color: var(--vari-3);
+  font-family: var(--font-head); font-weight: 700; font-size: 2.36rem; color: var(--vari-3);
 }
 .p800__head::-webkit-details-marker { display: none; }
 .p800__head:hover { background: var(--vari-1); }
-.p800__icon {
-  width: 40px; height: 40px; flex: none;
-  background: var(--vari-3);                  /* grafiikka väriin 3 */
-  -webkit-mask: var(--ico) center / contain no-repeat;
-          mask: var(--ico) center / contain no-repeat;
-}
+.p800__icon { display: none; }
 .p800__q { flex: 1; }
 .p800__plus {
   position: relative; width: 28px; height: 28px; flex: none;
