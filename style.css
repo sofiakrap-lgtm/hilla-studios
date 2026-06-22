@@ -1119,8 +1119,8 @@ p { margin: 0 0 1em; }
    ========================================================= */
 .s219 { background: var(--vari-10); padding: 92px 0; position: relative; overflow: hidden; }
 .s219__deco { position: absolute; z-index: 1; pointer-events: none; }
-.s219__deco--circle { width: 120px; height: auto; bottom: 12%; left: 36%; }
-.s219__deco--rect { width: 150px; height: auto; top: 22%; right: 5%; transform: rotate(-12deg); }
+.s219__deco--circle { width: 120px; height: auto; bottom: 12%; left: 29%; }
+.s219__deco--rect { width: 150px; height: auto; top: 17%; right: 12%; transform: rotate(-12deg); }
 @media (max-width: 760px) { .s219__deco { display: none; } }
 .s219__head { text-align: center; margin: 0 0 52px; }
 .s219__title {
@@ -1237,9 +1237,11 @@ p { margin: 0 0 1em; }
 }
 .s801__panel {
   background: var(--vari-1); color: var(--vari-3);
-  display: flex; flex-direction: column; justify-content: center; gap: 14px;
-  padding: 40px clamp(24px, 5vw, 64px);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 14px;
+  padding: 40px clamp(24px, 5vw, 64px); text-align: center;
 }
+.s801__buttons { justify-content: center; }
+.s801__text { margin-left: auto; margin-right: auto; }
 .s801__eyebrow {
   font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .14em;
   font-size: .8rem; color: var(--vari-5); margin: 0;
