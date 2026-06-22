@@ -920,7 +920,7 @@ p { margin: 0 0 1em; }
 .s221__deco--arrow-r{ width: 120px; top: 150px; right: -150px; transform: rotate(-8deg); }
 .s221__deco--cloud  { width: 182px; top: 80px; left: -222px; transform: rotate(-6deg); }
 .s221__deco--arrow-l{ width: 115px; top: 250px; left: -178px; transform: rotate(135deg); }
-.s221__deco--takuu  { width: 156px; bottom: -80px; right: -95px; transform: rotate(-14deg); }
+.s221__deco--takuu  { width: 156px; bottom: -112px; right: -95px; transform: rotate(14deg); }
 @media (max-width: 1080px) { .s221__deco { display: none; } }
 
 @media (max-width: 640px) {
