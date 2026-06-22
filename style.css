@@ -1915,3 +1915,19 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
   text-shadow: 0 2px 14px rgba(0,0,0,.45);
 }
 @media (max-width: 900px) { .h106__media-cap { padding: 0 7% 22px; font-size: clamp(1.2rem, 5vw, 1.7rem); } }
+
+/* =========================================================
+   PALETTI (palitra.html) — väripaletti 1–14
+   ========================================================= */
+.palitra { background: var(--vari-1); padding: 90px 0; }
+.palitra__head { text-align: center; max-width: 680px; margin: 0 auto 48px; }
+.palitra__head h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--vari-3); margin: 0 0 12px; }
+.palitra__head p { font-size: 1.05rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
+.palitra__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 22px; }
+.pal { border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); overflow: hidden; background: var(--vari-2); }
+.pal__chip { height: 130px; border-bottom: var(--bw) solid var(--vari-3); }
+.pal__info { padding: 16px 18px; }
+.pal__num { font-family: var(--font); font-weight: var(--w-black); font-size: .78rem; letter-spacing: .1em; color: var(--vari-5); }
+.pal__name { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--vari-3); margin: 2px 0 8px; line-height: 1.2; }
+.pal__hex { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: .92rem; color: var(--vari-4); text-transform: uppercase; margin: 0 0 2px; }
+.pal__var { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: .76rem; color: var(--ink-65); }
