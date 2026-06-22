@@ -1836,7 +1836,7 @@ p { margin: 0 0 1em; }
 .s219--meista .s219__title { background: var(--vari-1); position: relative; }
 .s219--meista .s219__icon { display: none; }
 .s219__stamp {
-  position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%);
+  position: absolute; right: 0; bottom: 0; transform: translate(50%, 50%);
   width: 122px; height: 122px; z-index: 4; pointer-events: none;
   background: var(--vari-3);
   -webkit-mask: url('assets/grafiikat/grafiikka-47.svg') center / contain no-repeat;
