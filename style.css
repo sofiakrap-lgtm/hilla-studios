@@ -1465,11 +1465,12 @@ p { margin: 0 0 1em; }
    PALVELUT 215 — Ajanhallinta + kalenterivisualisointi
    ========================================================= */
 .p215 { background: var(--vari-13); padding: 84px 0; }
-.p215__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+.p215__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.p215__copy { text-align: center; max-width: 520px; margin: 0 auto; }
 .p215__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .12em; font-size: .82rem; color: var(--vari-2); margin: 0 0 16px; }
 .p215__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.18; color: var(--vari-2); margin: 0 0 18px; }
-.p215__text { font-size: 1.02rem; line-height: 1.7; color: var(--vari-2); margin: 0; max-width: 52ch; }
-.p215__cal { max-width: 320px; margin-left: auto; }
+.p215__text { font-size: 1.02rem; line-height: 1.7; color: var(--vari-2); margin: 0 auto; max-width: 52ch; }
+.p215__cal { max-width: 320px; margin: 0 auto; }
 .p215__cal-head { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-bottom: 6px; }
 .p215__cal-head span { text-align: center; font-weight: var(--w-black); font-size: .58rem; text-transform: uppercase; letter-spacing: .04em; color: var(--vari-2); }
 .p215__cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
