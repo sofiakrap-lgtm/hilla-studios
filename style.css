@@ -1798,15 +1798,11 @@ p { margin: 0 0 1em; }
 .m218__media { position: relative; border-radius: var(--radius-l); overflow: hidden; }
 .m218__media img { width: 100%; height: 100%; min-height: 360px; object-fit: cover; display: block; }
 .m218__seal {
-  position: absolute; top: 22px; right: 22px; width: 104px; height: 104px; border-radius: 50%;
-  background: var(--vari-5); display: grid; place-items: center;
-  animation: m218-spin 9s linear infinite;
-}
-.m218__seal::before {
-  content: ""; width: 66%; height: 66%;
-  background: var(--vari-1);
+  display: block; width: 120px; height: 120px; margin-top: 32px;
+  background: var(--vari-3);
   -webkit-mask: url('assets/logot/logo-3.svg') center / contain no-repeat;
           mask: url('assets/logot/logo-3.svg') center / contain no-repeat;
+  animation: m218-spin 9s linear infinite;
 }
 @keyframes m218-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .m218__seal { animation: none; } }
