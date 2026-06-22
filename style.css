@@ -1042,10 +1042,13 @@ p { margin: 0 0 1em; }
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 .s218__list a::after { content: "→"; font-weight: var(--w-black); }
-.s218__list a:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-pop-sm); background: var(--vari-9); }
+.s218__list a:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-pop-sm); background: var(--vari-11); }
 .s218__cta { align-self: center; margin-top: 8px; }
 .s218__media { position: relative; background: var(--vari-3); overflow: hidden; min-height: 240px; }
-.s218__media img { width: 100%; height: 100%; object-fit: cover; }
+.s218__media-bg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.s218__media::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.40); z-index: 1; } /* tummennus 40% */
+.s218__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 30px; }
+.s218__demo img { max-width: 86%; max-height: 86%; width: auto; height: auto; border-radius: var(--radius-s); }
 
 @media (max-width: 900px) {
   .s218__grid { grid-template-columns: 1fr; min-height: auto; }
@@ -1105,7 +1108,11 @@ p { margin: 0 0 1em; }
 /* =========================================================
    219 — "Jotain extraa?" (3 lisäpalvelukorttia)
    ========================================================= */
-.s219 { background: var(--vari-10); padding: 92px 0; }
+.s219 { background: var(--vari-10); padding: 92px 0; position: relative; overflow: hidden; }
+.s219__deco { position: absolute; z-index: 1; pointer-events: none; }
+.s219__deco--circle { width: 115px; height: auto; bottom: 7%; left: 31%; }
+.s219__deco--rect { width: 165px; height: auto; top: 7%; right: -10px; transform: rotate(8deg); }
+@media (max-width: 760px) { .s219__deco { display: none; } }
 .s219__head { text-align: center; margin: 0 0 52px; }
 .s219__title {
   display: inline-block; margin: 0;
@@ -1220,8 +1227,8 @@ p { margin: 0 0 1em; }
 }
 .s801__panel {
   background: var(--vari-1); color: var(--vari-3);
-  display: flex; flex-direction: column; justify-content: center; gap: 18px;
-  padding: 72px clamp(24px, 5vw, 72px);
+  display: flex; flex-direction: column; justify-content: center; gap: 14px;
+  padding: 40px clamp(24px, 5vw, 64px);
 }
 .s801__eyebrow {
   font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .14em;
