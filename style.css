@@ -1584,7 +1584,7 @@ p { margin: 0 0 1em; }
 .l803__card .btn { background: var(--vari-2); color: var(--vari-3); border-color: var(--vari-3); }
 .l803__card .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--vari-3); }
 /* Some-kortti: puhelinmockup (mobiilidemo-2 yläosa) + nappi päällä */
-.l803__card--some { overflow: hidden; justify-content: flex-start; padding-top: 32px; }
+.l803__card--some { position: relative; overflow: hidden; justify-content: flex-start; padding-top: 32px; }
 .l803__card--some h3 { position: relative; z-index: 2; }
 .l803__phone { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 80%; height: 58%; object-fit: cover; object-position: top center; border-radius: 16px 16px 0 0; box-shadow: var(--shadow-pop); z-index: 1; }
 .l803__card--some .btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 3; margin: 0; }
