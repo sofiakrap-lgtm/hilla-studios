@@ -937,25 +937,21 @@ p { margin: 0 0 1em; }
 }
 
 .s403__cards {
-  display: grid; grid-template-columns: 1fr 1.18fr 1fr;
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 26px; align-items: stretch;
 }
 .s403__card {
   position: relative;
   display: flex; flex-direction: column;
+  background: var(--vari-1);
   border: var(--bw) solid var(--vari-3);
   border-radius: var(--radius-l);
   padding: 34px 30px;
   color: var(--vari-3);
   box-shadow: var(--shadow-pop-sm);
 }
-/* Keskikortti: suurempi + nostettu ylös → korostus */
-.s403__card--featured {
-  padding: 48px 34px;
-  transform: translateY(-22px);
-  box-shadow: var(--shadow-pop);
-  z-index: 1;
-}
+/* Keskikortti: korostus pelkällä Suositeltu-merkillä (kuten palvelut-sivun paketit) */
+.s403__card--featured { z-index: 1; }
 .s403__badge {
   position: absolute; top: -16px; left: 50%; transform: translateX(-50%) rotate(-3deg);
   background: var(--vari-3); color: var(--vari-1);
@@ -975,7 +971,7 @@ p { margin: 0 0 1em; }
   font-size: 0.92rem; line-height: 1.5;
 }
 .s403__feats li::before {
-  content: "–"; position: absolute; left: 0; font-weight: var(--w-black);
+  content: "•"; position: absolute; left: 0; font-weight: var(--w-black); font-size: 1.1rem; line-height: 1;
 }
 /* hinta = bodyteksti boldina, hieman korostettuna */
 .s403__price { font-size: 1.3rem; margin: auto 0 22px; }
