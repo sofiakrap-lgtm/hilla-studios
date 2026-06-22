@@ -1823,6 +1823,14 @@ p { margin: 0 0 1em; }
 .s219--meista { background: var(--vari-11); }
 .s219--meista .s219__title { background: var(--vari-1); position: relative; }
 .s219--meista .s219__icon { display: none; }
+.s219__stamp {
+  position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%);
+  width: 122px; height: 122px; z-index: 4; pointer-events: none;
+  background: var(--vari-3);
+  -webkit-mask: url('assets/grafiikat/grafiikka-47.svg') center / contain no-repeat;
+          mask: url('assets/grafiikat/grafiikka-47.svg') center / contain no-repeat;
+}
+.s219--meista .s219__card { position: relative; }
 .s219__title-deco {
   position: absolute; left: 50%; bottom: 100%; transform: translateX(-50%);
   margin-bottom: -12px;        /* dippaa juuri ja juuri otsikkolaatikon sisään */
