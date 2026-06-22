@@ -1065,8 +1065,8 @@ p { margin: 0 0 1em; }
 .s218__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 30px; }
 .s218__demo img { max-width: 86%; max-height: 86%; width: auto; height: auto; border-radius: var(--radius-s); }
 .s218__demo-logo {
-  position: absolute; z-index: 3; top: 13%; left: 50%; transform: translateX(-50%);
-  width: 180px; height: 58px;
+  position: absolute; z-index: 3; top: 17%; left: 50%; transform: translateX(-50%);
+  width: 230px; height: 74px;
   background: var(--vari-2);
   -webkit-mask: url('assets/logot/logo-2.svg') center / contain no-repeat;
           mask: url('assets/logot/logo-2.svg') center / contain no-repeat;
