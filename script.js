@@ -628,6 +628,9 @@ function initCalc3() {
     const recBox = root.querySelector("[data-recurring-list]");
     if (!next || !extra || !result) return;
 
+    /* Talletetaan otsikko jo nyt (ennen kuin laskuri siirretään ikkunaan) */
+    const estLabel = (root.closest(".omin__row")?.querySelector(".omin__q")?.textContent || "Ominaisuus").trim();
+
     function showResult(includeExtra) {
       let once = 0;
       root.querySelectorAll("input[data-price]").forEach((i) => {
@@ -647,7 +650,6 @@ function initCalc3() {
         ? "<h4>Mahdolliset jatkuvat kulut</h4>" +
           recs.map((r) => `<div><span>${r.name}</span><span>${fmt(r.price)}/${r.unit}</span></div>`).join("")
         : "";
-      const estLabel = root.closest(".omin__row").querySelector(".omin__q").textContent.trim();
       upsertEstimate(buildCalcEstimate(root, location.pathname + "::" + estLabel, estLabel, once, recs));
       extra.hidden = true;
       result.hidden = false;
@@ -669,6 +671,95 @@ function initCalc3() {
       extra.hidden = true;
       root.querySelector(".calc2__list").scrollIntoView({ behavior: "smooth", block: "start" });
     });
+  });
+}
+
+/* ---------------------------------------------------------
+   7a. Hintalaskuri-ikkuna (täysruutu) + askelmittari
+       Siirtää calc2/calc3-laskurin täysruutu-ikkunaan ja
+       lisää askelmittarin, joka täyttyy etenemisen mukaan.
+   --------------------------------------------------------- */
+function initCalcModal() {
+  document.querySelectorAll(".calc2, .calc3").forEach((root) => {
+    if (root.dataset.modalized) return;
+    root.dataset.modalized = "1";
+
+    const isCalc3 = root.classList.contains("calc3");
+    const steps = isCalc3
+      ? ["Ominaisuudet", "Lisäpalvelut", "Hinta-arvio"]
+      : ["Valitse ominaisuudet", "Hinta-arvio"];
+
+    /* Avauspainike laskurin paikalle */
+    const launch = document.createElement("div");
+    launch.className = "lask-launch";
+    launch.innerHTML =
+      '<button type="button" class="btn btn--primary btn--lg">Avaa hintalaskuri</button>';
+    root.parentNode.insertBefore(launch, root);
+
+    /* Modaalin runko */
+    const modal = document.createElement("div");
+    modal.className = "lask-modal";
+    modal.hidden = true;
+    const stepsHtml = steps
+      .map(
+        (l, i) =>
+          '<div class="lask-step" data-step="' + i + '">' +
+          '<span class="lask-step__dot">' + (i + 1) + "</span>" +
+          '<span class="lask-step__label">' + l + "</span></div>"
+      )
+      .join('<span class="lask-step__line"></span>');
+    modal.innerHTML =
+      '<div class="lask-modal__backdrop" data-lask-close></div>' +
+      '<div class="lask-modal__box" role="dialog" aria-modal="true" aria-label="Hintalaskuri">' +
+      '<div class="lask-modal__bar">' +
+      '<div class="lask-steps">' + stepsHtml + "</div>" +
+      '<button type="button" class="lask-modal__x" data-lask-close aria-label="Sulje ikkuna">&times;</button>' +
+      "</div>" +
+      '<div class="lask-modal__body"></div></div>';
+    document.body.appendChild(modal);
+    modal.querySelector(".lask-modal__body").appendChild(root);
+
+    function setStep(n) {
+      modal.querySelectorAll(".lask-step").forEach((s) => {
+        const i = Number(s.dataset.step);
+        s.classList.toggle("is-done", i < n);
+        s.classList.toggle("is-active", i === n);
+      });
+    }
+    setStep(0);
+
+    function open() {
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+      setStep(0);
+    }
+    function close() {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+    }
+    launch.querySelector("button").addEventListener("click", open);
+    modal.querySelectorAll("[data-lask-close]").forEach((el) =>
+      el.addEventListener("click", close)
+    );
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal.hidden) close();
+    });
+
+    /* Askelmittarin eteneminen (kytketään olemassa oleviin nappeihin) */
+    if (isCalc3) {
+      const next = root.querySelector(".calc3__next");
+      if (next) next.addEventListener("click", () => setStep(1));
+      root.querySelectorAll(".calc3__skip, .calc3__show").forEach((b) =>
+        b.addEventListener("click", () => setStep(2))
+      );
+      const more = root.querySelector(".calc3__more");
+      if (more) more.addEventListener("click", () => setStep(0));
+    } else {
+      const calc = root.querySelector(".calc2__calc");
+      if (calc) calc.addEventListener("click", () => setStep(1));
+      const more = root.querySelector(".calc2__more");
+      if (more) more.addEventListener("click", () => setStep(0));
+    }
   });
 }
 
@@ -711,6 +802,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initOfferForm();
   initCalc2();
   initCalc3();
+  initCalcModal();
   initArviot();
   initPackageAdd();
   initBna();

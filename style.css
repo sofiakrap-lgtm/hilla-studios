@@ -2142,3 +2142,44 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
   .ilo__grid2 { grid-template-columns: 1fr; }
   .ilo__checks { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   HINTALASKURI-IKKUNA (täysruutu) + ASKELMITTARI
+   ========================================================= */
+.lask-launch { display: flex; justify-content: center; padding: 20px 0 8px; }
+.lask-modal[hidden] { display: none; }
+.lask-modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; padding: 2vmin; }
+.lask-modal__backdrop { position: absolute; inset: 0; background: rgba(61,42,28,.55); }
+.lask-modal__box {
+  position: relative; z-index: 1; width: 96vw; height: 94vh; max-width: 1200px;
+  background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: 24px;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.lask-modal__bar {
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px clamp(18px, 4vw, 40px); border-bottom: var(--bw) solid var(--vari-3);
+  background: var(--vari-2);
+}
+.lask-modal__x { margin-left: auto; flex: none; background: none; border: 0; font-size: 2rem; line-height: 1; color: var(--vari-3); cursor: pointer; }
+.lask-modal__body { flex: 1; overflow-y: auto; padding: clamp(20px, 4vw, 48px); }
+.lask-modal__body .calc2, .lask-modal__body .calc3 { padding: 0; background: transparent; }
+
+/* Askelmittari */
+.lask-steps { display: flex; align-items: center; gap: 0; flex: 1; max-width: 640px; }
+.lask-step { display: flex; align-items: center; gap: 10px; flex: none; }
+.lask-step__dot {
+  width: 34px; height: 34px; flex: none; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font); font-weight: var(--w-black); font-size: .95rem;
+  background: var(--vari-1); color: var(--vari-3); border: var(--bw) solid var(--vari-3);
+  transition: background .25s ease, color .25s ease;
+}
+.lask-step__label { font-family: var(--font); font-weight: var(--w-bold); font-size: .9rem; color: var(--vari-3); white-space: nowrap; }
+.lask-step__line { flex: 1; height: 3px; min-width: 24px; margin: 0 12px; border-radius: 3px; background: var(--vari-6); opacity: .3; transition: opacity .25s ease, background .25s ease; }
+.lask-step.is-active .lask-step__dot { background: var(--vari-9); color: var(--vari-3); }
+.lask-step.is-done .lask-step__dot { background: var(--vari-8); color: var(--vari-1); }
+.lask-step.is-done + .lask-step__line { background: var(--vari-8); opacity: 1; }
+@media (max-width: 620px) {
+  .lask-step__label { display: none; }
+  .lask-modal__box { width: 100vw; height: 100vh; border-radius: 0; }
+}
