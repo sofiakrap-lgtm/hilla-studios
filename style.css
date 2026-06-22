@@ -934,7 +934,11 @@ p { margin: 0 0 1em; }
    Vaalea tausta (väri 1). Keskitetty otsikko + 3 korttia.
    Keskikortti korotettu = "suositeltu".
    ========================================================= */
-.s403 { background: var(--vari-1); padding: 92px 0; }
+.s403 { background: var(--vari-1); padding: 92px 0; position: relative; overflow: hidden; }
+.s403__deco { position: absolute; z-index: 1; pointer-events: none; height: auto; }
+.s403__deco--a { width: 120px; top: 30%; left: 31%; transform: rotate(-6deg); }
+.s403__deco--b { width: 150px; bottom: 4%; right: 3%; transform: rotate(6deg); }
+@media (max-width: 760px) { .s403__deco { display: none; } }
 .s403__head { text-align: center; max-width: 760px; margin: 0 auto 60px; }
 .s403__head h2 {
   font-family: var(--font-head); font-weight: 700;
@@ -1233,8 +1237,8 @@ p { margin: 0 0 1em; }
 @keyframes s801-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 .s801__guarantee { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; min-height: 42vh; }
-.s801__panel { order: 1; }
-.s801__media { order: 2; position: relative; overflow: hidden; background: var(--vari-3); min-height: 240px; }
+.s801__panel { order: 2; }
+.s801__media { order: 1; position: relative; overflow: hidden; background: var(--vari-3); min-height: 240px; }
 .s801__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .s801__media::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.40); } /* tummennus 40% */
 .s801__media-gfx {
@@ -2065,3 +2069,42 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .kmodal .btn--dark { background: var(--vari-3); color: var(--vari-1); border: var(--bw) solid var(--vari-3); margin-top: 6px; }
 .kmodal .btn--dark:hover { background: var(--vari-8); color: var(--vari-1); }
 .kmodal__note { font-size: .78rem; color: var(--vari-4); text-align: center; margin: 0; }
+
+/* =========================================================
+   IDEOINTILOMAKE (ilo) — kattava brief-lomake
+   ========================================================= */
+.ilo { background: var(--vari-1); padding: 56px 0 96px; }
+.ilo__head { max-width: 760px; margin: 0 0 40px; }
+.ilo__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--vari-9); margin: 0 0 14px; }
+.ilo__eyebrow a { color: var(--vari-9); text-decoration: none; }
+.ilo__eyebrow a:hover { text-decoration: underline; }
+.ilo__head h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.1rem); color: var(--vari-3); margin: 0 0 16px; line-height: 1.1; }
+.ilo__lead { font-size: 1.05rem; line-height: 1.7; color: var(--vari-3); margin: 0 0 12px; max-width: 60ch; }
+.ilo__demo-tag { font-size: .82rem; letter-spacing: .03em; text-transform: uppercase; color: var(--vari-8); margin: 0; font-weight: var(--w-bold); }
+
+.ilo__form { display: flex; flex-direction: column; gap: 26px; max-width: 820px; }
+.ilo__group { border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); background: var(--vari-2); padding: 28px clamp(20px, 4vw, 36px) 32px; margin: 0; min-width: 0; }
+.ilo__group > legend { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; color: var(--vari-3); padding: 0 10px; margin-left: -10px; }
+.ilo__field { margin-top: 20px; }
+.ilo__grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.ilo__grid2 .ilo__field { margin-top: 20px; }
+.ilo__field label { display: flex; flex-direction: column; gap: 7px; font-weight: var(--w-bold); font-size: .92rem; color: var(--vari-3); }
+.ilo__q { font-weight: var(--w-bold); font-size: .92rem; color: var(--vari-3); margin: 0 0 10px; }
+.ilo__field input[type="text"], .ilo__field input[type="email"], .ilo__field input[type="tel"], .ilo__field input[type="url"], .ilo__field textarea, .ilo__field select {
+  font-family: var(--font); font-size: 1rem; padding: 11px 14px;
+  border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m);
+  background: var(--vari-1); color: var(--vari-3); width: 100%;
+}
+.ilo__field textarea { resize: vertical; }
+.ilo__field input:focus, .ilo__field textarea:focus, .ilo__field select:focus { outline: 2px solid var(--vari-5); outline-offset: 1px; }
+.ilo__checks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 18px; }
+.ilo__checks label { flex-direction: row; align-items: center; gap: 10px; font-weight: var(--w-regular); cursor: pointer; }
+.ilo__checks input { width: 18px; height: 18px; flex: none; accent-color: var(--vari-5); }
+.ilo__actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; margin-top: 4px; }
+.ilo .btn--dark { background: var(--vari-3); color: var(--vari-1); border: var(--bw) solid var(--vari-3); }
+.ilo .btn--dark:hover { background: var(--vari-5); color: var(--vari-1); }
+.ilo__note { font-size: .82rem; color: var(--vari-4); margin: 0; }
+@media (max-width: 620px) {
+  .ilo__grid2 { grid-template-columns: 1fr; }
+  .ilo__checks { grid-template-columns: 1fr; }
+}
