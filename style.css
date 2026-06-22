@@ -502,7 +502,8 @@ p { margin: 0 0 1em; }
    15. Footer
    --------------------------------------------------------- */
 .site-footer { background: var(--bitter-cacao); color: var(--soft-oat); padding: 64px 0 30px; }
-.site-footer .brand__wordmark { background: var(--soft-oat); }
+.site-footer .brand__wordmark { background: var(--soft-oat); height: 44px; width: 336px; }
+.site-footer .brand__mark { display: none; }
 .site-footer .brand__mark { background: var(--sun-mellow); }
 .footer__grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
 .site-footer p { color: rgba(226,215,186,0.78); max-width: 38ch; margin-top: 14px; }
@@ -1195,11 +1196,11 @@ p { margin: 0 0 1em; }
 }
 .s801__logos {
   list-style: none; margin: 0 auto; padding: 0 24px; max-width: var(--container);
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 30px; align-items: center;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 46px 50px; align-items: center;
 }
 .s801__logos li { display: flex; align-items: center; justify-content: center; }
 .s801__logo {
-  width: 100%; height: 74px;
+  width: 100%; height: 100px;
   background: var(--vari-2);                   /* logot väriin 2 (maski) */
   -webkit-mask: var(--logo) center / contain no-repeat;
           mask: var(--logo) center / contain no-repeat;
@@ -1241,9 +1242,9 @@ p { margin: 0 0 1em; }
    300 — Sivun alalaidan brändibanneri (jokaisella sivulla)
    ========================================================= */
 .s300 { background: var(--vari-11); color: var(--vari-1); padding: 54px 0; }
-.s300__inner { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; text-align: center; }
-.s300__logo { height: 64px; width: auto; display: block; }
-.s300__tagline { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.2rem, 2.6vw, 1.7rem); color: var(--vari-1); margin: 0; }
+.s300__inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; text-align: center; }
+.s300__logo { display: block; width: 320px; max-width: 72%; height: 64px; background: var(--vari-1); -webkit-mask: var(--i-wordmark-vaaka) center/contain no-repeat; mask: var(--i-wordmark-vaaka) center/contain no-repeat; }
+.s300__tagline { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.6rem, 3.4vw, 2.4rem); color: var(--vari-1); margin: 0; }
 @media (max-width: 560px) { .s300__inner { flex-direction: column; gap: 14px; } }
 
 /* =========================================================

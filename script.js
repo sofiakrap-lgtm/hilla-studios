@@ -8,7 +8,7 @@
    1. Yhteinen datamalli: moduulit ja hinnat
    --------------------------------------------------------- */
 const STORAGE_KEY = "blomma.offer";
-const CONTACT_EMAIL = "sofia.krap@gmail.com";
+const CONTACT_EMAIL = "info@studioblomma.com";
 
 /* Toimialat */
 const INDUSTRIES = {
