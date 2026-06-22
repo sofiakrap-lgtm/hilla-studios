@@ -2009,7 +2009,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .kmodal[hidden] { display: none; }
 .kmodal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 24px; }
 .kmodal__backdrop { position: absolute; inset: 0; background: rgba(61,42,28,.55); }
-.kmodal__box { position: relative; z-index: 1; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); padding: 34px clamp(22px, 4vw, 38px); }
+.kmodal__box { position: relative; z-index: 1; width: 100%; max-width: 660px; max-height: 94vh; overflow-y: auto; background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: 28px; padding: 40px clamp(26px, 5vw, 48px); }
 .kmodal__x { position: absolute; top: 12px; right: 16px; background: none; border: 0; font-size: 1.9rem; line-height: 1; color: var(--vari-3); cursor: pointer; }
 .kmodal__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; color: var(--vari-5); margin: 0; }
 .kmodal__title { font-family: var(--font-head); font-weight: 700; font-size: 1.9rem; color: var(--vari-3); margin: 4px 0 20px; line-height: 1.1; }
@@ -2022,7 +2022,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .kmodal__total strong { font-family: var(--font-head); font-size: 1.5rem; color: var(--vari-3); }
 .kmodal__form { display: flex; flex-direction: column; gap: 14px; }
 .kmodal__form label { display: flex; flex-direction: column; gap: 6px; font-weight: var(--w-bold); font-size: .9rem; color: var(--vari-3); }
-.kmodal__form input, .kmodal__form textarea { font-family: var(--font); font-size: 1rem; padding: 11px 13px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-s); background: var(--vari-2); color: var(--vari-3); }
+.kmodal__form input, .kmodal__form textarea { font-family: var(--font); font-size: 1rem; padding: 13px 15px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); background: var(--vari-2); color: var(--vari-3); }
 .kmodal__form input:focus, .kmodal__form textarea:focus { outline: 2px solid var(--vari-5); outline-offset: 1px; }
 .kmodal .btn--dark { background: var(--vari-3); color: var(--vari-1); border: var(--bw) solid var(--vari-3); margin-top: 6px; }
 .kmodal .btn--dark:hover { background: var(--vari-8); color: var(--vari-1); }
