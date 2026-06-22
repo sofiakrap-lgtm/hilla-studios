@@ -920,7 +920,7 @@ p { margin: 0 0 1em; }
 .s221__deco--arrow-r{ width: 120px; top: 150px; right: -150px; transform: rotate(-8deg); }
 .s221__deco--cloud  { width: 182px; top: 80px; left: -222px; transform: rotate(-6deg); }
 .s221__deco--arrow-l{ width: 115px; top: 250px; left: -178px; transform: rotate(135deg); }
-.s221__deco--takuu  { width: 156px; bottom: -112px; right: -95px; transform: rotate(14deg); }
+.s221__deco--takuu  { width: 156px; bottom: -112px; right: -45px; transform: rotate(14deg); }
 @media (max-width: 1080px) { .s221__deco { display: none; } }
 
 @media (max-width: 640px) {
@@ -934,10 +934,12 @@ p { margin: 0 0 1em; }
    Vaalea tausta (väri 1). Keskitetty otsikko + 3 korttia.
    Keskikortti korotettu = "suositeltu".
    ========================================================= */
-.s403 { background: var(--vari-1); padding: 92px 0; position: relative; overflow: hidden; }
-.s403__deco { position: absolute; z-index: 1; pointer-events: none; height: auto; }
-.s403__deco--a { width: 120px; top: 30%; left: 31%; transform: rotate(-6deg); }
-.s403__deco--b { width: 150px; bottom: 4%; right: 3%; transform: rotate(6deg); }
+.s403 { background: var(--vari-1); padding: 92px 0; position: relative; overflow: visible; }
+.s403__deco { position: absolute; z-index: 4; pointer-events: none; height: auto; }
+/* keskipiste vasemman kortin oikeassa alakulmassa */
+.s403__deco--a { width: 150px; bottom: 0; right: 0; transform: translate(50%, 50%); }
+/* keskipiste oikean kortin oikeassa yläkulmassa, ~20° oikealle */
+.s403__deco--b { width: 150px; top: 0; right: 0; transform: translate(50%, -50%) rotate(20deg); }
 @media (max-width: 760px) { .s403__deco { display: none; } }
 .s403__head { text-align: center; max-width: 760px; margin: 0 auto 60px; }
 .s403__head h2 {
@@ -1557,6 +1559,9 @@ p { margin: 0 0 1em; }
    LASKURI 803 — Kategoriavalinta (2x2 kuvaruudukko)
    ========================================================= */
 .l803 { background: var(--vari-1); padding: 88px 0; }
+/* ohut jakoviiva kategoriakorttien ja UKK:n väliin */
+.l803 .container { position: relative; }
+.l803 .container::after { content: ""; display: block; height: 1px; background: rgba(61,42,28,.18); margin: 88px auto 0; max-width: 920px; }
 .l803__head { text-align: center; max-width: 780px; margin: 0 auto 48px; }
 .l803__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.9rem); color: var(--vari-3); margin: 0 0 14px; line-height: 1.18; }
 .l803__sub { font-size: 1.05rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
@@ -1569,7 +1574,6 @@ p { margin: 0 0 1em; }
 .l803__card h3 {
   font-family: var(--font-head); font-weight: 700; font-size: 1.7rem; margin: 0;
   color: var(--vari-2);
-  -webkit-text-stroke: 0.5px var(--vari-3); text-stroke: 0.5px var(--vari-3);
 }
 .l803__card .btn { background: var(--vari-2); color: var(--vari-3); border-color: var(--vari-3); }
 .l803__card .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--vari-3); }
