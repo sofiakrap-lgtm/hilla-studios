@@ -1375,9 +1375,12 @@ p { margin: 0 0 1em; }
 .p815__grid { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; min-height: 60vh; }
 .p815__panel {
   background: var(--vari-11); color: var(--vari-1);
-  display: flex; flex-direction: column; justify-content: center; gap: 16px;
-  padding: 72px clamp(24px, 5vw, 72px); max-width: 640px; margin-right: auto;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; gap: 16px;
+  padding: 72px clamp(24px, 5vw, 72px); max-width: 640px; margin: 0 auto;
 }
+.p815__buttons { justify-content: center; }
+.p815__text { margin-left: auto; margin-right: auto; }
 .p815__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; color: var(--vari-1); margin: 0; }
 .p815__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.15; color: var(--vari-1); margin: 0; }
 .p815__stat { font-size: 1.02rem; line-height: 1.6; color: var(--vari-1); margin: 0; font-weight: var(--w-bold); }
@@ -1405,7 +1408,7 @@ p { margin: 0 0 1em; }
 .p402__head { text-align: center; max-width: 780px; margin: 0 auto 52px; }
 .p402__head h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.7rem); color: var(--vari-3); margin: 0 0 14px; line-height: 1.18; }
 .p402__head p { font-size: 1.05rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
-.p402__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+.p402__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
 .p402__card {
   background: var(--vari-1); color: var(--vari-3);
   border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l);
