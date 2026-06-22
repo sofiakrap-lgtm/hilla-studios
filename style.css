@@ -936,8 +936,8 @@ p { margin: 0 0 1em; }
 }
 
 .s403__cards {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 26px; align-items: start;
+  display: grid; grid-template-columns: 1fr 1.18fr 1fr;
+  gap: 26px; align-items: stretch;
 }
 .s403__card {
   position: relative;
@@ -977,7 +977,7 @@ p { margin: 0 0 1em; }
   content: "–"; position: absolute; left: 0; font-weight: var(--w-black);
 }
 /* hinta = bodyteksti boldina, hieman korostettuna */
-.s403__price { font-size: 1.3rem; margin: 0 0 22px; }
+.s403__price { font-size: 1.3rem; margin: auto 0 22px; }
 .s403__price strong { font-weight: var(--w-black); }
 /* CTA kortin alareunaan */
 .s403__cta {
