@@ -1110,8 +1110,8 @@ p { margin: 0 0 1em; }
    ========================================================= */
 .s219 { background: var(--vari-10); padding: 92px 0; position: relative; overflow: hidden; }
 .s219__deco { position: absolute; z-index: 1; pointer-events: none; }
-.s219__deco--circle { width: 115px; height: auto; bottom: 7%; left: 31%; }
-.s219__deco--rect { width: 165px; height: auto; top: 7%; right: -10px; transform: rotate(8deg); }
+.s219__deco--circle { width: 120px; height: auto; bottom: 12%; left: 36%; }
+.s219__deco--rect { width: 150px; height: auto; top: 22%; right: 5%; transform: rotate(-12deg); }
 @media (max-width: 760px) { .s219__deco { display: none; } }
 .s219__head { text-align: center; margin: 0 0 52px; }
 .s219__title {
