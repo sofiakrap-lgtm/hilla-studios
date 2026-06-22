@@ -1776,6 +1776,7 @@ p { margin: 0 0 1em; }
 /* 219-variantti: tausta 11, otsikkochip 1 */
 .s219--meista { background: var(--vari-11); }
 .s219--meista .s219__title { background: var(--vari-1); }
+.s219--meista .s219__icon { display: none; }
 
 /* 909 — keitä olemme + missio (tausta 10, laatikot 2, teksti/reunus 8) */
 .m909 { background: var(--vari-10); padding: 88px 0; }
