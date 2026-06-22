@@ -1761,12 +1761,25 @@ p { margin: 0 0 1em; }
    MEISTÄ — 218 (about-hero), 219-variantti, 909
    ========================================================= */
 .m218 { background: var(--vari-2); padding: 88px 0; }
-.m218__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.m218__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
 .m218__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.9rem); color: var(--vari-3); margin: 0 0 18px; line-height: 1.15; }
 .m218__text { font-size: 1.05rem; line-height: 1.75; color: var(--vari-3); margin: 0; }
 .m218__text + .m218__text { margin-top: 14px; }
-.m218__media { border-radius: var(--radius-l); overflow: hidden; box-shadow: var(--shadow-pop); }
+.m218__media { position: relative; border-radius: var(--radius-l); overflow: hidden; }
 .m218__media img { width: 100%; height: 100%; min-height: 360px; object-fit: cover; display: block; }
+.m218__seal {
+  position: absolute; top: 22px; right: 22px; width: 104px; height: 104px; border-radius: 50%;
+  background: var(--vari-5); display: grid; place-items: center;
+  animation: m218-spin 9s linear infinite;
+}
+.m218__seal::before {
+  content: ""; width: 66%; height: 66%;
+  background: var(--vari-1);
+  -webkit-mask: url('assets/logot/logo-3.svg') center / contain no-repeat;
+          mask: url('assets/logot/logo-3.svg') center / contain no-repeat;
+}
+@keyframes m218-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .m218__seal { animation: none; } }
 @media (max-width: 880px) { .m218__grid { grid-template-columns: 1fr; gap: 30px; } }
 
 /* 219-variantti: tausta 11, otsikkochip 1 */
