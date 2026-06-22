@@ -1065,8 +1065,8 @@ p { margin: 0 0 1em; }
 .s218__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 30px; }
 .s218__demo img { max-width: 86%; max-height: 86%; width: auto; height: auto; border-radius: var(--radius-s); }
 .s218__demo-logo {
-  position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 200px; height: 70px;
+  position: absolute; z-index: 3; top: 5%; left: 50%; transform: translateX(-50%);
+  width: 180px; height: 58px;
   background: var(--vari-2);
   -webkit-mask: url('assets/logot/logo-2.svg') center / contain no-repeat;
           mask: url('assets/logot/logo-2.svg') center / contain no-repeat;
@@ -1214,10 +1214,10 @@ p { margin: 0 0 1em; }
 /* =========================================================
    801 — Brändäysdemot + tyytyväisyystakuu
    ========================================================= */
-.s801__brands { background: var(--vari-10); padding: 70px 0 62px; text-align: center; }
+.s801__brands { background: var(--vari-10); padding: 44px 0 40px; text-align: center; }
 .s801__brands-title {
   font-family: var(--font-head); font-weight: 700; color: var(--vari-2);
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin: 0 0 42px;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin: 0 0 24px;
 }
 .s801__logos-wrap { overflow: hidden; width: 100%; }
 .s801__logos {
@@ -1233,7 +1233,7 @@ p { margin: 0 0 1em; }
           mask: var(--logo) center / contain no-repeat;
 }
 .s801__logo--sol { width: 420px; height: 150px; }   /* sol calle 3x isompi (rajattu) */
-.s801__logo--florea { width: 200px; height: 200px; } /* florea-iso isompi */
+.s801__logo--florea { width: 150px; height: 140px; } /* florea-iso (matalampi, ettei nauha kasva) */
 /* kaksi identtistä settiä → translateX(-50%) on saumaton silmukka */
 @keyframes s801-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
@@ -1481,7 +1481,7 @@ p { margin: 0 0 1em; }
 .p804__media::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.40); z-index: 1; } /* tummennus 40% */
 .p804__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 36px; }
 .p804__demo img { max-height: 82%; max-width: 84%; width: auto; height: auto; border-radius: var(--radius-s); }
-.p804__deco { position: absolute; top: 16px; left: 16px; z-index: 3; width: 120px; height: auto; transform: rotate(-20deg); pointer-events: none; }
+.p804__deco { position: absolute; top: 42%; left: 4%; z-index: 3; width: 110px; height: auto; transform: rotate(-20deg); pointer-events: none; }
 .p804__panel { display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 72px clamp(24px, 5vw, 72px); max-width: 640px; margin-right: auto; color: var(--vari-3); }
 .p804__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.15; color: var(--vari-3); margin: 0; }
 .p804__text { font-size: 1.02rem; line-height: 1.7; color: var(--vari-3); margin: 0; max-width: 52ch; }
@@ -2054,9 +2054,9 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
    KATTOLASKURI — tarjouspyyntö-ikkuna (modal)
    ========================================================= */
 .kmodal[hidden] { display: none; }
-.kmodal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.kmodal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: flex-start; justify-content: center; padding: 24px; overflow-y: auto; }
 .kmodal__backdrop { position: absolute; inset: 0; background: rgba(61,42,28,.55); }
-.kmodal__box { position: relative; z-index: 1; width: 100%; max-width: 660px; max-height: 94vh; overflow-y: auto; background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: 28px; padding: 40px clamp(26px, 5vw, 48px); }
+.kmodal__box { position: relative; z-index: 1; width: 100%; max-width: 660px; margin: auto; background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: 28px; padding: 40px clamp(26px, 5vw, 48px); }
 .kmodal__x { position: absolute; top: 12px; right: 16px; background: none; border: 0; font-size: 1.9rem; line-height: 1; color: var(--vari-3); cursor: pointer; }
 .kmodal__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; color: var(--vari-5); margin: 0; }
 .kmodal__title { font-family: var(--font-head); font-weight: 700; font-size: 1.9rem; color: var(--vari-3); margin: 4px 0 20px; line-height: 1.1; }
