@@ -1589,6 +1589,12 @@ p { margin: 0 0 1em; }
 .l803__phone { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 88%; height: 66%; object-fit: cover; object-position: top center; border-radius: 16px 16px 0 0; z-index: 1; }
 .l803__card--some .btn { position: absolute; left: 50%; top: 58%; transform: translate(-50%, -50%); z-index: 3; margin: 0; }
 .l803__card--some .btn:hover { transform: translate(-50%, -50%) scale(1.03); box-shadow: 6px 6px 0 var(--vari-3); }
+/* Media-kortti: kuva pyöristetyin kulmin + nappi päällä */
+.l803__card--media { position: relative; overflow: hidden; justify-content: flex-start; padding-top: 32px; }
+.l803__card--media h3 { position: relative; z-index: 2; }
+.l803__media-img { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); width: 86%; height: 64%; object-fit: cover; object-position: center; border-radius: var(--radius-m); z-index: 1; }
+.l803__card--media .btn { position: absolute; left: 50%; top: 56%; transform: translate(-50%, -50%); z-index: 3; margin: 0; }
+.l803__card--media .btn:hover { transform: translate(-50%, -50%) scale(1.03); box-shadow: 6px 6px 0 var(--vari-3); }
 @media (max-width: 760px) { .l803__grid { grid-template-columns: 1fr; max-width: 460px; } }
 
 /* =========================================================
