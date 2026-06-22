@@ -87,12 +87,48 @@
             <p class="klask__price" id="klask-price">0 €</p>
             <p class="klask__note">Sisältää maalaustyön ja matkat. ALV 0 %. Arvio on suuntaa-antava.</p>
             <ul class="klask__breakdown" id="klask-breakdown"></ul>
-            <a href="tarjouspyynto.html" class="btn btn--dark btn--lg klask__cta">Pyydä tarjous</a>
+            <button type="button" class="btn btn--dark btn--lg klask__cta" id="klask-open">Pyydä tarjous</button>
             <p class="klask__demo-tag">Demo · ei sitova tarjous</p>
           </aside>
         </div>
       </div>
     </section>
+
+    <!-- ============ TARJOUSPYYNTÖ-IKKUNA (modal) ============ -->
+    <div class="kmodal" id="klask-modal" hidden>
+      <div class="kmodal__backdrop" data-klask-close></div>
+      <div class="kmodal__box" role="dialog" aria-modal="true" aria-labelledby="kmodal-title">
+        <button type="button" class="kmodal__x" data-klask-close aria-label="Sulje ikkuna">&times;</button>
+        <p class="kmodal__eyebrow">Kattomaalaus</p>
+        <h2 class="kmodal__title" id="kmodal-title">Tarjouspyyntö</h2>
+
+        <div class="kmodal__summary">
+          <h3>Laskelmasi tiivistettynä</h3>
+          <ul class="kmodal__list" id="kmodal-summary"></ul>
+          <div class="kmodal__total">
+            <span>Arvioitu hinta (ALV 0 %)</span>
+            <strong id="kmodal-total">0 €</strong>
+          </div>
+        </div>
+
+        <form class="kmodal__form" id="kmodal-form">
+          <label>Nimi
+            <input type="text" name="nimi" autocomplete="name" required>
+          </label>
+          <label>Sähköposti
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>Puhelin
+            <input type="tel" name="puhelin" autocomplete="tel">
+          </label>
+          <label>Viesti (valinnainen)
+            <textarea name="viesti" rows="3" placeholder="Esim. toivottu aikataulu tai lisätiedot"></textarea>
+          </label>
+          <button type="submit" class="btn btn--dark btn--lg">Lähetä tarjouspyyntö</button>
+          <p class="kmodal__note">Demo · lähetys avaa sähköpostiohjelmasi valmiilla viestillä.</p>
+        </form>
+      </div>
+    </div>
   </main>
 
   <!-- ============ 300, ALALAIDAN BRÄNDIBANNERI ============ -->
@@ -159,6 +195,9 @@
     var breakdownEl = document.getElementById("klask-breakdown");
 
     var valinnat = { kulma: "loiva", kerros: "1" };
+    var KULMA_LABEL = { loiva: "Loiva", keski: "Keskijyrkkä", jyrka: "Jyrkkä" };
+    var KERROS_LABEL = { "1": "1 kerros", "2": "2 kerrosta", "3": "3 kerrosta" };
+    var tila = {};
 
     function fmt(n) {
       return Math.round(n).toLocaleString("fi-FI") + " €";
@@ -181,6 +220,8 @@
       breakdownEl.innerHTML =
         "<li><span>Maalaustyö " + a + " m²</span><span>" + fmt(tyo) + "</span></li>" +
         "<li><span>Matkat " + k + " km</span><span>" + fmt(matka) + "</span></li>";
+
+      tila = { a: a, k: k, kulma: KULMA_LABEL[valinnat.kulma], kerros: KERROS_LABEL[valinnat.kerros], tyo: tyo, matka: matka, yht: yht };
     }
 
     ala.addEventListener("input", laske);
@@ -199,6 +240,62 @@
     });
 
     laske();
+
+    /* --- Tarjouspyyntö-ikkuna (modal) --- */
+    var openBtn = document.getElementById("klask-open");
+    var modal = document.getElementById("klask-modal");
+    var summaryEl = document.getElementById("kmodal-summary");
+    var totalEl = document.getElementById("kmodal-total");
+    var modalForm = document.getElementById("kmodal-form");
+
+    function openModal() {
+      summaryEl.innerHTML =
+        "<li><span>Katon pinta-ala</span><span>" + tila.a + " m²</span></li>" +
+        "<li><span>Etäisyys kohteeseen</span><span>" + tila.k + " km</span></li>" +
+        "<li><span>Katon kulma</span><span>" + tila.kulma + "</span></li>" +
+        "<li><span>Kerroksia</span><span>" + tila.kerros + "</span></li>" +
+        "<li><span>Maalaustyö</span><span>" + fmt(tila.tyo) + "</span></li>" +
+        "<li><span>Matkat</span><span>" + fmt(tila.matka) + "</span></li>";
+      totalEl.textContent = fmt(tila.yht);
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+    }
+
+    openBtn.addEventListener("click", openModal);
+    modal.querySelectorAll("[data-klask-close]").forEach(function (el) {
+      el.addEventListener("click", closeModal);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hidden) closeModal();
+    });
+
+    modalForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var d = new FormData(modalForm);
+      var rivit = [
+        "Tarjouspyyntö kattomaalauksesta",
+        "",
+        "Katon pinta-ala: " + tila.a + " m²",
+        "Etäisyys kohteeseen: " + tila.k + " km",
+        "Katon kulma: " + tila.kulma,
+        "Kerroksia: " + tila.kerros,
+        "Maalaustyö: " + fmt(tila.tyo),
+        "Matkat: " + fmt(tila.matka),
+        "Arvioitu hinta (ALV 0 %): " + fmt(tila.yht),
+        "",
+        "Nimi: " + (d.get("nimi") || "-"),
+        "Sähköposti: " + (d.get("email") || "-"),
+        "Puhelin: " + (d.get("puhelin") || "-"),
+        "Viesti: " + (d.get("viesti") || "-")
+      ];
+      window.location.href = "mailto:info@studioblomma.com?subject=" +
+        encodeURIComponent("Tarjouspyyntö: kattomaalaus") +
+        "&body=" + encodeURIComponent(rivit.join("\n"));
+    });
   })();
   </script>
 </body>

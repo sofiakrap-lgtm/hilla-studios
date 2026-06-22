@@ -1222,7 +1222,7 @@ p { margin: 0 0 1em; }
 .s801__panel {
   background: var(--vari-1); color: var(--vari-3);
   display: flex; flex-direction: column; justify-content: center; gap: 18px;
-  padding: 72px clamp(24px, 5vw, 72px); max-width: 640px;
+  padding: 72px clamp(24px, 5vw, 72px);
 }
 .s801__eyebrow {
   font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .14em;
@@ -1962,8 +1962,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
    ========================================================= */
 .klask { background: var(--vari-1); padding: 64px 0 88px; }
 .klask__head { max-width: 760px; margin: 0 0 44px; }
-.klask__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--vari-9); margin: 0 0 14px; }
-.klask__eyebrow a { color: var(--vari-9); text-decoration: none; }
+.klask__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--vari-3); margin: 0 0 14px; }
+.klask__eyebrow a { color: var(--vari-3); text-decoration: none; }
 .klask__eyebrow a:hover { text-decoration: underline; }
 .klask__head h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.1rem); color: var(--vari-3); margin: 0 0 16px; line-height: 1.1; }
 .klask__lead { font-size: 1.05rem; line-height: 1.7; color: var(--vari-3); margin: 0; max-width: 56ch; }
@@ -1973,30 +1973,55 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .klask__form { display: flex; flex-direction: column; gap: 30px; background: var(--vari-2); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); padding: 34px clamp(22px, 4vw, 40px); }
 .klask__field { display: flex; flex-direction: column; gap: 10px; border: 0; margin: 0; padding: 0; min-width: 0; }
 .klask__field > label, .klask__field > legend { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--vari-3); padding: 0; }
-.klask__val { font-weight: var(--w-black); font-size: 1.3rem; color: var(--vari-9); }
+.klask__val { font-weight: var(--w-black); font-size: 1.3rem; color: var(--vari-3); }
 
 .klask__field input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 6px; background: var(--vari-6); outline: none; }
-.klask__field input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--vari-9); border: var(--bw) solid var(--vari-3); cursor: pointer; }
-.klask__field input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--vari-9); border: var(--bw) solid var(--vari-3); cursor: pointer; }
+.klask__field input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--vari-8); border: var(--bw) solid var(--vari-3); cursor: pointer; }
+.klask__field input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--vari-8); border: var(--bw) solid var(--vari-3); cursor: pointer; }
 .klask__scale { display: flex; justify-content: space-between; font-size: .82rem; color: var(--vari-4); }
 
 .klask__opts { display: flex; flex-wrap: wrap; gap: 10px; }
 .klask__opt { font-family: var(--font); font-weight: var(--w-bold); font-size: .98rem; cursor: pointer; padding: 12px 20px; border-radius: var(--radius-pill); border: var(--bw) solid var(--vari-3); background: var(--vari-1); color: var(--vari-3); transition: background .15s ease, color .15s ease, transform .1s ease; }
 .klask__opt:hover { transform: translateY(-2px); }
-.klask__opt.is-active { background: var(--vari-9); color: var(--vari-3); border-color: var(--vari-3); }
+.klask__opt.is-active { background: var(--vari-8); color: var(--vari-1); border-color: var(--vari-3); }
 
 .klask__result { position: sticky; top: 90px; background: var(--vari-3); color: var(--vari-1); border-radius: var(--radius-l); padding: 34px 32px; display: flex; flex-direction: column; gap: 14px; }
-.klask__result-label { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--vari-7); margin: 0; }
+.klask__result-label { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--vari-12); margin: 0; }
 .klask__price { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.4rem, 6vw, 3.4rem); color: var(--vari-1); margin: 0; line-height: 1; }
-.klask__note { font-size: .88rem; line-height: 1.5; color: var(--vari-7); margin: 0; }
+.klask__note { font-size: .88rem; line-height: 1.5; color: var(--vari-12); margin: 0; }
 .klask__breakdown { list-style: none; margin: 8px 0 4px; padding: 14px 0 0; border-top: 1px solid rgba(226,215,186,.3); display: flex; flex-direction: column; gap: 10px; }
 .klask__breakdown li { display: flex; justify-content: space-between; gap: 14px; font-size: .95rem; color: var(--vari-1); }
 .klask__cta { margin-top: 8px; }
-.klask .btn--dark { background: var(--vari-9); color: var(--vari-3); border-color: var(--vari-3); }
+.klask .btn--dark { background: var(--vari-8); color: var(--vari-1); border-color: var(--vari-3); }
 .klask .btn--dark:hover { background: var(--vari-1); color: var(--vari-3); }
-.klask__demo-tag { text-align: center; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; color: var(--vari-7); margin: 2px 0 0; }
+.klask__demo-tag { text-align: center; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; color: var(--vari-12); margin: 2px 0 0; }
 
 @media (max-width: 860px) {
   .klask__grid { grid-template-columns: 1fr; }
   .klask__result { position: static; }
 }
+
+/* =========================================================
+   KATTOLASKURI — tarjouspyyntö-ikkuna (modal)
+   ========================================================= */
+.kmodal[hidden] { display: none; }
+.kmodal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.kmodal__backdrop { position: absolute; inset: 0; background: rgba(61,42,28,.55); }
+.kmodal__box { position: relative; z-index: 1; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); padding: 34px clamp(22px, 4vw, 38px); }
+.kmodal__x { position: absolute; top: 12px; right: 16px; background: none; border: 0; font-size: 1.9rem; line-height: 1; color: var(--vari-3); cursor: pointer; }
+.kmodal__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; color: var(--vari-5); margin: 0; }
+.kmodal__title { font-family: var(--font-head); font-weight: 700; font-size: 1.9rem; color: var(--vari-3); margin: 4px 0 20px; line-height: 1.1; }
+.kmodal__summary { background: var(--vari-2); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); padding: 18px 20px; margin-bottom: 22px; }
+.kmodal__summary h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--vari-3); margin: 0 0 12px; }
+.kmodal__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.kmodal__list li { display: flex; justify-content: space-between; gap: 14px; font-size: .92rem; color: var(--vari-3); }
+.kmodal__total { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--vari-6); }
+.kmodal__total span { font-weight: var(--w-bold); color: var(--vari-3); }
+.kmodal__total strong { font-family: var(--font-head); font-size: 1.5rem; color: var(--vari-3); }
+.kmodal__form { display: flex; flex-direction: column; gap: 14px; }
+.kmodal__form label { display: flex; flex-direction: column; gap: 6px; font-weight: var(--w-bold); font-size: .9rem; color: var(--vari-3); }
+.kmodal__form input, .kmodal__form textarea { font-family: var(--font); font-size: 1rem; padding: 11px 13px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-s); background: var(--vari-2); color: var(--vari-3); }
+.kmodal__form input:focus, .kmodal__form textarea:focus { outline: 2px solid var(--vari-5); outline-offset: 1px; }
+.kmodal .btn--dark { background: var(--vari-3); color: var(--vari-1); border: var(--bw) solid var(--vari-3); margin-top: 6px; }
+.kmodal .btn--dark:hover { background: var(--vari-8); color: var(--vari-1); }
+.kmodal__note { font-size: .78rem; color: var(--vari-4); text-align: center; margin: 0; }
