@@ -907,7 +907,7 @@ p { margin: 0 0 1em; }
 }
 .s221__body h3 {
   font-family: var(--font-head); font-weight: 700;
-  font-size: 1.3rem; color: var(--vari-3); margin: 0 0 8px;
+  font-size: 1.95rem; color: var(--vari-3); margin: 0 0 18px;
 }
 .s221__body p { color: var(--vari-4); margin: 0; line-height: 1.7; }
 .s221__body p strong { font-weight: var(--w-black); color: var(--vari-3); }
