@@ -232,7 +232,7 @@ p { margin: 0 0 1em; }
   backdrop-filter: blur(8px);
   border-bottom: var(--bw) solid var(--bitter-cacao);
 }
-.nav { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; gap: 24px; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding-block: 9px; gap: 24px; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: var(--w-black); font-size: 1.15rem; }
 .brand__mark {
   width: 34px; height: 34px;
@@ -777,11 +777,11 @@ p { margin: 0 0 1em; }
 .h106__nav {
   position: sticky; top: 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 16px 5%;
+  padding: 10px 5%;
   background: var(--vari-1);
   border-bottom: var(--bw) solid var(--vari-6);
 }
-.h106__logo { display: inline-flex; align-items: center; height: 88px; }
+.h106__logo { display: inline-flex; align-items: center; height: 46px; }
 .h106__logo img { height: 100%; width: auto; display: block; }
 .h106__nav .nav__links { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .h106__nav .nav__links a:not(.btn) { font-family: var(--font); font-weight: 600; font-size: 0.95rem; color: var(--vari-3); }
@@ -795,21 +795,21 @@ p { margin: 0 0 1em; }
 }
 
 /* 50/50-jako */
-.h106__split { display: grid; grid-template-columns: 1fr 1fr; min-height: 58vh; }
+.h106__split { display: grid; grid-template-columns: 1fr 1fr; min-height: auto; }
 .h106__media { position: relative; background: var(--vari-3); overflow: hidden; }
 .h106__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .h106__media::after { content: ""; position: absolute; inset: 0; background: rgba(61, 42, 28, 0.30); }
 
 .h106__panel {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; gap: 20px; padding: 44px 8%; color: var(--vari-3);
+  text-align: center; gap: 18px; padding: 36px 8%; color: var(--vari-3);
 }
 .h106__title {
   font-family: var(--font-head); font-weight: 700;
-  font-size: clamp(1.55rem, 2.3vw, 2.45rem); line-height: 1.14; letter-spacing: 0.005em;
+  font-size: clamp(2.4rem, 4vw, 3.8rem); line-height: 1.1; letter-spacing: 0.005em;
   max-width: 20ch; margin: 0;
 }
-.h106__text { font-size: 1.02rem; line-height: 1.7; max-width: 48ch; margin: 0; }
+.h106__text { font-size: 1.5rem; line-height: 1.55; max-width: 40ch; margin: 0; }
 .h106__gfx { width: 88px; height: 88px; object-fit: contain; }
 .h106__buttons { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 4px; }
 .h106__closing {
@@ -1016,7 +1016,7 @@ p { margin: 0 0 1em; }
   font-family: var(--font-head); font-weight: 700;
   font-size: clamp(1.5rem, 3.4vw, 2.4rem); line-height: 1.3; margin: 0;
 }
-.s208__text em { font-style: italic; color: var(--vari-9); }
+.s208__text em { font-style: italic; color: var(--vari-2); }
 
 /* =========================================================
    Etusivu — osio 218 (SOPEUDUMME ALAASI + DEMOT)
@@ -1900,16 +1900,17 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .nav__links a:not(.btn) { text-transform: uppercase; letter-spacing: .03em; }
 .h106__nav .nav__links .btn { padding: 8px 20px; }
 .brand--logo { gap: 0; }
-.brand--logo img { height: 88px; width: auto; display: block; }
-@media (max-width: 900px) { .brand--logo img { height: 60px; } .h106__logo { height: 60px; } }
+.brand--logo img { height: 46px; width: auto; display: block; }
+@media (max-width: 900px) { .brand--logo img { height: 38px; } .h106__logo { height: 38px; } }
 
 
 /* Hero — kuvan päällä alhaalla oleva sitaatti (väri 2, iso) */
 .h106__media-cap {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; margin: 0;
-  padding: 0 8% 36px; color: var(--vari-2);
+  position: absolute; inset: 0; z-index: 1; margin: 0;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 8%; color: var(--vari-2);
   font-family: var(--font-head); font-style: italic;
-  font-size: clamp(1.4rem, 2.4vw, 2.1rem); line-height: 1.3;
+  font-size: clamp(1.5rem, 2.6vw, 2.3rem); line-height: 1.3;
   text-shadow: 0 2px 14px rgba(0,0,0,.45);
 }
 @media (max-width: 900px) { .h106__media-cap { padding: 0 7% 22px; font-size: clamp(1.2rem, 5vw, 1.7rem); } }
