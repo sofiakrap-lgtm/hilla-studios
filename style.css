@@ -1810,8 +1810,13 @@ p { margin: 0 0 1em; }
 
 /* 219-variantti: tausta 11, otsikkochip 1 */
 .s219--meista { background: var(--vari-11); }
-.s219--meista .s219__title { background: var(--vari-1); }
+.s219--meista .s219__title { background: var(--vari-1); position: relative; }
 .s219--meista .s219__icon { display: none; }
+.s219__title-deco {
+  position: absolute; left: 50%; bottom: 100%; transform: translateX(-50%);
+  margin-bottom: -12px;        /* dippaa juuri ja juuri otsikkolaatikon sisään */
+  width: 180px; height: auto; z-index: 2; pointer-events: none;
+}
 
 /* 909 — keitä olemme + missio (tausta 10, laatikot 2, teksti/reunus 8) */
 .m909 { background: var(--vari-10); padding: 88px 0; }
