@@ -1832,9 +1832,9 @@ p { margin: 0 0 1em; }
 /* 909 — keitä olemme + missio (tausta 10, laatikot 2, teksti/reunus 8) */
 .m909 { background: var(--vari-10); padding: 88px 0; }
 .m909__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 940px; margin: 0 auto; }
-.m909__card { background: var(--vari-2); border: var(--bw) solid var(--vari-8); border-radius: var(--radius-l); padding: 36px 34px; }
-.m909__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; color: var(--vari-8); margin: 0 0 14px; }
-.m909__card p { font-size: 1rem; line-height: 1.7; color: var(--vari-8); margin: 0; }
+.m909__card { background: var(--vari-2); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); padding: 36px 34px; }
+.m909__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; color: var(--vari-3); margin: 0 0 14px; }
+.m909__card p { font-size: 1rem; line-height: 1.7; color: var(--vari-3); margin: 0; }
 @media (max-width: 780px) { .m909__grid { grid-template-columns: 1fr; max-width: 480px; } }
 
 /* Tarjouspyyntö-vinkki + Yhteys-sivu */
