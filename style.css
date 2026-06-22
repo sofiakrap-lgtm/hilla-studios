@@ -1255,7 +1255,7 @@ p { margin: 0 0 1em; }
    PALVELUT 212 — Hero (liukuväri väri 1 -> väri 11) + aaltoteksti
    ========================================================= */
 .p212 { background: var(--vari-1); padding: 96px 0 0; }
-.p212 .s201__marquee { margin-top: 92px; }
+.p212 .s201__marquee { margin-top: 96px; }
 .p212__head { max-width: 880px; margin: 0 auto; text-align: center; color: var(--vari-3); }
 .p212__title {
   font-family: var(--font-head); font-weight: 700; color: var(--vari-3);
@@ -1534,15 +1534,16 @@ p { margin: 0 0 1em; }
 .l803__sub { font-size: 1.05rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
 .l803__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 920px; margin: 0 auto; }
 .l803__card {
-  position: relative; isolation: isolate; overflow: hidden;
-  border-radius: var(--radius-l); min-height: 300px;
-  display: flex; flex-direction: column; justify-content: flex-end; gap: 16px;
-  padding: 34px; color: var(--vari-1);
+  border: 1px solid var(--vari-3); border-radius: var(--radius-l); min-height: 300px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; gap: 18px; padding: 34px;
 }
-.l803__card-bg { position: absolute; inset: 0; z-index: -2; background: var(--vari-3) center / cover no-repeat; }
-.l803__card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,.40); } /* tummennus 40% */
-.l803__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.7rem; color: var(--vari-1); margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
-.l803__card .btn { align-self: flex-start; background: var(--vari-13); color: var(--vari-1); border-color: var(--vari-1); }
+.l803__card h3 {
+  font-family: var(--font-head); font-weight: 700; font-size: 1.7rem; margin: 0;
+  color: var(--vari-2);
+  -webkit-text-stroke: 0.5px var(--vari-3); text-stroke: 0.5px var(--vari-3);
+}
+.l803__card .btn { background: var(--vari-2); color: var(--vari-3); border-color: var(--vari-3); }
 .l803__card .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--vari-3); }
 @media (max-width: 760px) { .l803__grid { grid-template-columns: 1fr; max-width: 460px; } }
 
