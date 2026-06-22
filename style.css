@@ -1250,7 +1250,8 @@ p { margin: 0 0 1em; }
 /* =========================================================
    PALVELUT 212 — Hero (liukuväri väri 1 -> väri 11) + aaltoteksti
    ========================================================= */
-.p212 { background: linear-gradient(180deg, var(--vari-1) 0%, var(--vari-1) 42%, var(--vari-11) 100%); padding: 96px 0 0; }
+.p212 { background: var(--vari-1); padding: 96px 0 0; }
+.p212 .s201__marquee { margin-top: 56px; }
 .p212__head { max-width: 880px; margin: 0 auto; text-align: center; color: var(--vari-3); }
 .p212__title {
   font-family: var(--font-head); font-weight: 700; color: var(--vari-3);
