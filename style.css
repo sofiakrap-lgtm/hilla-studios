@@ -803,16 +803,16 @@ p { margin: 0 0 1em; }
 
 .h106__panel {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; gap: 18px; padding: 36px 8%; color: var(--vari-3);
+  text-align: center; gap: 28px; padding: 36px 8%; color: var(--vari-3);
 }
 .h106__title {
   font-family: var(--font-head); font-weight: 700;
   font-size: clamp(2.4rem, 4vw, 3.8rem); line-height: 1.1; letter-spacing: 0.005em;
   max-width: 20ch; margin: 0;
 }
-.h106__text { font-size: 1.5rem; line-height: 1.55; max-width: 40ch; margin: 0; }
+.h106__text { font-size: 1.25rem; line-height: 1.6; max-width: 42ch; margin: 0; }
 .h106__gfx { width: 88px; height: 88px; object-fit: contain; }
-.h106__buttons { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 4px; }
+.h106__buttons { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 12px; }
 .h106__closing {
   font-family: var(--font-head); font-style: italic;
   font-size: 1.08rem; line-height: 1.4; max-width: 36ch; margin: 6px 0 0; opacity: 0.92;
