@@ -1586,9 +1586,9 @@ p { margin: 0 0 1em; }
 /* Some-kortti: puhelinmockup (mobiilidemo-2 yläosa) + nappi päällä */
 .l803__card--some { position: relative; overflow: hidden; justify-content: flex-start; padding-top: 32px; }
 .l803__card--some h3 { position: relative; z-index: 2; }
-.l803__phone { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 88%; height: 66%; object-fit: cover; object-position: top center; border-radius: 16px 16px 0 0; z-index: 1; }
-.l803__card--some .btn { position: absolute; left: 50%; top: 58%; transform: translate(-50%, -50%); z-index: 3; margin: 0; }
-.l803__card--some .btn:hover { transform: translate(-50%, -50%) scale(1.03); box-shadow: 6px 6px 0 var(--vari-3); }
+.l803__phone { position: absolute; left: 50%; top: 36%; transform: translateX(-50%); width: 94%; height: auto; z-index: 1; }
+.l803__card--some .btn { position: absolute; left: 50%; bottom: 16px; top: auto; transform: translateX(-50%); z-index: 3; margin: 0; }
+.l803__card--some .btn:hover { transform: translateX(-50%) scale(1.03); box-shadow: 6px 6px 0 var(--vari-3); }
 /* Media-kortti: kuva pyöristetyin kulmin + nappi päällä */
 .l803__card--media { position: relative; overflow: hidden; justify-content: flex-start; padding-top: 32px; }
 .l803__card--media h3 { position: relative; z-index: 2; }
