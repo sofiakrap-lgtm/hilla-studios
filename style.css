@@ -2180,8 +2180,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .lask-modal__body .l803__card--some .l803__phone { top: clamp(54px, 8vh, 80px); width: 112%; }
 /* Media-kortit (nettisivut/brändi): kuvan yläreuna (esim. tietokoneen reuna) juuri otsikon alle */
 .lask-modal__body .l803__card--media .l803__media-img { bottom: 0; height: 76%; width: 92%; object-position: top center; }
-/* Nettisivut-kortin läppärikuva hieman ylemmäs */
-.lask-modal__body .l803__card--media .l803__media-img[src*="nettisivudemo"] { bottom: 9%; }
+/* Nettisivut-kortin läppärikuva ylemmäs (n. 30 % laatikon korkeudesta) */
+.lask-modal__body .l803__card--media .l803__media-img[src*="nettisivudemo"] { bottom: 39%; }
 
 /* Askelmittari */
 .lask-steps { display: flex; align-items: center; gap: 0; flex: 1; max-width: 640px; }
