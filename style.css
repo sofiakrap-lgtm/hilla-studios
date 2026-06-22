@@ -1219,8 +1219,9 @@ p { margin: 0 0 1em; }
   -webkit-mask: var(--logo) center / contain no-repeat;
           mask: var(--logo) center / contain no-repeat;
 }
-.s801__logo--sol { width: 200px; height: 150px; }   /* sol calle isompi */
-.s801__logo--fa  { width: 150px; height: 70px; }     /* FA pienempi, koko logo näkyy */
+.s801__logo--sol { width: 400px; height: 280px; }   /* sol calle 2x isompi */
+.s801__logo--fa  { width: 92px; height: 46px; }      /* FA selvästi pienempi */
+.s801__logo--florea { width: 200px; height: 200px; } /* florea-iso 2x isompi */
 /* kaksi identtistä settiä → translateX(-50%) on saumaton silmukka */
 @keyframes s801-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
