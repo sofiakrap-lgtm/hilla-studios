@@ -1316,7 +1316,7 @@ p { margin: 0 0 1em; }
 .p908__inner { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 22px; color: var(--vari-2); }
 .p908__mark {
   width: 88px; height: 88px;
-  background: var(--vari-1);                 /* grafiikka 5 väriin 1 */
+  background: var(--vari-2);                 /* grafiikka samaan väriin kuin otsikko (väri 2) */
   -webkit-mask: var(--ico) center / contain no-repeat;
           mask: var(--ico) center / contain no-repeat;
 }
@@ -1341,7 +1341,7 @@ p { margin: 0 0 1em; }
 .p800__head {
   list-style: none; cursor: pointer;
   display: flex; align-items: center; gap: 18px; padding: 22px 26px;
-  font-family: var(--font-head); font-weight: 700; font-size: 2.36rem; color: var(--vari-3);
+  font-family: var(--font-head); font-weight: 700; font-size: 1.18rem; color: var(--vari-3);
 }
 .p800__head::-webkit-details-marker { display: none; }
 .p800__head:hover { background: var(--vari-1); }
