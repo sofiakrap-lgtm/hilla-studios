@@ -1196,19 +1196,21 @@ p { margin: 0 0 1em; }
 }
 .s801__logos-wrap { overflow: hidden; width: 100%; }
 .s801__logos {
-  list-style: none; margin: 0; padding: 0;
-  display: flex; align-items: center; gap: 90px; width: max-content;
-  animation: s801-left 75s linear infinite;
+  margin: 0; padding: 0;
+  display: flex; align-items: center; width: max-content;
+  animation: s801-left 80s linear infinite;
 }
-.s801__logos li { flex: none; display: flex; align-items: center; justify-content: center; }
+.s801__set { display: flex; align-items: center; gap: 90px; padding-right: 90px; }
 .s801__logo {
-  width: 240px; height: 100px;
+  flex: none; width: 240px; height: 100px;
   background: var(--vari-2);                   /* logot väriin 2 (maski) */
   -webkit-mask: var(--logo) center / contain no-repeat;
           mask: var(--logo) center / contain no-repeat;
 }
-/* yksi setti (6 logoa) = 6*240 + 6*90 = 1980px → saumaton silmukka */
-@keyframes s801-left { from { transform: translateX(0); } to { transform: translateX(-1980px); } }
+.s801__logo--sol { width: 200px; height: 150px; }   /* sol calle isompi */
+.s801__logo--fa  { width: 150px; height: 70px; }     /* FA pienempi, koko logo näkyy */
+/* kaksi identtistä settiä → translateX(-50%) on saumaton silmukka */
+@keyframes s801-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 .s801__guarantee { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; min-height: 60vh; }
 .s801__panel { order: 1; }
