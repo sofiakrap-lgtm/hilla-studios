@@ -1931,3 +1931,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .pal__name { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--vari-3); margin: 2px 0 8px; line-height: 1.2; }
 .pal__hex { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: .92rem; color: var(--vari-4); text-transform: uppercase; margin: 0 0 2px; }
 .pal__var { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: .76rem; color: var(--ink-65); }
+
+/* Hintalaskuri-nappi (navi) ilman pop-varjoa */
+.nav__cta .btn, .h106__nav .nav__links .btn { box-shadow: none; }
+.nav__cta .btn:hover, .h106__nav .nav__links .btn:hover { box-shadow: none; transform: none; }
