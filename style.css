@@ -1065,7 +1065,7 @@ p { margin: 0 0 1em; }
 .s218__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 30px; }
 .s218__demo img { max-width: 86%; max-height: 86%; width: auto; height: auto; border-radius: var(--radius-s); }
 .s218__demo-logo {
-  position: absolute; z-index: 3; top: 30%; left: 50%; transform: translateX(-50%);
+  position: absolute; z-index: 3; top: 13%; left: 50%; transform: translateX(-50%);
   width: 180px; height: 58px;
   background: var(--vari-2);
   -webkit-mask: url('assets/logot/logo-2.svg') center / contain no-repeat;
@@ -1135,7 +1135,7 @@ p { margin: 0 0 1em; }
 /* keskipiste kortin oikeassa alakulmassa */
 .s219__deco--circle { width: 120px; bottom: 0; right: 0; transform: translate(50%, 50%); }
 /* keskipiste oikean kortin oikeassa yläkulmassa */
-.s219__deco--rect { width: 150px; top: 0; right: 0; transform: translate(50%, -50%) rotate(-12deg); }
+.s219__deco--rect { width: 150px; top: 0; right: 0; transform: translate(50%, -50%) rotate(20deg); }
 @media (max-width: 760px) { .s219__deco { display: none; } }
 .s219__head { text-align: center; margin: 0 0 52px; }
 .s219__title {
@@ -1583,6 +1583,12 @@ p { margin: 0 0 1em; }
 }
 .l803__card .btn { background: var(--vari-2); color: var(--vari-3); border-color: var(--vari-3); }
 .l803__card .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--vari-3); }
+/* Some-kortti: puhelinmockup (mobiilidemo-2 yläosa) + nappi päällä */
+.l803__card--some { overflow: hidden; justify-content: flex-start; padding-top: 32px; }
+.l803__card--some h3 { position: relative; z-index: 2; }
+.l803__phone { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 80%; height: 58%; object-fit: cover; object-position: top center; border-radius: 16px 16px 0 0; box-shadow: var(--shadow-pop); z-index: 1; }
+.l803__card--some .btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 3; margin: 0; }
+.l803__card--some .btn:hover { transform: translate(-50%, -50%) scale(1.03); box-shadow: 6px 6px 0 var(--vari-3); }
 @media (max-width: 760px) { .l803__grid { grid-template-columns: 1fr; max-width: 460px; } }
 
 /* =========================================================
