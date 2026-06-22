@@ -1285,7 +1285,7 @@ p { margin: 0 0 1em; }
   text-align: center; font-family: var(--font-head); font-weight: 700;
   font-size: clamp(1.9rem, 4.5vw, 3rem); color: var(--vari-1); margin: 0 0 52px;
 }
-.p223__cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.p223__cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; align-items: stretch; }
 .p223__card {
   display: flex; flex-direction: column; align-items: center; gap: 14px;
   text-align: center;
@@ -1300,7 +1300,7 @@ p { margin: 0 0 1em; }
           mask: var(--ico) center / contain no-repeat;
 }
 .p223__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 2.36rem; color: var(--vari-3); margin: 0; line-height: 1.2; }
-.p223__card p { font-size: 1.9rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
+.p223__card p { font-size: 1rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
 @media (max-width: 900px) { .p223__cards { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .p223__cards { grid-template-columns: 1fr; } }
 
