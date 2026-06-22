@@ -1294,12 +1294,12 @@ p { margin: 0 0 1em; }
   padding: 36px 26px;
 }
 .p223__icon {
-  width: 64px; height: 64px; flex: none;
+  width: 46px; height: 46px; flex: none;
   background: var(--vari-3);
   -webkit-mask: var(--ico) center / contain no-repeat;
           mask: var(--ico) center / contain no-repeat;
 }
-.p223__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 2.36rem; color: var(--vari-3); margin: 0; line-height: 1.2; }
+.p223__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.55rem; color: var(--vari-3); margin: 0; line-height: 1.2; }
 .p223__card p { font-size: 1rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
 @media (max-width: 900px) { .p223__cards { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .p223__cards { grid-template-columns: 1fr; } }
