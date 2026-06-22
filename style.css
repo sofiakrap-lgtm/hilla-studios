@@ -1211,7 +1211,8 @@ p { margin: 0 0 1em; }
 @keyframes s801-left { from { transform: translateX(0); } to { transform: translateX(-1980px); } }
 
 .s801__guarantee { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; min-height: 60vh; }
-.s801__media { position: relative; overflow: hidden; background: var(--vari-3); min-height: 340px; }
+.s801__panel { order: 1; }
+.s801__media { order: 2; position: relative; overflow: hidden; background: var(--vari-3); min-height: 340px; }
 .s801__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .s801__media::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.40); } /* tummennus 40% */
 .s801__media-gfx {
