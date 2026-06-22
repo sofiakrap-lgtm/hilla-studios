@@ -1194,18 +1194,21 @@ p { margin: 0 0 1em; }
   font-family: var(--font-head); font-weight: 700; color: var(--vari-2);
   font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin: 0 0 42px;
 }
+.s801__logos-wrap { overflow: hidden; width: 100%; }
 .s801__logos {
-  list-style: none; margin: 0 auto; padding: 0 24px; max-width: var(--container);
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 46px 50px; align-items: center;
+  list-style: none; margin: 0; padding: 0;
+  display: flex; align-items: center; gap: 90px; width: max-content;
+  animation: s801-left 75s linear infinite;
 }
-.s801__logos li { display: flex; align-items: center; justify-content: center; }
+.s801__logos li { flex: none; display: flex; align-items: center; justify-content: center; }
 .s801__logo {
-  width: 100%; height: 100px;
+  width: 240px; height: 100px;
   background: var(--vari-2);                   /* logot väriin 2 (maski) */
   -webkit-mask: var(--logo) center / contain no-repeat;
           mask: var(--logo) center / contain no-repeat;
 }
-@media (max-width: 760px) { .s801__logos { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+/* yksi setti (6 logoa) = 6*240 + 6*90 = 1980px → saumaton silmukka */
+@keyframes s801-left { from { transform: translateX(0); } to { transform: translateX(-1980px); } }
 
 .s801__guarantee { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; min-height: 60vh; }
 .s801__media { position: relative; overflow: hidden; background: var(--vari-3); min-height: 340px; }
@@ -1496,7 +1499,7 @@ p { margin: 0 0 1em; }
 .p906__item { border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); background: var(--vari-2); overflow: hidden; }
 .p906__q {
   list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 20px 24px; font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--vari-3);
+  padding: 20px 24px; font-family: var(--font-head); font-weight: 700; font-size: 1.65rem; color: var(--vari-3);
   transition: background .2s ease, color .2s ease;
 }
 .p906__q::-webkit-details-marker { display: none; }
