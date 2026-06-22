@@ -2168,6 +2168,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .lask-modal__body { flex: 1; overflow-y: auto; padding: clamp(20px, 4vw, 48px); }
 .lask-modal__body .calc2, .lask-modal__body .calc3, .lask-modal__body .p402 { padding: 0; background: transparent; }
 .lask-modal__body > section[style] { background: transparent !important; }
+.lask-start__title { font-family: var(--font-head); font-weight: var(--w-bold); font-size: clamp(1.5rem, 3.4vw, 2.2rem); color: var(--vari-3); text-align: center; margin: 0 0 28px; }
+.lask-modal__body .l803__grid { margin: 0 auto; }
 
 /* Askelmittari */
 .lask-steps { display: flex; align-items: center; gap: 0; flex: 1; max-width: 640px; }

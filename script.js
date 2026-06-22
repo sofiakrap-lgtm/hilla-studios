@@ -680,17 +680,21 @@ function initCalc3() {
        lisää askelmittarin, joka täyttyy etenemisen mukaan.
    --------------------------------------------------------- */
 function initCalcModal() {
+  let autoOpened = false;
   document.querySelectorAll(".calc2, .calc3, [data-lask]").forEach((root) => {
     if (root.dataset.modalized) return;
     root.dataset.modalized = "1";
 
     const isCalc3 = root.classList.contains("calc3");
     const isPkg = root.hasAttribute("data-lask") && !root.classList.contains("calc2") && !isCalc3;
-    const steps = isCalc3
+    const fromStart = new URLSearchParams(location.search).has("laskuri");
+    const offset = fromStart ? 1 : 0;
+    const baseSteps = isCalc3
       ? ["Ominaisuudet", "Lisäpalvelut", "Hinta-arvio"]
       : isPkg
       ? ["Valitse paketti", "Lisää koriin"]
       : ["Valitse ominaisuudet", "Hinta-arvio"];
+    const steps = fromStart ? ["Kategoria"].concat(baseSteps) : baseSteps;
 
     /* Avauspainike laskurin paikalle */
     const launch = document.createElement("div");
@@ -723,10 +727,11 @@ function initCalcModal() {
     modal.querySelector(".lask-modal__body").appendChild(root);
 
     function setStep(n) {
+      const cur = n + offset;
       modal.querySelectorAll(".lask-step").forEach((s) => {
         const i = Number(s.dataset.step);
-        s.classList.toggle("is-done", i < n);
-        s.classList.toggle("is-active", i === n);
+        s.classList.toggle("is-done", i < cur);
+        s.classList.toggle("is-active", i === cur);
       });
     }
     setStep(0);
@@ -767,7 +772,103 @@ function initCalcModal() {
       const more = root.querySelector(".calc2__more");
       if (more) more.addEventListener("click", () => setStep(0));
     }
+
+    /* Tultiin kategoriavalinnasta -> avaa ensimmäinen ikkuna heti */
+    if (fromStart && !autoOpened) {
+      autoOpened = true;
+      open();
+    }
   });
+}
+
+/* ---------------------------------------------------------
+   7a2. Hintalaskurin aloitus- ja välivalinnat täysruutu-
+        ikkunassa. Kategoria = 1. askel, ikkuna avautuu heti.
+   --------------------------------------------------------- */
+function buildLaskWindow(content, opts) {
+  /* Vie valinnan linkit eteenpäin laskuri-ikkunassa (?laskuri=1) */
+  content.querySelectorAll("a[href]").forEach((a) => {
+    const href = a.getAttribute("href");
+    if (
+      href &&
+      href.indexOf("?") === -1 &&
+      href.indexOf("#") === -1 &&
+      /\.html$/.test(href) &&
+      href !== "laskuri.html"
+    ) {
+      a.setAttribute("href", href + "?laskuri=1");
+    }
+  });
+
+  const steps = ["Kategoria", "Valinnat", "Hinta-arvio"];
+  const active = opts.active || 0;
+
+  const launch = document.createElement("div");
+  launch.className = "lask-launch";
+  launch.innerHTML =
+    '<button type="button" class="btn btn--primary btn--lg">Avaa hintalaskuri</button>';
+  content.parentNode.insertBefore(launch, content);
+
+  const modal = document.createElement("div");
+  modal.className = "lask-modal";
+  modal.hidden = true;
+  const stepsHtml = steps
+    .map(
+      (l, i) =>
+        '<div class="lask-step' +
+        (i < active ? " is-done" : i === active ? " is-active" : "") +
+        '" data-step="' + i + '">' +
+        '<span class="lask-step__dot">' + (i + 1) + "</span>" +
+        '<span class="lask-step__label">' + l + "</span></div>"
+    )
+    .join('<span class="lask-step__line"></span>');
+  const titleHtml = opts.title
+    ? '<h2 class="lask-start__title">' + opts.title + "</h2>"
+    : "";
+  modal.innerHTML =
+    '<div class="lask-modal__backdrop" data-lask-close></div>' +
+    '<div class="lask-modal__box" role="dialog" aria-modal="true" aria-label="Hintalaskuri">' +
+    '<div class="lask-modal__bar">' +
+    '<div class="lask-steps">' + stepsHtml + "</div>" +
+    '<button type="button" class="lask-modal__x" data-lask-close aria-label="Sulje ikkuna">&times;</button>' +
+    "</div>" +
+    '<div class="lask-modal__body">' + titleHtml + "</div></div>";
+  document.body.appendChild(modal);
+  modal.querySelector(".lask-modal__body").appendChild(content);
+
+  function open() {
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+  function close() {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+  }
+  launch.querySelector("button").addEventListener("click", open);
+  modal.querySelectorAll("[data-lask-close]").forEach((el) =>
+    el.addEventListener("click", close)
+  );
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hidden) close();
+  });
+
+  if (opts.openNow) open();
+}
+
+function initCalcStart() {
+  const fromStart = new URLSearchParams(location.search).has("laskuri");
+
+  /* Laskuri-sivun kategoriavalinta: aina ikkunassa, avautuu heti */
+  const grid = document.querySelector(".l803__grid");
+  if (grid) {
+    buildLaskWindow(grid, { active: 0, title: "Mitä haluat laskea?", openNow: true });
+  }
+
+  /* Nettisivut-välivalinta (n11): ikkunassa vain laskurivirran kautta */
+  const n11 = document.querySelector(".n11 .container");
+  if (n11 && fromStart) {
+    buildLaskWindow(n11, { active: 1, title: "", openNow: true });
+  }
 }
 
 /* ---------------------------------------------------------
@@ -810,6 +911,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCalc2();
   initCalc3();
   initCalcModal();
+  initCalcStart();
   initArviot();
   initPackageAdd();
   initBna();
