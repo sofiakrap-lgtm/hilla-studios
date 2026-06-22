@@ -1022,18 +1022,18 @@ p { margin: 0 0 1em; }
 .s218 { background: var(--vari-1); }
 .s218__grid { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
 .s218__panel {
-  display: flex; flex-direction: column; justify-content: center; gap: 18px;
-  padding: 52px clamp(24px, 5vw, 56px); color: var(--vari-3);
-  max-width: 600px; margin-right: auto;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 18px;
+  padding: 52px clamp(24px, 5vw, 56px); color: var(--vari-3); text-align: center;
+  max-width: 600px; margin: 0 auto;
 }
 .s218__title {
   font-family: var(--font-head); font-weight: 700;
   font-size: clamp(1.8rem, 3.2vw, 2.6rem); line-height: 1.15; color: var(--vari-3); margin: 0;
 }
-.s218__text { font-size: 1.02rem; line-height: 1.7; color: var(--vari-4); margin: 0; max-width: 50ch; }
-.s218__demos { margin-top: 6px; }
+.s218__text { font-size: 1.02rem; line-height: 1.7; color: var(--vari-4); margin: 0 auto; max-width: 50ch; }
+.s218__demos { margin-top: 6px; align-self: stretch; }
 .s218__demos-title { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--vari-3); margin: 0 0 4px; }
-.s218__note { font-size: 0.82rem; font-style: italic; color: var(--ink-65); margin: 0 0 16px; max-width: 46ch; }
+.s218__note { font-size: 0.82rem; font-style: italic; color: var(--ink-65); margin: 0 auto 16px; max-width: 46ch; }
 .s218__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
 .s218__list a {
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
@@ -1043,7 +1043,7 @@ p { margin: 0 0 1em; }
 }
 .s218__list a::after { content: "→"; font-weight: var(--w-black); }
 .s218__list a:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-pop-sm); background: var(--vari-9); }
-.s218__cta { align-self: flex-start; margin-top: 8px; }
+.s218__cta { align-self: center; margin-top: 8px; }
 .s218__media { position: relative; background: var(--vari-3); overflow: hidden; min-height: 320px; }
 .s218__media img { width: 100%; height: 100%; object-fit: cover; }
 
