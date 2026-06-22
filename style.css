@@ -916,7 +916,7 @@ p { margin: 0 0 1em; }
 
 /* 221 koristegrafiikat (sinetti, pilvi, nuolet, takuu) sivugutereissa */
 .s221__deco { position: absolute; z-index: 3; pointer-events: none; height: auto; }
-.s221__deco--seal   { width: 132px; top: -46px; right: -72px; transform: rotate(39deg); }
+.s221__deco--seal   { width: 132px; top: -46px; right: -72px; transform: rotate(-12deg); }
 .s221__deco--arrow-r{ width: 120px; top: 150px; right: -150px; transform: rotate(-8deg); }
 .s221__deco--cloud  { width: 182px; top: 80px; left: -222px; transform: rotate(-6deg); }
 .s221__deco--arrow-l{ width: 115px; top: 250px; left: -178px; transform: rotate(135deg); }
@@ -1130,10 +1130,12 @@ p { margin: 0 0 1em; }
 /* =========================================================
    219 — "Jotain extraa?" (3 lisäpalvelukorttia)
    ========================================================= */
-.s219 { background: var(--vari-10); padding: 92px 0; position: relative; overflow: hidden; }
-.s219__deco { position: absolute; z-index: 1; pointer-events: none; }
-.s219__deco--circle { width: 120px; height: auto; bottom: 12%; left: 29%; }
-.s219__deco--rect { width: 150px; height: auto; top: 17%; right: 12%; transform: rotate(-12deg); }
+.s219 { background: var(--vari-10); padding: 92px 0; position: relative; overflow: visible; }
+.s219__deco { position: absolute; z-index: 4; pointer-events: none; height: auto; }
+/* keskipiste kortin oikeassa alakulmassa */
+.s219__deco--circle { width: 120px; bottom: 0; right: 0; transform: translate(50%, 50%); }
+/* keskipiste oikean kortin oikeassa yläkulmassa */
+.s219__deco--rect { width: 150px; top: 0; right: 0; transform: translate(50%, -50%) rotate(-12deg); }
 @media (max-width: 760px) { .s219__deco { display: none; } }
 .s219__head { text-align: center; margin: 0 0 52px; }
 .s219__title {
@@ -1150,6 +1152,7 @@ p { margin: 0 0 1em; }
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch;
 }
 .s219__card {
+  position: relative;
   display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center;
   background: var(--vari-2);
   border: 1px solid var(--vari-3);
@@ -2081,8 +2084,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
    ========================================================= */
 .ilo { background: var(--vari-1); padding: 56px 0 96px; }
 .ilo__head { max-width: 760px; margin: 0 0 40px; }
-.ilo__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--vari-9); margin: 0 0 14px; }
-.ilo__eyebrow a { color: var(--vari-9); text-decoration: none; }
+.ilo__eyebrow { font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; color: var(--vari-10); margin: 0 0 14px; }
+.ilo__eyebrow a { color: var(--vari-10); text-decoration: none; }
 .ilo__eyebrow a:hover { text-decoration: underline; }
 .ilo__head h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.1rem); color: var(--vari-3); margin: 0 0 16px; line-height: 1.1; }
 .ilo__lead { font-size: 1.05rem; line-height: 1.7; color: var(--vari-3); margin: 0 0 12px; max-width: 60ch; }
