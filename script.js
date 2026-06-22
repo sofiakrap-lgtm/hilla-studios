@@ -680,13 +680,16 @@ function initCalc3() {
        lisää askelmittarin, joka täyttyy etenemisen mukaan.
    --------------------------------------------------------- */
 function initCalcModal() {
-  document.querySelectorAll(".calc2, .calc3").forEach((root) => {
+  document.querySelectorAll(".calc2, .calc3, [data-lask]").forEach((root) => {
     if (root.dataset.modalized) return;
     root.dataset.modalized = "1";
 
     const isCalc3 = root.classList.contains("calc3");
+    const isPkg = root.hasAttribute("data-lask") && !root.classList.contains("calc2") && !isCalc3;
     const steps = isCalc3
       ? ["Ominaisuudet", "Lisäpalvelut", "Hinta-arvio"]
+      : isPkg
+      ? ["Valitse paketti", "Lisää koriin"]
       : ["Valitse ominaisuudet", "Hinta-arvio"];
 
     /* Avauspainike laskurin paikalle */
@@ -754,6 +757,10 @@ function initCalcModal() {
       );
       const more = root.querySelector(".calc3__more");
       if (more) more.addEventListener("click", () => setStep(0));
+    } else if (isPkg) {
+      root.querySelectorAll("[data-add-package]").forEach((b) =>
+        b.addEventListener("click", () => setStep(1))
+      );
     } else {
       const calc = root.querySelector(".calc2__calc");
       if (calc) calc.addEventListener("click", () => setStep(1));
