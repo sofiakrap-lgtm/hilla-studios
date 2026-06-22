@@ -1357,12 +1357,13 @@ p { margin: 0 0 1em; }
 .p800__item[open] .p800__plus::after { transform: scaleY(0); }
 .p800__item[open] .p800__plus { background: var(--vari-9); }
 .p800__panel {
-  display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 12px 32px;
+  display: block;
   padding: 6px 26px 28px; border-top: var(--bw) solid var(--vari-3);
 }
-.p800__panel-title { font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; color: var(--vari-3); margin: 18px 0 0; }
+.p800__panel-title { font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; color: var(--vari-3); margin: 18px 0 10px; }
 .p800__panel-text { color: var(--vari-3); }
-.p800__panel-text p { font-size: 0.98rem; line-height: 1.7; color: var(--vari-3); margin: 18px 0 18px; }
+.p800__panel-text p { font-size: 0.98rem; line-height: 1.7; color: var(--vari-3); margin: 0 0 22px; }
+.p800__panel-text .btn { align-self: flex-start; }
 .p800 .btn--accent { background: var(--vari-12); color: var(--vari-1); border-color: var(--vari-3); }
 .p800 .btn--accent:hover { background: var(--vari-3); color: var(--vari-1); }
 @media (max-width: 720px) {
