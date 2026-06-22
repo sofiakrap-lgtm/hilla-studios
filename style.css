@@ -1487,7 +1487,7 @@ p { margin: 0 0 1em; }
 .p804__media::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.40); z-index: 1; } /* tummennus 40% */
 .p804__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 36px; }
 .p804__demo img { max-height: 82%; max-width: 84%; width: auto; height: auto; border-radius: var(--radius-s); }
-.p804__deco { position: absolute; top: 42%; left: 4%; z-index: 3; width: 110px; height: auto; transform: rotate(-20deg); pointer-events: none; }
+.p804__deco { position: absolute; top: 27%; left: 19%; z-index: 3; width: 110px; height: auto; transform: translate(-50%, -50%) rotate(-20deg); pointer-events: none; }
 .p804__panel { display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 72px clamp(24px, 5vw, 72px); max-width: 640px; margin-right: auto; color: var(--vari-3); }
 .p804__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.15; color: var(--vari-3); margin: 0; }
 .p804__text { font-size: 1.02rem; line-height: 1.7; color: var(--vari-3); margin: 0; max-width: 52ch; }
@@ -1809,7 +1809,7 @@ p { margin: 0 0 1em; }
 .m218__media { position: relative; border-radius: var(--radius-l); overflow: hidden; }
 .m218__media img { width: 100%; height: 100%; min-height: 360px; object-fit: cover; display: block; }
 .m218__seal {
-  display: block; width: 120px; height: 120px; margin-top: 32px;
+  display: block; width: 340px; height: 340px; margin-top: 32px; max-width: 100%;
   background: var(--vari-3);
   -webkit-mask: url('assets/logot/logo-3.svg') center / contain no-repeat;
           mask: url('assets/logot/logo-3.svg') center / contain no-repeat;
