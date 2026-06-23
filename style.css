@@ -1676,10 +1676,11 @@ p { margin: 0 0 1em; }
 .calc2__price { font-weight: var(--w-black); color: var(--vari-3); white-space: nowrap; }
 /* Ominaisuuden lisätieto-nuoli + avattava paneeli */
 .calc2__item.has-info { grid-template-columns: auto 1fr auto auto; }
-.calc2__info-toggle { flex: none; width: 38px; height: 38px; border-radius: 50%; border: var(--bw) solid var(--vari-5); background: var(--vari-2); color: var(--vari-5); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; line-height: 1; transition: transform .15s ease, background .15s ease, color .15s ease; }
-.calc2__info-toggle::before { content: "▾"; }
-.calc2__info-toggle:hover { background: var(--vari-5); color: var(--vari-1); }
-.calc2__info-toggle.is-open { transform: rotate(180deg); background: var(--vari-5); color: var(--vari-1); border-color: var(--vari-5); }
+.calc2__info-toggle { flex: none; width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--vari-12); background: var(--vari-2); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s ease; }
+.calc2__info-toggle::before { content: ""; display: block; width: 11px; height: 11px; border-right: 2.5px solid var(--vari-12); border-bottom: 2.5px solid var(--vari-12); transform: translateY(-2px) rotate(45deg); transition: transform .15s ease, border-color .15s ease; }
+.calc2__info-toggle.is-open::before { transform: translateY(2px) rotate(225deg); }
+.calc2__info-toggle:hover { background: var(--vari-12); }
+.calc2__info-toggle:hover::before { border-color: var(--vari-1); }
 /* Avattu lisätieto liittyy ominaisuuteen samalla tavalla kuin upgreidaa-haitari */
 .calc2__item.has-info.is-open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
 .calc2__info { margin: 0; padding: 18px 22px; border: var(--bw) solid var(--vari-3); border-top: 1px solid var(--vari-3); border-radius: 0 0 var(--radius-m) var(--radius-m); background: var(--vari-2); }
