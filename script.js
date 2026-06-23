@@ -994,7 +994,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initOfferForm();
   initCalc2();
   initCalc3();
-  initFeatToggle();
   initFeatureInfo();
   initCalcModal();
   initCalcStart();
