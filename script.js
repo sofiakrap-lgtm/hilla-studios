@@ -869,8 +869,34 @@ function initCalcStart() {
 }
 
 /* ---------------------------------------------------------
-   7b. Valmiit paketit -> lisää hinta-arvioiden koriin
+   7b2. Pakettikorttien pikkutekstit avattaviksi (p402)
    --------------------------------------------------------- */
+function initFeatToggle() {
+  document.querySelectorAll(".p402__feats li").forEach((li) => {
+    if (li.dataset.feattoggle) return;
+    const strong = li.querySelector("strong");
+    const small = li.querySelector("small");
+    if (!strong || !small) return;
+    li.dataset.feattoggle = "1";
+    const tog = document.createElement("button");
+    tog.type = "button";
+    tog.className = "p402__feat-toggle";
+    tog.setAttribute("aria-expanded", "false");
+    tog.setAttribute("aria-label", "Näytä lisätietoa");
+    strong.insertAdjacentElement("afterend", tog);
+    tog.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const open = !small.hasAttribute("data-open");
+      if (open) small.setAttribute("data-open", "");
+      else small.removeAttribute("data-open");
+      tog.classList.toggle("is-open", open);
+      tog.setAttribute("aria-expanded", String(open));
+    });
+  });
+}
+
+
 function initPackageAdd() {
   document.querySelectorAll("[data-add-package]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -907,6 +933,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initOfferForm();
   initCalc2();
   initCalc3();
+  initFeatToggle();
   initCalcModal();
   initCalcStart();
   initArviot();

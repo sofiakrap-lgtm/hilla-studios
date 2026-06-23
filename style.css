@@ -1460,7 +1460,13 @@ p { margin: 0 0 1em; }
 .p402__price { font-size: 1.55rem; font-weight: var(--w-black); color: var(--vari-3); margin: 0; }
 .p402__feats { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .p402__feats > li { position: relative; padding-left: 26px; font-size: 0.98rem; line-height: 1.5; color: var(--vari-3); }
-.p402__feats > li::before { content: "✿"; position: absolute; left: 0; color: var(--vari-5); }
+.p402__feats > li::before { content: "•"; position: absolute; left: 0; color: var(--vari-5); font-size: 1.2rem; line-height: 1.2; }
+/* Avattava pikkuteksti ominaisuusbulleteissa */
+.p402__feats li small { display: none; }
+.p402__feats li small[data-open] { display: block; margin-top: 4px; font-size: .85rem; line-height: 1.45; color: var(--vari-4); }
+.p402__feat-toggle { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 6px; padding: 0; border: var(--bw) solid var(--vari-3); border-radius: 50%; background: transparent; color: var(--vari-3); font-size: .7rem; line-height: 1; cursor: pointer; vertical-align: middle; transition: transform .15s ease, background .15s ease; }
+.p402__feat-toggle::before { content: "▾"; }
+.p402__feat-toggle.is-open { transform: rotate(180deg); background: var(--vari-5); color: var(--vari-1); border-color: var(--vari-5); }
 .p402__nested { border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); background: var(--vari-2); overflow: hidden; }
 .p402__nested > summary {
   list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px;
@@ -1751,7 +1757,7 @@ p { margin: 0 0 1em; }
 .p402--plain .p402__feats > li::before { content: "•"; color: var(--vari-3); font-size: 1.1rem; top: -1px; }
 .p402--plain .p402__feats > li { padding-left: 22px; }
 .p402--plain .p402__feats li strong { font-weight: 700; color: var(--vari-3); }
-.p402--plain .p402__feats li small { display: block; font-size: .85rem; line-height: 1.45; color: var(--vari-4); margin-top: 2px; }
+.p402--plain .p402__feats li small[data-open] { display: block; font-size: .85rem; line-height: 1.45; color: var(--vari-4); margin-top: 2px; }
 
 /* 701 — Miksi panostaa someen (3 väitettä + lähteet) */
 .s701 { background: var(--vari-1); padding: 88px 0; }
