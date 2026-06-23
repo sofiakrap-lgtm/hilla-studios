@@ -1464,9 +1464,11 @@ p { margin: 0 0 1em; }
 /* Avattava pikkuteksti ominaisuusbulleteissa */
 .p402__feats li small { display: none; }
 .p402__feats li small[data-open] { display: block; margin-top: 4px; font-size: .85rem; line-height: 1.45; color: var(--vari-4); }
-.p402__feat-toggle { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 6px; padding: 0; border: var(--bw) solid var(--vari-3); border-radius: 50%; background: transparent; color: var(--vari-3); font-size: .7rem; line-height: 1; cursor: pointer; vertical-align: middle; transition: transform .15s ease, background .15s ease; }
-.p402__feat-toggle::before { content: "▾"; }
-.p402__feat-toggle.is-open { transform: rotate(180deg); background: var(--vari-5); color: var(--vari-1); border-color: var(--vari-5); }
+.p402__feat-toggle { display: inline-flex; align-items: center; gap: 5px; margin-left: 8px; padding: 3px 11px; border: var(--bw) solid var(--vari-5); border-radius: var(--radius-pill); background: transparent; color: var(--vari-5); font-family: var(--font); font-size: .68rem; font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .04em; line-height: 1.5; cursor: pointer; vertical-align: middle; white-space: nowrap; transition: background .15s ease, color .15s ease; }
+.p402__feat-toggle::after { content: "▾"; font-size: .85em; }
+.p402__feat-toggle:hover { background: var(--vari-5); color: var(--vari-1); }
+.p402__feat-toggle.is-open { background: var(--vari-5); color: var(--vari-1); }
+.p402__feat-toggle.is-open::after { content: "▴"; }
 .p402__nested { border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); background: var(--vari-2); overflow: hidden; }
 .p402__nested > summary {
   list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px;

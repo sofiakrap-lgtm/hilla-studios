@@ -881,6 +881,7 @@ function initFeatToggle() {
     const tog = document.createElement("button");
     tog.type = "button";
     tog.className = "p402__feat-toggle";
+    tog.textContent = "Lue lisää";
     tog.setAttribute("aria-expanded", "false");
     tog.setAttribute("aria-label", "Näytä lisätietoa");
     strong.insertAdjacentElement("afterend", tog);
@@ -891,6 +892,7 @@ function initFeatToggle() {
       if (open) small.setAttribute("data-open", "");
       else small.removeAttribute("data-open");
       tog.classList.toggle("is-open", open);
+      tog.textContent = open ? "Sulje" : "Lue lisää";
       tog.setAttribute("aria-expanded", String(open));
     });
   });
