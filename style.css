@@ -1683,6 +1683,7 @@ p { margin: 0 0 1em; }
 .calc2__info-toggle:hover::before { border-color: var(--vari-1); }
 /* Avattu lisätieto liittyy ominaisuuteen samalla tavalla kuin upgreidaa-haitari */
 .calc2__item.has-info.is-open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+.calc2__item.has-info.is-open, .calc2__item.has-info.is-open:hover { box-shadow: none; }
 .calc2__info { margin: 0; padding: 18px 22px; border: var(--bw) solid var(--vari-3); border-top: 1px solid var(--vari-3); border-radius: 0 0 var(--radius-m) var(--radius-m); background: var(--vari-2); }
 .calc2__list .calc2__info { margin-top: -12px; }
 .calc2__info p { margin: 0 0 14px; font-size: .92rem; line-height: 1.55; color: var(--vari-3); }
