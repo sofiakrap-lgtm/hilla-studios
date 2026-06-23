@@ -1969,7 +1969,9 @@ p { margin: 0 0 1em; }
 .case > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 18px; padding: 22px 56px; position: relative; }
 .case > summary::-webkit-details-marker { display: none; }
 .case__logo { width: 240px; max-width: 60%; height: 46px; background: var(--vari-3); -webkit-mask: var(--logo) center/contain no-repeat; mask: var(--logo) center/contain no-repeat; flex: none; }
-.case__logo--sol { width: 300px; max-width: 76%; height: 108px; }
+/* Sol calle: laatikko samankokoinen muiden kanssa, logo isona ja saa mennä reunojen yli */
+.case__logo--sol { transform: scale(2.35); transform-origin: center; }
+.case:has(.case__logo--sol) { overflow: visible; }
 .case__open { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-weight: var(--w-black); font-size: 1.4rem; color: var(--vari-3); }
 .case[open] .case__open { transform: translateY(-50%) rotate(45deg); }
 .case__split { display: grid; grid-template-columns: 1fr auto 1fr; gap: 22px; align-items: start; padding: 8px 24px 28px; border-top: var(--bw) solid var(--vari-3); }
