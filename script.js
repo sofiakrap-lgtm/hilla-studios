@@ -742,8 +742,7 @@ function initCalcModal() {
       setStep(0);
     }
     function close() {
-      modal.hidden = true;
-      document.body.style.overflow = "";
+      window.location.href = "index.html";
     }
     launch.querySelector("button").addEventListener("click", open);
     modal.querySelectorAll("[data-lask-close]").forEach((el) =>
@@ -841,10 +840,8 @@ function buildLaskWindow(content, opts) {
     document.body.style.overflow = "hidden";
   }
   function close() {
-    modal.hidden = true;
-    document.body.style.overflow = "";
-    /* Palauta valinta takaisin sivulle, jotta sivu näyttää normaalilta */
-    placeholder.parentNode.insertBefore(content, placeholder);
+    /* Ruksista suoraan etusivulle */
+    window.location.href = "index.html";
   }
   modal.querySelectorAll("[data-lask-close]").forEach((el) =>
     el.addEventListener("click", close)
