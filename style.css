@@ -2199,7 +2199,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 /* Media-kortit (nettisivut/brändi): kuvan yläreuna (esim. tietokoneen reuna) juuri otsikon alle */
 .lask-modal__body .l803__card--media .l803__media-img { bottom: 0; height: 76%; width: 92%; object-position: top center; }
 /* Nettisivut-kortin läppärikuva: koko läppäri näkyvissä, isompana */
-.lask-modal__body .l803__card--media .l803__media-img[src*="nettisivudemo"] { bottom: -22%; width: 112%; height: 145%; object-fit: contain; object-position: center center; }
+.lask-modal__body .l803__card--media .l803__media-img[src*="nettisivudemo"] { bottom: -30%; width: 112%; height: 145%; object-fit: contain; object-position: center center; }
 
 /* Askelmittari */
 .lask-steps { display: flex; align-items: center; gap: 0; flex: 1; max-width: 640px; }
