@@ -1678,6 +1678,14 @@ p { margin: 0 0 1em; }
 .calc2__label strong { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--vari-3); }
 .calc2__label small { font-size: .86rem; line-height: 1.5; color: var(--vari-4); }
 .calc2__price { font-weight: var(--w-black); color: var(--vari-3); white-space: nowrap; }
+/* Ominaisuuden lisätieto-nuoli + avattava paneeli */
+.calc2__item.has-info { grid-template-columns: auto 1fr auto auto; }
+.calc2__info-toggle { flex: none; width: 30px; height: 30px; border-radius: 50%; border: var(--bw) solid var(--vari-3); background: var(--vari-2); color: var(--vari-3); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: .8rem; line-height: 1; transition: transform .15s ease, background .15s ease, color .15s ease; }
+.calc2__info-toggle::before { content: "▾"; }
+.calc2__info-toggle.is-open { transform: rotate(180deg); background: var(--vari-5); color: var(--vari-1); border-color: var(--vari-5); }
+.calc2__info { margin: -6px 0 2px; padding: 16px 20px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); background: var(--vari-2); }
+.calc2__info p { margin: 0 0 14px; font-size: .92rem; line-height: 1.55; color: var(--vari-3); }
+.calc2__info-demo { padding: 8px 16px; font-size: .85rem; }
 .calc2__item--basic { background: var(--vari-2); }
 .calc2__item--basic input:checked + .calc2__box { background: var(--vari-3); }
 .calc2__calc { margin-top: 28px; }

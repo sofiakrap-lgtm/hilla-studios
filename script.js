@@ -896,6 +896,65 @@ function initFeatToggle() {
   });
 }
 
+/* ---------------------------------------------------------
+   7b3. Nettisivun ominaisuuksien lisätieto + demo-nappi
+        (avattava nuoli jokaisessa calc2-ominaisuudessa)
+   --------------------------------------------------------- */
+function initFeatureInfo() {
+  const INFO = {
+    "Basic-sivu": { t: "Valmis nettisivupohja: etusivu yrityksesi tiedoilla ja perussivut (esim. Palvelut, Yhteystiedot). Tämän päälle rakennetaan kaikki muut ominaisuudet." },
+    "Lisäsivu": { t: "Yksi lisäsivu Basicin päälle, esimerkiksi Galleria, Palvelut tai Meistä. Sama ilme, oma kohta valikossa.", d: "demot.html" },
+    "Yhteydenottolomake": { t: "Lomake, jonka kävijä täyttää ja viesti tulee suoraan sähköpostiisi. Asiakas tavoittaa sinut yhdellä klikkauksella, ilman osoitteen kopiointia.", d: "demot.html" },
+    "Galleria / portfolio": { t: "Kuvagalleria, jossa esittelet työsi tai tuotteesi siistissä ruudukossa. Kuvat aukeavat isommiksi klikkaamalla.", d: "demot.html" },
+    "Karttaintegraatio": { t: "Upotettu kartta, joka näyttää sijaintisi suoraan sivulla. Asiakas löytää perille ilman erillistä hakua.", d: "demot.html" },
+    "Ajanvarausjärjestelmä": { t: "Asiakas varaa ajan itse verkossa vuorokauden ympäri, ja varaus näkyy kalenterissasi. Vähemmän puheluita ja edestakaisia viestejä.", d: "demot.html" },
+    "Kanta-asiakasjärjestelmä": { t: "Palkitse uskolliset asiakkaat eduilla, leimoilla tai kampanjoilla, ja saat heidät palaamaan uudelleen.", d: "demot.html" },
+    "Verkkokauppa": { t: "Myy tuotteita tai palveluita suoraan sivulta: tuotteet, ostoskori ja maksaminen verkossa.", d: "demot.html" },
+    "Blogi / uutiset": { t: "Julkaise ajankohtaisia juttuja, vinkkejä tai uutisia. Tuore sisältö parantaa myös löydettävyyttä Googlessa.", d: "demot.html" },
+    "Uutiskirje-integraatio": { t: "Kerää sähköpostiosoitteita ja lähetä uutiskirjeitä. Pidät asiakkaat ajan tasalla tarjouksista ja uutuuksista.", d: "demot.html" },
+    "Some-syötteen upotus": { t: "Instagram- tai muu some-syöte näkyy suoraan sivulla ja päivittyy automaattisesti, kun julkaiset uutta.", d: "demot.html" },
+    "Monikielisyys (+1 kieli)": { t: "Sivusto myös toisella kielellä, esimerkiksi englanniksi. Tavoitat laajemman yleisön.", d: "demot.html" },
+    "Hakukoneoptimoinnin perusta (SEO)": { t: "Perus-SEO kuntoon: otsikot, kuvaukset ja rakenne niin, että sivusi löytyy Googlesta paremmin." },
+    "Webhotelli & ylläpito": { t: "Sivusi tarvitsee palvelintilan (webhotelli). Hoidamme teknisen ylläpidon, jotta sivu pysyy pystyssä ja turvallisena." },
+    "Verkkotunnus (domain)": { t: "Oma osoite, esimerkiksi yrityksesi.fi. Hankimme ja kytkemme sen sivustoosi." },
+    "Päivityspalvelu": { t: "Hoidamme sisältö- ja tekniset päivitykset puolestasi, jotta sinun ei tarvitse koskea koodiin." },
+    "Rekry-lomakkeiden vastaanotto": { t: "Hakijat jättävät hakemuksensa suoraan sivulta ja ne tulevat sähköpostiisi koottuna.", d: "demot.html" },
+    "Hintalaskuri omalle sivulle": { t: "Vastaava interaktiivinen hintalaskuri kuin tämä, omalle sivullesi. Asiakas saa hinta-arvion heti.", d: "demot.html" }
+  };
+  document.querySelectorAll(".calc2__item").forEach((item) => {
+    if (item.dataset.featinfo) return;
+    const strong = item.querySelector("strong");
+    if (!strong) return;
+    const info = INFO[strong.textContent.trim()];
+    if (!info) return;
+    item.dataset.featinfo = "1";
+    item.classList.add("has-info");
+
+    const tog = document.createElement("button");
+    tog.type = "button";
+    tog.className = "calc2__info-toggle";
+    tog.setAttribute("aria-expanded", "false");
+    tog.setAttribute("aria-label", "Lisätietoa ominaisuudesta");
+    item.appendChild(tog);
+
+    const panel = document.createElement("div");
+    panel.className = "calc2__info";
+    panel.hidden = true;
+    panel.innerHTML =
+      "<p>" + info.t + "</p>" +
+      (info.d ? '<a href="' + info.d + '" class="btn btn--ghost calc2__info-demo">Katso demo →</a>' : "");
+    item.insertAdjacentElement("afterend", panel);
+
+    tog.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const open = panel.hidden;
+      panel.hidden = !open;
+      tog.classList.toggle("is-open", open);
+      tog.setAttribute("aria-expanded", String(open));
+    });
+  });
+}
 
 function initPackageAdd() {
   document.querySelectorAll("[data-add-package]").forEach((btn) => {
@@ -934,6 +993,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCalc2();
   initCalc3();
   initFeatToggle();
+  initFeatureInfo();
   initCalcModal();
   initCalcStart();
   initArviot();
