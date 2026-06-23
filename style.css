@@ -1979,9 +1979,10 @@ p { margin: 0 0 1em; }
 /* =========================================================
    NÄIN SE TOIMII — hero + arvovariantti
    ========================================================= */
-.nst-hero { background: var(--vari-2); padding: 96px 0 24px; text-align: center; }
-.nst-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.3rem); color: var(--vari-3); margin: 10px auto 16px; max-width: 18ch; line-height: 1.08; }
-.nst-hero p { font-size: 1.1rem; line-height: 1.6; color: var(--vari-3); margin: 0 auto; max-width: 58ch; }
+.nst-hero { background: var(--vari-10); padding: 96px 0 24px; text-align: center; }
+.nst-hero .eyebrow { color: var(--vari-1); }
+.nst-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.3rem); color: var(--vari-2); margin: 10px auto 16px; max-width: 18ch; line-height: 1.08; }
+.nst-hero p { font-size: 1.1rem; line-height: 1.6; color: var(--vari-2); margin: 0 auto; max-width: 58ch; }
 .s219--nst { background: var(--vari-1); }
 .s219--nst .s219__title { background: var(--vari-2); }
 
