@@ -1907,6 +1907,8 @@ p { margin: 0 0 1em; }
 .dnav__head { text-align: center; max-width: 680px; margin: 0 auto 40px; }
 .dnav__head h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.8rem,4vw,2.7rem); color: var(--vari-3); margin: 0; }
 .dnav__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; max-width: 980px; margin: 0 auto; }
+/* Nettisivut-kortin läppärikuva hieman alemmas */
+.dnav .l803__card--media .l803__media-img[src*="nettisivudemo"] { bottom: -10%; }
 .dnav__card { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--radius-l); min-height: 240px; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 28px; }
 .dnav__bg { position: absolute; inset: 0; z-index: -2; background: var(--vari-3) center/cover no-repeat; }
 .dnav__card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,.40); }
