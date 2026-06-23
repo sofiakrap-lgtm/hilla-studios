@@ -1933,9 +1933,9 @@ p { margin: 0 0 1em; }
 .dcar__body .btn { margin-top: auto; align-self: flex-start; }
 
 /* Some ennen/jälkeen -interaktiivinen */
-.bna-sec { background: var(--vari-2); padding: 80px 0; }
+.bna-sec { background: var(--vari-10); padding: 80px 0; }
 .bna-sec__head { text-align: center; max-width: 680px; margin: 0 auto 36px; }
-.bna-sec__head h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem,3.6vw,2.5rem); color: var(--vari-3); margin: 0; }
+.bna-sec__head h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.7rem,3.6vw,2.5rem); color: var(--vari-2); margin: 0; }
 .bna { position: relative; background: var(--vari-1); border-radius: var(--radius-l); border: var(--bw) solid var(--vari-3); min-height: 440px; overflow: hidden; max-width: 1000px; margin: 0 auto; }
 .bna__card { position: absolute; top: 16px; bottom: 16px; left: 16px; width: calc(50% - 24px); background: var(--vari-2); border-radius: var(--radius-m); padding: 30px 32px; overflow: auto; transition: left .55s cubic-bezier(.6,.2,.2,1); z-index: 2; }
 .bna.is-result .bna__card { left: calc(50% + 8px); }
@@ -1961,7 +1961,7 @@ p { margin: 0 0 1em; }
 }
 
 /* 601 brändikeissit */
-.cases { background: var(--vari-1); padding: 80px 0; }
+.cases { background: var(--vari-11); padding: 80px 0; }
 .cases__head { text-align: center; max-width: 720px; margin: 0 auto 40px; }
 .cases__head h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.8rem,4vw,2.7rem); color: var(--vari-3); margin: 0; }
 .cases__grid { display: flex; flex-direction: column; gap: 16px; max-width: 940px; margin: 0 auto; }
