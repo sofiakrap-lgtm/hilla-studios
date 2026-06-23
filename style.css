@@ -1889,6 +1889,8 @@ p { margin: 0 0 1em; }
 .yht { background: var(--vari-2); padding: 96px 0; }
 .yht__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 920px; margin: 0 auto; }
 .yht__card { display: flex; flex-direction: column; gap: 10px; background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); padding: 32px 28px; box-shadow: var(--shadow-pop-sm); }
+.yht__card--seal { position: relative; }
+.yht__seal { position: absolute; bottom: 0; right: 0; width: 132px; height: 132px; transform: translate(42%, 30%) rotate(-10deg); border-radius: 50%; background-color: var(--vari-5); background-image: url('assets/grafiikat/grafiikka-43.svg'); background-size: 128%; background-position: center; background-repeat: no-repeat; pointer-events: none; }
 .yht__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; color: var(--vari-3); margin: 0; }
 .yht__card p { font-size: .95rem; line-height: 1.6; color: var(--vari-3); margin: 0 0 8px; }
 .yht__card .btn { margin-top: auto; align-self: flex-start; }
