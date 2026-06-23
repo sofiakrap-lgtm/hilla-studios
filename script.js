@@ -952,6 +952,7 @@ function initFeatureInfo() {
       e.stopPropagation();
       const open = panel.hidden;
       panel.hidden = !open;
+      item.classList.toggle("is-open", open);
       tog.classList.toggle("is-open", open);
       tog.setAttribute("aria-expanded", String(open));
     });

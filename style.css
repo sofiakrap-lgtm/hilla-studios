@@ -1680,7 +1680,10 @@ p { margin: 0 0 1em; }
 .calc2__info-toggle::before { content: "▾"; }
 .calc2__info-toggle:hover { background: var(--vari-5); color: var(--vari-1); }
 .calc2__info-toggle.is-open { transform: rotate(180deg); background: var(--vari-5); color: var(--vari-1); border-color: var(--vari-5); }
-.calc2__info { margin: 8px 0 4px; padding: 18px 22px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); background: var(--vari-2); }
+/* Avattu lisätieto liittyy ominaisuuteen samalla tavalla kuin upgreidaa-haitari */
+.calc2__item.has-info.is-open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+.calc2__info { margin: 0; padding: 18px 22px; border: var(--bw) solid var(--vari-3); border-top: 1px solid var(--vari-3); border-radius: 0 0 var(--radius-m) var(--radius-m); background: var(--vari-2); }
+.calc2__list .calc2__info { margin-top: -12px; }
 .calc2__info p { margin: 0 0 14px; font-size: .92rem; line-height: 1.55; color: var(--vari-3); }
 .calc2__info p:last-child { margin-bottom: 0; }
 .calc2__info-demo { padding: 8px 16px; font-size: .85rem; }
@@ -1883,7 +1886,7 @@ p { margin: 0 0 1em; }
 .yht-hero .eyebrow { color: var(--vari-2); }
 .yht-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--vari-2); margin: 10px auto 16px; max-width: 18ch; line-height: 1.1; }
 .yht-hero p { font-size: 1.08rem; line-height: 1.6; color: var(--vari-2); margin: 0 auto; max-width: 56ch; }
-.yht { background: var(--vari-2); padding: 30px 0 96px; }
+.yht { background: var(--vari-2); padding: 96px 0; }
 .yht__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 920px; margin: 0 auto; }
 .yht__card { display: flex; flex-direction: column; gap: 10px; background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); padding: 32px 28px; box-shadow: var(--shadow-pop-sm); }
 .yht__card h3 { font-family: var(--font-head); font-weight: 700; font-size: 1.3rem; color: var(--vari-3); margin: 0; }
