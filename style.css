@@ -2171,6 +2171,19 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .ilo .btn--dark { background: var(--vari-3); color: var(--vari-1); border: var(--bw) solid var(--vari-3); }
 .ilo .btn--dark:hover { background: var(--vari-5); color: var(--vari-1); }
 .ilo__note { font-size: .82rem; color: var(--vari-4); margin: 0; }
+.ilo__hint { font-size: .82rem; color: var(--vari-4); margin: -4px 0 10px; font-weight: var(--w-regular); }
+/* Toistettavat kentät */
+.ilo__repeat { display: flex; flex-direction: column; gap: 8px; }
+.ilo__repeat-row { display: flex; align-items: center; gap: 8px; }
+.ilo__repeat-row input { flex: 1; }
+.ilo__remove { flex: none; width: 36px; height: 36px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-s); background: var(--vari-1); color: var(--vari-3); font-size: 1.2rem; line-height: 1; cursor: pointer; }
+.ilo__remove:hover { background: var(--vari-5); color: var(--vari-1); border-color: var(--vari-5); }
+.ilo__add { align-self: flex-start; margin-top: 10px; padding: 8px 16px; border: var(--bw) solid var(--vari-5); border-radius: var(--radius-pill); background: transparent; color: var(--vari-5); font-family: var(--font); font-weight: var(--w-black); font-size: .82rem; cursor: pointer; transition: background .15s ease, color .15s ease; }
+.ilo__add:hover { background: var(--vari-5); color: var(--vari-1); }
+/* Hintalaskuri-muistutus */
+.ilo__laskuri-note { background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); padding: 16px 18px; margin-top: 4px; }
+.ilo__laskuri-note p { margin: 0; font-size: .9rem; line-height: 1.55; color: var(--vari-3); }
+.ilo__laskuri-list { margin-top: 10px !important; color: var(--vari-5) !important; }
 @media (max-width: 620px) {
   .ilo__grid2 { grid-template-columns: 1fr; }
   .ilo__checks { grid-template-columns: 1fr; }

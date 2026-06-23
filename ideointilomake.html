@@ -6,7 +6,7 @@
   <title>Ideointilomake – demo – Studio Blomma</title>
   <meta name="description" content="Studio Blomman ideointilomake: vastaamalla kysymyksiin saamme kattavan kuvan unelmiesi nettisivusta ja brändistä. Demo.">
 
-  <link rel="stylesheet" href="style.css?v=20260623115118">
+  <link rel="stylesheet" href="style.css?v=20260623120538">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
 </head>
 <body>
@@ -37,8 +37,8 @@
           <h1 id="ilo-title">Ideointilomake</h1>
           <p class="ilo__lead">Tämä lomake auttaa meitä näkemään unelmasi nettisivun ja brändin
              kokonaisuutena. Vastaa niin moneen kohtaan kuin haluat, mitä enemmän kerrot, sitä
-             tarkemman ja paremman ehdotuksen saat. Mikään kenttä ei ole pakollinen, voit hypätä
-             yli kohdat, joihin sinulla ei vielä ole vastausta.</p>
+             tarkemman ja paremman ehdotuksen saat. <strong>Mikään kenttä ei ole pakollinen, voit
+             hypätä yli kohdat, joihin sinulla ei vielä ole vastausta.</strong></p>
           <p class="ilo__demo-tag">Demo · lähetys kokoaa vastauksesi valmiiksi viestiksi sähköpostiohjelmaasi</p>
         </header>
 
@@ -69,17 +69,17 @@
                 </label>
               </div>
             </div>
-            <div class="ilo__grid2">
-              <div class="ilo__field" data-q="Puhelin">
-                <label>Puhelin
-                  <input type="tel" name="puhelin" autocomplete="tel">
-                </label>
+            <div class="ilo__field" data-q="Puhelin">
+              <label>Puhelin
+                <input type="tel" name="puhelin" autocomplete="tel">
+              </label>
+            </div>
+            <div class="ilo__field ilo__field--repeat" data-q="Nykyiset sivustot / some">
+              <p class="ilo__q">Nykyinen sivusto tai some (jos on)</p>
+              <div class="ilo__repeat">
+                <div class="ilo__repeat-row"><input type="text" name="nykyinen" placeholder="esim. instagram.com/..."></div>
               </div>
-              <div class="ilo__field" data-q="Nykyinen sivusto / some">
-                <label>Nykyinen sivusto tai some (jos on)
-                  <input type="text" name="nykyinen" placeholder="esim. instagram.com/...">
-                </label>
-              </div>
+              <button type="button" class="ilo__add">+ Lisää linkki tai some</button>
             </div>
           </fieldset>
 
@@ -92,7 +92,7 @@
               </label>
             </div>
             <div class="ilo__field" data-q="Kohderyhmä / ihanneasiakas">
-              <label>Kuka on ihanneasiakkaasi? Kenelle sivusto puhuu?
+              <label>Kuka on ihanneasiakkaasi?
                 <textarea name="kohderyhma" rows="2"></textarea>
               </label>
             </div>
@@ -116,9 +116,15 @@
 
           <!-- 3 -->
           <fieldset class="ilo__group">
-            <legend>3 · Sisältö & sivut</legend>
-            <div class="ilo__field" data-q="Tarvittavat sivut">
-              <p class="ilo__q">Mitä sivuja sivustolla olisi? (valitse yksi tai useampi)</p>
+            <legend>3 · Sivut, sisältö & toiminnot</legend>
+            <div class="ilo__laskuri-note" id="ilo-laskuri-note">
+              <p><strong>Tämä lomake on jatkoa hintalaskurin tarjouspyynnöllesi.</strong>
+                 Hintalaskurissa valitsemasi ominaisuudet ovat jo mukana alustavassa laskelmassa,
+                 eikä niitä tarvitse valita uudelleen. Voit halutessasi täydentää valintojasi alta,
+                 mutta se ei ole pakollista.</p>
+            </div>
+            <div class="ilo__field" data-q="Lisättävät sivut">
+              <p class="ilo__q">Haluatko lisätä sivuja laskurissa valitsemiesi lisäksi?</p>
               <div class="ilo__checks">
                 <label><input type="checkbox" name="sivut" value="Etusivu"> Etusivu</label>
                 <label><input type="checkbox" name="sivut" value="Palvelut / tuotteet"> Palvelut / tuotteet</label>
@@ -132,28 +138,8 @@
                 <label><input type="checkbox" name="sivut" value="UKK"> Usein kysyttyä</label>
               </div>
             </div>
-            <div class="ilo__field" data-q="Onko valmista sisältöä">
-              <p class="ilo__q">Onko sinulla jo valmista sisältöä?</p>
-              <div class="ilo__checks">
-                <label><input type="checkbox" name="sisalto" value="Tekstit"> Valmiit tekstit</label>
-                <label><input type="checkbox" name="sisalto" value="Kuvat"> Valokuvat</label>
-                <label><input type="checkbox" name="sisalto" value="Logo"> Logo</label>
-                <label><input type="checkbox" name="sisalto" value="Brändivärit"> Brändivärit</label>
-                <label><input type="checkbox" name="sisalto" value="Tarvitsen apua sisältöön"> Tarvitsen apua sisällön kanssa</label>
-              </div>
-            </div>
-            <div class="ilo__field" data-q="Kielet">
-              <label>Millä kielillä sivusto tarvitaan?
-                <input type="text" name="kielet" placeholder="esim. suomi, englanti">
-              </label>
-            </div>
-          </fieldset>
-
-          <!-- 4 -->
-          <fieldset class="ilo__group">
-            <legend>4 · Toiminnallisuudet</legend>
-            <div class="ilo__field" data-q="Toivotut toiminnot">
-              <p class="ilo__q">Mitä toimintoja sivustolla tulisi olla? (valitse yksi tai useampi)</p>
+            <div class="ilo__field" data-q="Lisättävät toiminnot">
+              <p class="ilo__q">Entä lisättäviä toimintoja?</p>
               <div class="ilo__checks">
                 <label><input type="checkbox" name="toiminnot" value="Yhteydenottolomake"> Yhteydenottolomake</label>
                 <label><input type="checkbox" name="toiminnot" value="Ajanvarausjärjestelmä"> Ajanvarausjärjestelmä</label>
@@ -167,15 +153,33 @@
               </div>
             </div>
             <div class="ilo__field" data-q="Muut toiveet toiminnoista">
-              <label>Muuta toiminnallisuutta mielessä?
+              <label>Muuta sivua tai toimintoa mielessä?
                 <input type="text" name="toiminnot_muu">
               </label>
             </div>
+            <div class="ilo__field" data-q="Onko valmista sisältöä">
+              <p class="ilo__q">Onko sinulla jo valmista sisältöä?</p>
+              <div class="ilo__checks">
+                <label><input type="checkbox" name="sisalto" value="Tekstit"> Valmiit tekstit</label>
+                <label><input type="checkbox" name="sisalto" value="Kuvat"> Valokuvat</label>
+                <label><input type="checkbox" name="sisalto" value="Logo"> Logo</label>
+                <label><input type="checkbox" name="sisalto" value="Brändivärit"> Brändivärit</label>
+                <label><input type="checkbox" name="sisalto" value="Tarvitsen apua sisältöön"> Tarvitsen apua sisällön kanssa</label>
+              </div>
+            </div>
+            <div class="ilo__field ilo__field--repeat" data-q="Kielet">
+              <p class="ilo__q">Millä kielillä sivusto tarvitaan?</p>
+              <p class="ilo__hint">Alustavasti sivusto tehdään yhdellä kielellä, mutta voit lisätä useampia.</p>
+              <div class="ilo__repeat">
+                <div class="ilo__repeat-row"><input type="text" name="kielet" placeholder="esim. suomi"></div>
+              </div>
+              <button type="button" class="ilo__add">+ Lisää kieli</button>
+            </div>
           </fieldset>
 
-          <!-- 5 -->
+          <!-- 4 -->
           <fieldset class="ilo__group">
-            <legend>5 · Visuaalinen ilme & brändi</legend>
+            <legend>4 · Visuaalinen ilme & brändi</legend>
             <div class="ilo__field" data-q="Brändin tilanne">
               <p class="ilo__q">Missä vaiheessa brändisi ilme on?</p>
               <div class="ilo__checks ilo__checks--radio">
@@ -206,23 +210,27 @@
             </div>
           </fieldset>
 
-          <!-- 6 -->
+          <!-- 5 -->
           <fieldset class="ilo__group">
-            <legend>6 · Inspiraatio</legend>
-            <div class="ilo__field" data-q="Sivustot joista pidät (+ miksi)">
-              <label>Linkit 1–3 sivustoon, joista pidät, ja lyhyesti miksi
-                <textarea name="inspis" rows="3" placeholder="esim. www.esimerkki.fi – tykkään selkeästä rakenteesta"></textarea>
-              </label>
+            <legend>5 · Inspiraatio</legend>
+            <div class="ilo__field ilo__field--repeat" data-q="Sivustot joista pidät (+ miksi)">
+              <p class="ilo__q">Sivustot, joista pidät, ja lyhyesti miksi</p>
+              <div class="ilo__repeat">
+                <div class="ilo__repeat-row"><input type="text" name="inspis" placeholder="esim. www.esimerkki.fi – selkeä rakenne"></div>
+              </div>
+              <button type="button" class="ilo__add">+ Lisää sivusto</button>
             </div>
             <div class="ilo__field" data-q="Pinterest-taulu / moodboard">
               <label>Linkki Pinterest-tauluun tai moodboardiin (jos on)
                 <input type="url" name="pinterest" placeholder="https://...">
               </label>
             </div>
-            <div class="ilo__field" data-q="Kilpailijat">
-              <label>Ketkä ovat kilpailijoitasi? (linkit tai nimet)
-                <input type="text" name="kilpailijat">
-              </label>
+            <div class="ilo__field ilo__field--repeat" data-q="Kilpailijat">
+              <p class="ilo__q">Ketkä ovat kilpailijoitasi? (linkit tai nimet)</p>
+              <div class="ilo__repeat">
+                <div class="ilo__repeat-row"><input type="text" name="kilpailijat"></div>
+              </div>
+              <button type="button" class="ilo__add">+ Lisää kilpailija</button>
             </div>
             <div class="ilo__field" data-q="Mitä EI haluta">
               <label>Mitä et halua sivustolle? (tyylit, värit, elementit, jotka karsastat)
@@ -231,9 +239,9 @@
             </div>
           </fieldset>
 
-          <!-- 7 -->
+          <!-- 6 -->
           <fieldset class="ilo__group">
-            <legend>7 · Aikataulu & käytäntö</legend>
+            <legend>6 · Aikataulu & käytäntö</legend>
             <div class="ilo__field" data-q="Domain">
               <p class="ilo__q">Onko sinulla jo verkko-osoite (domain)?</p>
               <div class="ilo__checks ilo__checks--radio">
@@ -268,9 +276,9 @@
             </div>
           </fieldset>
 
-          <!-- 8 -->
+          <!-- 7 -->
           <fieldset class="ilo__group">
-            <legend>8 · Vapaa sana</legend>
+            <legend>7 · Vapaa sana</legend>
             <div class="ilo__field" data-q="Vapaa sana">
               <label>Onko jotain muuta, mitä haluat kertoa? Unelmia, huolia, ideoita, ihan mitä vain.
                 <textarea name="vapaa" rows="4"></textarea>
@@ -332,11 +340,45 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260623115118"></script>
+  <script src="script.js?v=20260623120538"></script>
   <script>
   (function () {
     var form = document.getElementById("ilo-form");
     if (!form) return;
+
+    /* Toistettavat kentät (+ Lisää) */
+    form.querySelectorAll(".ilo__add").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var field = btn.closest(".ilo__field");
+        var repeat = field.querySelector(".ilo__repeat");
+        var firstRow = repeat.querySelector(".ilo__repeat-row");
+        var clone = firstRow.cloneNode(true);
+        var input = clone.querySelector("input, textarea");
+        if (input) input.value = "";
+        var rm = document.createElement("button");
+        rm.type = "button";
+        rm.className = "ilo__remove";
+        rm.setAttribute("aria-label", "Poista");
+        rm.textContent = "×";
+        rm.addEventListener("click", function () { clone.remove(); });
+        clone.appendChild(rm);
+        repeat.appendChild(clone);
+        if (input) input.focus();
+      });
+    });
+
+    /* Hintalaskurin valinnat huomioon (jos tehty) */
+    try {
+      var ests = JSON.parse(localStorage.getItem("blomma.estimates") || "[]");
+      var note = document.getElementById("ilo-laskuri-note");
+      if (note && ests.length) {
+        var labels = ests.map(function (e) { return e.label; }).filter(Boolean);
+        note.insertAdjacentHTML("beforeend",
+          "<p class='ilo__laskuri-list'><strong>Olet valinnut hintalaskurissa:</strong> " +
+          labels.join(", ") + ". Nämä ovat jo mukana alustavassa laskelmassa.</p>");
+      }
+    } catch (e) {}
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var lines = ["IDEOINTILOMAKE – Studio Blomma", ""];
@@ -349,8 +391,9 @@
           if (checks.length) {
             val = checks.join(", ");
           } else {
-            var el = f.querySelector("input[type=text], input[type=email], input[type=tel], input[type=url], textarea, select");
-            if (el && el.value.trim()) val = el.value.trim();
+            var els = f.querySelectorAll("input[type=text], input[type=email], input[type=tel], input[type=url], textarea, select");
+            var vals = [].slice.call(els).map(function (e2) { return e2.value.trim(); }).filter(Boolean);
+            if (vals.length) val = vals.join("; ");
           }
           if (val) sec.push("• " + q + ": " + val);
         });
