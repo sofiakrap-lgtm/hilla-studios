@@ -601,8 +601,8 @@ function initCalc2() {
           recs.map((r) => `<div><span>${r.name}</span><span>${fmt(r.price)}/${r.unit}</span></div>`).join("")
         : "";
       upsertEstimate(buildCalcEstimate(root, location.pathname, (document.querySelector(".n111__title")?.textContent.trim() || (document.title.split("–")[0] || "").trim()), once, recs));
-      result.hidden = false;
-      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      /* Suoraan hintaerittelyyn (arviot), jossa myös aiemmin lisätyt palvelut */
+      window.location.href = "arviot.html";
     });
 
     const more = root.querySelector(".calc2__more");
@@ -651,9 +651,8 @@ function initCalc3() {
           recs.map((r) => `<div><span>${r.name}</span><span>${fmt(r.price)}/${r.unit}</span></div>`).join("")
         : "";
       upsertEstimate(buildCalcEstimate(root, location.pathname + "::" + estLabel, estLabel, once, recs));
-      extra.hidden = true;
-      result.hidden = false;
-      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      /* Suoraan hintaerittelyyn (arviot), jossa myös aiemmin lisätyt palvelut */
+      window.location.href = "arviot.html";
     }
 
     next.addEventListener("click", () => {
