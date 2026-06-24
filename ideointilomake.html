@@ -17,6 +17,10 @@
      Saavutettava: labelit, ei kursivointia, korkea kontrasti.
      ========================================================= */
   .wz-wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 90px; }
+  /* Velhon otsikot: väljempi riviväli kuin globaali 1.08, ettei rivit mene
+     mobiilissa visuaalisesti päällekkäin */
+  .wz-wrap h1 { line-height: 1.14; }
+  .wz-wrap h2, .wz-wrap h3, .wz-wrap h4 { line-height: 1.22; }
 
   /* --- Tervetulo- ja kiitosnäyttö --- */
   .wz-intro, .wz-done {
@@ -71,7 +75,7 @@
     letter-spacing: 0.16em; font-size: 0.74rem; color: var(--burnt-tangerine);
     margin-bottom: 8px;
   }
-  .wz-step h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); margin-bottom: 0.5em; }
+  .wz-step h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); margin-bottom: 0.55em; }
   .wz-saate {
     background: var(--paper-2);
     border-left: 5px solid var(--olive-husk);
@@ -80,12 +84,12 @@
   }
 
   /* --- Kentät --- */
-  .wz-field { margin-bottom: 22px; }
+  .wz-field { margin-bottom: 28px; }
   .wz-field > label, .wz-q {
-    display: block; font-weight: var(--w-bold);
-    font-size: 1.02rem; margin-bottom: 8px; color: var(--bitter-cacao);
+    display: block; font-weight: var(--w-bold); line-height: 1.4;
+    font-size: 1.02rem; margin-bottom: 10px; color: var(--bitter-cacao);
   }
-  .wz-hint { font-size: 0.92rem; color: var(--ink-65); margin: -2px 0 10px; }
+  .wz-hint { font-size: 0.92rem; line-height: 1.55; color: var(--ink-65); margin: 0 0 12px; }
   .wz-input, .wz-textarea, .wz-select {
     width: 100%; font-family: var(--font-sans); font-size: 1rem;
     color: var(--bitter-cacao); background: #fff;
@@ -99,9 +103,9 @@
 
   /* Esimerkki-laatikko (jää näkyviin, ei placeholder) */
   .wz-ex {
-    margin-top: 8px; background: var(--paper-2);
-    border: 1px dashed var(--ink-65); border-radius: var(--radius-s);
-    padding: 10px 13px; font-size: 0.92rem; color: var(--ink-80);
+    margin-top: 12px; background: var(--paper-2);
+    border: 1px solid var(--line); border-radius: var(--radius-s);
+    padding: 12px 15px; font-size: 0.92rem; line-height: 1.6; color: var(--ink-80);
   }
   .wz-ex b { color: var(--bitter-cacao); }
 
@@ -171,16 +175,16 @@
   }
   .wz-remove:hover { background: var(--clay-rose); color: #fff; }
   .wz-add {
-    background: none; border: 2px dashed var(--burnt-tangerine); color: var(--burnt-tangerine);
+    background: none; border: 1.5px solid rgba(211, 100, 51, 0.5); color: var(--burnt-tangerine);
     font-weight: var(--w-bold); border-radius: var(--radius-s);
-    padding: 9px 16px; cursor: pointer; font-size: 0.95rem; margin-top: 2px;
+    padding: 9px 16px; cursor: pointer; font-size: 0.95rem; margin-top: 10px;
   }
   .wz-add:hover { background: var(--burnt-tangerine); color: #fff; }
 
   /* Tiedostolataus */
   .wz-file {
-    width: 100%; font-size: 0.95rem; padding: 10px;
-    background: #fff; border: 2px dashed var(--bitter-cacao);
+    width: 100%; font-size: 0.95rem; padding: 12px;
+    background: #fff; border: 1.5px solid var(--line);
     border-radius: var(--radius-s); cursor: pointer;
   }
   .wz-file::file-selector-button {
