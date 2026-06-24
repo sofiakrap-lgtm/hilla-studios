@@ -904,10 +904,8 @@ function initFeatToggle() {
    --------------------------------------------------------- */
 function initFeatureInfo() {
   const INFO = {
-    "Basic-sivu": { t: "Valmis nettisivupohja: etusivu yrityksesi tiedoilla ja perussivut (esim. Palvelut, Yhteystiedot). Tämän päälle rakennetaan kaikki muut ominaisuudet." },
-    "Lisäsivu": { t: "Yksi lisäsivu Basicin päälle, esimerkiksi Galleria, Palvelut tai Meistä. Sama ilme, oma kohta valikossa.", d: "demot.html" },
-    "Yhteydenottolomake": { t: "Lomake, jonka kävijä täyttää ja viesti tulee suoraan sähköpostiisi. Asiakas tavoittaa sinut yhdellä klikkauksella, ilman osoitteen kopiointia.", d: "demot.html" },
-    "Galleria / portfolio": { t: "Kuvagalleria, jossa esittelet työsi tai tuotteesi siistissä ruudukossa. Kuvat aukeavat isommiksi klikkaamalla.", d: "demot.html" },
+    "Basic-sivu": { t: "Valmis nettisivu, joka sisältää etusivun, palvelut/tuotteet, tietoa meistä, yhteystiedot ja yhteydenottolomakkeen, gallerian/referenssit sekä hinnaston. Tämän päälle rakennetaan kaikki muut ominaisuudet." },
+    "Lisäsivu": { t: "Yksi lisäsivu Basicin päälle, esimerkiksi UKK, tarina tai oma kampanjasivu. Sama ilme, oma kohta valikossa.", d: "demot.html" },
     "Karttaintegraatio": { t: "Upotettu kartta, joka näyttää sijaintisi suoraan sivulla. Asiakas löytää perille ilman erillistä hakua.", d: "demot.html" },
     "Ajanvarausjärjestelmä": { t: "Asiakas varaa ajan itse verkossa vuorokauden ympäri, ja varaus näkyy kalenterissasi. Vähemmän puheluita ja edestakaisia viestejä.", d: "demot.html" },
     "Kanta-asiakasjärjestelmä": { t: "Palkitse uskolliset asiakkaat eduilla, leimoilla tai kampanjoilla, ja saat heidät palaamaan uudelleen.", d: "demot.html" },
