@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ideointilomake – Studio Blomma</title>
-  <meta name="description" content="Kerro meille unelmistasi. Studio Blomman ideointilomake auttaa meitä näkemään, millainen sivusto sinun yrityksellesi sopii. Ei kokeita – rento ideointihetki.">
+  <title>Ideointilomake | Studio Blomma</title>
+  <meta name="description" content="Kerro meille unelmistasi. Studio Blomman ideointilomake auttaa meitä näkemään, millainen sivusto sinun yrityksellesi sopii. Ei kokeita, vaan rento ideointihetki.">
 
   <link rel="stylesheet" href="style.css?v=20260624062514">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
@@ -19,6 +19,8 @@
   .wz-wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 90px; }
   /* Velhon otsikot: väljempi riviväli kuin globaali 1.08, ettei rivit mene
      mobiilissa visuaalisesti päällekkäin */
+  /* Yksi yhtenäinen fontti koko lomakkeessa (Instrument Sans, kuten leipä) */
+  .wz-wrap, .wz-wrap h1, .wz-wrap h2, .wz-wrap h3, .wz-wrap h4 { font-family: var(--font-sans); }
   .wz-wrap h1 { line-height: 1.14; }
   .wz-wrap h2, .wz-wrap h3, .wz-wrap h4 { line-height: 1.22; }
 
@@ -243,11 +245,11 @@
       <section class="wz-intro" id="wz-intro" aria-labelledby="wz-intro-title">
         <h1 id="wz-intro-title">Kerro meille unelmistasi</h1>
         <p>Tämä lomake auttaa meitä näkemään, millainen sivusto sinun yrityksellesi sopii.
-           <strong>Ajattele tätä rentona ideointihetkenä – ei kokeena.</strong> Mitä enemmän jaat,
+           <strong>Ajattele tätä rentona ideointihetkenä, ei kokeena.</strong> Mitä enemmän jaat,
            sitä paremmin osumme maaliin heti ensimmäisellä kerralla.</p>
         <p><strong>Mikään kohta ei ole pakollinen.</strong> Täytä vain ne, joista sinulla on jotain
-           kerrottavaa – hyppää loput yli, me autamme. Ei ole olemassa vääriä vastauksia.</p>
-        <p class="wz-time">Kestää noin 10 minuuttia. Voit pitää tauon – vastauksesi tallentuvat itsestään.</p>
+           kerrottavaa. Hyppää loput yli, me autamme. Ei ole olemassa vääriä vastauksia.</p>
+        <p class="wz-time">Kestää noin 10 minuuttia. Voit pitää tauon, sillä vastauksesi tallentuvat itsestään.</p>
         <div style="margin-top:22px">
           <button type="button" class="btn btn--dark btn--lg" id="wz-start">Aloitetaan →</button>
         </div>
@@ -259,7 +261,7 @@
 
         <!-- Static Forms (Pro): aseta oikea avain tähän, niin lähetys toimii heti. -->
         <input type="hidden" name="apiKey" value="STATICFORMS_API_KEY">
-        <input type="hidden" name="subject" id="wz-subject" value="Ideointilomake – Studio Blomma">
+        <input type="hidden" name="subject" id="wz-subject" value="Ideointilomake | Studio Blomma">
         <input type="hidden" name="replyTo" id="wz-replyto" value="">
         <!-- Koneluettava brief Claudelle (koostetaan lähetyksessä) -->
         <textarea name="brief" id="wz-brief" hidden></textarea>
@@ -304,7 +306,7 @@
             </div>
             <div class="wz-field" data-q="Nykyiset sivut tai some">
               <p class="wz-q">Onko teillä jo verkkosivut tai some? Liitä linkit:</p>
-              <p class="wz-hint">Vaikka vanhatkin sivut tai pelkkä Instagram – niistä on iso apu. Voit lisätä monta.</p>
+              <p class="wz-hint">Vaikka vanhatkin sivut tai pelkkä Instagram, niistä on iso apu. Voit lisätä monta.</p>
               <div class="wz-repeat" data-repeat>
                 <div class="wz-repeat-row"><input class="wz-input" type="text" name="nykyinen_some" placeholder="esim. instagram.com/kahvilakaneli"></div>
               </div>
@@ -332,7 +334,7 @@
           <div class="wz-card">
             <p class="wz-step__num">2 · Yrityksesi & tavoitteet</p>
             <h2>Kerro omin sanoin</h2>
-            <p class="wz-saate">Kerro omin sanoin, millainen yrityksesi on. Älä mieti hienoja sanoja –
+            <p class="wz-saate">Kerro omin sanoin, millainen yrityksesi on. Älä mieti hienoja sanoja, vaan
                kirjoita kuin kertoisit ystävälle kahvikupin ääressä.</p>
 
             <div class="wz-field" data-q="Kuvaus yrityksestä">
@@ -366,7 +368,7 @@
                 rauhallista paikkaa ja hyvää kahvia. Viikonloppuisin myös brunssiporukat.</div>
             </div>
             <div class="wz-field" data-q="Mikä tekee teistä erityisiä">
-              <label for="f-erottuvuus">Mikä tekee teistä erityisiä – miksi asiakas valitsee juuri teidät?</label>
+              <label for="f-erottuvuus">Mikä tekee teistä erityisiä? Miksi asiakas valitsee juuri teidät?</label>
               <textarea class="wz-textarea" id="f-erottuvuus" name="erottuvuus" rows="3"></textarea>
               <div class="wz-ex"><b>Esimerkki:</b> Olemme ainoa alueen kahvila, joka tekee kaiken
                 gluteenittomana. Ja meillä on koirat tervetulleita.</div>
@@ -379,7 +381,7 @@
           <div class="wz-card">
             <p class="wz-step__num">3 · Sivut, sisältö ja toiminnot</p>
             <h2>Mitä sivulle tulee?</h2>
-            <p class="wz-saate">Hyvä uutinen – osan tästä jo tiedämme hintalaskurin valinnoistasi! Ne näkyvät
+            <p class="wz-saate">Hyvä uutinen: osan tästä jo tiedämme hintalaskurin valinnoistasi! Ne näkyvät
                valmiiksi rastittuina ja merkitty "jo laskurissa". Voit lisätä tai poistaa mitä vain.</p>
 
             <!-- Laskuri-laatikko (täytetään JS:llä blomma.estimates -datasta) -->
@@ -397,7 +399,7 @@
                 <div class="wz-field" data-q="Lisäsivu(t)" style="margin-bottom:12px">
                   <p class="wz-q">Mikä sivu ja mitä siinä on?</p>
                   <div class="wz-repeat" data-repeat>
-                    <div class="wz-repeat-row"><input class="wz-input" type="text" name="lisasivu" placeholder="esim. Tarinamme — kahvilan historia ja kuvia"></div>
+                    <div class="wz-repeat-row"><input class="wz-input" type="text" name="lisasivu" placeholder="esim. Tarinamme, kahvilan historia ja kuvia"></div>
                   </div>
                   <button type="button" class="wz-add" data-add>+ Lisää sivu</button>
                 </div>
@@ -476,13 +478,13 @@
               </label>
               <div class="wz-cond" id="cond-verkkokauppa" hidden>
                 <h4>Verkkokauppa</h4>
-                <p class="wz-hint">Mahtavaa, perustat verkkokaupan! Muutama kysymys, niin saamme sen heti oikein
-                   – säästät itsesi ja meidät turhalta sähköpostiralilta.</p>
+                <p class="wz-hint">Mahtavaa, perustat verkkokaupan! Muutama kysymys, niin saamme sen heti oikein.
+                   Näin säästät itsesi ja meidät turhalta sähköpostiralilta.</p>
                 <div class="wz-field" data-q="Tuotteiden määrä" style="margin-bottom:12px">
                   <p class="wz-q">Montako tuotetta myyt suunnilleen?</p>
                   <div class="wz-checks">
                     <label><input type="radio" name="vk_maara" value="Alle 10"> Alle 10</label>
-                    <label><input type="radio" name="vk_maara" value="10–50"> 10–50</label>
+                    <label><input type="radio" name="vk_maara" value="10-50"> 10-50</label>
                     <label><input type="radio" name="vk_maara" value="Yli 50"> Yli 50</label>
                     <label><input type="radio" name="vk_maara" value="En tiedä vielä"> En tiedä vielä</label>
                   </div>
@@ -512,7 +514,7 @@
                     <label><input type="checkbox" name="vk_maksu" value="Verkkopankki"> Verkkopankki</label>
                     <label><input type="checkbox" name="vk_maksu" value="MobilePay"> MobilePay</label>
                     <label><input type="checkbox" name="vk_maksu" value="Lasku tai osamaksu (Klarna)"> Lasku tai osamaksu (Klarna)</label>
-                    <label><input type="checkbox" name="vk_maksu" value="En tiedä — suositelkaa te"> En tiedä – suositelkaa te</label>
+                    <label><input type="checkbox" name="vk_maksu" value="En tiedä, suositelkaa te"> En tiedä, suositelkaa te</label>
                   </div>
                   <p class="wz-hint">Emme odota, että tiedät tekniikan. Lyhyesti: pieneen tai satunnaiseen myyntiin
                      <b>Stripe</b> (kortit, ei kuukausimaksua) on edullisin. Suomalaisiin verkkopankkeihin ja
@@ -657,10 +659,10 @@
                   <div class="wz-checks">
                     <label><input type="radio" name="uutiskirje_tyokalu" value="MailerLite"> MailerLite</label>
                     <label><input type="radio" name="uutiskirje_tyokalu" value="Mailchimp"> Mailchimp</label>
-                    <label><input type="radio" name="uutiskirje_tyokalu" value="En tiedä — suositelkaa"> En tiedä – suositelkaa</label>
+                    <label><input type="radio" name="uutiskirje_tyokalu" value="En tiedä, suositelkaa"> En tiedä, suositelkaa</label>
                   </div>
                 </div>
-                <p class="wz-hint">Suosittelemme <b>MailerLiteä</b> – edullisempi ja helpompi kuin Mailchimp.
+                <p class="wz-hint">Suosittelemme <b>MailerLiteä</b>, joka on edullisempi ja helpompi kuin Mailchimp.
                    Ilmainen pienelle listalle, maksullinen alkaen ~12 $/kk.</p>
               </div>
 
@@ -674,7 +676,7 @@
             <p class="wz-step__num">4 · Visuaalinen ilme & brändi</p>
             <h2>Nyt päästään kivaan osaan!</h2>
             <p class="wz-saate">Nyt päästään kivaan osaan! Kerro, millainen tunnelma sivuille halutaan.
-               Älä huoli teknisistä termeistä – riittää että kuvailet fiilistä.</p>
+               Älä huoli teknisistä termeistä, riittää että kuvailet fiilistä.</p>
 
             <div class="wz-field" data-q="Logon tilanne">
               <p class="wz-q">Onko teillä jo logo?</p>
@@ -687,15 +689,15 @@
                 <div class="wz-field" data-q="Logotiedosto" style="margin-bottom:14px">
                   <label for="f-logo">Lataa logosi (max ~5 MB)</label>
                   <input class="wz-file" type="file" id="f-logo" name="logo_tiedosto" accept="image/*,.pdf,.svg,.ai,.eps">
-                  <p class="wz-hint">Isommat tiedostot: lähetä linkki (Drive/WeTransfer) – kerro siitä vaiheessa "aineiston toimitus".</p>
+                  <p class="wz-hint">Isommat tiedostot: lähetä linkki (Drive/WeTransfer) ja kerro siitä vaiheessa "aineiston toimitus".</p>
                 </div>
               </div>
             </div>
 
             <div class="wz-field" data-q="Värit">
-              <p class="wz-q">Värit – kolme tapaa, valitse mikä tahansa</p>
+              <p class="wz-q">Värit: kolme tapaa, valitse mikä tahansa</p>
               <div class="wz-tip"><b>Et tarvitse värikoodeja!</b> Helpoin tapa: lähetä kuva, jossa lempivärisi
-                 näkyvät – vaikka logo, valokuva tai sisustuskuva – niin poimimme värit puolestasi.</div>
+                 näkyvät (vaikka logo, valokuva tai sisustuskuva), niin poimimme värit puolestasi.</div>
               <div class="wz-field" data-q="Värikuva" style="margin-bottom:12px">
                 <label for="f-varikuva">Lataa kuva, josta värit näkyvät (max ~5 MB)</label>
                 <input class="wz-file" type="file" id="f-varikuva" name="varikuva" accept="image/*">
@@ -703,7 +705,7 @@
               <div class="wz-field" data-q="Värit sanoin" style="margin-bottom:12px">
                 <label for="f-varit-sanat">Tai kuvaile sanoin</label>
                 <textarea class="wz-textarea" id="f-varit-sanat" name="varit_sanat" rows="2"></textarea>
-                <div class="wz-ex"><b>Esimerkki:</b> Lämpimät maanläheiset sävyt – terrakottaa, kermaa, ehkä
+                <div class="wz-ex"><b>Esimerkki:</b> Lämpimät maanläheiset sävyt: terrakottaa, kermaa, ehkä
                   ripaus vihreää. En tykkää kirkkaan sinisestä enkä mustasta.</div>
               </div>
               <div class="wz-field" data-q="Värikoodit" style="margin-bottom:0">
@@ -757,7 +759,7 @@
               </div>
               <p class="wz-hint">Voit lähettää aineiston monella tavalla: lataa tiedostot suoraan tähän
                  (max ~5 MB/tiedosto), jaa Drive-/Dropbox-linkki, tai lähetä isommat tiedostot WeTransferillä
-                 osoitteeseen info@studioblomma.com. Älä jännitä – autamme, jos tämä tuntuu hankalalta.</p>
+                 osoitteeseen info@studioblomma.com. Älä jännitä, autamme jos tämä tuntuu hankalalta.</p>
               <div class="wz-cond" id="cond-aineisto-linkki" hidden>
                 <div class="wz-field" data-q="Aineiston linkki" style="margin-bottom:12px">
                   <label for="f-aineisto-linkki">Liitä linkki aineistoon</label>
@@ -791,13 +793,13 @@
           <div class="wz-card">
             <p class="wz-step__num">5 · Inspiraatio</p>
             <h2>Näytä, mistä pidät!</h2>
-            <p class="wz-saate">Tämä on meidän lempivaiheemme – näytä, mistä pidät! Kuvat ja esimerkit kertovat
+            <p class="wz-saate">Tämä on meidän lempivaiheemme: näytä, mistä pidät! Kuvat ja esimerkit kertovat
                meille enemmän kuin tuhat sanaa. Mikään ei ole liian pieni tai hassu jaettavaksi.</p>
 
             <div class="wz-field" data-q="Pinterest / moodboard">
               <p class="wz-q">Pinterest-taulu tai moodboard</p>
               <div class="wz-tip">
-                <b>Etkö ole tehnyt Pinterest-taulua? Ei hätää – näin se käy 2 minuutissa:</b>
+                <b>Etkö ole tehnyt Pinterest-taulua? Ei hätää, näin se käy 2 minuutissa:</b>
                 <ol>
                   <li>Mene Pinterestiin ja luo uusi taulu.</li>
                   <li>Laita "Keep this board secret" päälle, jos haluat sen yksityiseksi.</li>
@@ -818,9 +820,9 @@
             </div>
 
             <div class="wz-field" data-q="Sivuja joista pidät (ja miksi)">
-              <p class="wz-q">Sivuja, joista pidät – ja mistä juuri niissä pidät</p>
+              <p class="wz-q">Sivuja, joista pidät, ja mistä juuri niissä pidät</p>
               <p class="wz-hint">Voivat olla kilpailijoita tai ihan mitä tahansa sivuja. Kerro rohkeasti sekä
-                 hyvä että huono – se auttaa meitä valtavasti.</p>
+                 hyvä että huono, se auttaa meitä valtavasti.</p>
               <div class="wz-repeat" data-repeat>
                 <div class="wz-repeat-row" style="flex-wrap:wrap">
                   <input class="wz-input" type="text" name="inspis_osoite" placeholder="esim. www.toinenkahvila.fi" style="flex:1 1 100%">
@@ -854,7 +856,7 @@
               <div class="wz-checks">
                 <label><input type="radio" name="aikataulu" value="Ei kiirettä"> Ei kiirettä</label>
                 <label><input type="radio" name="aikataulu" value="1 kk sisällä"> 1 kk sisällä</label>
-                <label><input type="radio" name="aikataulu" value="2–3 kk"> 2–3 kk</label>
+                <label><input type="radio" name="aikataulu" value="2-3 kk"> 2-3 kk</label>
                 <label><input type="radio" name="aikataulu" value="Tietty päivä" data-cond="cond-aikataulu-pvm"> Tietty päivä</label>
               </div>
               <div class="wz-cond" id="cond-aikataulu-pvm" hidden>
@@ -875,8 +877,8 @@
               <select class="wz-select" id="f-budjetti" name="budjetti">
                 <option value="">Valitse…</option>
                 <option value="alle 500 €">alle 500 €</option>
-                <option value="500–1000 €">500–1000 €</option>
-                <option value="1000–2000 €">1000–2000 €</option>
+                <option value="500-1000 €">500-1000 €</option>
+                <option value="1000-2000 €">1000-2000 €</option>
                 <option value="yli 2000 €">yli 2000 €</option>
                 <option value="en osaa vielä sanoa">en osaa vielä sanoa</option>
               </select>
@@ -907,7 +909,7 @@
           <div class="wz-card">
             <p class="wz-step__num">7 · Vapaa sana</p>
             <h2>Sinun tilasi</h2>
-            <p class="wz-saate">Jäikö jotain mielen päälle? Tämä on sinun tilasi – kirjoita mitä vain. Unelmia,
+            <p class="wz-saate">Jäikö jotain mielen päälle? Tämä on sinun tilasi, kirjoita mitä vain. Unelmia,
                huolia, hassuja ideoita, ihan mitä tahansa. Mikään ei ole liian pieni.</p>
 
             <div class="wz-field" data-q="Vapaa sana">
@@ -933,7 +935,7 @@
         <h1 id="wz-done-title">Kiitos, että jaoit unelmasi!</h1>
         <p>Sait juuri säästettyä meiltä molemmilta paljon edestakaista sähköpostia. Käymme vastauksesi huolella
            läpi ja palaamme pian valitsemallasi tavalla.</p>
-        <p><strong>Teemme suomalaista työtä – pian myös sinun sivusi.</strong></p>
+        <p><strong>Teemme suomalaista työtä, pian myös sinun sivusi.</strong></p>
         <div style="margin-top:22px">
           <a href="index.html" class="btn btn--primary">Takaisin etusivulle</a>
         </div>
@@ -1056,7 +1058,7 @@
       html += "<p>Basic sisältää aina:</p><ul>";
       BASIC_SISALTO.forEach(function (s) { html += "<li>" + s + "</li>"; });
       html += "</ul>";
-      html += "<p class='wz-laskuri__note'>Nämä kuuluvat aina pakettiin – niitä ei tarvitse valita erikseen.</p>";
+      html += "<p class='wz-laskuri__note'>Nämä kuuluvat aina pakettiin, eikä niitä tarvitse valita erikseen.</p>";
       if (labels.length) {
         html += "<p style='margin-top:10px;margin-bottom:0'><strong>Lisäksi laskurissa:</strong> " +
           labels.join(", ") + ".</p>";
@@ -1100,7 +1102,7 @@
           div.className = "wz-newcost";
           div.innerHTML = "<b>Tämä on uusi lisäys laskuriisi nähden.</b> " +
             cb.value + " lisää hintaan <b>" + euro(cb.dataset.price || 0) +
-            "</b>. Lopullinen hinta vahvistetaan tarjouksessa – ei yllätyksiä.";
+            "</b>. Lopullinen hinta vahvistetaan tarjouksessa, ei yllätyksiä.";
           lab.insertAdjacentElement("afterend", div);
         }
       } else if (existing) {
@@ -1267,7 +1269,7 @@
             }
           });
         } else {
-          /* tekstikentät – luo tarvittaessa lisää toistorivejä */
+          /* tekstikentät, luodaan tarvittaessa lisää toistorivejä */
           var repeat = fields[0].closest(".wz-repeat");
           if (repeat && values.length > fields.length) {
             var addBtn = repeat.parentNode.querySelector("[data-add]");
@@ -1298,7 +1300,7 @@
       var texts = [].slice.call(field.querySelectorAll("input[type=text], input[type=email], input[type=tel], input[type=url], input[type=number], textarea, select"))
         .map(function (e) { return (e.value || "").trim(); }).filter(Boolean);
       var parts = [];
-      if (texts.length) parts.push(texts.join(" – "));
+      if (texts.length) parts.push(texts.join(", "));
       if (files) parts.push("(ladattu: " + files + ")");
       return parts.join(" ");
     }
@@ -1346,7 +1348,7 @@
         });
         L.push("- Yhteensä kertahinta: " + euro(grandOnce) + " (ALV 0 %)");
       } else {
-        L.push("- Ei laskurin valintoja (asiakas ei käyttänyt hintalaskuria – näytetään vain Basic-paketti).");
+        L.push("- Ei laskurin valintoja (asiakas ei käyttänyt hintalaskuria, näytetään vain Basic-paketti).");
       }
       L.push("");
 
@@ -1393,7 +1395,7 @@
       document.getElementById("wz-brief").value = brief;
       var yritys = (form.querySelector("[name=yritys]") || {}).value || "";
       var email = (form.querySelector("[name=email]") || {}).value || "";
-      document.getElementById("wz-subject").value = "Ideointilomake" + (yritys ? " – " + yritys : "") + " | Studio Blomma";
+      document.getElementById("wz-subject").value = "Ideointilomake" + (yritys ? ": " + yritys : "") + " | Studio Blomma";
       document.getElementById("wz-replyto").value = email;
 
       setStatus("Lähetetään… hetkinen", false);
@@ -1426,7 +1428,7 @@
       var mailto = "mailto:info@studioblomma.com?subject=" +
         encodeURIComponent("Ideointilomake | Studio Blomma") +
         "&body=" + encodeURIComponent(brief);
-      setStatus("Hups – lähetys ei mennyt läpi. Tarkista nettiyhteys ja yritä uudelleen. " +
+      setStatus("Hups, lähetys ei mennyt läpi. Tarkista nettiyhteys ja yritä uudelleen. " +
         "Voit myös lähettää vastauksesi suoraan sähköpostilla: " +
         "<a href='" + mailto + "' style='color:var(--burnt-tangerine);font-weight:700'>" +
         "avaa valmis sähköposti →</a>", true);
