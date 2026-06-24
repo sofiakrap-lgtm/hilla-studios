@@ -1953,6 +1953,14 @@ p { margin: 0 0 1em; }
 .bna.is-result .bna__action--result { display: none; }
 .bna.is-result .bna__action--back { display: flex; }
 .bna__resultimg { width: 100%; height: 170px; border-radius: var(--radius-s); background: var(--vari-1); border: 1px dashed var(--vari-3); display: grid; place-items: center; color: var(--ink-65); font-size: .85rem; margin-bottom: 14px; text-align: center; padding: 10px; }
+/* Lopputuotteen kuva (mobiilidemo) */
+.bna__shot { width: 100%; max-height: 300px; object-fit: contain; border-radius: var(--radius-s); background: var(--vari-1); border: var(--bw) solid var(--vari-3); margin: 0 0 16px; }
+/* Lopputuotteesta poimitut värit */
+.bna__palette { margin: 0 0 16px; }
+.bna__palette-note { font-size: .9rem; line-height: 1.55; color: var(--vari-3); margin: 0 0 10px; }
+.bna__swatches { display: flex; flex-wrap: wrap; gap: 10px; }
+.bna__sw { display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: .62rem; font-weight: var(--w-black); letter-spacing: .03em; color: var(--ink-65); }
+.bna__sw i { width: 42px; height: 42px; border-radius: 10px; border: 1.5px solid var(--line); display: block; }
 .bna__logos { display: flex; gap: 14px; align-items: center; }
 .bna__logos .l { width: 64px; height: 42px; background: var(--vari-3); -webkit-mask: var(--logo) center/contain no-repeat; mask: var(--logo) center/contain no-repeat; }
 @media (max-width: 720px) {
