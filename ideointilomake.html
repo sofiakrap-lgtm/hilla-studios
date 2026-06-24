@@ -6,7 +6,7 @@
   <title>Ideointilomake – demo – Studio Blomma</title>
   <meta name="description" content="Studio Blomman ideointilomake: vastaamalla kysymyksiin saamme kattavan kuvan unelmiesi nettisivusta ja brändistä. Demo.">
 
-  <link rel="stylesheet" href="style.css?v=20260624060055">
+  <link rel="stylesheet" href="style.css?v=20260624061547">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
 </head>
 <body>
@@ -146,10 +146,12 @@
                 <label><input type="checkbox" name="toiminnot" value="Chat"> Chat / pikaviesti</label>
               </div>
             </div>
-            <div class="ilo__field" data-q="Muut toiveet toiminnoista">
-              <label>Muuta sivua tai toimintoa mielessä?
-                <input type="text" name="toiminnot_muu">
-              </label>
+            <div class="ilo__field ilo__field--repeat" data-q="Omat lisäykset (sivut tai toiminnot)">
+              <p class="ilo__q">Puuttuuko listoilta jokin? Lisää omat sivut tai toiminnot vapaasti.</p>
+              <div class="ilo__repeat">
+                <div class="ilo__repeat-row"><input type="text" name="omat_lisaykset" placeholder="esim. tapahtumakalenteri, jäsensivut, varauskalenteri…"></div>
+              </div>
+              <button type="button" class="ilo__add">+ Lisää oma</button>
             </div>
             <div class="ilo__field" data-q="Onko valmista sisältöä">
               <p class="ilo__q">Onko sinulla jo valmista sisältöä?</p>
@@ -334,7 +336,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260624060055"></script>
+  <script src="script.js?v=20260624061547"></script>
   <script>
   (function () {
     var form = document.getElementById("ilo-form");

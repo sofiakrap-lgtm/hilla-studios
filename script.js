@@ -982,6 +982,25 @@ function initBna() {
   });
 }
 
+/* Demokarusellin syvälinkki: ?demo=<ala> keskittää oikean demokortin */
+function initDemoDeepLink() {
+  const track = document.querySelector(".dcar__track");
+  if (!track) return;
+  const slug = new URLSearchParams(window.location.search).get("demo");
+  if (!slug) return;
+  const card = track.querySelector('.dcar__card[data-demo="' + slug + '"]');
+  if (!card) return;
+  const center = () => {
+    const target = card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2;
+    track.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+    card.classList.add("is-target");
+  };
+  // Odota, että kuvat ja asettelu ovat valmiina, jotta keskitys osuu oikein
+  const sec = document.getElementById("demo-nettisivut");
+  if (sec) sec.scrollIntoView({ block: "start" });
+  window.setTimeout(center, 120);
+}
+
 /* ---------------------------------------------------------
    8. Käynnistys
    --------------------------------------------------------- */
@@ -999,4 +1018,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initArviot();
   initPackageAdd();
   initBna();
+  initDemoDeepLink();
 });

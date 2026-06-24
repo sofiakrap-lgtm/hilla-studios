@@ -1921,10 +1921,11 @@ p { margin: 0 0 1em; }
 .dcar { background: var(--vari-1); padding: 80px 0; }
 .dcar__head { text-align: center; margin: 0 auto 40px; }
 .dcar__head h2 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem,4vw,2.9rem); color: var(--vari-3); margin: 0; }
-.dcar__track { display: grid; grid-auto-flow: column; grid-auto-columns: 300px; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 4px 16px; scrollbar-width: none; -ms-overflow-style: none; }
+.dcar__track { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 300px; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 4px 16px; scrollbar-width: none; -ms-overflow-style: none; }
 .dcar__track::-webkit-scrollbar { display: none; }
 .dcar__nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 26px; }
-.dcar__card { scroll-snap-align: center; background: var(--vari-2); border: var(--bw) solid var(--vari-3); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; }
+.dcar__card { scroll-snap-align: center; background: var(--vari-2); border: var(--bw) solid var(--vari-3); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .3s ease; }
+.dcar__card.is-target { box-shadow: 0 0 0 3px var(--vari-5); }
 .dcar__media { border-radius: 16px 16px 0 0; overflow: hidden; }
 .dcar__media img { width: 100%; height: 170px; object-fit: cover; object-position: top center; display: block; }
 .dcar__body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
