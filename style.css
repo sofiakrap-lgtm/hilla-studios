@@ -1884,8 +1884,16 @@ p { margin: 0 0 1em; }
 .offer-tip { margin-top: 22px; padding: 20px 24px; background: var(--vari-2); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); display: flex; flex-direction: column; gap: 14px; align-items: flex-start; max-width: 640px; }
 .offer-tip p { margin: 0; font-size: .98rem; line-height: 1.6; color: var(--vari-3); }
 
-.yht-hero { background: var(--vari-8); padding: 96px 0; text-align: center; }
+.yht-hero { background: var(--vari-8); padding: 96px 0; text-align: center; position: relative; overflow: hidden; }
 .yht-hero .eyebrow { color: var(--vari-2); }
+/* Käsinpiirretty koristegrafiikka (grafiikka 47), väri --vari-2 */
+.yht-hero__deco {
+  position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%);
+  width: 96px; height: 96px; pointer-events: none; opacity: .92;
+  background: var(--vari-2);
+  -webkit-mask: url('assets/grafiikat/grafiikka-47.svg') center / contain no-repeat;
+          mask: url('assets/grafiikat/grafiikka-47.svg') center / contain no-repeat;
+}
 .yht-hero h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--vari-2); margin: 10px auto 16px; max-width: 18ch; line-height: 1.1; }
 .yht-hero p { font-size: 1.08rem; line-height: 1.6; color: var(--vari-2); margin: 0 auto; max-width: 56ch; }
 .yht { background: var(--vari-2); padding: 96px 0; }
