@@ -3,13 +3,216 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ideointilomake – demo – Studio Blomma</title>
-  <meta name="description" content="Studio Blomman ideointilomake: vastaamalla kysymyksiin saamme kattavan kuvan unelmiesi nettisivusta ja brändistä. Demo.">
+  <title>Ideointilomake – Studio Blomma</title>
+  <meta name="description" content="Kerro meille unelmistasi. Studio Blomman ideointilomake auttaa meitä näkemään, millainen sivusto sinun yrityksellesi sopii. Ei kokeita – rento ideointihetki.">
 
   <link rel="stylesheet" href="style.css?v=20260624062514">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
+
+  <style>
+  /* =========================================================
+     Ideointilomake — monivaiheinen velho
+     Käyttää style.css:n lukittuja brändimuuttujia (--soft-oat,
+     --burnt-tangerine, --bitter-cacao, --paper, serif/sans-fontit).
+     Saavutettava: labelit, ei kursivointia, korkea kontrasti.
+     ========================================================= */
+  .wz-wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 90px; }
+
+  /* --- Tervetulo- ja kiitosnäyttö --- */
+  .wz-intro, .wz-done {
+    background: var(--paper);
+    border: var(--bw) solid var(--bitter-cacao);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-pop);
+    padding: 38px 30px;
+    margin-top: 18px;
+  }
+  .wz-intro h1 { font-size: clamp(2rem, 6vw, 3rem); margin-bottom: 0.4em; }
+  .wz-intro p, .wz-done p { font-size: 1.08rem; color: var(--ink-80); }
+  .wz-intro .wz-time { font-size: 0.98rem; color: var(--ink-65); margin-top: 18px; }
+  .wz-done { text-align: center; }
+  .wz-done h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); }
+
+  /* --- Edistymispalkki --- */
+  .wz-progress { margin: 6px 0 22px; }
+  .wz-progress__label {
+    display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline;
+    font-weight: var(--w-black); text-transform: uppercase;
+    letter-spacing: 0.10em; font-size: 0.74rem; color: var(--burnt-tangerine);
+    margin-bottom: 10px;
+  }
+  .wz-progress__label .wz-progress__title {
+    color: var(--bitter-cacao); letter-spacing: 0.04em;
+  }
+  .wz-progress__track {
+    height: 12px; background: var(--paper-2);
+    border: var(--bw) solid var(--bitter-cacao); border-radius: var(--radius-pill);
+    overflow: hidden;
+  }
+  .wz-progress__fill {
+    height: 100%; width: 0; background: var(--burnt-tangerine);
+    transition: width 0.35s ease;
+  }
+
+  /* --- Vaiheet --- */
+  .wz-step { display: none; }
+  .wz-step.is-active { display: block; animation: wzFade 0.3s ease; }
+  @keyframes wzFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .wz-card {
+    background: var(--paper);
+    border: var(--bw) solid var(--bitter-cacao);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-pop);
+    padding: 30px 26px;
+  }
+  .wz-step__num {
+    font-weight: var(--w-black); text-transform: uppercase;
+    letter-spacing: 0.16em; font-size: 0.74rem; color: var(--burnt-tangerine);
+    margin-bottom: 8px;
+  }
+  .wz-step h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); margin-bottom: 0.5em; }
+  .wz-saate {
+    background: var(--paper-2);
+    border-left: 5px solid var(--olive-husk);
+    border-radius: var(--radius-s);
+    padding: 14px 16px; margin: 0 0 24px; color: var(--ink-80);
+  }
+
+  /* --- Kentät --- */
+  .wz-field { margin-bottom: 22px; }
+  .wz-field > label, .wz-q {
+    display: block; font-weight: var(--w-bold);
+    font-size: 1.02rem; margin-bottom: 8px; color: var(--bitter-cacao);
+  }
+  .wz-hint { font-size: 0.92rem; color: var(--ink-65); margin: -2px 0 10px; }
+  .wz-input, .wz-textarea, .wz-select {
+    width: 100%; font-family: var(--font-sans); font-size: 1rem;
+    color: var(--bitter-cacao); background: #fff;
+    border: var(--bw) solid var(--bitter-cacao); border-radius: var(--radius-s);
+    padding: 12px 14px; line-height: 1.5;
+  }
+  .wz-textarea { resize: vertical; min-height: 84px; }
+  .wz-input:focus, .wz-textarea:focus, .wz-select:focus {
+    outline: 3px solid var(--burnt-tangerine); outline-offset: 2px;
+  }
+
+  /* Esimerkki-laatikko (jää näkyviin, ei placeholder) */
+  .wz-ex {
+    margin-top: 8px; background: var(--paper-2);
+    border: 1px dashed var(--ink-65); border-radius: var(--radius-s);
+    padding: 10px 13px; font-size: 0.92rem; color: var(--ink-80);
+  }
+  .wz-ex b { color: var(--bitter-cacao); }
+
+  /* Valintaruudut & radiot */
+  .wz-checks { display: grid; gap: 10px; }
+  .wz-checks label {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: #fff; border: var(--bw) solid var(--line);
+    border-radius: var(--radius-s); padding: 11px 14px; cursor: pointer;
+    font-size: 1rem; transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .wz-checks label:hover { border-color: var(--bitter-cacao); }
+  .wz-checks input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--burnt-tangerine); flex: none; }
+  .wz-checks label.is-chosen { border-color: var(--olive-husk); background: var(--paper-2); }
+
+  .wz-chosen {
+    display: inline-block; margin-left: 6px; font-size: 0.72rem;
+    font-weight: var(--w-black); text-transform: uppercase; letter-spacing: 0.06em;
+    background: var(--burnt-tangerine); color: #fff;
+    padding: 2px 8px; border-radius: var(--radius-pill);
+  }
+
+  /* "Uusi lisäys" -ilmoitus */
+  .wz-newcost {
+    margin: 8px 0 4px; padding: 11px 14px;
+    background: #FBE6D6; border: var(--bw) solid var(--burnt-tangerine);
+    border-radius: var(--radius-s); font-size: 0.94rem; color: var(--bitter-cacao);
+  }
+  .wz-newcost b { color: var(--burnt-tangerine); }
+
+  /* Korostettu laskuri-laatikko */
+  .wz-laskuri {
+    background: var(--soft-oat); border: var(--bw) solid var(--bitter-cacao);
+    border-radius: var(--radius-m); padding: 18px 18px; margin-bottom: 22px;
+  }
+  .wz-laskuri h3 { font-size: 1.2rem; margin-bottom: 0.4em; }
+  .wz-laskuri ul { margin: 6px 0 0; padding-left: 20px; }
+  .wz-laskuri li { margin-bottom: 3px; }
+  .wz-laskuri__note { font-size: 0.9rem; color: var(--ink-65); margin-top: 10px; margin-bottom: 0; }
+
+  /* Ohjelaatikko (Pinterest, värit yms.) */
+  .wz-tip {
+    background: var(--paper-2); border: 1px solid var(--olive-husk);
+    border-radius: var(--radius-s); padding: 14px 16px; margin-bottom: 14px;
+    font-size: 0.95rem; color: var(--ink-80);
+  }
+  .wz-tip b { color: var(--bitter-cacao); }
+  .wz-tip ol { margin: 8px 0 0; padding-left: 20px; }
+
+  /* Ehdolliset osiot */
+  .wz-cond {
+    margin: 4px 0 12px; padding: 16px 16px 2px;
+    background: var(--paper-2); border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+  }
+  .wz-cond[hidden] { display: none; }
+  .wz-cond h4 { font-size: 1.05rem; margin-bottom: 0.6em; color: var(--burnt-tangerine); }
+
+  /* Toistettavat rivit */
+  .wz-repeat-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-start; }
+  .wz-repeat-row .wz-input { flex: 1; }
+  .wz-remove {
+    flex: none; width: 40px; height: 46px; font-size: 1.3rem; line-height: 1;
+    background: #fff; border: var(--bw) solid var(--bitter-cacao);
+    border-radius: var(--radius-s); cursor: pointer;
+  }
+  .wz-remove:hover { background: var(--clay-rose); color: #fff; }
+  .wz-add {
+    background: none; border: 2px dashed var(--burnt-tangerine); color: var(--burnt-tangerine);
+    font-weight: var(--w-bold); border-radius: var(--radius-s);
+    padding: 9px 16px; cursor: pointer; font-size: 0.95rem; margin-top: 2px;
+  }
+  .wz-add:hover { background: var(--burnt-tangerine); color: #fff; }
+
+  /* Tiedostolataus */
+  .wz-file {
+    width: 100%; font-size: 0.95rem; padding: 10px;
+    background: #fff; border: 2px dashed var(--bitter-cacao);
+    border-radius: var(--radius-s); cursor: pointer;
+  }
+  .wz-file::file-selector-button {
+    font-family: inherit; font-weight: var(--w-bold);
+    background: var(--bitter-cacao); color: var(--soft-oat); border: none;
+    border-radius: var(--radius-s); padding: 8px 14px; margin-right: 12px; cursor: pointer;
+  }
+
+  /* Navigaatio */
+  .wz-nav {
+    display: flex; justify-content: space-between; gap: 12px;
+    margin-top: 22px; flex-wrap: wrap;
+  }
+  .wz-nav .btn { flex: 1 1 auto; min-width: 140px; justify-content: center; }
+  .wz-nav__prev { order: 0; }
+
+  /* Lähetyksen tila */
+  .wz-status { margin-top: 14px; font-size: 0.95rem; }
+  .wz-status--err {
+    padding: 12px 14px; background: #FBE3DC;
+    border: var(--bw) solid var(--burnt-tangerine); border-radius: var(--radius-s);
+    color: var(--bitter-cacao);
+  }
+  .wz-sending { opacity: 0.6; pointer-events: none; }
+
+  @media (max-width: 540px) {
+    .wz-nav .btn { flex-basis: 100%; }
+  }
+  </style>
 </head>
 <body>
+  <!-- ============ HEADER / NAV ============ -->
   <header class="site-header">
     <div class="container nav">
       <a href="index.html" class="brand brand--logo" aria-label="Studio Blomma, etusivu">
@@ -30,258 +233,709 @@
   </header>
 
   <main>
-    <section class="ilo" aria-labelledby="ilo-title">
-      <div class="container">
-        <header class="ilo__head">
-          <p class="ilo__eyebrow"><a href="nain-se-toimii.html">← Näin se toimii</a> · Ideointilomake</p>
-          <h1 id="ilo-title">Ideointilomake</h1>
-          <p class="ilo__lead">Tämä lomake auttaa meitä näkemään unelmasi nettisivun ja brändin
-             kokonaisuutena. Vastaa niin moneen kohtaan kuin haluat, mitä enemmän kerrot, sitä
-             tarkemman ja paremman ehdotuksen saat. <strong>Mikään kenttä ei ole pakollinen, voit
-             hypätä yli kohdat, joihin sinulla ei vielä ole vastausta.</strong></p>
-          <p class="ilo__demo-tag">Demo · lähetys kokoaa vastauksesi valmiiksi viestiksi sähköpostiohjelmaasi</p>
-        </header>
+    <div class="wz-wrap">
 
-        <form class="ilo__form" id="ilo-form">
+      <!-- ===== TERVETULONÄYTTÖ ===== -->
+      <section class="wz-intro" id="wz-intro" aria-labelledby="wz-intro-title">
+        <h1 id="wz-intro-title">Kerro meille unelmistasi 🌸</h1>
+        <p>Tämä lomake auttaa meitä näkemään, millainen sivusto sinun yrityksellesi sopii.
+           <strong>Ajattele tätä rentona ideointihetkenä – ei kokeena.</strong> Mitä enemmän jaat,
+           sitä paremmin osumme maaliin heti ensimmäisellä kerralla.</p>
+        <p><strong>Mikään kohta ei ole pakollinen.</strong> Täytä vain ne, joista sinulla on jotain
+           kerrottavaa – hyppää loput yli, me autamme. Ei ole olemassa vääriä vastauksia.</p>
+        <p class="wz-time">Kestää noin 10 minuuttia. Voit pitää tauon – vastauksesi tallentuvat itsestään.</p>
+        <div style="margin-top:22px">
+          <button type="button" class="btn btn--dark btn--lg" id="wz-start">Aloitetaan →</button>
+        </div>
+      </section>
 
-          <!-- 1 -->
-          <fieldset class="ilo__group">
-            <legend>1 · Perustiedot</legend>
-            <div class="ilo__field" data-q="Yrityksen / projektin nimi">
-              <label>Yrityksen tai projektin nimi
-                <input type="text" name="yritys" autocomplete="organization">
-              </label>
-            </div>
-            <div class="ilo__field" data-q="Toimiala">
-              <label>Toimiala (esim. kahvila, kynsistudio, rakennusliike)
-                <input type="text" name="toimiala">
-              </label>
-            </div>
-            <div class="ilo__grid2">
-              <div class="ilo__field" data-q="Yhteyshenkilö">
-                <label>Yhteyshenkilö
-                  <input type="text" name="nimi" autocomplete="name">
-                </label>
-              </div>
-              <div class="ilo__field" data-q="Sähköposti">
-                <label>Sähköposti
-                  <input type="email" name="email" autocomplete="email">
-                </label>
-              </div>
-            </div>
-            <div class="ilo__field" data-q="Puhelin">
-              <label>Puhelin
-                <input type="tel" name="puhelin" autocomplete="tel">
-              </label>
-            </div>
-            <div class="ilo__field ilo__field--repeat" data-q="Nykyiset sivustot / some">
-              <p class="ilo__q">Nykyinen sivusto tai some (jos on)</p>
-              <div class="ilo__repeat">
-                <div class="ilo__repeat-row"><input type="text" name="nykyinen" placeholder="esim. instagram.com/..."></div>
-              </div>
-              <button type="button" class="ilo__add">+ Lisää linkki tai some</button>
-            </div>
-          </fieldset>
+      <!-- ===== LOMAKE ===== -->
+      <form class="wz-form" id="wz-form" hidden
+            action="https://api.staticforms.dev/submit" method="POST" enctype="multipart/form-data">
 
-          <!-- 2 -->
-          <fieldset class="ilo__group">
-            <legend>2 · Yrityksesi & tavoitteet</legend>
-            <div class="ilo__field" data-q="Kuvaile yritystäsi muutamalla lauseella">
-              <label>Kuvaile yritystäsi muutamalla lauseella, mitä teette ja mikä tekee teistä teidät?
-                <textarea name="kuvaus" rows="3"></textarea>
-              </label>
-            </div>
-            <div class="ilo__field" data-q="Kohderyhmä / ihanneasiakas">
-              <label>Kuka on ihanneasiakkaasi?
-                <textarea name="kohderyhma" rows="2"></textarea>
-              </label>
-            </div>
-            <div class="ilo__field" data-q="Sivuston päätavoitteet">
-              <p class="ilo__q">Mitä haluat sivustolla saavuttaa? (valitse yksi tai useampi)</p>
-              <div class="ilo__checks">
-                <label><input type="checkbox" name="tavoite" value="Lisää yhteydenottoja"> Lisää yhteydenottoja</label>
-                <label><input type="checkbox" name="tavoite" value="Myynti verkossa"> Myynti verkossa</label>
-                <label><input type="checkbox" name="tavoite" value="Ajanvaraukset"> Ajanvaraukset</label>
-                <label><input type="checkbox" name="tavoite" value="Näkyvyys & brändi"> Näkyvyys & brändi</label>
-                <label><input type="checkbox" name="tavoite" value="Tiedon jakaminen"> Tiedon jakaminen</label>
-                <label><input type="checkbox" name="tavoite" value="Uskottavuus"> Uskottavuus & luotettavuus</label>
-              </div>
-            </div>
-            <div class="ilo__field" data-q="Tärkein toiminto (CTA)">
-              <label>Mikä on tärkein asia, jonka kävijän toivot tekevän? (esim. varaa aika, soita, osta)
-                <input type="text" name="cta">
-              </label>
-            </div>
-          </fieldset>
+        <!-- Static Forms (Pro): aseta oikea avain tähän, niin lähetys toimii heti. -->
+        <input type="hidden" name="apiKey" value="STATICFORMS_API_KEY">
+        <input type="hidden" name="subject" id="wz-subject" value="Ideointilomake – Studio Blomma">
+        <input type="hidden" name="replyTo" id="wz-replyto" value="">
+        <!-- Koneluettava brief Claudelle (koostetaan lähetyksessä) -->
+        <textarea name="brief" id="wz-brief" hidden></textarea>
 
-          <!-- 3 -->
-          <fieldset class="ilo__group">
-            <legend>3 · Sivut, sisältö & toiminnot</legend>
-            <div class="ilo__laskuri-note" id="ilo-laskuri-note">
-              <p><strong>Tämä lomake on jatkoa hintalaskurin tarjouspyynnöllesi.</strong>
-                 Hintalaskurissa valitsemasi ominaisuudet ovat jo mukana alustavassa laskelmassa,
-                 eikä niitä tarvitse valita uudelleen. Voit halutessasi täydentää valintojasi alta,
-                 mutta se ei ole pakollista.</p>
-            </div>
-            <div class="ilo__field" data-q="Lisättävät sivut ja toiminnot">
-              <p class="ilo__q">Haluatko lisätä sivuja tai toimintoja laskurissa valitsemiesi lisäksi?</p>
-              <p class="ilo__hint">Etusivu, palvelut/tuotteet, meistä, yhteystiedot, galleria/referenssit ja hinnasto sisältyvät jo Basic-pohjaan.</p>
-              <div class="ilo__checks">
-                <label><input type="checkbox" name="lisaykset" value="Blogi / ajankohtaista"> Blogi / ajankohtaista</label>
-                <label><input type="checkbox" name="lisaykset" value="Verkkokauppa & maksut"> Verkkokauppa & maksut</label>
-                <label><input type="checkbox" name="lisaykset" value="Ajanvaraus"> Ajanvaraus</label>
-                <label><input type="checkbox" name="lisaykset" value="Usein kysyttyä (UKK)"> Usein kysyttyä</label>
-                <label><input type="checkbox" name="lisaykset" value="Uutiskirjeen tilaus"> Uutiskirjeen tilaus</label>
-                <label><input type="checkbox" name="lisaykset" value="Some-syöte"> Some-syöte (esim. Instagram)</label>
-                <label><input type="checkbox" name="lisaykset" value="Kartta & sijainti"> Kartta & sijainti</label>
-                <label><input type="checkbox" name="lisaykset" value="Kanta-asiakkuus / edut"> Kanta-asiakkuus / edut</label>
-                <label><input type="checkbox" name="lisaykset" value="Asiakasarvostelut"> Asiakasarvostelut</label>
-                <label><input type="checkbox" name="lisaykset" value="Chat / pikaviesti"> Chat / pikaviesti</label>
-              </div>
-            </div>
-            <div class="ilo__field ilo__field--repeat" data-q="Omat lisäykset (sivut tai toiminnot)">
-              <p class="ilo__q">Puuttuuko listoilta jokin? Lisää omat sivut tai toiminnot vapaasti.</p>
-              <div class="ilo__repeat">
-                <div class="ilo__repeat-row"><input type="text" name="omat_lisaykset" placeholder="esim. tapahtumakalenteri, jäsensivut, varauskalenteri…"></div>
-              </div>
-              <button type="button" class="ilo__add">+ Lisää oma</button>
-            </div>
-            <div class="ilo__field" data-q="Onko valmista sisältöä">
-              <p class="ilo__q">Onko sinulla jo valmista sisältöä?</p>
-              <div class="ilo__checks">
-                <label><input type="checkbox" name="sisalto" value="Tekstit"> Valmiit tekstit</label>
-                <label><input type="checkbox" name="sisalto" value="Kuvat"> Valokuvat</label>
-                <label><input type="checkbox" name="sisalto" value="Logo"> Logo</label>
-                <label><input type="checkbox" name="sisalto" value="Brändivärit"> Brändivärit</label>
-                <label><input type="checkbox" name="sisalto" value="Tarvitsen apua sisältöön"> Tarvitsen apua sisällön kanssa</label>
-              </div>
-            </div>
-            <div class="ilo__field ilo__field--repeat" data-q="Kielet">
-              <p class="ilo__q">Millä kielillä sivusto tarvitaan?</p>
-              <p class="ilo__hint">Alustavasti sivusto tehdään yhdellä kielellä, mutta voit lisätä useampia.</p>
-              <div class="ilo__repeat">
-                <div class="ilo__repeat-row"><input type="text" name="kielet" placeholder="esim. suomi"></div>
-              </div>
-              <button type="button" class="ilo__add">+ Lisää kieli</button>
-            </div>
-          </fieldset>
+        <!-- Edistymispalkki -->
+        <div class="wz-progress" aria-hidden="false">
+          <div class="wz-progress__label">
+            <span id="wz-progress-step">Vaihe 1/7</span>
+            <span class="wz-progress__title" id="wz-progress-title">Perustiedot</span>
+          </div>
+          <div class="wz-progress__track">
+            <div class="wz-progress__fill" id="wz-progress-fill"></div>
+          </div>
+        </div>
 
-          <!-- 4 -->
-          <fieldset class="ilo__group">
-            <legend>4 · Visuaalinen ilme & brändi</legend>
-            <div class="ilo__field" data-q="Brändin tilanne">
-              <p class="ilo__q">Missä vaiheessa brändisi ilme on?</p>
-              <div class="ilo__checks ilo__checks--radio">
-                <label><input type="radio" name="brandi" value="Valmis ilme (logo + värit + fontit)"> Valmis ilme</label>
-                <label><input type="radio" name="brandi" value="Osittain valmis"> Osittain valmis</label>
-                <label><input type="radio" name="brandi" value="Aloitetaan nollasta"> Aloitetaan nollasta</label>
-              </div>
-            </div>
-            <div class="ilo__field" data-q="Väritoiveet">
-              <label>Väritoiveet, värit joista pidät tai joita haluat välttää
-                <input type="text" name="varit">
-              </label>
-            </div>
-            <div class="ilo__field" data-q="Fontti- / typografiatunnelma">
-              <label>Millainen typografia puhuttelee? (esim. klassinen, moderni, leikkisä)
-                <input type="text" name="fontit">
-              </label>
-            </div>
-            <div class="ilo__field" data-q="Tyyli / tunnelma (3-5 sanaa)">
-              <label>Kuvaile haluamaasi tunnelmaa 3–5 sanalla (esim. lämmin, rohkea, lähestyttävä)
-                <input type="text" name="tunnelma">
-              </label>
-            </div>
-            <div class="ilo__field" data-q="Kuvamaailma">
-              <label>Millaista kuvamaailmaa toivot? (esim. filmikuva, luonnonvalo, oikeat ihmiset työn äärellä)
-                <textarea name="kuvamaailma" rows="2"></textarea>
-              </label>
-            </div>
-          </fieldset>
+        <!-- ===== VAIHE 1 — Perustiedot ===== -->
+        <section class="wz-step" data-step="1" data-title="Perustiedot" tabindex="-1">
+          <div class="wz-card">
+            <p class="wz-step__num">1 · Perustiedot</p>
+            <h2>Aloitetaan ihan helpoista</h2>
+            <p class="wz-saate">Aloitetaan ihan helpoista. Näin tiedämme, kuka olet ja miten saamme sinut kiinni.</p>
 
-          <!-- 5 -->
-          <fieldset class="ilo__group">
-            <legend>5 · Inspiraatio</legend>
-            <div class="ilo__field ilo__field--repeat" data-q="Sivustot joista pidät (+ miksi)">
-              <p class="ilo__q">Sivustot, joista pidät, ja lyhyesti miksi</p>
-              <div class="ilo__repeat">
-                <div class="ilo__repeat-row"><input type="text" name="inspis" placeholder="esim. www.esimerkki.fi – selkeä rakenne"></div>
+            <div class="wz-field" data-q="Yrityksesi nimi">
+              <label for="f-yritys">Yrityksesi nimi</label>
+              <input class="wz-input" type="text" id="f-yritys" name="yritys" autocomplete="organization" placeholder="esim. Kahvila Kaneli">
+            </div>
+            <div class="wz-field" data-q="Yhteyshenkilön nimi">
+              <label for="f-nimi">Yhteyshenkilön nimi</label>
+              <input class="wz-input" type="text" id="f-nimi" name="nimi" autocomplete="name" placeholder="esim. Maria Virtanen">
+            </div>
+            <div class="wz-field" data-q="Sähköposti">
+              <label for="f-email">Sähköposti</label>
+              <input class="wz-input" type="email" id="f-email" name="email" autocomplete="email" placeholder="esim. maria@kahvilakaneli.fi">
+            </div>
+            <div class="wz-field" data-q="Puhelin">
+              <label for="f-puhelin">Puhelin (vapaaehtoinen)</label>
+              <input class="wz-input" type="tel" id="f-puhelin" name="puhelin" autocomplete="tel" placeholder="esim. 040 123 4567">
+            </div>
+            <div class="wz-field" data-q="Toimiala / mitä teette">
+              <label for="f-toimiala">Toimiala / mitä teette?</label>
+              <input class="wz-input" type="text" id="f-toimiala" name="toimiala" placeholder="esim. pieni kahvila, erikoistunut korvapuusteihin">
+            </div>
+            <div class="wz-field" data-q="Nykyiset sivut tai some">
+              <p class="wz-q">Onko teillä jo verkkosivut tai some? Liitä linkit:</p>
+              <p class="wz-hint">Vaikka vanhatkin sivut tai pelkkä Instagram – niistä on iso apu. Voit lisätä monta.</p>
+              <div class="wz-repeat" data-repeat>
+                <div class="wz-repeat-row"><input class="wz-input" type="text" name="nykyinen_some" placeholder="esim. instagram.com/kahvilakaneli"></div>
               </div>
-              <button type="button" class="ilo__add">+ Lisää sivusto</button>
+              <button type="button" class="wz-add" data-add>+ Lisää linkki</button>
             </div>
-            <div class="ilo__field" data-q="Pinterest-taulu / moodboard">
-              <label>Linkki Pinterest-tauluun tai moodboardiin (jos on)
-                <input type="url" name="pinterest" placeholder="https://...">
-              </label>
-            </div>
-            <div class="ilo__field ilo__field--repeat" data-q="Kilpailijat">
-              <p class="ilo__q">Ketkä ovat kilpailijoitasi? (linkit tai nimet)</p>
-              <div class="ilo__repeat">
-                <div class="ilo__repeat-row"><input type="text" name="kilpailijat"></div>
+            <div class="wz-field" data-q="Onko verkkotunnus">
+              <p class="wz-q">Onko teillä jo verkkotunnus (esim. yritys.fi)?</p>
+              <div class="wz-checks">
+                <label><input type="radio" name="domain" value="Kyllä" data-cond="cond-domain"> Kyllä</label>
+                <label><input type="radio" name="domain" value="Ei vielä" data-cond=""> Ei vielä</label>
+                <label><input type="radio" name="domain" value="En ole varma" data-cond=""> En ole varma</label>
               </div>
-              <button type="button" class="ilo__add">+ Lisää kilpailija</button>
+              <div class="wz-cond" id="cond-domain" hidden>
+                <div class="wz-field" data-q="Verkkotunnus" style="margin-bottom:14px">
+                  <label for="f-domain-mika">Mikä verkkotunnus?</label>
+                  <input class="wz-input" type="text" id="f-domain-mika" name="domain_mika" placeholder="esim. kahvilakaneli.fi">
+                </div>
+              </div>
             </div>
-            <div class="ilo__field" data-q="Mitä EI haluta">
-              <label>Mitä et halua sivustolle? (tyylit, värit, elementit, jotka karsastat)
-                <textarea name="ei_haluta" rows="2"></textarea>
-              </label>
-            </div>
-          </fieldset>
+          </div>
+        </section>
 
-          <!-- 6 -->
-          <fieldset class="ilo__group">
-            <legend>6 · Aikataulu & käytäntö</legend>
-            <div class="ilo__field" data-q="Domain">
-              <p class="ilo__q">Onko sinulla jo verkko-osoite (domain)?</p>
-              <div class="ilo__checks ilo__checks--radio">
-                <label><input type="radio" name="domain" value="Kyllä"> Kyllä</label>
-                <label><input type="radio" name="domain" value="Ei, tarvitsen apua"> Ei, tarvitsen apua</label>
+        <!-- ===== VAIHE 2 — Yrityksesi & tavoitteet ===== -->
+        <section class="wz-step" data-step="2" data-title="Yrityksesi & tavoitteet" tabindex="-1">
+          <div class="wz-card">
+            <p class="wz-step__num">2 · Yrityksesi & tavoitteet</p>
+            <h2>Kerro omin sanoin</h2>
+            <p class="wz-saate">Kerro omin sanoin, millainen yrityksesi on. Älä mieti hienoja sanoja –
+               kirjoita kuin kertoisit ystävälle kahvikupin ääressä.</p>
+
+            <div class="wz-field" data-q="Kuvaus yrityksestä">
+              <label for="f-kuvaus">Kuvaile yritystäsi muutamalla lauseella</label>
+              <textarea class="wz-textarea" id="f-kuvaus" name="kuvaus" rows="4"></textarea>
+              <div class="wz-ex"><b>💡 Esimerkki:</b> Olemme pieni perhekahvila Tapanilassa. Leivomme kaiken
+                itse joka aamu, ja korvapuustimme ovat tulleet vähän kuuluisiksi. Asiakkaat tulevat, koska
+                täällä on rauhallista ja saa istua pitkään.</div>
+            </div>
+            <div class="wz-field" data-q="Tavoitteet uudelle sivulle">
+              <p class="wz-q">Mitä haluat, että uusi sivu saa aikaan?</p>
+              <div class="wz-checks">
+                <label><input type="checkbox" name="tavoite" value="Lisää asiakkaita / yhteydenottoja"> Lisää asiakkaita / yhteydenottoja</label>
+                <label><input type="checkbox" name="tavoite" value="Myyntiä verkkokaupan kautta"> Myyntiä verkkokaupan kautta</label>
+                <label><input type="checkbox" name="tavoite" value="Ajanvarauksia"> Ajanvarauksia</label>
+                <label><input type="checkbox" name="tavoite" value="Näyttää ammattimaiselta ja luotettavalta"> Näyttää ammattimaiselta ja luotettavalta</label>
+                <label><input type="checkbox" name="tavoite" value="Esitellä töitä tai tuotteita"> Esitellä töitä tai tuotteita</label>
+                <label><input type="checkbox" name="tavoite_muu_on" value="Jotain muuta" data-cond="cond-tavoite-muu"> Jotain muuta</label>
+              </div>
+              <div class="wz-cond" id="cond-tavoite-muu" hidden>
+                <div class="wz-field" data-q="Muu tavoite" style="margin-bottom:14px">
+                  <label for="f-tavoite-muu">Kerro tarkemmin</label>
+                  <input class="wz-input" type="text" id="f-tavoite-muu" name="tavoite_muu" placeholder="esim. kerätä sähköpostiosoitteita tapahtumaa varten">
+                </div>
               </div>
             </div>
-            <div class="ilo__field" data-q="Toivottu aikataulu">
-              <label>Toivottu aikataulu tai deadline
-                <input type="text" name="aikataulu" placeholder="esim. kuukauden sisällä">
-              </label>
+            <div class="wz-field" data-q="Tärkeimmät asiakkaat">
+              <label for="f-kohderyhma">Ketkä ovat tärkeimmät asiakkaasi?</label>
+              <textarea class="wz-textarea" id="f-kohderyhma" name="kohderyhma" rows="3"></textarea>
+              <div class="wz-ex"><b>💡 Esimerkki:</b> Lähialueen perheet ja etätyöläiset, jotka arvostavat
+                rauhallista paikkaa ja hyvää kahvia. Viikonloppuisin myös brunssiporukat.</div>
             </div>
-            <div class="ilo__field" data-q="Alustava budjetti">
-              <label>Alustava budjetti
-                <select name="budjetti">
-                  <option value="">Valitse…</option>
-                  <option value="alle 300 €">alle 300 €</option>
-                  <option value="300–600 €">300–600 €</option>
-                  <option value="600–1000 €">600–1000 €</option>
-                  <option value="yli 1000 €">yli 1000 €</option>
-                  <option value="en osaa vielä sanoa">en osaa vielä sanoa</option>
-                </select>
-              </label>
+            <div class="wz-field" data-q="Mikä tekee teistä erityisiä">
+              <label for="f-erottuvuus">Mikä tekee teistä erityisiä – miksi asiakas valitsee juuri teidät?</label>
+              <textarea class="wz-textarea" id="f-erottuvuus" name="erottuvuus" rows="3"></textarea>
+              <div class="wz-ex"><b>💡 Esimerkki:</b> Olemme ainoa alueen kahvila, joka tekee kaiken
+                gluteenittomana. Ja meillä on koirat tervetulleita.</div>
             </div>
-            <div class="ilo__field" data-q="Ylläpito jatkossa">
-              <p class="ilo__q">Kuka päivittää sivustoa jatkossa?</p>
-              <div class="ilo__checks ilo__checks--radio">
+          </div>
+        </section>
+
+        <!-- ===== VAIHE 3 — Sivut, sisältö ja toiminnot ===== -->
+        <section class="wz-step" data-step="3" data-title="Sivut, sisältö ja toiminnot" tabindex="-1">
+          <div class="wz-card">
+            <p class="wz-step__num">3 · Sivut, sisältö ja toiminnot</p>
+            <h2>Mitä sivulle tulee?</h2>
+            <p class="wz-saate">Hyvä uutinen – osan tästä jo tiedämme hintalaskurin valinnoistasi! Ne näkyvät
+               valmiiksi rastittuina ja merkitty "jo laskurissa". Voit lisätä tai poistaa mitä vain.</p>
+
+            <!-- Laskuri-laatikko (täytetään JS:llä blomma.estimates -datasta) -->
+            <div class="wz-laskuri" id="wz-laskuri"></div>
+
+            <p class="wz-q">Lisäominaisuudet</p>
+            <p class="wz-hint">Rastita, mitä haluat. Laskurissa jo olevat on merkitty ja valittu valmiiksi.
+               Hinnat ovat ALV 0 %.</p>
+            <div class="wz-checks" id="wz-features">
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Lisäsivu" data-price="49" data-cond="cond-lisasivu"> Lisäsivu (49 €/kpl)
+              </label>
+              <div class="wz-cond" id="cond-lisasivu" hidden>
+                <div class="wz-field" data-q="Lisäsivu(t)" style="margin-bottom:12px">
+                  <p class="wz-q">Mikä sivu ja mitä siinä on?</p>
+                  <div class="wz-repeat" data-repeat>
+                    <div class="wz-repeat-row"><input class="wz-input" type="text" name="lisasivu" placeholder="esim. Tarinamme — kahvilan historia ja kuvia"></div>
+                  </div>
+                  <button type="button" class="wz-add" data-add>+ Lisää sivu</button>
+                </div>
+              </div>
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Karttaintegraatio" data-price="29" data-cond="cond-kartta"> Karttaintegraatio (29 €)
+              </label>
+              <div class="wz-cond" id="cond-kartta" hidden>
+                <div class="wz-field" data-q="Kartan osoite" style="margin-bottom:14px">
+                  <label for="f-kartta">Mikä osoite näytetään kartalla?</label>
+                  <input class="wz-input" type="text" id="f-kartta" name="kartta_osoite" placeholder="esim. Kanelikuja 3, Helsinki">
+                </div>
+              </div>
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Ajanvarausjärjestelmä" data-price="199" data-cond="cond-ajanvaraus"> Ajanvarausjärjestelmä
+              </label>
+              <div class="wz-cond" id="cond-ajanvaraus" hidden>
+                <h4>Ajanvaraus</h4>
+                <div class="wz-field" data-q="Varattavat palvelut" style="margin-bottom:12px">
+                  <p class="wz-q">Mitä palveluita varataan?</p>
+                  <div class="wz-repeat" data-repeat>
+                    <div class="wz-repeat-row"><input class="wz-input" type="text" name="ajanvaraus_palvelu" placeholder="esim. naisten leikkaus 45 min, värjäys 2 h"></div>
+                  </div>
+                  <button type="button" class="wz-add" data-add>+ Lisää palvelu</button>
+                </div>
+                <div class="wz-field" data-q="Työntekijöiden / kalentereiden määrä" style="margin-bottom:12px">
+                  <label for="f-av-kalenterit">Montako työntekijää tai kalenteria?</label>
+                  <input class="wz-input" type="number" min="0" id="f-av-kalenterit" name="ajanvaraus_kalenterit" placeholder="esim. 2">
+                </div>
+                <div class="wz-field" data-q="Kalenterisynkronointi" style="margin-bottom:12px">
+                  <p class="wz-q">Tarvitaanko kalenterisynkronointi (esim. Google-kalenteri)?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="ajanvaraus_synk" value="Kyllä"> Kyllä</label>
+                    <label><input type="radio" name="ajanvaraus_synk" value="Ei"> Ei</label>
+                    <label><input type="radio" name="ajanvaraus_synk" value="En tiedä"> En tiedä</label>
+                  </div>
+                </div>
+                <div class="wz-field" data-q="Maksu varauksen yhteydessä" style="margin-bottom:12px">
+                  <p class="wz-q">Maksetaanko varauksen yhteydessä?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="ajanvaraus_maksu" value="Kyllä, etukäteen"> Kyllä, etukäteen</label>
+                    <label><input type="radio" name="ajanvaraus_maksu" value="Ei, paikan päällä"> Ei, paikan päällä</label>
+                  </div>
+                </div>
+                <p class="wz-hint">Suosittelemme suomalaista <b>Velloa</b> (ilmainen pienyrittäjälle: 1 kalenteri,
+                   5 palvelua, 50 asiakasta) tai <b>Timmaa</b> (15 €/kk/tekijä, suosituin kauneusalalla). Upotamme
+                   valitun järjestelmän sivuillesi. Perusupotus 199 €, räätälöity 350 €.</p>
+              </div>
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Kanta-asiakasjärjestelmä" data-price="350" data-cond="cond-kanta"> Kanta-asiakasjärjestelmä
+              </label>
+              <div class="wz-cond" id="cond-kanta" hidden>
+                <h4>Kanta-asiakkuus</h4>
+                <div class="wz-field" data-q="Kanta-asiakasedut" style="margin-bottom:12px">
+                  <label for="f-kanta-edut">Millaisia etuja kanta-asiakkaat saavat?</label>
+                  <input class="wz-input" type="text" id="f-kanta-edut" name="kanta_edut" placeholder="esim. joka 10. kahvi ilmaiseksi">
+                </div>
+                <div class="wz-field" data-q="Asiakkaiden tunnistus" style="margin-bottom:12px">
+                  <p class="wz-q">Miten asiakkaat tunnistetaan?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="kanta_tunnistus" value="Sähköpostilla"> Sähköpostilla</label>
+                    <label><input type="radio" name="kanta_tunnistus" value="Korttinumerolla"> Korttinumerolla</label>
+                    <label><input type="radio" name="kanta_tunnistus" value="Sovelluksessa"> Sovelluksessa</label>
+                    <label><input type="radio" name="kanta_tunnistus" value="En tiedä"> En tiedä</label>
+                  </div>
+                </div>
+                <p class="wz-hint">Staattisilla sivuilla tämä toteutetaan usein kevyesti (esim. ajanvaraus- tai
+                   uutiskirjejärjestelmän kautta). Kerromme parhaan tavan sinulle.</p>
+              </div>
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Verkkokauppa" data-price="790" data-cond="cond-verkkokauppa"> Verkkokauppa
+              </label>
+              <div class="wz-cond" id="cond-verkkokauppa" hidden>
+                <h4>Verkkokauppa</h4>
+                <p class="wz-hint">Mahtavaa, perustat verkkokaupan! Muutama kysymys, niin saamme sen heti oikein
+                   – säästät itsesi ja meidät turhalta sähköpostiralilta.</p>
+                <div class="wz-field" data-q="Tuotteiden määrä" style="margin-bottom:12px">
+                  <p class="wz-q">Montako tuotetta myyt suunnilleen?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="vk_maara" value="Alle 10"> Alle 10</label>
+                    <label><input type="radio" name="vk_maara" value="10–50"> 10–50</label>
+                    <label><input type="radio" name="vk_maara" value="Yli 50"> Yli 50</label>
+                    <label><input type="radio" name="vk_maara" value="En tiedä vielä"> En tiedä vielä</label>
+                  </div>
+                </div>
+                <div class="wz-field" data-q="Tuotetyyppi" style="margin-bottom:12px">
+                  <p class="wz-q">Millaisia tuotteita?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="vk_tyyppi" value="Fyysisiä (postitettavia)"> Fyysisiä (postitettavia)</label>
+                    <label><input type="radio" name="vk_tyyppi" value="Digitaalisia (lataukset)"> Digitaalisia (lataukset)</label>
+                    <label><input type="radio" name="vk_tyyppi" value="Palveluita"> Palveluita</label>
+                    <label><input type="radio" name="vk_tyyppi" value="Sekä että"> Sekä että</label>
+                  </div>
+                </div>
+                <div class="wz-field" data-q="Varastonhallinta" style="margin-bottom:12px">
+                  <p class="wz-q">Tarvitsetko varastonhallintaa?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="vk_varasto" value="Kyllä, saldot pitää näkyä"> Kyllä, saldot pitää näkyä</label>
+                    <label><input type="radio" name="vk_varasto" value="Ei, teen pieniä eriä"> Ei, teen pieniä eriä</label>
+                    <label><input type="radio" name="vk_varasto" value="En osaa sanoa"> En osaa sanoa</label>
+                  </div>
+                  <p class="wz-hint">Varastonhallinta näyttää asiakkaalle, montako tuotetta on jäljellä.</p>
+                </div>
+                <div class="wz-field" data-q="Maksutavat" style="margin-bottom:12px">
+                  <p class="wz-q">Mitä maksutapoja haluat tarjota?</p>
+                  <div class="wz-checks">
+                    <label><input type="checkbox" name="vk_maksu" value="Korttimaksu"> Korttimaksu</label>
+                    <label><input type="checkbox" name="vk_maksu" value="Verkkopankki"> Verkkopankki</label>
+                    <label><input type="checkbox" name="vk_maksu" value="MobilePay"> MobilePay</label>
+                    <label><input type="checkbox" name="vk_maksu" value="Lasku tai osamaksu (Klarna)"> Lasku tai osamaksu (Klarna)</label>
+                    <label><input type="checkbox" name="vk_maksu" value="En tiedä — suositelkaa te"> En tiedä – suositelkaa te</label>
+                  </div>
+                  <p class="wz-hint">Emme odota, että tiedät tekniikan. Lyhyesti: pieneen tai satunnaiseen myyntiin
+                     <b>Stripe</b> (kortit, ei kuukausimaksua) on edullisin. Suomalaisiin verkkopankkeihin ja
+                     MobilePayhin <b>Paytrail</b> (14,90 €/kk + maksukohtainen kulu). <b>Klarna</b> tuo laskun ja
+                     osamaksun. Suosittelemme sinulle sopivimman.</p>
+                </div>
+                <div class="wz-field" data-q="Toimitustavat" style="margin-bottom:12px">
+                  <p class="wz-q">Toimitustavat:</p>
+                  <div class="wz-checks">
+                    <label><input type="checkbox" name="vk_toimitus" value="Posti"> Posti</label>
+                    <label><input type="checkbox" name="vk_toimitus" value="Nouto liikkeestä"> Nouto liikkeestä</label>
+                    <label><input type="checkbox" name="vk_toimitus" value="Matkahuolto"> Matkahuolto</label>
+                    <label><input type="checkbox" name="vk_toimitus" value="Kotiinkuljetus"> Kotiinkuljetus</label>
+                    <label><input type="checkbox" name="vk_toimitus_muu_on" value="Muu" data-cond="cond-vk-toimitus-muu"> Muu</label>
+                  </div>
+                  <div class="wz-cond" id="cond-vk-toimitus-muu" hidden>
+                    <div class="wz-field" data-q="Muu toimitustapa" style="margin-bottom:12px">
+                      <label for="f-vk-toimitus-muu">Mikä toimitustapa?</label>
+                      <input class="wz-input" type="text" id="f-vk-toimitus-muu" name="vk_toimitus_muu" placeholder="esim. oma pyöräkuljetus keskustaan">
+                    </div>
+                  </div>
+                </div>
+                <div class="wz-field" data-q="ALV-rekisteri" style="margin-bottom:12px">
+                  <p class="wz-q">Oletteko ALV-rekisterissä?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="vk_alv" value="Kyllä"> Kyllä</label>
+                    <label><input type="radio" name="vk_alv" value="Ei (liikevaihto alle 20 000 €/v)"> Ei (liikevaihto alle 20 000 €/v)</label>
+                    <label><input type="radio" name="vk_alv" value="En tiedä"> En tiedä</label>
+                  </div>
+                  <p class="wz-hint">Vuodesta 2025 ALV-velvollisuus alkaa, kun liikevaihto ylittää 20 000 €/vuosi.
+                     Yleinen ALV 25,5 %, ruoalla 13,5 %. Jos et tiedä, autamme selvittämään.</p>
+                </div>
+                <p class="wz-hint">Maksupalvelulla on omat jatkuvat kulunsa (Stripe ~1,5 % + 0,25 €/maksu tai
+                   Paytrail 14,90 €/kk). Ne maksat suoraan palveluntarjoajalle, eivät sisälly Studio Blomman hintaan.</p>
+              </div>
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Some-syötteen upotus" data-price="49" data-cond="cond-some"> Some-syötteen upotus (49 €)
+              </label>
+              <div class="wz-cond" id="cond-some" hidden>
+                <h4>Some-syöte</h4>
+                <div class="wz-field" data-q="Upotettava kanava" style="margin-bottom:12px">
+                  <p class="wz-q">Mikä kanava upotetaan?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="some_kanava" value="Instagram"> Instagram</label>
+                    <label><input type="radio" name="some_kanava" value="Facebook"> Facebook</label>
+                    <label><input type="radio" name="some_kanava" value="TikTok"> TikTok</label>
+                    <label><input type="radio" name="some_kanava_muu_on" value="Muu" data-cond="cond-some-muu"> Muu</label>
+                  </div>
+                  <div class="wz-cond" id="cond-some-muu" hidden>
+                    <div class="wz-field" data-q="Muu some-kanava" style="margin-bottom:12px">
+                      <label for="f-some-muu">Mikä kanava?</label>
+                      <input class="wz-input" type="text" id="f-some-muu" name="some_kanava_muu" placeholder="esim. Pinterest">
+                    </div>
+                  </div>
+                </div>
+                <div class="wz-field" data-q="Tilin käyttäjänimi tai linkki" style="margin-bottom:12px">
+                  <label for="f-some-tili">Tilin käyttäjänimi tai linkki:</label>
+                  <input class="wz-input" type="text" id="f-some-tili" name="some_tili" placeholder="esim. @kahvilakaneli">
+                </div>
+              </div>
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Blogi / uutiset" data-price="149" data-cond="cond-blogi"> Blogi / uutiset
+              </label>
+              <div class="wz-cond" id="cond-blogi" hidden>
+                <h4>Blogi / uutiset</h4>
+                <div class="wz-field" data-q="Kuka kirjoittaa blogin" style="margin-bottom:12px">
+                  <p class="wz-q">Kuka kirjoittaa sisällön?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="blogi_kirjoittaja" value="Minä itse"> Minä itse</label>
+                    <label><input type="radio" name="blogi_kirjoittaja" value="Studio Blomma"> Studio Blomma</label>
+                    <label><input type="radio" name="blogi_kirjoittaja" value="Yhdessä"> Yhdessä</label>
+                  </div>
+                </div>
+                <div class="wz-field" data-q="Julkaisutiheys" style="margin-bottom:12px">
+                  <p class="wz-q">Kuinka usein julkaiset?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="blogi_tiheys" value="Viikoittain"> Viikoittain</label>
+                    <label><input type="radio" name="blogi_tiheys" value="Kuukausittain"> Kuukausittain</label>
+                    <label><input type="radio" name="blogi_tiheys" value="Satunnaisesti"> Satunnaisesti</label>
+                  </div>
+                </div>
+              </div>
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Monikielisyys (+1 kieli)" data-price="149" data-cond="cond-kielet"> Monikielisyys (+1 kieli)
+              </label>
+              <div class="wz-cond" id="cond-kielet" hidden>
+                <h4>Monikielisyys</h4>
+                <div class="wz-field" data-q="Kielet" style="margin-bottom:12px">
+                  <p class="wz-q">Mitkä kielet?</p>
+                  <p class="wz-hint">Suomi on aina mukana. Lisää tarvitsemasi kielet.</p>
+                  <div class="wz-repeat" data-repeat>
+                    <div class="wz-repeat-row"><input class="wz-input" type="text" name="kieli" placeholder="esim. englanti"></div>
+                  </div>
+                  <button type="button" class="wz-add" data-add>+ Lisää kieli</button>
+                </div>
+                <div class="wz-field" data-q="Kuka kääntää" style="margin-bottom:12px">
+                  <p class="wz-q">Kuka kääntää tekstit?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="kielet_kaantaja" value="Minulla on käännökset valmiina"> Minulla on käännökset valmiina</label>
+                    <label><input type="radio" name="kielet_kaantaja" value="Studio Blomma järjestää"> Studio Blomma järjestää</label>
+                    <label><input type="radio" name="kielet_kaantaja" value="En tiedä vielä"> En tiedä vielä</label>
+                  </div>
+                </div>
+                <p class="wz-hint">Jokainen lisäkieli 149 €. Käännöstyö veloitetaan erikseen, jos teemme sen.</p>
+              </div>
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Hakukoneoptimoinnin perusta (SEO)" data-price="120" data-cond="cond-seo"> Hakukoneoptimoinnin perusta / SEO (120 €)
+              </label>
+              <div class="wz-cond" id="cond-seo" hidden>
+                <h4>Hakukoneoptimointi (SEO)</h4>
+                <div class="wz-field" data-q="Tärkeimmät hakusanat" style="margin-bottom:12px">
+                  <p class="wz-q">Tärkeimmät hakusanat, joilla haluat löytyä:</p>
+                  <div class="wz-repeat" data-repeat>
+                    <div class="wz-repeat-row"><input class="wz-input" type="text" name="seo_hakusana" placeholder="esim. gluteeniton kahvila Helsinki"></div>
+                  </div>
+                  <button type="button" class="wz-add" data-add>+ Lisää hakusana</button>
+                </div>
+                <div class="wz-field" data-q="Toiminta-alue" style="margin-bottom:12px">
+                  <label for="f-seo-alue">Toimitko tietyllä alueella?</label>
+                  <input class="wz-input" type="text" id="f-seo-alue" name="seo_alue" placeholder="esim. Koillis-Helsinki">
+                </div>
+              </div>
+
+              <label data-feat>
+                <input type="checkbox" name="lisaominaisuus" value="Uutiskirje-integraatio" data-price="79" data-cond="cond-uutiskirje"> Uutiskirje-integraatio (79 €)
+              </label>
+              <div class="wz-cond" id="cond-uutiskirje" hidden>
+                <h4>Uutiskirje</h4>
+                <div class="wz-field" data-q="Onko tilaajalista" style="margin-bottom:12px">
+                  <p class="wz-q">Onko sinulla jo tilaajalista?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="uutiskirje_lista" value="Kyllä"> Kyllä</label>
+                    <label><input type="radio" name="uutiskirje_lista" value="Ei"> Ei</label>
+                  </div>
+                </div>
+                <div class="wz-field" data-q="Uutiskirjetyökalu" style="margin-bottom:12px">
+                  <p class="wz-q">Mikä työkalu?</p>
+                  <div class="wz-checks">
+                    <label><input type="radio" name="uutiskirje_tyokalu" value="MailerLite"> MailerLite</label>
+                    <label><input type="radio" name="uutiskirje_tyokalu" value="Mailchimp"> Mailchimp</label>
+                    <label><input type="radio" name="uutiskirje_tyokalu" value="En tiedä — suositelkaa"> En tiedä – suositelkaa</label>
+                  </div>
+                </div>
+                <p class="wz-hint">Suosittelemme <b>MailerLiteä</b> – edullisempi ja helpompi kuin Mailchimp.
+                   Ilmainen pienelle listalle, maksullinen alkaen ~12 $/kk.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== VAIHE 4 — Visuaalinen ilme & brändi ===== -->
+        <section class="wz-step" data-step="4" data-title="Visuaalinen ilme & brändi" tabindex="-1">
+          <div class="wz-card">
+            <p class="wz-step__num">4 · Visuaalinen ilme & brändi</p>
+            <h2>Nyt päästään kivaan osaan!</h2>
+            <p class="wz-saate">Nyt päästään kivaan osaan! Kerro, millainen tunnelma sivuille halutaan.
+               Älä huoli teknisistä termeistä – riittää että kuvailet fiilistä.</p>
+
+            <div class="wz-field" data-q="Logon tilanne">
+              <p class="wz-q">Onko teillä jo logo?</p>
+              <div class="wz-checks">
+                <label><input type="radio" name="logo" value="Kyllä" data-cond="cond-logo"> Kyllä</label>
+                <label><input type="radio" name="logo" value="Ei, tarvitsemme logon"> Ei, tarvitsemme logon</label>
+                <label><input type="radio" name="logo" value="On, mutta haluamme uuden"> On, mutta haluamme uuden</label>
+              </div>
+              <div class="wz-cond" id="cond-logo" hidden>
+                <div class="wz-field" data-q="Logotiedosto" style="margin-bottom:14px">
+                  <label for="f-logo">Lataa logosi (max ~5 MB)</label>
+                  <input class="wz-file" type="file" id="f-logo" name="logo_tiedosto" accept="image/*,.pdf,.svg,.ai,.eps">
+                  <p class="wz-hint">Isommat tiedostot: lähetä linkki (Drive/WeTransfer) – kerro siitä vaiheessa "aineiston toimitus".</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="wz-field" data-q="Värit">
+              <p class="wz-q">Värit – kolme tapaa, valitse mikä tahansa</p>
+              <div class="wz-tip"><b>💡 Et tarvitse värikoodeja!</b> Helpoin tapa: lähetä kuva, jossa lempivärisi
+                 näkyvät – vaikka logo, valokuva tai sisustuskuva – niin poimimme värit puolestasi.</div>
+              <div class="wz-field" data-q="Värikuva" style="margin-bottom:12px">
+                <label for="f-varikuva">Lataa kuva, josta värit näkyvät (max ~5 MB)</label>
+                <input class="wz-file" type="file" id="f-varikuva" name="varikuva" accept="image/*">
+              </div>
+              <div class="wz-field" data-q="Värit sanoin" style="margin-bottom:12px">
+                <label for="f-varit-sanat">Tai kuvaile sanoin</label>
+                <textarea class="wz-textarea" id="f-varit-sanat" name="varit_sanat" rows="2"></textarea>
+                <div class="wz-ex"><b>💡 Esimerkki:</b> Lämpimät maanläheiset sävyt – terrakottaa, kermaa, ehkä
+                  ripaus vihreää. En tykkää kirkkaan sinisestä enkä mustasta.</div>
+              </div>
+              <div class="wz-field" data-q="Värikoodit" style="margin-bottom:0">
+                <label for="f-varit-koodit">Tai jos satut tietämään värikoodit (esim. #8B5E3C), kirjoita ne tähän</label>
+                <input class="wz-input" type="text" id="f-varit-koodit" name="varit_koodit" placeholder="esim. #8B5E3C, #E2D7BA">
+              </div>
+            </div>
+
+            <div class="wz-field" data-q="Valmiit tekstit">
+              <p class="wz-q">Onko teillä valmiita tekstejä sivulle?</p>
+              <div class="wz-checks">
+                <label><input type="radio" name="tekstit" value="Kyllä, valmiina" data-cond="cond-tekstit"> Kyllä, valmiina</label>
+                <label><input type="radio" name="tekstit" value="Osittain"> Osittain</label>
+                <label><input type="radio" name="tekstit" value="Ei, tarvitsemme apua teksteissä"> Ei, tarvitsemme apua teksteissä</label>
+              </div>
+              <div class="wz-cond" id="cond-tekstit" hidden>
+                <div class="wz-field" data-q="Tekstitiedosto" style="margin-bottom:12px">
+                  <label for="f-tekstit">Lataa tekstit (max ~5 MB)</label>
+                  <input class="wz-file" type="file" id="f-tekstit" name="tekstit_tiedosto" accept=".doc,.docx,.pdf,.txt,.rtf,.pages">
+                </div>
+                <div class="wz-field" data-q="Tekstit kirjoitettuna" style="margin-bottom:12px">
+                  <label for="f-tekstit-teksti">…tai kirjoita ne suoraan tähän</label>
+                  <textarea class="wz-textarea" id="f-tekstit-teksti" name="tekstit_teksti" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="wz-field" data-q="Valokuvat">
+              <p class="wz-q">Onko teillä valokuvia käytettäväksi?</p>
+              <div class="wz-checks">
+                <label><input type="radio" name="valokuvat" value="Kyllä" data-cond="cond-valokuvat"> Kyllä</label>
+                <label><input type="radio" name="valokuvat" value="Ei, tarvitsemme kuvia"> Ei, tarvitsemme kuvia</label>
+                <label><input type="radio" name="valokuvat" value="Osa löytyy" data-cond="cond-valokuvat"> Osa löytyy</label>
+              </div>
+              <div class="wz-cond" id="cond-valokuvat" hidden>
+                <div class="wz-field" data-q="Valokuvat (tiedostot)" style="margin-bottom:12px">
+                  <label for="f-valokuvat">Lataa valokuvia (voit valita monta, max ~5 MB/tiedosto)</label>
+                  <input class="wz-file" type="file" id="f-valokuvat" name="valokuvat_tiedostot" accept="image/*" multiple>
+                  <p class="wz-hint">Isommille tiedostoille: lähetä linkki (Drive/WeTransfer).</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="wz-field" data-q="Aineiston toimitustapa">
+              <p class="wz-q">Miten haluat toimittaa aineiston (kuvat, logo, tekstit)?</p>
+              <div class="wz-checks">
+                <label><input type="radio" name="aineisto_toimitus" value="Latasin tähän"> Latasin tähän</label>
+                <label><input type="radio" name="aineisto_toimitus" value="Lähetän linkin (Google Drive tai Dropbox)" data-cond="cond-aineisto-linkki"> Lähetän linkin (Google Drive tai Dropbox)</label>
+                <label><input type="radio" name="aineisto_toimitus" value="Lähetän WeTransferillä sähköpostiin"> Lähetän WeTransferillä sähköpostiin</label>
+                <label><input type="radio" name="aineisto_toimitus" value="Tarvitsen apua"> Tarvitsen apua</label>
+              </div>
+              <p class="wz-hint">Voit lähettää aineiston monella tavalla: lataa tiedostot suoraan tähän
+                 (max ~5 MB/tiedosto), jaa Drive-/Dropbox-linkki, tai lähetä isommat tiedostot WeTransferillä
+                 osoitteeseen info@studioblomma.com. Älä jännitä – autamme, jos tämä tuntuu hankalalta.</p>
+              <div class="wz-cond" id="cond-aineisto-linkki" hidden>
+                <div class="wz-field" data-q="Aineiston linkki" style="margin-bottom:12px">
+                  <label for="f-aineisto-linkki">Liitä linkki aineistoon</label>
+                  <input class="wz-input" type="url" id="f-aineisto-linkki" name="aineisto_linkki" placeholder="https://drive.google.com/...">
+                </div>
+              </div>
+            </div>
+
+            <div class="wz-field" data-q="Tunnelma">
+              <p class="wz-q">Millainen tunnelma sivuille halutaan?</p>
+              <div class="wz-checks">
+                <label><input type="checkbox" name="tunnelma" value="Lämmin & kotoisa"> Lämmin & kotoisa</label>
+                <label><input type="checkbox" name="tunnelma" value="Tyylikäs & minimalistinen"> Tyylikäs & minimalistinen</label>
+                <label><input type="checkbox" name="tunnelma" value="Leikkisä & värikäs"> Leikkisä & värikäs</label>
+                <label><input type="checkbox" name="tunnelma" value="Luonnollinen & maanläheinen"> Luonnollinen & maanläheinen</label>
+                <label><input type="checkbox" name="tunnelma" value="Ammattimainen & vakaa"> Ammattimainen & vakaa</label>
+                <label><input type="checkbox" name="tunnelma_muu_on" value="Muu" data-cond="cond-tunnelma-muu"> Muu</label>
+              </div>
+              <div class="wz-cond" id="cond-tunnelma-muu" hidden>
+                <div class="wz-field" data-q="Muu tunnelma" style="margin-bottom:12px">
+                  <label for="f-tunnelma-muu">Kerro tarkemmin</label>
+                  <input class="wz-input" type="text" id="f-tunnelma-muu" name="tunnelma_muu" placeholder="esim. nostalginen ja retro">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== VAIHE 5 — Inspiraatio ===== -->
+        <section class="wz-step" data-step="5" data-title="Inspiraatio" tabindex="-1">
+          <div class="wz-card">
+            <p class="wz-step__num">5 · Inspiraatio</p>
+            <h2>Näytä, mistä pidät!</h2>
+            <p class="wz-saate">Tämä on meidän lempivaiheemme – näytä, mistä pidät! Kuvat ja esimerkit kertovat
+               meille enemmän kuin tuhat sanaa. Mikään ei ole liian pieni tai hassu jaettavaksi.</p>
+
+            <div class="wz-field" data-q="Pinterest / moodboard">
+              <p class="wz-q">Pinterest-taulu tai moodboard</p>
+              <div class="wz-tip">
+                <b>📌 Etkö ole tehnyt Pinterest-taulua? Ei hätää – näin se käy 2 minuutissa:</b>
+                <ol>
+                  <li>Mene Pinterestiin ja luo uusi taulu.</li>
+                  <li>Laita "Keep this board secret" päälle, jos haluat sen yksityiseksi.</li>
+                  <li>Tallenna sinne kuvia, joista pidät.</li>
+                  <li>Klikkaa "Invite collaborators" → kopioi linkki → liitä se alle.</li>
+                </ol>
+                <p style="margin:8px 0 0"><b>Paras vinkki:</b> jätä suosikkikuviisi muistiinpano (note) ja kerro,
+                   mistä juuri siinä pidät! Ei Pinterestiä? Lataa vain kuvia suoraan alla.</p>
+              </div>
+              <div class="wz-field" data-q="Pinterest-linkki" style="margin-bottom:12px">
+                <label for="f-pinterest">Pinterest-taulun linkki</label>
+                <input class="wz-input" type="text" id="f-pinterest" name="pinterest" placeholder="esim. pinterest.com/maria/kahvila-ideat">
+              </div>
+              <div class="wz-field" data-q="Inspiraatiokuvat" style="margin-bottom:0">
+                <label for="f-inspis-kuvat">Tai lataa inspiraatiokuvia suoraan (max ~5 MB/tiedosto)</label>
+                <input class="wz-file" type="file" id="f-inspis-kuvat" name="inspis_kuvat" accept="image/*" multiple>
+              </div>
+            </div>
+
+            <div class="wz-field" data-q="Sivuja joista pidät (ja miksi)">
+              <p class="wz-q">Sivuja, joista pidät – ja mistä juuri niissä pidät</p>
+              <p class="wz-hint">Voivat olla kilpailijoita tai ihan mitä tahansa sivuja. Kerro rohkeasti sekä
+                 hyvä että huono – se auttaa meitä valtavasti.</p>
+              <div class="wz-repeat" data-repeat>
+                <div class="wz-repeat-row" style="flex-wrap:wrap">
+                  <input class="wz-input" type="text" name="inspis_osoite" placeholder="esim. www.toinenkahvila.fi" style="flex:1 1 100%">
+                  <input class="wz-input" type="text" name="inspis_miksi" placeholder="Mistä pidät? Mistä et?" style="flex:1 1 100%">
+                </div>
+              </div>
+              <div class="wz-ex"><b>💡 Esimerkki:</b> Tykkään isoista lämpimistä kuvista ja siitä että menu löytyy
+                heti. Mutta etusivu on liian täynnä tekstiä, ja värit ovat mielestäni tylsät.</div>
+              <button type="button" class="wz-add" data-add data-add-multi>+ Lisää sivu</button>
+            </div>
+
+            <div class="wz-field" data-q="Mitä et halua sivullesi">
+              <label for="f-ei-halua">Mitä et halua sivullesi?</label>
+              <textarea class="wz-textarea" id="f-ei-halua" name="ei_halua" rows="3"></textarea>
+              <div class="wz-ex"><b>💡 Esimerkki:</b> En halua mitään välkkyvää tai kiiltävää. En pidä tummista
+                taustoista. Ei myyntipop-uppeja heti etusivulla.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== VAIHE 6 — Aikataulu & käytäntö ===== -->
+        <section class="wz-step" data-step="6" data-title="Aikataulu & käytäntö" tabindex="-1">
+          <div class="wz-card">
+            <p class="wz-step__num">6 · Aikataulu & käytäntö</p>
+            <h2>Käytännön asiat</h2>
+            <p class="wz-saate">Melkein valmista! Muutama käytännön kysymys, niin osaamme suunnitella aikataulun
+               sinun mukaasi.</p>
+
+            <div class="wz-field" data-q="Toivottu aikataulu">
+              <p class="wz-q">Milloin haluaisit sivun valmiiksi?</p>
+              <div class="wz-checks">
+                <label><input type="radio" name="aikataulu" value="Ei kiirettä"> Ei kiirettä</label>
+                <label><input type="radio" name="aikataulu" value="1 kk sisällä"> 1 kk sisällä</label>
+                <label><input type="radio" name="aikataulu" value="2–3 kk"> 2–3 kk</label>
+                <label><input type="radio" name="aikataulu" value="Tietty päivä" data-cond="cond-aikataulu-pvm"> Tietty päivä</label>
+              </div>
+              <div class="wz-cond" id="cond-aikataulu-pvm" hidden>
+                <div class="wz-field" data-q="Tavoitepäivä" style="margin-bottom:12px">
+                  <label for="f-aikataulu-pvm">Mikä päivä?</label>
+                  <input class="wz-input" type="text" id="f-aikataulu-pvm" name="aikataulu_pvm" placeholder="esim. 1.6.2026">
+                </div>
+              </div>
+            </div>
+
+            <div class="wz-field" data-q="Syy aikataulun takana">
+              <label for="f-aikataulu-syy">Onko jokin tapahtuma tai syy aikataulun takana?</label>
+              <input class="wz-input" type="text" id="f-aikataulu-syy" name="aikataulu_syy" placeholder="esim. kesäterassin avajaiset kesäkuussa">
+            </div>
+
+            <div class="wz-field" data-q="Alustava budjetti">
+              <label for="f-budjetti">Alustava budjetti</label>
+              <select class="wz-select" id="f-budjetti" name="budjetti">
+                <option value="">Valitse…</option>
+                <option value="alle 500 €">alle 500 €</option>
+                <option value="500–1000 €">500–1000 €</option>
+                <option value="1000–2000 €">1000–2000 €</option>
+                <option value="yli 2000 €">yli 2000 €</option>
+                <option value="en osaa vielä sanoa">en osaa vielä sanoa</option>
+              </select>
+            </div>
+
+            <div class="wz-field" data-q="Kuka päivittää sivustoa">
+              <p class="wz-q">Kuka päivittää sivustoa jatkossa?</p>
+              <div class="wz-checks">
                 <label><input type="radio" name="yllapito" value="Haluan päivittää itse"> Haluan päivittää itse</label>
                 <label><input type="radio" name="yllapito" value="Toivon että te hoidatte"> Toivon että te hoidatte</label>
                 <label><input type="radio" name="yllapito" value="En osaa vielä sanoa"> En osaa vielä sanoa</label>
               </div>
             </div>
-          </fieldset>
 
-          <!-- 7 -->
-          <fieldset class="ilo__group">
-            <legend>7 · Vapaa sana</legend>
-            <div class="ilo__field" data-q="Vapaa sana">
-              <label>Onko jotain muuta, mitä haluat kertoa? Unelmia, huolia, ideoita, ihan mitä vain.
-                <textarea name="vapaa" rows="4"></textarea>
-              </label>
+            <div class="wz-field" data-q="Paras yhteydenpitotapa">
+              <p class="wz-q">Paras tapa pitää yhteyttä?</p>
+              <div class="wz-checks">
+                <label><input type="radio" name="yhteystapa" value="Sähköposti"> Sähköposti</label>
+                <label><input type="radio" name="yhteystapa" value="Puhelin"> Puhelin</label>
+                <label><input type="radio" name="yhteystapa" value="WhatsApp"> WhatsApp</label>
+              </div>
             </div>
-          </fieldset>
-
-          <div class="ilo__actions">
-            <button type="submit" class="btn btn--dark btn--lg">Lähetä ideointilomake</button>
-            <p class="ilo__note">Demo · lähetys avaa sähköpostiohjelmasi, jossa voit vielä tarkistaa viestin ennen lähetystä.</p>
           </div>
-        </form>
-      </div>
-    </section>
+        </section>
+
+        <!-- ===== VAIHE 7 — Vapaa sana ===== -->
+        <section class="wz-step" data-step="7" data-title="Vapaa sana" tabindex="-1">
+          <div class="wz-card">
+            <p class="wz-step__num">7 · Vapaa sana</p>
+            <h2>Sinun tilasi</h2>
+            <p class="wz-saate">Jäikö jotain mielen päälle? Tämä on sinun tilasi – kirjoita mitä vain. Unelmia,
+               huolia, hassuja ideoita, ihan mitä tahansa. Mikään ei ole liian pieni.</p>
+
+            <div class="wz-field" data-q="Vapaa sana">
+              <label for="f-vapaa">Vapaa sana</label>
+              <textarea class="wz-textarea" id="f-vapaa" name="vapaa" rows="5"></textarea>
+              <div class="wz-ex"><b>💡 Esimerkki:</b> Haaveilen, että sivu tuntuisi yhtä lämpimältä kuin kahvila
+                itse. Vähän jännittää, osaanko itse päivittää sitä jälkeenpäin. Ja jos mahdollista, haluaisin
+                että koira-aiheinen tunnelma näkyisi jotenkin!</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigaatio -->
+        <div class="wz-nav">
+          <button type="button" class="btn btn--outline wz-nav__prev" id="wz-prev">← Edellinen</button>
+          <button type="button" class="btn btn--dark btn--lg" id="wz-next">Seuraava →</button>
+        </div>
+        <div class="wz-status" id="wz-status" hidden></div>
+      </form>
+
+      <!-- ===== KIITOSNÄYTTÖ ===== -->
+      <section class="wz-done" id="wz-done" hidden aria-labelledby="wz-done-title">
+        <h1 id="wz-done-title">Kiitos, että jaoit unelmasi! 🌸</h1>
+        <p>Sait juuri säästettyä meiltä molemmilta paljon edestakaista sähköpostia. Käymme vastauksesi huolella
+           läpi ja palaamme pian valitsemallasi tavalla.</p>
+        <p><strong>Teemme suomalaista työtä – pian myös sinun sivusi.</strong></p>
+        <div style="margin-top:22px">
+          <a href="index.html" class="btn btn--primary">Takaisin etusivulle</a>
+        </div>
+      </section>
+
+    </div>
   </main>
 
   <!-- ============ 300, ALALAIDAN BRÄNDIBANNERI ============ -->
@@ -331,99 +985,455 @@
 
   <script src="script.js?v=20260624062514"></script>
   <script>
+  /* =========================================================
+     Ideointilomake-velho — vanilla JS
+     - monivaiheinen navigointi + edistymispalkki
+     - blomma.estimates -integraatio (esivalinta + "jo laskurissa")
+     - ehdolliset osiot
+     - automaattinen tallennus (blomma.brief.draft)
+     - koneluettava brief -koonti lähetyksessä
+     ========================================================= */
   (function () {
-    var form = document.getElementById("ilo-form");
+    "use strict";
+    var DRAFT_KEY = "blomma.brief.draft";
+    var ESTIMATES_KEY = "blomma.estimates";
+    var euro = function (n) { return Number(n).toLocaleString("fi-FI") + " €"; };
+    var norm = function (s) { return (s || "").toString().toLowerCase().replace(/[^a-z0-9åäö]/g, ""); };
+
+    var intro = document.getElementById("wz-intro");
+    var form = document.getElementById("wz-form");
+    var done = document.getElementById("wz-done");
     if (!form) return;
 
-    /* Toistettavat kentät (+ Lisää) */
-    form.querySelectorAll(".ilo__add").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var field = btn.closest(".ilo__field");
-        var repeat = field.querySelector(".ilo__repeat");
-        var firstRow = repeat.querySelector(".ilo__repeat-row");
-        var clone = firstRow.cloneNode(true);
-        var input = clone.querySelector("input, textarea");
-        if (input) input.value = "";
-        var rm = document.createElement("button");
-        rm.type = "button";
-        rm.className = "ilo__remove";
-        rm.setAttribute("aria-label", "Poista");
-        rm.textContent = "×";
-        rm.addEventListener("click", function () { clone.remove(); });
-        clone.appendChild(rm);
-        repeat.appendChild(clone);
-        if (input) input.focus();
-      });
-    });
+    var steps = [].slice.call(form.querySelectorAll(".wz-step"));
+    var total = steps.length; /* 7 */
+    var current = 0;
 
-    /* Hintalaskurin valinnat huomioon (jos tehty) */
-    try {
-      var note = document.getElementById("ilo-laskuri-note");
-      var ests = JSON.parse(localStorage.getItem("blomma.estimates") || "[]");
+    var elStep = document.getElementById("wz-progress-step");
+    var elTitle = document.getElementById("wz-progress-title");
+    var elFill = document.getElementById("wz-progress-fill");
+    var btnPrev = document.getElementById("wz-prev");
+    var btnNext = document.getElementById("wz-next");
+    var statusEl = document.getElementById("wz-status");
+
+    /* ---------- Estimates ---------- */
+    function loadEstimates() {
+      try { return JSON.parse(localStorage.getItem(ESTIMATES_KEY)) || []; }
+      catch (e) { return []; }
+    }
+
+    /* ---------- Laskuri-laatikko + esivalinta ---------- */
+    var BASIC_SISALTO = ["Etusivu", "Palvelut / Tuotteet", "Tietoa meistä",
+      "Yhteystiedot + lomake", "Galleria / Referenssit", "Hinnasto"];
+
+    function estimateItemNames(ests) {
+      var names = [];
+      ests.forEach(function (e) {
+        (e.items || []).forEach(function (it) { if (it && it.name) names.push(it.name); });
+        (e.recurring || []).forEach(function (r) { if (r && r.name) names.push(r.name); });
+      });
+      return names;
+    }
+
+    function featureInEstimates(featureValue, itemNames) {
+      var nf = norm(featureValue);
+      if (!nf) return false;
+      return itemNames.some(function (n) {
+        var ni = norm(n);
+        return ni && (ni.indexOf(nf) !== -1 || nf.indexOf(ni) !== -1);
+      });
+    }
+
+    function buildLaskuriBox() {
+      var box = document.getElementById("wz-laskuri");
+      var ests = loadEstimates();
       var labels = ests.map(function (e) { return e.label; }).filter(Boolean);
-
-      if (note) {
-        /* Basic-paketin sisältö, aina mukana */
-        note.insertAdjacentHTML("beforeend",
-          "<p class='ilo__laskuri-list'><strong>Olet valinnut Basic-paketin." +
-          (labels.length ? " Lisäksi laskurissa: " + labels.join(", ") + "." : "") +
-          "</strong></p>" +
-          "<p class='ilo__laskuri-basic'>Basic-pakettiin kuuluu aina: Etusivu, " +
-          "Palvelut / Tuotteet, Tietoa meistä, Yhteystiedot + lomake, " +
-          "Galleria / Referenssit ja Hinnasto. Nämä ovat jo mukana alustavassa laskelmassa.</p>");
+      var html = "<h3>Olet valinnut Basic-paketin 🌸</h3>";
+      html += "<p>Basic sisältää aina:</p><ul>";
+      BASIC_SISALTO.forEach(function (s) { html += "<li>" + s + "</li>"; });
+      html += "</ul>";
+      html += "<p class='wz-laskuri__note'>Nämä kuuluvat aina pakettiin – niitä ei tarvitse valita erikseen.</p>";
+      if (labels.length) {
+        html += "<p style='margin-top:10px;margin-bottom:0'><strong>Lisäksi laskurissa:</strong> " +
+          labels.join(", ") + ".</p>";
       }
+      box.innerHTML = html;
+    }
 
-      /* Merkitse ja valitse automaattisesti ne kohdat, jotka on jo valittu laskurissa */
-      var boxes = [].slice.call(form.querySelectorAll(".ilo__checks input[type=checkbox]"));
-      labels.forEach(function (label) {
-        var l = label.toLowerCase();
-        boxes.forEach(function (b) {
-          var v = b.value.toLowerCase();
-          var hit = v === l || v.indexOf(l) === 0 || l.indexOf(v) === 0;
-          if (hit && !b.dataset.chosen) {
-            b.dataset.chosen = "1";
-            b.checked = true;
-            var lab = b.closest("label");
-            if (lab) {
-              lab.classList.add("is-chosen");
-              lab.insertAdjacentHTML("beforeend",
-                " <span class='ilo__chosen'>jo laskurissa</span>");
-            }
+    /* Esivalitse ne ominaisuudet, jotka löytyvät laskurista; merkitse "jo laskurissa". */
+    function prefillFeatures() {
+      var ests = loadEstimates();
+      var itemNames = estimateItemNames(ests);
+      form.querySelectorAll("#wz-features > label[data-feat]").forEach(function (lab) {
+        var cb = lab.querySelector("input[type=checkbox]");
+        if (!cb) return;
+        var inCalc = featureInEstimates(cb.value, itemNames);
+        cb.dataset.incalc = inCalc ? "1" : "0";
+        if (inCalc && !cb.checked) {
+          cb.checked = true;
+          lab.classList.add("is-chosen");
+          if (!lab.querySelector(".wz-chosen")) {
+            var b = document.createElement("span");
+            b.className = "wz-chosen";
+            b.textContent = "jo laskurissa";
+            lab.appendChild(b);
           }
-        });
-      });
-    } catch (e) {}
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var lines = ["IDEOINTILOMAKE – Studio Blomma", ""];
-      form.querySelectorAll("fieldset.ilo__group").forEach(function (fs) {
-        var sec = [];
-        fs.querySelectorAll(".ilo__field").forEach(function (f) {
-          var q = f.getAttribute("data-q") || "";
-          var val = "";
-          var checks = [].slice.call(f.querySelectorAll("input:checked")).map(function (c) { return c.value; });
-          if (checks.length) {
-            val = checks.join(", ");
-          } else {
-            var els = f.querySelectorAll("input[type=text], input[type=email], input[type=tel], input[type=url], textarea, select");
-            var vals = [].slice.call(els).map(function (e2) { return e2.value.trim(); }).filter(Boolean);
-            if (vals.length) val = vals.join("; ");
-          }
-          if (val) sec.push("• " + q + ": " + val);
-        });
-        if (sec.length) {
-          var legend = fs.querySelector("legend");
-          lines.push("=== " + (legend ? legend.textContent.trim() : "") + " ===");
-          lines = lines.concat(sec);
-          lines.push("");
+          toggleCond(cb);
         }
       });
-      var yritys = (form.querySelector("[name=yritys]") || {}).value || "";
-      var subject = "Ideointilomake" + (yritys ? " – " + yritys : "");
-      window.location.href = "mailto:info@studioblomma.com?subject=" +
-        encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+    }
+
+    /* "Uusi lisäys laskuriisi nähden" -ilmoitus */
+    function updateNewCostNotice(cb) {
+      var lab = cb.closest("label[data-feat]");
+      if (!lab) return;
+      var existing = lab.nextElementSibling && lab.nextElementSibling.classList &&
+        lab.nextElementSibling.classList.contains("wz-newcost") ? lab.nextElementSibling : null;
+      var isNew = cb.checked && cb.dataset.incalc !== "1";
+      if (isNew) {
+        if (!existing) {
+          var div = document.createElement("div");
+          div.className = "wz-newcost";
+          div.innerHTML = "⚠️ <b>Tämä on uusi lisäys laskuriisi nähden.</b> " +
+            cb.value + " lisää hintaan <b>" + euro(cb.dataset.price || 0) +
+            "</b>. Lopullinen hinta vahvistetaan tarjouksessa – ei yllätyksiä.";
+          lab.insertAdjacentElement("afterend", div);
+        }
+      } else if (existing) {
+        existing.remove();
+      }
+    }
+
+    /* ---------- Ehdolliset osiot ---------- */
+    function toggleCond(input) {
+      var id = input.getAttribute("data-cond");
+      /* Radioilla: avaa vain valitun, sulje saman ryhmän muut cond-osiot */
+      if (input.type === "radio") {
+        var group = form.querySelectorAll('input[name="' + input.name + '"]');
+        group.forEach(function (r) {
+          var rid = r.getAttribute("data-cond");
+          if (rid) {
+            var c = document.getElementById(rid);
+            if (c && r !== input) { c.hidden = true; if (!r.checked) clearCond(c); }
+          }
+        });
+      }
+      if (!id) return;
+      var cond = document.getElementById(id);
+      if (!cond) return;
+      var show = input.checked;
+      cond.hidden = !show;
+      if (!show) clearCond(cond);
+    }
+
+    function clearCond(cond) {
+      cond.querySelectorAll("input, textarea, select").forEach(function (el) {
+        if (el.type === "checkbox" || el.type === "radio") {
+          if (el.checked) { el.checked = false; toggleCond(el); }
+        } else if (el.type === "file") {
+          el.value = "";
+        } else {
+          el.value = "";
+        }
+      });
+      /* poista ylimääräiset toistorivit */
+      cond.querySelectorAll(".wz-repeat").forEach(function (rep) {
+        var rows = rep.querySelectorAll(".wz-repeat-row");
+        for (var i = 1; i < rows.length; i++) rows[i].remove();
+      });
+    }
+
+    /* ---------- Toistettavat kentät ---------- */
+    form.addEventListener("click", function (e) {
+      var add = e.target.closest("[data-add]");
+      if (add) {
+        var field = add.closest(".wz-field");
+        var rep = field.querySelector(".wz-repeat");
+        var first = rep.querySelector(".wz-repeat-row");
+        var clone = first.cloneNode(true);
+        clone.querySelectorAll("input, textarea").forEach(function (i) { i.value = ""; });
+        if (!clone.querySelector(".wz-remove")) {
+          var rm = document.createElement("button");
+          rm.type = "button";
+          rm.className = "wz-remove";
+          rm.setAttribute("aria-label", "Poista rivi");
+          rm.textContent = "×";
+          clone.appendChild(rm);
+        }
+        rep.appendChild(clone);
+        var f = clone.querySelector("input, textarea");
+        if (f) f.focus();
+        saveDraft();
+        return;
+      }
+      var rm = e.target.closest(".wz-remove");
+      if (rm) { rm.closest(".wz-repeat-row").remove(); saveDraft(); }
     });
+
+    /* ---------- Muutoskuuntelu: ehdolliset, ilmoitukset, tallennus ---------- */
+    form.addEventListener("change", function (e) {
+      var t = e.target;
+      if (t.matches("input[data-cond], input[name=domain], input[name=logo], input[name=tekstit], input[name=valokuvat], input[name=aineisto_toimitus], input[name=aikataulu]")) {
+        toggleCond(t);
+      }
+      if (t.matches("#wz-features input[type=checkbox]")) {
+        toggleCond(t);
+        updateNewCostNotice(t);
+        var lab = t.closest("label[data-feat]");
+        if (lab) lab.classList.toggle("is-chosen", t.checked && t.dataset.incalc === "1");
+      }
+      saveDraft();
+    });
+    form.addEventListener("input", function () { saveDraft(); });
+
+    /* ---------- Navigointi ---------- */
+    function showStep(i) {
+      current = Math.max(0, Math.min(total - 1, i));
+      steps.forEach(function (s, idx) { s.classList.toggle("is-active", idx === current); });
+      var st = steps[current];
+      elStep.textContent = "Vaihe " + (current + 1) + "/" + total;
+      elTitle.textContent = "· " + (st.getAttribute("data-title") || "");
+      elFill.style.width = ((current + 1) / total * 100) + "%";
+      btnPrev.style.visibility = current === 0 ? "hidden" : "visible";
+      if (current === total - 1) {
+        btnNext.textContent = "Lähetä ideointilomake 🌸";
+        btnNext.classList.remove("btn--dark"); btnNext.classList.add("btn--primary");
+      } else {
+        btnNext.textContent = "Seuraava →";
+        btnNext.classList.add("btn--dark"); btnNext.classList.remove("btn--primary");
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      st.focus({ preventScroll: true });
+    }
+
+    btnPrev.addEventListener("click", function () { showStep(current - 1); });
+    btnNext.addEventListener("click", function () {
+      if (current === total - 1) { submitForm(); }
+      else { showStep(current + 1); }
+    });
+
+    /* ---------- Aloitus ---------- */
+    var startBtn = document.getElementById("wz-start");
+    function startWizard() {
+      intro.hidden = true;
+      form.hidden = false;
+      showStep(0);
+    }
+    if (startBtn) startBtn.addEventListener("click", startWizard);
+
+    /* ---------- Draft: tallennus & palautus ---------- */
+    var SKIP_NAMES = { apiKey: 1, subject: 1, replyTo: 1, brief: 1 };
+    function serialize() {
+      var data = {};
+      var named = form.querySelectorAll("input[name], textarea[name], select[name]");
+      named.forEach(function (el) {
+        var n = el.name;
+        if (SKIP_NAMES[n]) return; /* Static Formsin sisäiset kentät pois briefistä */
+        if (el.type === "file") return; /* tiedostoja ei voi palauttaa */
+        if (el.type === "checkbox" || el.type === "radio") {
+          if (el.checked) { (data[n] = data[n] || []).push(el.value); }
+        } else {
+          if (el.value !== "") {
+            if (data[n] === undefined) data[n] = el.value;
+            else { if (!Array.isArray(data[n])) data[n] = [data[n]]; data[n].push(el.value); }
+          }
+        }
+      });
+      return data;
+    }
+
+    function saveDraft() {
+      try { localStorage.setItem(DRAFT_KEY, JSON.stringify(serialize())); } catch (e) {}
+    }
+
+    function restoreDraft() {
+      var data;
+      try { data = JSON.parse(localStorage.getItem(DRAFT_KEY)); } catch (e) { data = null; }
+      if (!data) return;
+      Object.keys(data).forEach(function (name) {
+        var val = data[name];
+        var values = Array.isArray(val) ? val.slice() : [val];
+        var fields = [].slice.call(form.querySelectorAll('[name="' + name + '"]'));
+        if (!fields.length) return;
+        if (fields[0].type === "checkbox" || fields[0].type === "radio") {
+          fields.forEach(function (f) {
+            if (values.indexOf(f.value) !== -1) {
+              f.checked = true;
+              if (f.dataset.incalc === undefined) toggleCond(f);
+            }
+          });
+        } else {
+          /* tekstikentät – luo tarvittaessa lisää toistorivejä */
+          var repeat = fields[0].closest(".wz-repeat");
+          if (repeat && values.length > fields.length) {
+            var addBtn = repeat.parentNode.querySelector("[data-add]");
+            while (form.querySelectorAll('[name="' + name + '"]').length < values.length && addBtn) {
+              addBtn.click();
+            }
+            fields = [].slice.call(form.querySelectorAll('[name="' + name + '"]'));
+          }
+          values.forEach(function (v, i) { if (fields[i]) fields[i].value = v; });
+        }
+      });
+      /* päivitä ehdolliset & ilmoitukset palautuksen jälkeen */
+      form.querySelectorAll("#wz-features input[type=checkbox]").forEach(function (cb) {
+        toggleCond(cb); updateNewCostNotice(cb);
+      });
+    }
+
+    /* ---------- Briefin koonti ---------- */
+    function fieldValue(field) {
+      /* palauta kentän arvo merkkijonona (tai "" jos tyhjä) */
+      var checks = [].slice.call(field.querySelectorAll("input[type=checkbox]:checked, input[type=radio]:checked"))
+        .map(function (c) { return c.value; });
+      if (checks.length) return checks.join(", ");
+      var files = [].slice.call(field.querySelectorAll("input[type=file]"))
+        .map(function (f) {
+          return [].slice.call(f.files || []).map(function (x) { return x.name; }).join(", ");
+        }).filter(Boolean).join("; ");
+      var texts = [].slice.call(field.querySelectorAll("input[type=text], input[type=email], input[type=tel], input[type=url], input[type=number], textarea, select"))
+        .map(function (e) { return (e.value || "").trim(); }).filter(Boolean);
+      var parts = [];
+      if (texts.length) parts.push(texts.join(" – "));
+      if (files) parts.push("(ladattu: " + files + ")");
+      return parts.join(" ");
+    }
+
+    function buildBrief() {
+      var L = [];
+      L.push("# Studio Blomma — Asiakkaan ideointi-brief");
+      L.push("");
+
+      /* 2. Vaiheet, vain täytetyt kentät */
+      steps.forEach(function (step) {
+        var num = step.getAttribute("data-step");
+        var title = step.getAttribute("data-title");
+        var rows = [];
+        /* vain suoraan kuuluvat kentät (ei sisäkkäisten cond-kenttien tuplausta:
+           kerätään kaikki .wz-field[data-q] joilla on arvo) */
+        step.querySelectorAll(".wz-field[data-q]").forEach(function (f) {
+          /* ohita kenttä, jos se on piilotetun cond-osion sisällä */
+          if (f.closest(".wz-cond[hidden]")) return;
+          var q = f.getAttribute("data-q");
+          var v = fieldValue(f);
+          if (v) rows.push("**" + q + ":** " + v);
+        });
+        if (rows.length) {
+          L.push("## " + num + " · " + title);
+          L = L.concat(rows);
+          L.push("");
+        }
+      });
+
+      /* 3. Hintalaskurin valinnat */
+      var ests = loadEstimates();
+      L.push("## Hintalaskurin valinnat");
+      if (ests.length) {
+        var grandOnce = 0;
+        ests.forEach(function (e) {
+          L.push("**" + (e.label || "Erä") + "**");
+          (e.items || []).forEach(function (it) {
+            L.push("- " + it.name + ": " + (it.price != null ? euro(it.price) : "sis."));
+          });
+          (e.recurring || []).forEach(function (r) {
+            L.push("- " + r.name + ": " + euro(r.price) + "/" + (r.unit || "kk"));
+          });
+          grandOnce += e.once || 0;
+        });
+        L.push("- Yhteensä kertahinta: " + euro(grandOnce) + " (ALV 0 %)");
+      } else {
+        L.push("- Ei laskurin valintoja (asiakas ei käyttänyt hintalaskuria – näytetään vain Basic-paketti).");
+      }
+      L.push("");
+
+      /* Uudet, laskurin ulkopuoliset lisäykset */
+      var newFeatures = [];
+      form.querySelectorAll("#wz-features input[type=checkbox]:checked").forEach(function (cb) {
+        if (cb.dataset.incalc !== "1") {
+          newFeatures.push({ nimi: cb.value, lisakulu: Number(cb.dataset.price || 0) });
+        }
+      });
+
+      /* 4. Raakavalinnat (koneluettava) */
+      L.push("## Raakavalinnat (koneluettava)");
+      var raw = serialize();
+      raw.lisaominaisuudet_uudet = newFeatures;
+      raw.tiedostot = [];
+      form.querySelectorAll("input[type=file]").forEach(function (f) {
+        [].slice.call(f.files || []).forEach(function (x) { raw.tiedostot.push(x.name); });
+      });
+      raw.hintalaskuri = ests;
+      L.push("```json");
+      L.push(JSON.stringify(raw, null, 2));
+      L.push("```");
+      L.push("");
+
+      /* 5. Ohjerivi koodaajalle */
+      L.push('Ohje koodaajalle: rakenna nettisivu tämän briefin pohjalta säilyttäen Studio Blomman lämmin, ' +
+        'maanläheinen tyyli (beige/kerma tausta, ruskea ja terrakotta aksentit, serif-otsikot). Jos jokin ' +
+        'kenttä puuttuu, ÄLÄ keksi sisältöä — merkitse "asiakas ei täyttänyt" ja jätä paikka täydennettäväksi.');
+
+      return L.join("\n");
+    }
+
+    /* ---------- Lähetys ---------- */
+    function setStatus(msg, isErr) {
+      if (!msg) { statusEl.hidden = true; statusEl.innerHTML = ""; statusEl.className = "wz-status"; return; }
+      statusEl.hidden = false;
+      statusEl.className = "wz-status" + (isErr ? " wz-status--err" : "");
+      statusEl.innerHTML = msg;
+    }
+
+    function submitForm() {
+      var brief = buildBrief();
+      document.getElementById("wz-brief").value = brief;
+      var yritys = (form.querySelector("[name=yritys]") || {}).value || "";
+      var email = (form.querySelector("[name=email]") || {}).value || "";
+      document.getElementById("wz-subject").value = "Ideointilomake" + (yritys ? " – " + yritys : "") + " | Studio Blomma";
+      document.getElementById("wz-replyto").value = email;
+
+      setStatus("Lähetetään… hetkinen 🌸", false);
+      form.classList.add("wz-sending");
+
+      var fd = new FormData(form);
+      fetch(form.action, { method: "POST", body: fd, headers: { "Accept": "application/json" } })
+        .then(function (res) {
+          form.classList.remove("wz-sending");
+          if (res.ok) {
+            finishOk();
+          } else {
+            showSendError(brief);
+          }
+        })
+        .catch(function () {
+          form.classList.remove("wz-sending");
+          showSendError(brief);
+        });
+    }
+
+    function finishOk() {
+      try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+      form.hidden = true;
+      done.hidden = false;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showSendError(brief) {
+      var mailto = "mailto:info@studioblomma.com?subject=" +
+        encodeURIComponent("Ideointilomake | Studio Blomma") +
+        "&body=" + encodeURIComponent(brief);
+      setStatus("Hups – lähetys ei mennyt läpi. Tarkista nettiyhteys ja yritä uudelleen. " +
+        "Voit myös lähettää vastauksesi suoraan sähköpostilla: " +
+        "<a href='" + mailto + "' style='color:var(--burnt-tangerine);font-weight:700'>" +
+        "avaa valmis sähköposti →</a>", true);
+    }
+
+    /* ---------- Käynnistys ---------- */
+    buildLaskuriBox();
+    prefillFeatures();
+    restoreDraft();
+    /* jos kesken jäänyt luonnos on olemassa, näytä lomake suoraan */
+    /* (tervetulonäyttö pysyy oletuksena; käyttäjä painaa "Aloitetaan") */
   })();
   </script>
 </body>
