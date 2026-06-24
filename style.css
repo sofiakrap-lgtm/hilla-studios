@@ -1980,7 +1980,7 @@ p { margin: 0 0 1em; }
 .case__sub { font-weight: 700; font-size: .85rem; color: var(--vari-3); margin: 14px 0 6px; }
 .case__logos { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .case__logos .l { width: 56px; height: 36px; background: var(--vari-3); -webkit-mask: var(--logo) center/contain no-repeat; mask: var(--logo) center/contain no-repeat; }
-.case__logo-img { max-height: 104px; max-width: 220px; width: auto; height: auto; object-fit: contain; }
+.case__logo-img { max-height: 140px; max-width: 300px; width: auto; height: auto; object-fit: contain; background: none; border: 0; padding: 0; }
 .case__pal { display: flex; gap: 8px; }
 .case__pal span { width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--vari-3); }
 .case__text { font-size: .92rem; line-height: 1.6; color: var(--vari-3); margin: 10px 0; }
