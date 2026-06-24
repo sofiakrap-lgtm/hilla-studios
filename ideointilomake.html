@@ -6,7 +6,7 @@
   <title>Ideointilomake – demo – Studio Blomma</title>
   <meta name="description" content="Studio Blomman ideointilomake: vastaamalla kysymyksiin saamme kattavan kuvan unelmiesi nettisivusta ja brändistä. Demo.">
 
-  <link rel="stylesheet" href="style.css?v=20260624061547">
+  <link rel="stylesheet" href="style.css?v=20260624062106">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
 </head>
 <body>
@@ -123,27 +123,20 @@
                  eikä niitä tarvitse valita uudelleen. Voit halutessasi täydentää valintojasi alta,
                  mutta se ei ole pakollista.</p>
             </div>
-            <div class="ilo__field" data-q="Lisättävät sivut">
-              <p class="ilo__q">Haluatko lisätä sivuja laskurissa valitsemiesi lisäksi?</p>
+            <div class="ilo__field" data-q="Lisättävät sivut ja toiminnot">
+              <p class="ilo__q">Haluatko lisätä sivuja tai toimintoja laskurissa valitsemiesi lisäksi?</p>
               <p class="ilo__hint">Etusivu, palvelut/tuotteet, meistä, yhteystiedot, galleria/referenssit ja hinnasto sisältyvät jo Basic-pohjaan.</p>
               <div class="ilo__checks">
-                <label><input type="checkbox" name="sivut" value="Blogi / ajankohtaista"> Blogi / ajankohtaista</label>
-                <label><input type="checkbox" name="sivut" value="Verkkokauppa"> Verkkokauppa</label>
-                <label><input type="checkbox" name="sivut" value="Ajanvaraus"> Ajanvaraus</label>
-                <label><input type="checkbox" name="sivut" value="UKK"> Usein kysyttyä</label>
-              </div>
-            </div>
-            <div class="ilo__field" data-q="Lisättävät toiminnot">
-              <p class="ilo__q">Entä lisättäviä toimintoja?</p>
-              <div class="ilo__checks">
-                <label><input type="checkbox" name="toiminnot" value="Ajanvarausjärjestelmä"> Ajanvarausjärjestelmä</label>
-                <label><input type="checkbox" name="toiminnot" value="Verkkokauppa & maksut"> Verkkokauppa & maksut</label>
-                <label><input type="checkbox" name="toiminnot" value="Uutiskirje"> Uutiskirjeen tilaus</label>
-                <label><input type="checkbox" name="toiminnot" value="Some-syöte"> Some-syöte (esim. Instagram)</label>
-                <label><input type="checkbox" name="toiminnot" value="Kartta & sijainti"> Kartta & sijainti</label>
-                <label><input type="checkbox" name="toiminnot" value="Kanta-asiakkuus"> Kanta-asiakkuus / edut</label>
-                <label><input type="checkbox" name="toiminnot" value="Arvostelut"> Asiakasarvostelut</label>
-                <label><input type="checkbox" name="toiminnot" value="Chat"> Chat / pikaviesti</label>
+                <label><input type="checkbox" name="lisaykset" value="Blogi / ajankohtaista"> Blogi / ajankohtaista</label>
+                <label><input type="checkbox" name="lisaykset" value="Verkkokauppa & maksut"> Verkkokauppa & maksut</label>
+                <label><input type="checkbox" name="lisaykset" value="Ajanvaraus"> Ajanvaraus</label>
+                <label><input type="checkbox" name="lisaykset" value="Usein kysyttyä (UKK)"> Usein kysyttyä</label>
+                <label><input type="checkbox" name="lisaykset" value="Uutiskirjeen tilaus"> Uutiskirjeen tilaus</label>
+                <label><input type="checkbox" name="lisaykset" value="Some-syöte"> Some-syöte (esim. Instagram)</label>
+                <label><input type="checkbox" name="lisaykset" value="Kartta & sijainti"> Kartta & sijainti</label>
+                <label><input type="checkbox" name="lisaykset" value="Kanta-asiakkuus / edut"> Kanta-asiakkuus / edut</label>
+                <label><input type="checkbox" name="lisaykset" value="Asiakasarvostelut"> Asiakasarvostelut</label>
+                <label><input type="checkbox" name="lisaykset" value="Chat / pikaviesti"> Chat / pikaviesti</label>
               </div>
             </div>
             <div class="ilo__field ilo__field--repeat" data-q="Omat lisäykset (sivut tai toiminnot)">
@@ -336,7 +329,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260624061547"></script>
+  <script src="script.js?v=20260624062106"></script>
   <script>
   (function () {
     var form = document.getElementById("ilo-form");
@@ -365,14 +358,40 @@
 
     /* Hintalaskurin valinnat huomioon (jos tehty) */
     try {
-      var ests = JSON.parse(localStorage.getItem("blomma.estimates") || "[]");
       var note = document.getElementById("ilo-laskuri-note");
-      if (note && ests.length) {
-        var labels = ests.map(function (e) { return e.label; }).filter(Boolean);
+      var ests = JSON.parse(localStorage.getItem("blomma.estimates") || "[]");
+      var labels = ests.map(function (e) { return e.label; }).filter(Boolean);
+
+      if (note) {
+        /* Basic-paketin sisältö, aina mukana */
         note.insertAdjacentHTML("beforeend",
-          "<p class='ilo__laskuri-list'><strong>Olet valinnut hintalaskurissa:</strong> " +
-          labels.join(", ") + ". Nämä ovat jo mukana alustavassa laskelmassa.</p>");
+          "<p class='ilo__laskuri-list'><strong>Olet valinnut Basic-paketin." +
+          (labels.length ? " Lisäksi laskurissa: " + labels.join(", ") + "." : "") +
+          "</strong></p>" +
+          "<p class='ilo__laskuri-basic'>Basic-pakettiin kuuluu aina: Etusivu, " +
+          "Palvelut / Tuotteet, Tietoa meistä, Yhteystiedot + lomake, " +
+          "Galleria / Referenssit ja Hinnasto. Nämä ovat jo mukana alustavassa laskelmassa.</p>");
       }
+
+      /* Merkitse ja valitse automaattisesti ne kohdat, jotka on jo valittu laskurissa */
+      var boxes = [].slice.call(form.querySelectorAll(".ilo__checks input[type=checkbox]"));
+      labels.forEach(function (label) {
+        var l = label.toLowerCase();
+        boxes.forEach(function (b) {
+          var v = b.value.toLowerCase();
+          var hit = v === l || v.indexOf(l) === 0 || l.indexOf(v) === 0;
+          if (hit && !b.dataset.chosen) {
+            b.dataset.chosen = "1";
+            b.checked = true;
+            var lab = b.closest("label");
+            if (lab) {
+              lab.classList.add("is-chosen");
+              lab.insertAdjacentHTML("beforeend",
+                " <span class='ilo__chosen'>jo laskurissa</span>");
+            }
+          }
+        });
+      });
     } catch (e) {}
 
     form.addEventListener("submit", function (e) {

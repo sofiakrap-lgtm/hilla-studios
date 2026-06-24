@@ -2190,6 +2190,9 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .ilo__laskuri-note { background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); padding: 16px 18px; margin-top: 4px; }
 .ilo__laskuri-note p { margin: 0; font-size: .9rem; line-height: 1.55; color: var(--vari-3); }
 .ilo__laskuri-list { margin-top: 10px !important; color: var(--vari-5) !important; }
+.ilo__laskuri-basic { margin-top: 8px !important; }
+.ilo__checks label.is-chosen { font-weight: var(--w-bold); }
+.ilo__chosen { display: inline-block; margin-left: 4px; font-size: .68rem; font-weight: var(--w-bold); text-transform: uppercase; letter-spacing: .03em; color: var(--vari-2); background: var(--vari-5); border-radius: 999px; padding: 2px 8px; }
 @media (max-width: 620px) {
   .ilo__grid2 { grid-template-columns: 1fr; }
   .ilo__checks { grid-template-columns: 1fr; }
