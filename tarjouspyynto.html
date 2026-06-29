@@ -44,7 +44,14 @@
     <section class="section--tight">
       <div class="container">
 
-        <form data-offer-form style="max-width:720px; margin:0 auto">
+        <form data-offer-form action="https://api.staticforms.dev/submit" method="POST" style="max-width:720px; margin:0 auto">
+          <!-- Static Forms (Pro): aseta oikea avain tähän, niin lähetys toimii heti. -->
+          <input type="hidden" name="apiKey" value="STATICFORMS_API_KEY">
+          <input type="hidden" name="subject" value="Tarjouspyyntö | Studio Blomma">
+          <input type="hidden" name="replyTo" value="">
+          <input type="hidden" name="message" value="">
+          <!-- hunajapurkki: roskapostisuoja -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 
           <!-- YHTEYSTIEDOT -->
           <fieldset class="form-card reveal">
@@ -187,10 +194,9 @@
 
           <!-- Lähetyksen jälkeinen yhteenveto -->
           <div class="result" data-offer-result>
-            <h3>Kiitos! Tässä yhteenvetosi</h3>
-            <p>Sähköpostiohjelmasi avautui valmiiksi täytetyllä viestillä osoitteeseen <strong>info@studioblomma.com</strong>. Jos se ei avautunut, voit kopioida alla olevan yhteenvedon ja lähettää sen suoraan.</p>
+            <h3>Kiitos! Lähetimme tarjouspyyntösi</h3>
+            <p data-result-note>Saimme tarjouspyyntösi ja palaamme sinulle pian. Alla näet yhteenvedon valinnoistasi.</p>
             <pre data-result-text></pre>
-            <a href="mailto:info@studioblomma.com" class="btn btn--dark">Avaa sähköposti uudelleen</a>
           </div>
 
         </form>

@@ -467,27 +467,23 @@ function handleOfferSubmit(form, stored) {
     result.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  /*
-   * LÄHETYS:
-   * Tällä hetkellä lomake avaa käyttäjän sähköpostiohjelman valmiiksi
-   * täytetyllä viestillä (mailto). Backendia ei ole.
-   *
-   * Kun haluat oikean automaattisen lähetyksen, korvaa alla oleva
-   * mailto-osuus esim. Formspreellä:
-   *
-   *   1. Luo lomake osoitteessa https://formspree.io ja ota talteen
-   *      endpoint-osoite, esim. https://formspree.io/f/xxxxxxx
-   *   2. Lähetä data fetchillä:
-   *
-   *      fetch("https://formspree.io/f/xxxxxxx", {
-   *        method: "POST",
-   *        headers: { "Accept": "application/json", "Content-Type": "application/json" },
-   *        body: JSON.stringify({ subject, summary })
-   *      }).then(() => { /* näytä kiitosviesti *\/ });
-   *
-   *   Vaihtoehtoja: Formspree, Web3Forms, Getform, Netlify Forms,
-   *   EmailJS tai oma backend-endpoint.
-   */
+  /* LÄHETYS: jos lomakkeella on Static Forms -action, lähetetään data
+     palvelimelle (fetch POST). Muuten varafallback: mailto. */
+  const action = form.getAttribute("action") || "";
+  if (/staticforms/i.test(action)) {
+    if ((form.querySelector('[name="_gotcha"]') || {}).value) return; /* botti */
+    const setHidden = (n, v) => { const el = form.querySelector('[name="' + n + '"]'); if (el) el.value = v; };
+    setHidden("subject", subject);
+    setHidden("message", summary);
+    setHidden("replyTo", (form.querySelector('[name="email"]')?.value || "").trim());
+    const note = result ? result.querySelector("[data-result-note]") : null;
+    const okMsg = "Saimme tarjouspyyntösi ja palaamme sinulle pian. Alla näet yhteenvedon valinnoistasi.";
+    const errMsg = "Lähetys ei mennyt läpi. Voit kopioida alla olevan yhteenvedon ja lähettää sen sähköpostilla osoitteeseen " + CONTACT_EMAIL + ".";
+    fetch(action, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } })
+      .then((res) => { if (note) note.textContent = res.ok ? okMsg : errMsg; })
+      .catch(() => { if (note) note.textContent = errMsg; });
+    return;
+  }
   const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`;
   window.location.href = mailto;
 }
