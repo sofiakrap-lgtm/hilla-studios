@@ -7,6 +7,11 @@
   <meta name="description" content="Ota yhteyttä Studio Blommaan: sähköposti ja tarjouspyyntö.">
   <link rel="stylesheet" href="style.css?v=20260624062514">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
+  <style>
+    .yht-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+    .yht-status { margin-top: 14px; font-size: .95rem; color: var(--ink-80); }
+    .yht-status--err { padding: 12px 14px; background: #FBE3DC; border: var(--bw) solid var(--burnt-tangerine); border-radius: var(--radius-s); color: var(--bitter-cacao); }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -38,7 +43,67 @@
       </div>
       <span class="yht-hero__deco" aria-hidden="true"></span>
     </section>
-    <section class="yht" aria-label="Yhteydenottotavat">
+
+    <!-- Yhteydenottolomake (lähettää oikeasti Static Formsiin) -->
+    <section class="section--tight" aria-label="Yhteydenottolomake">
+      <div class="container">
+        <form id="yht-form" action="https://api.staticforms.dev/submit" method="POST"
+              style="max-width:680px;margin:0 auto">
+          <!-- Static Forms (Pro): aseta oikea avain tähän, niin lähetys toimii heti. -->
+          <input type="hidden" name="apiKey" value="STATICFORMS_API_KEY">
+          <input type="hidden" name="subject" id="yht-subject" value="Yhteydenotto | Studio Blomma">
+          <input type="hidden" name="replyTo" id="yht-replyto" value="">
+          <!-- hunajapurkki: roskapostisuoja (ihmiset eivät näe tätä) -->
+          <input class="yht-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <fieldset class="form-card" style="border:none">
+            <h3>Lähetä viesti</h3>
+            <p style="color:var(--ink-65);margin:-4px 0 18px">Vain nimi, sähköposti ja viesti ovat pakollisia.</p>
+            <div class="field-row">
+              <div class="field">
+                <label for="y-name">Nimi *</label>
+                <input class="input" type="text" id="y-name" name="name" required autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="y-email">Sähköposti *</label>
+                <input class="input" type="email" id="y-email" name="email" required autocomplete="email">
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="y-phone">Puhelin</label>
+                <input class="input" type="tel" id="y-phone" name="phone" autocomplete="tel">
+              </div>
+              <div class="field">
+                <label for="y-industry">Toimiala</label>
+                <select class="select" id="y-industry" name="industry">
+                  <option value="">Valitse…</option>
+                  <option value="Kampaamo / kauneus">Kampaamo / kauneus</option>
+                  <option value="Kahvila / ravintola">Kahvila / ravintola</option>
+                  <option value="Kukkakauppa">Kukkakauppa</option>
+                  <option value="Hyvinvointi">Hyvinvointi</option>
+                  <option value="Muu">Muu</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="y-msg">Viesti *</label>
+              <textarea class="textarea" id="y-msg" name="message" rows="5" required
+                        placeholder="Kerro lyhyesti yrityksestäsi ja toiveistasi."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">Lähetä viesti</button>
+            <div class="yht-status" id="yht-status" hidden></div>
+          </fieldset>
+        </form>
+
+        <div id="yht-done" class="form-card" hidden style="border:none;max-width:680px;margin:0 auto;text-align:center">
+          <h3>Kiitos viestistäsi!</h3>
+          <p>Saimme viestisi ja palaamme sinulle pian. Mukavaa, että otit yhteyttä.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="yht" aria-label="Muut yhteydenottotavat">
       <div class="container">
         <div class="yht__grid">
           <article class="yht__card">
@@ -107,5 +172,38 @@
     </div>
   </footer>
   <script src="script.js?v=20260624062514"></script>
+  <script>
+  (function () {
+    "use strict";
+    var form = document.getElementById("yht-form");
+    if (!form) return;
+    var statusEl = document.getElementById("yht-status");
+    var done = document.getElementById("yht-done");
+    function fail(email) {
+      var name = (form.querySelector("[name=name]") || {}).value || "";
+      var msg = (form.querySelector("[name=message]") || {}).value || "";
+      var body = "Nimi: " + name + "\nSähköposti: " + email + "\n\n" + msg;
+      var mailto = "mailto:info@studioblomma.com?subject=" +
+        encodeURIComponent("Yhteydenotto | Studio Blomma") + "&body=" + encodeURIComponent(body);
+      statusEl.hidden = false; statusEl.className = "yht-status yht-status--err";
+      statusEl.innerHTML = "Hups, lähetys ei mennyt läpi. Tarkista nettiyhteys ja yritä uudelleen, " +
+        "tai lähetä sähköpostilla: <a href='" + mailto +
+        "' style='color:var(--burnt-tangerine);font-weight:700'>avaa valmis sähköposti →</a>";
+    }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if ((form.querySelector("[name=_gotcha]") || {}).value) return; /* botti */
+      var email = (form.querySelector("[name=email]") || {}).value || "";
+      document.getElementById("yht-replyto").value = email;
+      statusEl.hidden = false; statusEl.className = "yht-status"; statusEl.textContent = "Lähetetään…";
+      fetch(form.action, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } })
+        .then(function (res) {
+          if (res.ok) { form.hidden = true; done.hidden = false; window.scrollTo({ top: 0, behavior: "smooth" }); }
+          else { fail(email); }
+        })
+        .catch(function () { fail(email); });
+    });
+  })();
+  </script>
 </body>
 </html>
