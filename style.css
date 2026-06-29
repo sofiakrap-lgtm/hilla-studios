@@ -1717,7 +1717,7 @@ p { margin: 0 0 1em; }
 .calc2__info-demo { padding: 8px 16px; font-size: .85rem; }
 .calc2__item--basic { background: var(--vari-2); }
 .calc2__item--basic input:checked + .calc2__box { background: var(--vari-3); }
-.calc2__calc { margin-top: 28px; }
+.calc2__calc { margin-top: 40px; }
 .calc2__result { margin-top: 28px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); background: var(--vari-2); padding: 28px 30px; }
 .calc2__total { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .calc2__total span { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: var(--vari-3); }
