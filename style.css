@@ -1093,15 +1093,16 @@ p { margin: 0 0 1em; }
 .s218__panel--idea .btn--light:hover { box-shadow: var(--shadow-pop-sm); }
 
 /* s218b: otsikko + teksti keskellä, alla kaksi palstaa (demot | suunnittele oma) */
-.s218b { background: var(--vari-1); padding: clamp(56px, 8vw, 88px) 0; text-align: center; }
+.s218b { background: var(--vari-2); padding: clamp(56px, 8vw, 88px) 0; text-align: center; }
 .s218b .container { max-width: 1040px; }
+.s218b .s218__list a { background: var(--vari-1); }
 .s218b .s218__text { margin: 0 auto; max-width: 62ch; }
 .s218b__split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; text-align: left; margin-top: 36px; align-items: start; }
 .s218b__col { min-width: 0; }
 .s218b__col .s218__demos-title { font-size: 1.2rem; margin-bottom: 8px; }
 .s218b__col .s218__note { text-align: left; margin: 0 0 16px; max-width: none; }
 .s218b__list { grid-template-columns: 1fr; gap: 10px; max-width: none; margin: 0; }
-.s218b__col--own { background: var(--vari-2); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); padding: 28px; }
+.s218b__col--own { background: var(--vari-1); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); padding: 28px; }
 .s218b__copy { font-size: 0.98rem; line-height: 1.65; color: var(--vari-4); margin: 0 0 14px; }
 .s218b__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
 @media (max-width: 760px) { .s218b__split { grid-template-columns: 1fr; } }
