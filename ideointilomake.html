@@ -36,6 +36,14 @@
   .wz-intro h1 { font-size: clamp(2rem, 6vw, 3rem); margin-bottom: 0.4em; }
   .wz-intro p, .wz-done p { font-size: 1.08rem; color: var(--ink-80); }
   .wz-intro .wz-time { font-size: 0.98rem; color: var(--ink-65); margin-top: 18px; }
+  /* Demolomake-ilmoitus */
+  .wz-gate { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .wz-gate[hidden] { display: none; }
+  .wz-gate__backdrop { position: absolute; inset: 0; background: rgba(61, 42, 28, 0.55); }
+  .wz-gate__box { position: relative; z-index: 1; max-width: 520px; width: 100%; background: var(--paper); border: 2px solid var(--bitter-cacao); border-radius: 22px; box-shadow: 8px 8px 0 var(--bitter-cacao); padding: clamp(28px, 5vw, 44px); }
+  .wz-gate__box h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); margin: 0 0 0.5em; }
+  .wz-gate__box p { font-size: 1.05rem; color: var(--ink-80); margin: 0 0 24px; }
+  .wz-gate__actions { display: flex; flex-wrap: wrap; gap: 14px; }
   .wz-done { text-align: center; }
   .wz-done h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); }
 
@@ -254,6 +262,21 @@
           <button type="button" class="btn btn--dark btn--lg" id="wz-start">Aloitetaan →</button>
         </div>
       </section>
+
+      <!-- ===== DEMOLOMAKE-ILMOITUS (ennen aloitusta) ===== -->
+      <div class="wz-gate" id="wz-gate" hidden role="dialog" aria-modal="true" aria-labelledby="wz-gate-title">
+        <div class="wz-gate__backdrop" data-wz-gate-close></div>
+        <div class="wz-gate__box">
+          <h2 id="wz-gate-title">Tämä on demolomake</h2>
+          <p>Tämä ideointilomake kuuluu varsinaiseen palveluun. Laske ensin hinta hintalaskurista ja
+             lähetä se meille, niin saat tämän lomakkeen käyttöösi, ja pääsemme suunnittelemaan juuri
+             sinun sivustoasi. Voit myös tutustua lomakkeeseen jo nyt.</p>
+          <div class="wz-gate__actions">
+            <a href="laskuri.html" class="btn btn--dark btn--lg">Hintalaskuriin</a>
+            <button type="button" class="btn btn--outline btn--lg" id="wz-gate-continue">Jatka silti</button>
+          </div>
+        </div>
+      </div>
 
       <!-- ===== LOMAKE ===== -->
       <form class="wz-form" id="wz-form" hidden
@@ -1220,12 +1243,40 @@
 
     /* ---------- Aloitus ---------- */
     var startBtn = document.getElementById("wz-start");
+    var gate = document.getElementById("wz-gate");
+    var gateContinue = document.getElementById("wz-gate-continue");
     function startWizard() {
       intro.hidden = true;
       form.hidden = false;
       showStep(0);
     }
-    if (startBtn) startBtn.addEventListener("click", startWizard);
+    function openGate() {
+      if (!gate) { startWizard(); return; }
+      gate.hidden = false;
+      document.body.style.overflow = "hidden";
+      if (gateContinue) gateContinue.focus();
+    }
+    function closeGate() {
+      if (!gate) return;
+      gate.hidden = true;
+      document.body.style.overflow = "";
+    }
+    /* "Aloitetaan" avaa demolomake-ilmoituksen, ei suoraan lomaketta */
+    if (startBtn) startBtn.addEventListener("click", openGate);
+    /* "Jatka silti" -> lomake auki */
+    if (gateContinue) gateContinue.addEventListener("click", function () {
+      closeGate();
+      startWizard();
+    });
+    /* Taustan klikkaus / Esc sulkee ilmoituksen (palaa aloitusnäkymään) */
+    if (gate) {
+      gate.querySelectorAll("[data-wz-gate-close]").forEach(function (el) {
+        el.addEventListener("click", closeGate);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !gate.hidden) closeGate();
+      });
+    }
 
     /* ---------- Draft: tallennus & palautus ---------- */
     var SKIP_NAMES = { apiKey: 1, subject: 1, replyTo: 1, brief: 1 };
