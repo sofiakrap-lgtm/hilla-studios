@@ -1725,7 +1725,12 @@ p { margin: 0 0 1em; }
 .calc2__item--basic input:checked + .calc2__box { background: var(--vari-3); }
 .calc2__item--brand { background: var(--vari-2); border-color: var(--vari-5); }
 .calc2__item--brand input:checked + .calc2__box { background: var(--vari-5); }
+/* Basic- ja brändi-aloituskortit erilleen toisistaan ja listasta */
+.calc2__item--basic, .calc2__item--brand { margin-bottom: 12px; }
 .calc2__tag { display: inline-block; align-self: flex-start; margin: 2px 0 1px; padding: 2px 10px; border-radius: 999px; background: var(--vari-5); color: var(--vari-1); font-family: var(--font-sans); font-weight: 700; font-size: .64rem; letter-spacing: .04em; text-transform: uppercase; }
+/* Brändipaketin sisältölista (oranssit chipsit) */
+.calc2__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.calc2__chip { display: inline-block; padding: 3px 12px; border-radius: 999px; background: var(--vari-5); color: var(--vari-1); font-family: var(--font-sans); font-weight: 700; font-size: .72rem; }
 .calc2__calc { margin-top: 40px; }
 .calc2__result { margin-top: 28px; border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l); background: var(--vari-2); padding: 28px 30px; }
 .calc2__total { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
