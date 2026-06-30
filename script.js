@@ -901,6 +901,7 @@ function initFeatToggle() {
 function initFeatureInfo() {
   const INFO = {
     "Basic-sivu": { t: "Valmis nettisivu, joka sisältää etusivun, palvelut/tuotteet, tietoa meistä, yhteystiedot ja yhteydenottolomakkeen, gallerian/referenssit sekä hinnaston. Tämän päälle rakennetaan kaikki muut ominaisuudet." },
+    "Brändi-aloituspaketti": { t: "Osa brändäyspakettia. Teemme sinulle kelpo logon (emme ylibrändättyä), löydämme sopivan värimaailman ja valitsemme toimivat fonttiyhdistelmät Google Fonts -valikoimasta. Sivusi saa heti yhtenäisen, viimeistellyn ilmeen. Valittu oletuksena, voit poistaa sen, jos et tarvitse sitä." },
     "Lisäsivu": { t: "Yksi lisäsivu Basicin päälle, esimerkiksi UKK, tarina tai oma kampanjasivu. Sama ilme, oma kohta valikossa.", d: "demot.html" },
     "Karttaintegraatio": { t: "Upotettu kartta, joka näyttää sijaintisi suoraan sivulla. Asiakas löytää perille ilman erillistä hakua.", d: "demot.html" },
     "Ajanvarausjärjestelmä": { t: "Asiakas varaa ajan itse verkossa vuorokauden ympäri, ja varaus näkyy kalenterissasi. Vähemmän puheluita ja edestakaisia viestejä.", d: "demot.html" },
