@@ -984,17 +984,22 @@ function initDemoDeepLink() {
   const track = document.querySelector(".dcar__track");
   if (!track) return;
   const slug = new URLSearchParams(window.location.search).get("demo");
-  if (!slug) return;
-  const card = track.querySelector('.dcar__card[data-demo="' + slug + '"]');
+  const isDefault = !slug;
+  // Ilman syvälinkkiä Velora (hyvinvointi) keskelle oletuksena
+  const targetSlug = slug || "hyvinvointi";
+  const card = track.querySelector('.dcar__card[data-demo="' + targetSlug + '"]');
   if (!card) return;
   const center = () => {
     const target = card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2;
-    track.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
-    card.classList.add("is-target");
+    track.scrollTo({ left: Math.max(0, target), behavior: isDefault ? "auto" : "smooth" });
+    if (!isDefault) card.classList.add("is-target");
   };
+  // Syvälinkillä vieritetään sivu karuselliin; oletuskeskitys tehdään hiljaa paikallaan
+  if (!isDefault) {
+    const sec = document.getElementById("demo-nettisivut");
+    if (sec) sec.scrollIntoView({ block: "start" });
+  }
   // Odota, että kuvat ja asettelu ovat valmiina, jotta keskitys osuu oikein
-  const sec = document.getElementById("demo-nettisivut");
-  if (sec) sec.scrollIntoView({ block: "start" });
   window.setTimeout(center, 120);
 }
 
