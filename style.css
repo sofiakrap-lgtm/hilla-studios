@@ -1274,7 +1274,7 @@ p { margin: 0 0 1em; }
 .s801__media > img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .s801__media::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.40); } /* tummennus 40% */
 .s801__demo { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 28px; }
-.s801__demo img { max-height: 66%; max-width: 88%; width: auto; height: auto; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.45); }
+.s801__demo img { max-height: 66%; max-width: 88%; width: auto; height: auto; border-radius: 10px; }
 .s801__demo-cap { font-family: var(--font); font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; color: var(--vari-1); text-align: center; }
 .s801__media-gfx {
   position: absolute; inset: 0; margin: auto; z-index: 1;
@@ -1910,11 +1910,11 @@ p { margin: 0 0 1em; }
 .offer-tip { margin-top: 22px; padding: 20px 24px; background: var(--vari-2); border: var(--bw) solid var(--vari-3); border-radius: var(--radius-m); display: flex; flex-direction: column; gap: 14px; align-items: flex-start; max-width: 640px; }
 .offer-tip p { margin: 0; font-size: .98rem; line-height: 1.6; color: var(--vari-3); }
 
-.yht-hero { background: var(--vari-8); padding: 96px 0; text-align: center; position: relative; overflow: hidden; }
+.yht-hero { background: var(--vari-8); padding: 96px 0 184px; text-align: center; position: relative; overflow: hidden; }
 .yht-hero .eyebrow { color: var(--vari-2); }
 /* Käsinpiirretty koristegrafiikka (grafiikka 47), väri --vari-2 */
 .yht-hero__deco {
-  position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%);
+  position: absolute; left: 50%; bottom: 44px; transform: translateX(-50%);
   width: 96px; height: 96px; pointer-events: none; opacity: .92;
   background: var(--vari-2);
   -webkit-mask: url('assets/grafiikat/grafiikka-47.svg') center / contain no-repeat;
