@@ -1605,6 +1605,9 @@ p { margin: 0 0 1em; }
 .l803__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.9rem); color: var(--vari-3); margin: 0 0 14px; line-height: 1.18; }
 .l803__sub { font-size: 1.05rem; line-height: 1.6; color: var(--vari-3); margin: 0; }
 .l803__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 920px; margin: 0 auto; }
+/* Yksi kategoria: iso ja keskitetty kortti */
+.l803__grid--single { grid-template-columns: 1fr; max-width: 560px; }
+.l803__grid--single .l803__card { min-height: 420px; }
 .l803__card {
   position: relative; overflow: hidden;
   border: 1px solid var(--vari-3); border-radius: var(--radius-l); min-height: 300px;
@@ -2277,6 +2280,9 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
 .lask-modal__body:has(.l803__grid) { padding: clamp(16px, 2.4vw, 32px); display: grid; grid-template-rows: auto minmax(0, 1fr); overflow: hidden; }
 .lask-modal__body .l803__grid { min-height: 0; height: 100%; width: 100%; max-width: 1040px; margin: 0 auto; gap: 18px; grid-template-rows: minmax(0, 1fr) minmax(0, 1fr); }
 .lask-modal__body .l803__card { min-height: 0; height: 100%; padding: 22px 24px 70px; gap: 10px; }
+/* Yksi kategoria modaalissa: iso ja keskitetty */
+.lask-modal__body .l803__grid--single { grid-template-rows: minmax(0, 1fr); max-width: 760px; }
+.lask-modal__body .l803__grid--single .l803__card { align-self: center; max-height: 620px; }
 .lask-modal__body .l803__card h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
 .lask-modal__body .l803__card .btn { bottom: 18px; }
 /* Some-kortti: isompi puhelin, yläosa näkyy heti otsikon alla */
