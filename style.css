@@ -1718,6 +1718,9 @@ p { margin: 0 0 1em; }
 .calc2__item.has-info.is-open, .calc2__item.has-info.is-open:hover { box-shadow: none; }
 .calc2__info { margin: 0; padding: 18px 22px; border: var(--bw) solid var(--vari-3); border-top: 1px solid var(--vari-3); border-radius: 0 0 var(--radius-m) var(--radius-m); background: var(--vari-2); }
 .calc2__list .calc2__info { margin-top: -12px; }
+/* Basic- ja brändikorttien lisätieto kiinni korttiin (sama avaussysteemi kuin listalla) */
+.calc2__item--basic + .calc2__info,
+.calc2__item--brand + .calc2__info { margin-top: -12px; margin-bottom: 12px; }
 .calc2__info p { margin: 0 0 14px; font-size: .92rem; line-height: 1.55; color: var(--vari-3); }
 .calc2__info p:last-child { margin-bottom: 0; }
 .calc2__info-demo { padding: 8px 16px; font-size: .85rem; }
