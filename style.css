@@ -1678,6 +1678,11 @@ p { margin: 0 0 1em; }
 .n111__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
 .n111__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); color: var(--vari-3); margin: 0 0 18px; line-height: 1.1; }
 .n111__text { font-size: 1.05rem; line-height: 1.75; color: var(--vari-3); margin: 0 0 24px; max-width: 54ch; }
+.n111__needs { margin: 0 0 26px; max-width: 54ch; }
+.n111__needs-title { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--vari-3); margin: 0 0 12px; }
+.n111__needs-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+.n111__needs-list li { font-size: 1rem; line-height: 1.55; color: var(--vari-3); }
+.n111__needs-list strong { font-weight: var(--w-black); }
 .n111__media { border-radius: 16px 16px 0 0; overflow: hidden; box-shadow: var(--shadow-s); border: var(--bw) solid var(--vari-3); border-bottom: 0; }
 .n111__media img { display: block; width: 100%; height: 340px; object-fit: cover; object-position: top center; }
 @media (max-width: 880px) {
