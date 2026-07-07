@@ -1467,7 +1467,7 @@ p { margin: 0 0 1em; }
 .p815__media-bg { position: absolute; inset: 0; background: var(--vari-3) center / cover no-repeat; }
 .p815__media::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.40); } /* tummennus 40% */
 .p815__demo { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 36px; }
-.p815__demo img { max-height: 72%; max-width: 80%; width: auto; border-radius: var(--radius-s); }
+.p815__demo img { max-height: 86%; max-width: 96%; width: auto; border-radius: var(--radius-s); }
 .p815__demo-cap { font-family: var(--font); font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; color: var(--vari-1); text-align: center; }
 @media (max-width: 900px) {
   .p815__grid { grid-template-columns: 1fr; }
