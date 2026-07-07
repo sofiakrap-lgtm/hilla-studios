@@ -1067,7 +1067,7 @@ p { margin: 0 0 1em; }
 .s218__media-bg { width: 100%; height: 100%; object-fit: cover; display: block; }
 .s218__media::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.40); z-index: 1; } /* tummennus 40% */
 .s218__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 30px; }
-.s218__demo img { max-width: 86%; max-height: 86%; width: auto; height: auto; border-radius: var(--radius-s); }
+.s218__demo img { max-width: 95%; max-height: 95%; width: auto; height: auto; border-radius: var(--radius-s); }
 .s218__demo-logo {
   position: absolute; z-index: 3; top: 17%; left: 50%; transform: translateX(-50%);
   width: 230px; height: 74px;
