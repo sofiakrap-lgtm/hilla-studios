@@ -949,21 +949,9 @@ function initFeatureInfo() {
     panel.hidden = true;
     panel.innerHTML =
       "<p>" + info.t + "</p>" +
-      (info.note ? '<p class="calc2__info-note">' + info.note + "</p>" : "");
+      (info.note ? '<p class="calc2__info-note">' + info.note + "</p>" : "") +
+      (info.d ? '<a href="' + info.d + '" target="_blank" rel="noopener" class="btn btn--ghost calc2__info-demo">Katso demo</a>' : "");
     item.insertAdjacentElement("afterend", panel);
-
-    /* Katso demo -linkki näkyviin pääriville (ei vain avattavaan paneeliin) */
-    if (info.d) {
-      const dlink = document.createElement("a");
-      dlink.className = "calc2__demo-link";
-      dlink.href = info.d;
-      dlink.target = "_blank";
-      dlink.rel = "noopener";
-      dlink.textContent = "Katso demo";
-      dlink.addEventListener("click", (e) => e.stopPropagation());
-      const lbl = item.querySelector(".calc2__label");
-      (lbl || item).appendChild(dlink);
-    }
 
     tog.addEventListener("click", (e) => {
       e.preventDefault();
