@@ -799,7 +799,9 @@ p { margin: 0 0 1em; }
 .h106__split { display: grid; grid-template-columns: 1fr 1fr; min-height: auto; }
 .h106__media { position: relative; background: var(--vari-3); overflow: hidden; }
 .h106__media > img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.h106__media::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.30); z-index: 1; } /* tummennus 30% */
+.h106__media::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.20); z-index: 1; } /* tummennus 20% */
+.h106__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 36px; }
+.h106__demo img { max-height: 82%; max-width: 84%; width: auto; height: auto; border-radius: var(--radius-s); }
 .h106__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 6%; }
 .h106__demo img { max-width: 84%; max-height: 84%; width: auto; height: auto; border-radius: var(--radius-s); }
 
