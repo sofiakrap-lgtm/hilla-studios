@@ -545,19 +545,23 @@ function initArviot() {
   if (sendBtn) sendBtn.addEventListener("click", () => {
     const ests = loadEstimates();
     if (!ests.length) return;
-    const lines = ["TARJOUSPYYNTÖ – Studio Blomma", "(hintalaskurin arviot)", "================================", ""];
-    let grand = 0;
+    /* Koosta kaikki arviot yhdeksi tarjoukseksi ja tallenna, jotta
+       tarjouspyyntölomake esitäyttää valinnat. Avaa sitten yhteystietolomake. */
+    const items = [];
+    let oneTime = 0, monthly = 0;
     ests.forEach((e) => {
-      lines.push(e.label);
-      (e.items || []).forEach((it) => lines.push(`  - ${it.name}: ${it.price != null ? fmt(it.price) : "sis."}`));
-      (e.recurring || []).forEach((r) => lines.push(`  - ${r.name}: ${fmt(r.price)}/${r.unit}`));
-      lines.push(`  Yhteensä: ${fmt(e.once || 0)} (ALV 0 %)`);
-      lines.push("");
-      grand += e.once || 0;
+      oneTime += e.once || 0;
+      (e.items || []).forEach((it) =>
+        items.push({ name: it.name, price: it.price != null ? it.price : 0, recurring: false }));
+      (e.recurring || []).forEach((r) => {
+        const perMonth = r.unit === "kk";
+        items.push({ name: perMonth ? r.name : `${r.name} (${r.unit})`, price: r.price, recurring: perMonth });
+        if (perMonth) monthly += r.price || 0;
+      });
     });
-    lines.push(`KAIKKI YHTEENSÄ: ${fmt(grand)} (ALV 0 %)`);
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Tarjouspyyntö (hintalaskuri) | Studio Blomma")}&body=${encodeURIComponent(lines.join("\n"))}`;
-    window.location.href = mailto;
+    const payload = { items: items, oneTime: oneTime, monthly: monthly, savedAt: new Date().toISOString() };
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (err) {}
+    window.location.href = "tarjouspyynto.html";
   });
 
   const clearBtn = wrap.querySelector("[data-arviot-clear]");
