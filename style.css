@@ -806,7 +806,7 @@ p { margin: 0 0 1em; }
 .h106__demo { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 6%; }
 .h106__demo img { max-width: 84%; max-height: 84%; width: auto; height: auto; border-radius: var(--radius-s); }
 /* Grafiikka (google.svg) samalla asettelulla kuin p804__deco */
-.h106__deco { position: absolute; top: calc(33.5% - 7.5px); left: 19%; z-index: 3; width: 110px; height: auto; transform: translate(-50%, -50%) rotate(-20deg); pointer-events: none; }
+.h106__media > .h106__deco { position: absolute; top: calc(33.5% - 7.5px); left: 19%; z-index: 3; width: 110px; height: auto; object-fit: contain; transform: translate(-50%, -50%) rotate(-20deg); pointer-events: none; }
 
 .h106__panel {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -1281,7 +1281,7 @@ p { margin: 0 0 1em; }
 .s801__demo { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 28px; }
 .s801__demo img { max-height: 73%; max-width: 97%; width: auto; height: auto; border-radius: 10px; }
 /* Grafiikka (grafiikka-44) samalla asettelulla kuin p804__deco */
-.s801__deco { position: absolute; top: calc(33.5% - 7.5px); left: 19%; z-index: 5; width: 110px; height: auto; transform: translate(-50%, -50%) rotate(-20deg); pointer-events: none; }
+.s801__media > .s801__deco { position: absolute; top: calc(33.5% - 7.5px); left: 19%; z-index: 5; width: 110px; height: auto; object-fit: contain; transform: translate(-50%, -50%) rotate(-20deg); pointer-events: none; }
 .s801__demo-cap { font-family: var(--font); font-weight: var(--w-black); text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; color: var(--vari-1); text-align: center; }
 .s801__media-gfx {
   position: absolute; inset: 0; margin: auto; z-index: 1;
