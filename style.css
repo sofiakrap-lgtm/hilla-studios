@@ -1714,6 +1714,12 @@ p { margin: 0 0 1em; }
 .calc2__box { width: 26px; height: 26px; border: var(--bw) solid var(--vari-3); border-radius: 8px; position: relative; flex: none; background: var(--vari-2); }
 .calc2__item input:checked + .calc2__box { background: var(--vari-5); }
 .calc2__item input:checked + .calc2__box::after { content: "✓"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--vari-1); font-weight: var(--w-black); font-size: .95rem; }
+/* Määrävalitsin (esim. kielten määrä) */
+.calc2__qty { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; }
+.calc2__qty-btn { width: 26px; height: 26px; flex: none; border-radius: 50%; border: 2px solid var(--vari-3); background: var(--vari-2); color: var(--vari-3); font-size: 1.05rem; font-weight: 700; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.calc2__qty-btn:hover { background: var(--vari-3); color: var(--vari-1); }
+.calc2__qty-num { min-width: 18px; text-align: center; font-weight: 700; font-family: var(--font-head); color: var(--vari-3); }
+.calc2__qty-label { font-size: .82rem; color: var(--vari-4); }
 .calc2__label { display: flex; flex-direction: column; gap: 3px; }
 .calc2__label strong { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--vari-3); }
 .calc2__label small { font-size: .86rem; line-height: 1.5; color: var(--vari-4); }

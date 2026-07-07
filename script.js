@@ -504,7 +504,11 @@ function removeEstimate(id) { saveEstimates(loadEstimates().filter((e) => e.id !
 function buildCalcEstimate(root, id, label, once, recurring) {
   const items = [];
   root.querySelectorAll("input[data-price]").forEach((i) => {
-    if (i.checked) items.push({ name: i.closest(".calc2__item").querySelector("strong").textContent.trim(), price: Number(i.dataset.price) });
+    if (i.checked) {
+      const q = Number(i.dataset.qty) || 1;
+      const nm = i.closest(".calc2__item").querySelector("strong").textContent.trim();
+      items.push({ name: q > 1 ? nm + " (" + q + " kieltä)" : nm, price: Number(i.dataset.price) * q });
+    }
   });
   return { id, label: label || "Hinta-arvio", once, items, recurring: recurring || [] };
 }
@@ -586,7 +590,7 @@ function initCalc2() {
     btn.addEventListener("click", () => {
       let once = 0;
       root.querySelectorAll("input[data-price]").forEach((i) => {
-        if (i.checked) once += Number(i.dataset.price);
+        if (i.checked) once += Number(i.dataset.price) * (Number(i.dataset.qty) || 1);
       });
       const recs = [];
       root.querySelectorAll("input[data-recurring]").forEach((i) => {
@@ -634,7 +638,7 @@ function initCalc3() {
     function showResult(includeExtra) {
       let once = 0;
       root.querySelectorAll("input[data-price]").forEach((i) => {
-        if (i.checked) once += Number(i.dataset.price);
+        if (i.checked) once += Number(i.dataset.price) * (Number(i.dataset.qty) || 1);
       });
       const recs = [];
       if (includeExtra) {
@@ -1011,6 +1015,61 @@ function initDemoDeepLink() {
 }
 
 /* ---------------------------------------------------------
+   7c. Määrävalitsin (esim. Monikielisyys): +/- napeilla useampi
+       kieli. Kukin yksikkö = data-price. Kokonaishinta = hinta × määrä.
+   --------------------------------------------------------- */
+function initQtySteppers() {
+  const euro = (n) => n.toLocaleString("fi-FI") + " €";
+  document.querySelectorAll("input[data-qty]").forEach((cb) => {
+    if (cb.dataset.qtyInit) return;
+    const item = cb.closest(".calc2__item");
+    if (!item) return;
+    cb.dataset.qtyInit = "1";
+    const unit = Number(cb.dataset.price) || 0;
+    const priceEl = item.querySelector(".calc2__price");
+    const label = item.querySelector(".calc2__label");
+
+    const stepper = document.createElement("span");
+    stepper.className = "calc2__qty";
+    stepper.hidden = true;
+    stepper.innerHTML =
+      '<button type="button" class="calc2__qty-btn" data-qd="-1" aria-label="Vähennä kieliä">−</button>' +
+      '<span class="calc2__qty-num" data-qty-num>1</span>' +
+      '<button type="button" class="calc2__qty-btn" data-qd="1" aria-label="Lisää kieli">+</button>' +
+      '<span class="calc2__qty-label">kieltä</span>';
+    (label || item).appendChild(stepper);
+    const numEl = stepper.querySelector("[data-qty-num]");
+
+    function render() {
+      const q = Number(cb.dataset.qty) || 1;
+      numEl.textContent = q;
+      stepper.hidden = !cb.checked;
+      if (priceEl) {
+        priceEl.textContent = cb.checked
+          ? euro(unit * q)
+          : unit + " € / lisättävä kieli";
+      }
+    }
+
+    cb.addEventListener("change", () => {
+      if (!cb.checked) cb.dataset.qty = "1";
+      render();
+    });
+    stepper.querySelectorAll("[data-qd]").forEach((b) => {
+      b.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        let q = (Number(cb.dataset.qty) || 1) + Number(b.dataset.qd);
+        q = Math.max(1, Math.min(9, q));
+        cb.dataset.qty = String(q);
+        render();
+      });
+    });
+    render();
+  });
+}
+
+/* ---------------------------------------------------------
    8. Käynnistys
    --------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
@@ -1022,6 +1081,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCalc2();
   initCalc3();
   initFeatureInfo();
+  initQtySteppers();
   initCalcModal();
   initCalcStart();
   initArviot();
