@@ -1720,6 +1720,9 @@ p { margin: 0 0 1em; }
 .calc2__qty-btn:hover { background: var(--vari-3); color: var(--vari-1); }
 .calc2__qty-num { min-width: 18px; text-align: center; font-weight: 700; font-family: var(--font-head); color: var(--vari-3); }
 .calc2__qty-label { font-size: .82rem; color: var(--vari-4); }
+/* Katso demo -linkki pääriville (näkyy avaamatta) */
+.calc2__demo-link { align-self: flex-start; margin-top: 8px; font-weight: 700; font-size: .85rem; color: var(--vari-12); text-decoration: underline; text-underline-offset: 3px; }
+.calc2__demo-link:hover { color: var(--vari-3); }
 .calc2__label { display: flex; flex-direction: column; gap: 3px; }
 .calc2__label strong { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--vari-3); }
 .calc2__label small { font-size: .86rem; line-height: 1.5; color: var(--vari-4); }
