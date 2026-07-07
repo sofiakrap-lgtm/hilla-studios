@@ -903,24 +903,26 @@ function initFeatToggle() {
         (avattava nuoli jokaisessa calc2-ominaisuudessa)
    --------------------------------------------------------- */
 function initFeatureInfo() {
+  const ARVIO = "Hinta on arvio yleisestä toteutuksesta. Jos työ vaatii merkittävästi tavallista enemmän (esim. laajat räätälöinnit tai monimutkaiset integraatiot), hinta voi tarkentua – mutta vain poikkeustapauksissa.";
   const INFO = {
     "Basic-sivu": { t: "Valmis nettisivu, joka sisältää etusivun, palvelut/tuotteet, tietoa meistä, yhteystiedot ja yhteydenottolomakkeen, gallerian/referenssit sekä hinnaston. Tämän päälle rakennetaan kaikki muut ominaisuudet." },
     "Brändi-aloituspaketti": { t: "Osa brändäyspakettia. Teemme sinulle kelpo logon (emme ylibrändättyä), löydämme sopivan värimaailman ja valitsemme toimivat fonttiyhdistelmät Google Fonts -valikoimasta. Sivusi saa heti yhtenäisen, viimeistellyn ilmeen. Valittu oletuksena, voit poistaa sen, jos et tarvitse sitä." },
     "Lisäsivu": { t: "Yksi lisäsivu Basicin päälle, esimerkiksi UKK, tarina tai oma kampanjasivu. Sama ilme, oma kohta valikossa.", d: "demot.html" },
     "Karttaintegraatio": { t: "Upotettu kartta, joka näyttää sijaintisi suoraan sivulla. Asiakas löytää perille ilman erillistä hakua.", d: "demot.html" },
-    "Ajanvarausjärjestelmä": { t: "Asiakas varaa ajan itse verkossa vuorokauden ympäri, ja varaus näkyy kalenterissasi. Vähemmän puheluita ja edestakaisia viestejä.", d: "demot.html" },
-    "Kanta-asiakasjärjestelmä": { t: "Palkitse uskolliset asiakkaat eduilla, leimoilla tai kampanjoilla, ja saat heidät palaamaan uudelleen.", d: "demot.html" },
-    "Verkkokauppa": { t: "Myy tuotteita tai palveluita suoraan sivulta: tuotteet, ostoskori ja maksaminen verkossa.", d: "demot.html" },
-    "Blogi / uutiset": { t: "Julkaise ajankohtaisia juttuja, vinkkejä tai uutisia. Tuore sisältö parantaa myös löydettävyyttä Googlessa.", d: "demot.html" },
+    "Ajanvarausjärjestelmä": { t: "Ajanvaraus toteutetaan liittämällä sivustoosi luotettava varausjärjestelmä, joka sopii juuri sinun alallesi. Esimerkkejä: Vello, Timma, Calendly tai Acuity. Asiakas varaa ajan itse verkossa vuorokauden ympäri, ja varaus näkyy suoraan kalenterissasi – mukana varausvahvistukset ja muistutukset.", d: "demot.html", note: ARVIO },
+    "Pöytävarausjärjestelmä": { t: "Pöytävaraus toteutetaan integroimalla ravintola-alan varausjärjestelmä sivustolle. Esimerkkejä: TableOnline, ResDiary tai OpenTable. Asiakas valitsee ajankohdan ja seurueen koon, ja varaus ohjautuu suoraan teille.", d: "demot.html", note: ARVIO },
+    "Kanta-asiakasjärjestelmä": { t: "Toteutetaan kanta-asiakas- tai jäsenyystyökalulla, joka liitetään sivustoon. Esimerkkejä: MailerLite tai Mailchimp (edut ja viestintä) tai kevyt oma leimakortti-/etujärjestelmä. Palkitset uskolliset asiakkaat eduilla ja kampanjoilla, ja saat heidät palaamaan.", d: "demot.html", note: ARVIO },
+    "Verkkokauppa": { t: "Verkkokauppa rakennetaan sopivalla kauppa-alustalla tuotteidesi ja arkesi ympärille. Esimerkkejä: WooCommerce, Shopify tai kevyt Stripe-/MyCashflow-pohjainen ratkaisu. Sisältää tuotteet, ostoskorin ja maksut – tarvittaessa myös toimitustavat ja varastonhallinnan.", d: "demot.html", note: ARVIO },
+    "Blogi / uutiset": { t: "Toteutetaan helppokäyttöisellä julkaisunäkymällä, jolla lisäät juttuja, vinkkejä ja uutisia itse ilman koodia. Tuore sisältö parantaa myös löydettävyyttä Googlessa.", d: "demot.html", note: ARVIO },
     "Uutiskirje-integraatio": { t: "Kerää sähköpostiosoitteita ja lähetä uutiskirjeitä. Pidät asiakkaat ajan tasalla tarjouksista ja uutuuksista.", d: "demot.html" },
     "Some-syötteen upotus": { t: "Instagram- tai muu some-syöte näkyy suoraan sivulla ja päivittyy automaattisesti, kun julkaiset uutta.", d: "demot.html" },
-    "Monikielisyys (+1 kieli)": { t: "Sivusto myös toisella kielellä, esimerkiksi englanniksi. Tavoitat laajemman yleisön.", d: "demot.html" },
-    "Hakukoneoptimoinnin perusta (SEO)": { t: "Perus-SEO kuntoon: otsikot, kuvaukset ja rakenne niin, että sivusi löytyy Googlesta paremmin." },
+    "Monikielisyys (+1 kieli)": { t: "Sivusto myös toisella kielellä, esimerkiksi englanniksi. Tavoitat laajemman yleisön. Hinta on per lisättävä kieli.", d: "demot.html" },
+    "Hakukoneoptimoinnin perusta (SEO)": { t: "Perus-SEO kuntoon: sivujen otsikot, metakuvaukset, rakenne ja nopeus sekä Google-näkyvyyden perusasetukset (esim. Google Search Console). Parantaa löydettävyyttä hakukoneissa.", note: ARVIO },
     "Webhotelli & ylläpito": { t: "Sivusi tarvitsee palvelintilan (webhotelli). Hoidamme teknisen ylläpidon, jotta sivu pysyy pystyssä ja turvallisena." },
     "Verkkotunnus (domain)": { t: "Oma osoite, esimerkiksi yrityksesi.fi. Hankimme ja kytkemme sen sivustoosi." },
     "Päivityspalvelu": { t: "Hoidamme sisältö- ja tekniset päivitykset puolestasi, jotta sinun ei tarvitse koskea koodiin." },
-    "Rekry-lomakkeiden vastaanotto": { t: "Hakijat jättävät hakemuksensa suoraan sivulta ja ne tulevat sähköpostiisi koottuna.", d: "demot.html" },
-    "Hintalaskuri omalle sivulle": { t: "Vastaava interaktiivinen hintalaskuri kuin tämä, omalle sivullesi. Asiakas saa hinta-arvion heti.", d: "demot.html" }
+    "Rekry-lomakkeiden vastaanotto": { t: "Toteutetaan lomaketyökalulla, joka kerää hakemukset ja liitteet (esim. CV) ja lähettää ne koottuna sähköpostiisi. Esimerkkejä: Static Forms, Formspree tai vastaava.", d: "demot.html", note: ARVIO },
+    "Hintalaskuri omalle sivulle": { t: "Rakennamme sivullesi vastaavan interaktiivisen hintalaskurin kuin tämä. Asiakas valitsee palvelut, saa hinta-arvion heti ja voi lähettää sen pohjalta tarjouspyynnön.", d: "demot.html", note: ARVIO }
   };
   document.querySelectorAll(".calc2__item").forEach((item) => {
     if (item.dataset.featinfo) return;
@@ -943,6 +945,7 @@ function initFeatureInfo() {
     panel.hidden = true;
     panel.innerHTML =
       "<p>" + info.t + "</p>" +
+      (info.note ? '<p class="calc2__info-note">' + info.note + "</p>" : "") +
       (info.d ? '<a href="' + info.d + '" class="btn btn--ghost calc2__info-demo">Katso demo →</a>' : "");
     item.insertAdjacentElement("afterend", panel);
 
