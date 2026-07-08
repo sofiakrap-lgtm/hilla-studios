@@ -1027,12 +1027,12 @@ p { margin: 0 0 1em; }
 .s208 { background: var(--vari-8); color: var(--vari-2); padding: 86px 0; text-align: center; position: relative; }
 .s208 .container { max-width: 880px; }
 .s208__deco {
-  position: absolute; z-index: 4; left: 11%; bottom: -52px;
-  width: 152px; height: auto; transform: rotate(-9deg);
+  position: absolute; z-index: 4; left: 11%; bottom: -60px;
+  width: 198px; height: auto; transform: rotate(-9deg);
   pointer-events: none; filter: drop-shadow(0 8px 16px rgba(61,42,28,.18));
 }
-@media (max-width: 900px) { .s208__deco { left: 5%; width: 122px; bottom: -40px; } }
-@media (max-width: 560px) { .s208__deco { width: 104px; bottom: -34px; } }
+@media (max-width: 900px) { .s208__deco { left: 5%; width: 159px; bottom: -46px; } }
+@media (max-width: 560px) { .s208__deco { width: 135px; bottom: -40px; } }
 .s208__eyebrow {
   font-family: var(--font); font-weight: var(--w-black); text-transform: uppercase;
   letter-spacing: 0.16em; font-size: 0.82rem; color: var(--vari-3);
