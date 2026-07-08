@@ -7,7 +7,7 @@
   <meta name="description" content="Tee tarjouspyyntö Studio Blommalle. Kerro yhteystietosi ja toiveesi värimaailmasta, tyylistä ja toiminnoista, niin palaamme sinulle pian.">
 
 
-  <link rel="stylesheet" href="style.css?v=20260708100700">
+  <link rel="stylesheet" href="style.css?v=20260708120000">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%238F915F'/></svg>">
 </head>
 <body>
@@ -44,8 +44,8 @@
       <div class="container">
 
         <form data-offer-form action="https://api.staticforms.dev/submit" method="POST" style="max-width:720px; margin:0 auto">
-          <!-- Static Forms (Pro): aseta oikea avain tähän, niin lähetys toimii heti. -->
-          <input type="hidden" name="apiKey" value="STATICFORMS_API_KEY">
+          <!-- Static Forms: oikea avain liitetty, lähetys toimii. -->
+          <input type="hidden" name="apiKey" value="sf_20eb02d2a7129cb34202e8eb">
           <input type="hidden" name="subject" value="Tarjouspyyntö | Studio Blomma">
           <input type="hidden" name="replyTo" value="">
           <input type="hidden" name="message" value="">
@@ -77,119 +77,26 @@
             </div>
             <div class="field">
               <label for="industry">Toimiala</label>
-              <select class="select" id="industry" name="industry">
-                <option value="">Valitse…</option>
-                <option value="leipomo">Leipomo</option>
-                <option value="kahvila">Kahvila</option>
-                <option value="ravintola">Ravintola</option>
-                <option value="kampaamo">Kampaamo</option>
-                <option value="muu">Muu ala</option>
-              </select>
+              <input class="input" type="text" id="industry" name="industry"
+                     placeholder="esim. kampaamo, kahvila, kukkakauppa…">
             </div>
           </fieldset>
 
-          <!-- VÄRIMAAILMA -->
+          <!-- TARJOUSPYYNTÖ (vapaa teksti) -->
           <fieldset class="form-card reveal">
-            <h3>Värimaailma</h3>
-            <p>Mikä paletti tuntuu yritykseltäsi? Voit valita useamman.</p>
-            <div class="swatches">
-              <label class="swatch">
-                <input type="checkbox" name="palette" value="Lämmin & maanläheinen">
-                <span class="swatch__colors"><span style="background:#E8C8A0"></span><span style="background:#C97B5A"></span><span style="background:#7A4A2B"></span><span style="background:#F5EBDD"></span></span>
-                <span class="swatch__name">Lämmin & maanläheinen</span>
-              </label>
-              <label class="swatch">
-                <input type="checkbox" name="palette" value="Rohkea & värikäs">
-                <span class="swatch__colors"><span style="background:#FF5C7A"></span><span style="background:#7B4DFF"></span><span style="background:#2ED3C6"></span><span style="background:#FFD23F"></span></span>
-                <span class="swatch__name">Rohkea & värikäs</span>
-              </label>
-              <label class="swatch">
-                <input type="checkbox" name="palette" value="Pastelli & pehmeä">
-                <span class="swatch__colors"><span style="background:#FAD4D8"></span><span style="background:#D6E8F5"></span><span style="background:#E4D6F5"></span><span style="background:#FCF4E8"></span></span>
-                <span class="swatch__name">Pastelli & pehmeä</span>
-              </label>
-              <label class="swatch">
-                <input type="checkbox" name="palette" value="Tumma & elegantti">
-                <span class="swatch__colors"><span style="background:#1E1726"></span><span style="background:#3B3148"></span><span style="background:#C8A24B"></span><span style="background:#EDE7DF"></span></span>
-                <span class="swatch__name">Tumma & elegantti</span>
-              </label>
-              <label class="swatch">
-                <input type="checkbox" name="palette" value="Raikas & vihreä">
-                <span class="swatch__colors"><span style="background:#3E7C59"></span><span style="background:#C8F169"></span><span style="background:#F0F5E8"></span><span style="background:#1E1726"></span></span>
-                <span class="swatch__name">Raikas & vihreä</span>
-              </label>
-              <label class="swatch">
-                <input type="checkbox" name="palette" value="Minimal & mustavalkoinen">
-                <span class="swatch__colors"><span style="background:#111111"></span><span style="background:#777777"></span><span style="background:#DDDDDD"></span><span style="background:#FFFFFF"></span></span>
-                <span class="swatch__name">Minimal & mustavalkoinen</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <!-- TYYLI -->
-          <fieldset class="form-card reveal">
-            <h3>Tyyli</h3>
-            <p>Millainen tunnelma sivuilla saisi olla? Valitse yksi tai useampi.</p>
-            <div class="pills">
-              <label class="pill"><input type="checkbox" name="style" value="Moderni"><span>Moderni</span></label>
-              <label class="pill"><input type="checkbox" name="style" value="Lämmin"><span>Lämmin</span></label>
-              <label class="pill"><input type="checkbox" name="style" value="Rohkea"><span>Rohkea</span></label>
-              <label class="pill"><input type="checkbox" name="style" value="Elegantti"><span>Elegantti</span></label>
-              <label class="pill"><input type="checkbox" name="style" value="Leikkisä"><span>Leikkisä</span></label>
-              <label class="pill"><input type="checkbox" name="style" value="Minimalistinen"><span>Minimalistinen</span></label>
-            </div>
-          </fieldset>
-
-          <!-- TOIMINNOT -->
-          <fieldset class="form-card reveal">
-            <h3>Toiminnot</h3>
-            <p>Mitä toimintoja haluaisit sivuillesi?</p>
-            <div class="pills">
-              <label class="pill"><input type="checkbox" name="interactive" value="Animaatiot"><span>Animaatiot</span></label>
-              <label class="pill"><input type="checkbox" name="interactive" value="Ajanvaraus"><span>Ajanvaraus</span></label>
-              <label class="pill"><input type="checkbox" name="interactive" value="Uutiskirje"><span>Uutiskirje</span></label>
-              <label class="pill"><input type="checkbox" name="interactive" value="Some-feedi"><span>Some-feedi</span></label>
-              <label class="pill"><input type="checkbox" name="interactive" value="Kartta"><span>Kartta</span></label>
-            </div>
-          </fieldset>
-
-          <!-- ESIKUVAT -->
-          <fieldset class="form-card reveal">
-            <h3>Esikuva-sivustot</h3>
-            <p>Onko sivustoja, joista pidät? Liitä linkit, niin inspiraatio auttaa osumaan tyyliin.</p>
-            <div data-url-rows>
-              <!-- URL-rivit lisätään script.js:llä -->
-            </div>
-            <button type="button" class="btn btn--ghost" data-add-url style="margin-top:6px">+ Lisää linkki</button>
-          </fieldset>
-
-          <!-- AIKATAULU & BUDJETTI -->
-          <fieldset class="form-card reveal">
-            <h3>Aikataulu & budjetti</h3>
-            <div class="field-row">
-              <div class="field">
-                <label for="timeline">Toivottu aikataulu</label>
-                <select class="select" id="timeline" name="timeline">
-                  <option value="">Valitse…</option>
-                  <option value="Mahdollisimman pian">Mahdollisimman pian</option>
-                  <option value="1-2 kuukautta">1-2 kuukautta</option>
-                  <option value="3-6 kuukautta">3-6 kuukautta</option>
-                  <option value="Ei kiire / kartoitan vaihtoehtoja">Ei kiire / kartoitan</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="budget">Budjetti</label>
-                <input class="input" type="text" id="budget" name="budget" placeholder="esim. 500-1000 €">
-              </div>
-            </div>
+            <h3>Tarjouspyyntö</h3>
             <div class="field">
-              <label for="notes">Vapaa lisätieto</label>
-              <textarea class="textarea" id="notes" name="notes" placeholder="Kerro lisää yrityksestäsi, toiveistasi tai mistä tahansa, mikä auttaa minua ymmärtämään projektin."></textarea>
+              <label for="notes">Kerro projektistasi</label>
+              <textarea class="textarea" id="notes" name="notes" rows="8" placeholder="Esim: Hei! Olen perustamassa kukkakauppaa ja tarvitsen verkkosivut. Toivon lämmintä ja pelkistettyä ilmettä, verkkokauppaa ja ajanvarausta. Budjetti noin 800–1200 €, aikataulu ei kiireinen. Alta löytyy pari sivustoa joista pidän: …"></textarea>
             </div>
           </fieldset>
 
           <button type="submit" class="btn btn--primary btn--lg btn--block">
             Koosta tarjouspyyntö & lähetä</button>
+          <p style="color:var(--ink-65);font-size:.9rem;margin-top:12px">
+            Tietojasi käytetään vain yhteydenottoon.
+            <a href="tietosuoja.html">Tietosuojaseloste</a>.
+          </p>
 
           <!-- Lähetyksen jälkeinen yhteenveto -->
           <div class="result" data-offer-result>
@@ -247,6 +154,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260707200000"></script>
+  <script src="script.js?v=20260708120000"></script>
 </body>
 </html>

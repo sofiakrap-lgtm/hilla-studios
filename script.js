@@ -326,6 +326,7 @@ function initOfferForm() {
   const urlWrap = form.querySelector("[data-url-rows]");
   const addUrlBtn = form.querySelector("[data-add-url]");
   function addUrlRow() {
+    if (!urlWrap) return;
     const row = document.createElement("div");
     row.className = "url-row";
     row.innerHTML = `
@@ -335,7 +336,7 @@ function initOfferForm() {
     urlWrap.appendChild(row);
   }
   if (addUrlBtn) addUrlBtn.addEventListener("click", addUrlRow);
-  addUrlRow();
+  if (urlWrap) addUrlRow();
 
   /* --- Esitäyttö laskurin valinnoista --- */
   if (stored) {
@@ -407,12 +408,6 @@ function renderPrefill(form, stored) {
 /* Koosta valinnoista siisti yhteenveto */
 function buildOfferSummary(form, stored) {
   const get = (name) => (form.querySelector(`[name="${name}"]`)?.value || "").trim();
-  const getAll = (name) =>
-    Array.from(form.querySelectorAll(`[name="${name}"]:checked`)).map((el) => el.value);
-  const getUrls = () =>
-    Array.from(form.querySelectorAll('[name="reference"]'))
-      .map((el) => el.value.trim())
-      .filter(Boolean);
 
   const lines = [];
   lines.push("TARJOUSPYYNTÖ – Studio Blomma");
@@ -423,7 +418,7 @@ function buildOfferSummary(form, stored) {
   lines.push(`Yritys: ${get("company") || "-"}`);
   lines.push(`Sähköposti: ${get("email") || "-"}`);
   lines.push(`Puhelin: ${get("phone") || "-"}`);
-  lines.push(`Toimiala: ${get("industry") ? (INDUSTRIES[get("industry")]?.label || get("industry")) : "-"}`);
+  lines.push(`Toimiala: ${get("industry") || "-"}`);
   lines.push("");
 
   if (stored && stored.items?.length) {
@@ -437,18 +432,7 @@ function buildOfferSummary(form, stored) {
     lines.push("");
   }
 
-  lines.push("SUUNNITTELUTOIVEET");
-  lines.push(`Värimaailma: ${getAll("palette").join(", ") || "-"}`);
-  lines.push(`Tyyli: ${getAll("style").join(", ") || "-"}`);
-  lines.push(`Interaktiiviset elementit: ${getAll("interactive").join(", ") || "-"}`);
-  const urls = getUrls();
-  lines.push(`Esikuva-sivustot: ${urls.length ? urls.join(", ") : "-"}`);
-  lines.push("");
-  lines.push("PROJEKTI");
-  lines.push(`Aikataulu: ${get("timeline") || "-"}`);
-  lines.push(`Budjetti: ${get("budget") || "-"}`);
-  lines.push("");
-  lines.push("LISÄTIEDOT");
+  lines.push("TARJOUSPYYNTÖ");
   lines.push(get("notes") || "-");
 
   return lines.join("\n");
