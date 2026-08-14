@@ -928,12 +928,37 @@ p { margin: 0 0 1em; }
 .s221__deco--cloud  { width: 182px; top: 80px; left: -222px; transform: rotate(-6deg); }
 .s221__deco--arrow-l{ width: 115px; top: 250px; left: -178px; transform: rotate(135deg); }
 .s221__deco--takuu  { width: 156px; bottom: -112px; right: -45px; transform: rotate(14deg); }
-@media (max-width: 1080px) { .s221__deco { display: none; } }
+/* Tabletti/mobiili: EI piiloteta kaikkia koristeita. Kavennetulla naytolla ei ole
+   sivuguttereita, joten suorat nuolet (jotka osoittaisivat tyhjaan) piiloon, ja
+   sinetti + pilvi + takuu skaalataan clamp():lla ja tuodaan reunoilta esiin.
+   Vaakavieritys ei paase syntymaan, koska body:lla on overflow-x: clip. */
+@media (max-width: 1080px) {
+  .s221__deco--arrow-r,
+  .s221__deco--arrow-l { display: none; }
+
+  .s221__deco--seal {
+    width: clamp(64px, 15vw, 116px);
+    top: clamp(-36px, -6vw, -20px);
+    right: clamp(-16px, -3vw, -6px);
+  }
+  .s221__deco--cloud {
+    width: clamp(96px, 24vw, 168px);
+    top: 8px;
+    left: clamp(-118px, -24vw, -80px);
+  }
+  .s221__deco--takuu {
+    width: clamp(76px, 20vw, 146px);
+    right: clamp(-14px, -2.5vw, -6px);
+    bottom: clamp(-64px, -11vw, -44px);
+  }
+}
 
 @media (max-width: 640px) {
   .s221__step { grid-template-columns: 56px 1fr; gap: 16px; }
   .s221__num { width: 56px; height: 56px; font-size: 1.45rem; }
   .s221__step:not(:last-child)::before { left: 27px; top: 56px; }
+  /* Kapeimmalla naytolla jaa vahintaan 2 koristetta (sinetti + takuu), piilota pilvi. */
+  .s221__deco--cloud { display: none; }
 }
 
 /* =========================================================
