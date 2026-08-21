@@ -17,7 +17,7 @@
   --burnt-tangerine: #D36433; /* pää-accent / CTA */
   --clay-rose:       #C67B7B; /* pehmeä accent */
   --olive-husk:      #8F915F; /* maanläheinen accent */
-  --sun-mellow:      #F7B634; /* kirkas highlight */
+  --sun-mellow:      #8F915F; /* korostus (ent. keltainen, korvattu Olive Huskilla Sofian pyynnöstä) */
 
   /* --- Numeroitu järjestelmä (ks. tyyliopas.html / rakennekirjasto) --- */
   --vari-1: #E2D7BA; /* päätausta            (Soft Oat) */
@@ -28,7 +28,7 @@
   --vari-6: #3D2A1C; /* ääriviivat/jakoviivat (Bitter Cacao) */
   --vari-7: #C67B7B; /* pehmeä accent        (Clay Rose) */
   --vari-8: #8F915F; /* maanläheinen accent  (Olive Husk) */
-  --vari-9: #F7B634; /* kirkas highlight     (Sun Mellow) */
+  --vari-9: #8F915F; /* korostus (ent. keltainen Sun Mellow, korvattu Olive Huskilla) */
   --vari-10: #C1603E; /* terrakotta-tausta   (osa 219 / 801) */
   --vari-11: #B79858; /* kullanruskea band   (osa 300) */
   --vari-12: #C48357; /* lämmin saviruskea   (osa 702) */
