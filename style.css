@@ -2376,3 +2376,63 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
   .lask-step__label { display: none; }
   .lask-modal__box { width: 100vw; height: 100vh; border-radius: 0; }
 }
+
+/* =========================================================
+   Hintalaskuri — kategoriakorttien teksti (l803, ei kuvaa)
+   ========================================================= */
+.l803__card p {
+  position: relative; z-index: 2; margin: 0;
+  color: var(--vari-2); font-size: 1rem; line-height: 1.55;
+}
+/* Kaksi kategoriavalintaa vierekkäin laskuri-ikkunassa */
+.lask-modal__body .l803__grid--two { grid-template-rows: minmax(0, 1fr); max-width: 900px; }
+@media (max-width: 760px) {
+  .lask-modal__body .l803__grid--two { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+}
+
+/* =========================================================
+   Kasvu-paketti — valmis kampanjapaketti hintalaskurin alussa
+   ========================================================= */
+.kasvu {
+  position: relative;
+  border: var(--bw) solid var(--vari-3); border-radius: var(--radius-l);
+  background: var(--vari-11); color: var(--vari-3);
+  padding: clamp(24px, 4vw, 40px); margin: 0 0 28px;
+  box-shadow: var(--shadow-pop-sm);
+  scroll-margin-top: 100px;
+}
+.kasvu__tag {
+  display: inline-block; font-family: var(--font); font-weight: var(--w-black);
+  text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.76rem;
+  background: var(--vari-9); color: var(--vari-3);
+  border: var(--bw) solid var(--vari-3); border-radius: var(--radius-pill);
+  padding: 6px 14px; margin-bottom: 14px;
+}
+.kasvu__title {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(1.9rem, 4vw, 2.7rem); margin: 0 0 8px; color: var(--vari-3);
+}
+.kasvu__lead { font-size: 1.05rem; line-height: 1.6; max-width: 62ch; margin: 0 0 18px; }
+.kasvu__feats { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 10px; }
+.kasvu__feats li { padding-left: 28px; position: relative; line-height: 1.5; }
+.kasvu__feats li::before {
+  content: "✓"; position: absolute; left: 0; top: 0; font-weight: 900; color: var(--vari-5);
+}
+.kasvu__pricerow { display: flex; flex-wrap: wrap; gap: 14px 36px; align-items: flex-end; margin-bottom: 22px; }
+.kasvu__price { display: flex; flex-direction: column; }
+.kasvu__amount {
+  font-family: var(--font-head); font-weight: 700; line-height: 1;
+  font-size: clamp(1.8rem, 3.6vw, 2.4rem); color: var(--vari-3);
+}
+.kasvu__price--rec .kasvu__amount { color: var(--vari-5); }
+.kasvu__unit {
+  font-size: 0.8rem; font-weight: var(--w-black); text-transform: uppercase;
+  letter-spacing: 0.08em; opacity: 0.82; margin-top: 6px;
+}
+.kasvu__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+/* Korostus, kun saavutaan Kasvu-paketti-linkistä (#paketti-kasvu) */
+.kasvu:target { outline: 3px solid var(--vari-5); outline-offset: 4px; }
+.omin__or {
+  font-family: var(--font-head); font-weight: 700; font-size: 1.5rem;
+  color: var(--vari-3); text-align: center; margin: 8px 0 20px;
+}
