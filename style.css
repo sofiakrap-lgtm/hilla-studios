@@ -2384,10 +2384,13 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--w-bold) !important; }
   position: relative; z-index: 2; margin: 0;
   color: var(--vari-2); font-size: 1rem; line-height: 1.55;
 }
-/* Kaksi kategoriavalintaa vierekkäin laskuri-ikkunassa */
-.lask-modal__body .l803__grid--two { grid-template-rows: minmax(0, 1fr); max-width: 900px; }
+/* Kaksi kategoriavalintaa vierekkäin laskuri-ikkunassa.
+   Matalat, kiinteänkorkuiset kortit (eivät veny ikkunan korkeuteen). */
+.lask-modal__body .l803__grid--two { grid-template-rows: auto; align-content: center; max-width: 900px; }
+.lask-modal__body .l803__grid--two .l803__card { height: auto; min-height: 300px; max-height: 320px; align-self: center; }
 @media (max-width: 760px) {
-  .lask-modal__body .l803__grid--two { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .lask-modal__body .l803__grid--two { grid-template-rows: auto auto; align-content: start; }
+  .lask-modal__body .l803__grid--two .l803__card { min-height: 280px; max-height: 300px; }
 }
 
 /* =========================================================
