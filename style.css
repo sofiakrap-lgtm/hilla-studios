@@ -864,6 +864,17 @@ p { margin: 0 0 1em; }
 @keyframes s201-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 @media (prefers-reduced-motion: reduce) { .s201__track { animation: none; } }
 
+/* Toimialanauha paikallaan: ei liikettä, kaikki toimialat näkyvissä ja keskitettynä
+   (koskee vain section.s201 -nauhaa, ei palvelut-sivun liukuvaa palvelunauhaa). */
+.s201 .s201__track {
+  animation: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
+  row-gap: 2px;
+}
+.s201 .s201__marquee { padding: 16px 24px; }
+
 /* =========================================================
    Etusivu — osio 221 (NÄIN SE HOITUU / PROSESSI)
    Numeroidut värilliset ympyrät + askelkuvaus. Tausta väri 2.
